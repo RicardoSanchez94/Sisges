@@ -1,0 +1,159 @@
+﻿body {
+    color: #5f6a74 !important;
+}
+
+.content-wrapper {
+    background-color: #ffffff;
+}
+
+.navbar-white {
+    background-color: #ac0133;
+    color: #1f2d3d;
+}
+
+[class*="sidebar-dark-"] {
+    background-color: #ac0133;
+}
+
+[class*="sidebar-dark"] .brand-link, [class*="sidebar-dark"] .brand-link .pushmenu {
+    color: rgb(172 1 51);
+}
+
+[class*="sidebar-dark"] .brand-link {
+    border-bottom: 1px solid #8f012b;
+    border-right: 1px solid #8f012b;
+    box-shadow: -5px -7px 7px 10px rgb(0 0 0 / 20%);
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: rgb(255 255 255 /70%);
+    /*box-shadow: -5px -7px 7px 10px rgb(0 0 0 / 20%) inset;*/
+}
+
+.sidebar-mini .main-sidebar a.brand-link {
+    background: rgba(0, 0, 0, 0) url(img/fp-logo2.png) no-repeat scroll 0 10px;
+    background-position: 22px !important;
+    height: 56px;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar a.brand-link {
+    background: rgba(0, 0, 0, 0) url(img/logo.png) no-repeat scroll 0 10px;
+    background-position: 25px !important;
+    height: 56px;
+}
+
+.sidebar-mini.sidebar-collapse .main-sidebar:hover a.brand-link {
+    background: rgba(0, 0, 0, 0) url(img/fp-logo2.png) no-repeat scroll 0 10px;
+    background-position: 22px !important;
+    height: 56px;
+}
+
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #9b9ea117;
+}
+
+table.dataTable thead {
+    background-color: rgb(222 226 230);
+    color: #535a5a;
+    font-size: 14px;
+}
+
+    table.dataTable thead th, table.dataTable thead td {
+        padding: 10px;
+        border-bottom: 1px solid rgb(128 130 133)
+    }
+
+    table.dataTable thead tr {
+        border: 1px solid red;
+    }
+
+table.dataTable tbody tr {
+    background-color: white;
+    font-size: 14px;
+}
+
+table.dataTable tbody td {
+    padding: 5px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: #535a5a;
+    font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 0.1em;
+}
+
+div.dataTables_filter input:focus {
+    color: #6e707e;
+    background-color: #fff;
+    border-color: #6c757d;
+    outline: 0;
+    box-shadow: 0 0 0 1 rgb(222 226 230);
+}
+
+div.dataTables_length select:focus {
+    color: #535a79;
+    background-color: #fff;
+    border-color: #6c757d;
+    outline: 0;
+    box-shadow: 0 0 0 1 rgb(222 226 230);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    border: 1px solid #dee2e6;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: .5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #535a5a !important;
+    border: 1px solid #9b9ea1;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        color: #535a5a !important;
+        border: 1px solid rgb(159 164 168);
+        background: linear-gradient(to bottom, rgb(222 226 230) 0%, rgb(222 226 230) 100%);
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: #535a5a !important;
+        border: 1px solid #9999a154;
+        background-color: #585858;
+        background: linear-gradient(to bottom, #dee2e6 0%, #dee2e6 100%)
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        outline: none;
+        background-color: #2b2b2b;
+        background: linear-gradient(to bottom, #dee2e6 0%, #dee2e6 100%);
+        /*box-shadow: inset 0 0 3px #282727;*/
+    }
+
+.alert-danger {
+    color: #721c24 !important;
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+}
+.alert-info {
+    color: #0c5460 !important;
+    background-color: #d1ecf1 !important;
+    border-color: #bee5eb !important;
+}
+
+

@@ -1,0 +1,346 @@
+﻿@using SistemaGestion.Models.Repositorios;
+@using SistemaGestion.Models.ViewModels;
+@using Newtonsoft.Json;
+@using SistemaGestion.Models.ViewModels;
+@{
+    ViewBag.Title = "Index";
+}
+@{
+
+    var ADU = new AdminUsuarios();
+    var RU = new RolesUsuario();
+    if (User.Identity.IsAuthenticated)
+    {
+        var Json = JsonConvert.DeserializeObject<UserLoginView>(User.Identity.Name);
+        //string loginName = User.Identity.Name;
+        RU = ADU.GetRolesUser(Json.LoginName);
+        //RU = ADU.GetRolesUser(loginName);
+
+
+    }
+
+}
+
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Carta Instructivo
+                                </div>
+
+                                <div class="card-body p-2">
+                                    <div class="row">
+
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Inico</label>
+                                                <input type="date" class="form-control form-control-sm model" id="Inicio" name="Inicio" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Fin</label>
+                                                <input type="date" class="form-control form-control-sm model" id="Fin" name="Fin" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="btnSencillos" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar Sencillo</button>
+                                            </div>
+                                        </div>
+                                        @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Tesoreria"))
+                                        {
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button type="button" data-toggle="modal" id="VistaParcialLV" data-target="#Using" class="btn btn-sm btn-success btn-block">
+                                                        <i class="fas fa-download"></i> Cargar Carta Instruccion
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        }
+                                        @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                                        {
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button type="button" data-toggle="modal" id="Sencillo" data-target="#Using" class="btn btn-sm btn-success btn-block">
+                                                        <i class="fas fa-download"></i> Cargar Sencillos SAP
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        }
+
+                                        </div>
+                                    <br />
+
+
+
+
+
+
+
+
+                                </div>
+
+                            </div>
+                            <div id="diferencias">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<div class="modal fade" id="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+</div>
+@*<div class="modal fade" id="ModalDetalle" role="dialog">
+    </div>*@
+<div class="modal fade" id="ModalSencillo" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+</div>
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $('#tbNCIDetalleByCenco').DataTable(
+                    {
+                        responsive: true,
+
+                        "language": {
+                            url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                        }
+                });
+
+
+
+                $(function () {
+                    $("#btnSencillos").click(function () {
+                        event.preventDefault();
+                        var Inicio = $("#Inicio").val();
+                        var Fin = $("#Fin").val();
+                        if (Inicio == Fin || Fin == Inicio ) {
+                            alert("Las Fechas no pueden ser Iguales")
+                            return 0;
+                        }
+                        if (Fin < Inicio) {
+                            alert("Las Fecha de Fin no puede ser menor que la Fecha de Inicio")
+                            return 0;
+                        }
+                        $('#cargal').modal('show');
+                        var url = "@Url.Action("Index", "Tesoreria")";
+                        var manejarErrorAjax = "Eror";
+
+                        var data = { Inicio: Inicio, Fin: Fin};
+                        $.post(url, data).done(function (data) {
+                            setTimeout(bajar, 1000);
+                            setTimeout(Subir, 2000);
+
+                            function bajar() {
+                                $('#cargal').modal('hide');
+
+                            }
+                            function Subir() {
+                                $('#diferencias').html(data);
+                                $('#diferencias').show();
+                            }
+
+                        }).fail(manejarErrorAjax);
+
+                        //}
+                    });
+
+                })
+
+
+            jQuery.ajax({
+                url: $.MisUrls.url._TiendaPorNombre,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("<option>").attr({ "value": 0 }).text("-- Seleccionar todas--").appendTo("#cboTienda");
+                    $.each(data.data, function (i, item) {
+                        $("<option>").attr({ "value": item.Centro }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                    })
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+
+            });
+
+            $('#VistaParcialLV').click(function () {
+                 var url = '@Url.Action("CargaCartaInstruccion", "Tesoreria")';
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        async: false,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            $("#modal").html(response);
+                            $("#modal").modal('show');
+
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+
+            });
+
+            $('#Sencillo').click(function () {
+                 var url = '@Url.Action("CargaSencillo", "Tesoreria")';
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        async: false,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            $("#ModalSencillo").html(response);
+                            $("#ModalSencillo").modal('show');
+
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+
+        });
+
+
+
+
+            });
+
+
+        @*function DetalleBySencillo(Id) {
+            console.log('entro aca');
+            console.log(Id)
+        //var data = { fecha: fecha, idCencos: cencos, idZona: zona, nomCenco: nomCencos};
+         var url = "@Url.Action("DetailsSencillo", "Tesoreria")";
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: { Id: Id },
+            success: function (response) {
+                $("#ModalDetalle").html(response);
+                $("#ModalDetalle").modal('show');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+            }
+        });
+        }*@
+
+         @*function PDF(Id) {
+         var url = "@Url.Action("PDFTesoreria", "Tesoreria")";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                data: { Id: Id },
+                success: function (response) {
+                    //$("#ModalDetalle").html(response);
+                    //$("#ModalDetalle").modal('show');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+
+        });
+    }*@
+          function PDF(Id) {
+           var url = "@Url.Action("PDFTesoreria", "Tesoreria")";
+            event.preventDefault();
+
+              var Id = Id;
+
+              DownloadFileFechasEntre(Id , url);
+        };
+
+
+
+        function DownloadFileFechasEntre(Id, urlAc) {
+
+
+            var url = urlAc;
+            //var fechaIni = fechaI;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: url,
+                type: "post",
+                data: { Id: Id },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+    </script>
+
+
+
+
+}
+

@@ -1,0 +1,3016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sisgesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACREEDOR_REL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Local" Type="int" Nullable="false" />
+    <Property Name="Cuenta" Type="int" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+    <Property Name="CeCo" Type="nvarchar" MaxLength="15" />
+    <Property Name="Acreedor" Type="int" />
+    <Property Name="Tipo_Pago" Type="int" />
+  </EntityType>
+  <EntityType Name="AcumuladoSobrante_Faltante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TotalAcumulado" Type="int" />
+    <Property Name="CodigoTipoAceptacion" Type="int" />
+    <Property Name="FechaAprobacion" Type="datetime" />
+    <Property Name="CodigoTipoRechazo" Type="int" />
+    <Property Name="Cuotas" Type="int" />
+    <Property Name="Observacion" Type="text" />
+    <Property Name="Ano" Type="int" />
+    <Property Name="Mes" Type="int" />
+    <Property Name="idTienda" Type="int" />
+  </EntityType>
+  <EntityType Name="Auditoria">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="Fecha" />
+    </Key>
+    <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="boletaOrigen">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Fecha_Emision" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Caja" />
+      <PropertyRef Name="Nro_Boleta" />
+      <PropertyRef Name="Tipo_Pago" />
+    </Key>
+    <Property Name="TRX" Type="int" Nullable="false" />
+    <Property Name="Fecha_Emision" Type="datetime" Nullable="false" />
+    <Property Name="IdTienda" Type="int" Nullable="false" />
+    <Property Name="Caja" Type="int" Nullable="false" />
+    <Property Name="Nro_Boleta" Type="bigint" Nullable="false" />
+    <Property Name="Monto" Type="money" />
+    <Property Name="Tipo_Pago" Type="int" Nullable="false" />
+    <Property Name="TipoDocumento" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CENTROS_LOCAL">
+    <Key>
+      <PropertyRef Name="CEN_Codigo" />
+    </Key>
+    <Property Name="CEN_Pos" Type="bigint" Nullable="false" />
+    <Property Name="CEN_Codigo" Type="int" Nullable="false" />
+    <Property Name="CEN_Nombre" Type="nvarchar" MaxLength="35" />
+    <Property Name="CEN_CodigoBanco" Type="nvarchar" MaxLength="14" />
+    <Property Name="CEN_CuentaBanco" Type="nvarchar" MaxLength="24" />
+    <Property Name="CEN_Servidor" Type="nvarchar" MaxLength="255" />
+    <Property Name="CEN_estado" Type="nchar" MaxLength="1" />
+    <Property Name="IdZona" Type="int" />
+    <Property Name="Correo" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="CODIGO_COMERCIO_TBK">
+    <Key>
+      <PropertyRef Name="CodigoComercio" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoComercio" Type="int" Nullable="false" />
+    <Property Name="Local" Type="int" Nullable="false" />
+    <Property Name="NombreLocal" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tipo" Type="int" />
+  </EntityType>
+  <EntityType Name="Conciliacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="FechaConciliar" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ConciliacionAutoPagos">
+    <Key>
+      <PropertyRef Name="AutorizadorTbk" />
+      <PropertyRef Name="Tarjeta" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="CodigoLocal" />
+    </Key>
+    <Property Name="AutorizadorMp" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AutorizadorTbk" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="CodigoLocal" Type="int" Nullable="false" />
+    <Property Name="idTienda" Type="int" Nullable="false" />
+    <Property Name="Monto" Type="money" Nullable="false" />
+    <Property Name="FechaConciliacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConciliaciondePagos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="FechaConciliar" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ConciliacionManualPagos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TrxMP" Type="int" />
+    <Property Name="Autorizadortbk" Type="varchar" MaxLength="50" />
+    <Property Name="FechaMp" Type="datetime" />
+    <Property Name="Fechatbk" Type="datetime" />
+    <Property Name="codigoLocal" Type="int" />
+    <Property Name="idtienda" Type="int" />
+    <Property Name="MontoMp" Type="money" />
+    <Property Name="Montotbk" Type="money" />
+    <Property Name="Tipo_Pago" Type="smallint" />
+    <Property Name="FechaConciliacion" Type="datetime" />
+    <Property Name="TarjetaMp" Type="varchar" MaxLength="50" />
+    <Property Name="TarjetaTbk" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cuenta">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoPago" Type="int" />
+    <Property Name="NumeroCuenta" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Descripcion" Type="text" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleConciliacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="AutorizadorMp" Type="varchar" MaxLength="50" />
+    <Property Name="AutorizadorTbk" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoLocal" Type="int" />
+    <Property Name="IdTienda" Type="int" />
+    <Property Name="TipoConciliacion" Type="char" MaxLength="1" />
+    <Property Name="idConciliacion" Type="uniqueidentifier" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FechaMp" Type="datetime" />
+    <Property Name="FechaTbk" Type="datetime" />
+    <Property Name="MontoMp" Type="money" />
+    <Property Name="MontoTbk" Type="money" />
+    <Property Name="Tipo_Pago" Type="smallint" />
+    <Property Name="TarjetaMp" Type="varchar" MaxLength="50" />
+    <Property Name="TarjetaTBk" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoCuenta" Type="int" />
+    <Property Name="TipoAsiento" Type="int" />
+    <Property Name="TRX" Type="int" />
+    <Property Name="idAcreededor" Type="int" />
+    <Property Name="montoVentaTbk" Type="money" />
+    <Property Name="ordenPedido" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DetalleConciliacionPagos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="AutorizadorMp" Type="varchar" MaxLength="50" />
+    <Property Name="AutorizadorTbk" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoLocal" Type="int" />
+    <Property Name="IdTienda" Type="int" />
+    <Property Name="TipoConciliacion" Type="char" MaxLength="1" />
+    <Property Name="idConciliacion" Type="uniqueidentifier" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FechaMp" Type="datetime" />
+    <Property Name="FechaTbk" Type="datetime" />
+    <Property Name="MontoMp" Type="money" />
+    <Property Name="MontoTbk" Type="money" />
+    <Property Name="Tipo_Pago" Type="smallint" />
+    <Property Name="TarjetaMp" Type="varchar" MaxLength="50" />
+    <Property Name="TarjetaTBk" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoCuenta" Type="int" />
+    <Property Name="TipoAsiento" Type="int" />
+    <Property Name="TRX" Type="int" />
+    <Property Name="idAcreededor" Type="int" />
+    <Property Name="MontoVentatbk" Type="money" />
+  </EntityType>
+  <EntityType Name="DetalleSencillo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="IdSencillo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdTienda" Type="int" />
+    <Property Name="Banco" Type="varchar" MaxLength="50" />
+    <Property Name="Total" Type="int" />
+    <Property Name="DiaLiberacion" Type="varchar" MaxLength="50" />
+    <Property Name="DiaEntrega" Type="varchar" MaxLength="50" />
+    <Property Name="FechaLiberacion" Type="date" />
+    <Property Name="FechaEntrega" Type="date" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NuevoTotal" Type="int" />
+    <Property Name="ConciliacionTesoreria" Type="bit" />
+    <Property Name="IdSencillosSAP" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Diferencias_Pagos">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Cod_Cuenta" />
+      <PropertyRef Name="idTiendaAcredededor" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Cod_Cuenta" Type="int" Nullable="false" />
+    <Property Name="TipoAsiento" Type="int" Nullable="false" />
+    <Property Name="Tienda" Type="int" Nullable="false" />
+    <Property Name="Cod_TRX" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TRX" Type="int" Nullable="false" />
+    <Property Name="FechaDiferencia" Type="datetime" />
+    <Property Name="Monto" Type="money" />
+    <Property Name="idTiendaAcredededor" Type="int" Nullable="false" />
+    <Property Name="numeroTarjeta" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="ID_EMPLEADO" />
+    </Key>
+    <Property Name="ID_EMPLEADO" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="NOMBRES" Type="nvarchar" MaxLength="50" />
+    <Property Name="APELLIDOS" Type="nvarchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="EstadoSencillo">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Sigla" Type="char" MaxLength="1" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="IDOC_FI">
+    <Key>
+      <PropertyRef Name="FECHAINT" />
+      <PropertyRef Name="NEWBS" />
+      <PropertyRef Name="WRBTR" />
+      <PropertyRef Name="SGTXT" />
+      <PropertyRef Name="WERKS" />
+    </Key>
+    <Property Name="MANDT" Type="varchar" MaxLength="15" />
+    <Property Name="INTERFAZ" Type="varchar" MaxLength="15" />
+    <Property Name="FECHAINT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="CORRELAT" Type="int" />
+    <Property Name="NITEM" Type="int" />
+    <Property Name="BUKRS" Type="varchar" MaxLength="15" />
+    <Property Name="BLART" Type="varchar" MaxLength="15" />
+    <Property Name="WAERS" Type="varchar" MaxLength="15" />
+    <Property Name="BUDAT" Type="varchar" MaxLength="18" />
+    <Property Name="BLDAT" Type="varchar" MaxLength="18" />
+    <Property Name="MONAT" Type="varchar" MaxLength="2" />
+    <Property Name="XBLNR" Type="int" />
+    <Property Name="BKTXT" Type="varchar" MaxLength="50" />
+    <Property Name="BUPLA" Type="varchar" MaxLength="15" />
+    <Property Name="NEWBS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWKO" Type="varchar" MaxLength="20" />
+    <Property Name="NEWUM" Type="varchar" MaxLength="15" />
+    <Property Name="NEWBK" Type="varchar" MaxLength="15" />
+    <Property Name="WRBTR" Type="money" Nullable="false" />
+    <Property Name="FWBAS" Type="varchar" MaxLength="15" />
+    <Property Name="MWSKZ" Type="varchar" MaxLength="20" />
+    <Property Name="GSBER" Type="varchar" MaxLength="15" />
+    <Property Name="KOSTL_PRCTR" Type="varchar" MaxLength="15" />
+    <Property Name="AUFNR" Type="varchar" MaxLength="15" />
+    <Property Name="ZTERM" Type="varchar" MaxLength="15" />
+    <Property Name="ZUONR" Type="varchar" MaxLength="18" />
+    <Property Name="SGTXT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VBUND" Type="varchar" MaxLength="15" />
+    <Property Name="XREF1" Type="varchar" MaxLength="15" />
+    <Property Name="XREF2" Type="varchar" MaxLength="15" />
+    <Property Name="XREF3" Type="varchar" MaxLength="15" />
+    <Property Name="VALUT" Type="varchar" MaxLength="18" />
+    <Property Name="XMWST" Type="varchar" MaxLength="15" />
+    <Property Name="ZLSPR" Type="varchar" MaxLength="15" />
+    <Property Name="ZFBDT" Type="varchar" MaxLength="15" />
+    <Property Name="MANSP" Type="varchar" MaxLength="15" />
+    <Property Name="NEWBW" Type="varchar" MaxLength="15" />
+    <Property Name="MENGE" Type="varchar" MaxLength="15" />
+    <Property Name="KURSF" Type="varchar" MaxLength="15" />
+    <Property Name="WWERT" Type="varchar" MaxLength="15" />
+    <Property Name="PRCTR" Type="varchar" MaxLength="15" />
+    <Property Name="SKFBT" Type="varchar" MaxLength="15" />
+    <Property Name="NAME1" Type="varchar" MaxLength="15" />
+    <Property Name="ORT01" Type="varchar" MaxLength="15" />
+    <Property Name="STCD1" Type="varchar" MaxLength="15" />
+    <Property Name="EBELN" Type="varchar" MaxLength="15" />
+    <Property Name="WERKS" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'sisges.dbo.IDOC_PAGOS_FI' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="IDOC_PAGOS_FI">
+    <Key>
+      <PropertyRef Name="MANDT" />
+      <PropertyRef Name="INTERFAZ" />
+      <PropertyRef Name="FECHAINT" />
+      <PropertyRef Name="CORRELAT" />
+      <PropertyRef Name="NITEM" />
+      <PropertyRef Name="BUKRS" />
+      <PropertyRef Name="BLART" />
+      <PropertyRef Name="WAERS" />
+      <PropertyRef Name="BUDAT" />
+      <PropertyRef Name="BLDAT" />
+      <PropertyRef Name="MONAT" />
+      <PropertyRef Name="XBLNR" />
+      <PropertyRef Name="BKTXT" />
+      <PropertyRef Name="BUPLA" />
+      <PropertyRef Name="NEWBS" />
+      <PropertyRef Name="NEWKO" />
+      <PropertyRef Name="NEWUM" />
+      <PropertyRef Name="NEWBK" />
+      <PropertyRef Name="WRBTR" />
+      <PropertyRef Name="FWBAS" />
+      <PropertyRef Name="MWSKZ" />
+      <PropertyRef Name="GSBER" />
+      <PropertyRef Name="KOSTL_PRCTR" />
+      <PropertyRef Name="AUFNR" />
+      <PropertyRef Name="ZTERM" />
+      <PropertyRef Name="ZUONR" />
+      <PropertyRef Name="SGTXT" />
+      <PropertyRef Name="VBUND" />
+      <PropertyRef Name="XREF1" />
+      <PropertyRef Name="XREF2" />
+      <PropertyRef Name="XREF3" />
+      <PropertyRef Name="VALUT" />
+      <PropertyRef Name="XMWST" />
+      <PropertyRef Name="ZLSPR" />
+      <PropertyRef Name="ZFBDT" />
+      <PropertyRef Name="MANSP" />
+      <PropertyRef Name="NEWBW" />
+      <PropertyRef Name="MENGE" />
+      <PropertyRef Name="KURSF" />
+      <PropertyRef Name="WWERT" />
+      <PropertyRef Name="PRCTR" />
+      <PropertyRef Name="SKFBT" />
+      <PropertyRef Name="NAME1" />
+      <PropertyRef Name="ORT01" />
+      <PropertyRef Name="STCD1" />
+      <PropertyRef Name="EBELN" />
+      <PropertyRef Name="WERKS" />
+    </Key>
+    <Property Name="MANDT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="INTERFAZ" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="FECHAINT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="CORRELAT" Type="int" Nullable="false" />
+    <Property Name="NITEM" Type="int" Nullable="false" />
+    <Property Name="BUKRS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="BLART" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WAERS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="BUDAT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="BLDAT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="MONAT" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="XBLNR" Type="int" Nullable="false" />
+    <Property Name="BKTXT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BUPLA" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWBS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWKO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NEWUM" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWBK" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WRBTR" Type="money" Nullable="false" />
+    <Property Name="FWBAS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MWSKZ" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="GSBER" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="KOSTL_PRCTR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AUFNR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZTERM" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZUONR" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="SGTXT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VBUND" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="XREF1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="XREF2" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="XREF3" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VALUT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="XMWST" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZLSPR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZFBDT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MANSP" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWBW" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MENGE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="KURSF" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WWERT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="PRCTR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="SKFBT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NAME1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ORT01" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="STCD1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="EBELN" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WERKS" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InterfazAutorizacion">
+    <Key>
+      <PropertyRef Name="FechaAutorizacion" />
+      <PropertyRef Name="CodigoAgencia" />
+      <PropertyRef Name="NumeroAutorizacion" />
+    </Key>
+    <Property Name="NroRef" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CodigoEmpresa" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FechaAutorizacion" Type="datetime" Nullable="false" />
+    <Property Name="CodigoAgencia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NumeroTerminal" Type="int" />
+    <Property Name="NumeroBoleta" Type="varchar" MaxLength="50" />
+    <Property Name="TipoTransaccion" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoUsuario" Type="varchar" MaxLength="50" />
+    <Property Name="NumeroAutorizacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TipoArchivo" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoCliente" Type="int" />
+    <Property Name="NumeroTarjeta" Type="varchar" MaxLength="50" />
+    <Property Name="Monto" Type="int" />
+    <Property Name="MontoPie" Type="int" />
+    <Property Name="MesesDiferido" Type="int" />
+    <Property Name="MesesGracia" Type="int" />
+    <Property Name="FechaAutoriza" Type="date" />
+    <Property Name="NumeroCuotas" Type="int" />
+    <Property Name="Extrafinanciamiento" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoPlanCredito" Type="int" />
+    <Property Name="MontoAfecto" Type="int" />
+    <Property Name="CodigoComercio" Type="int" />
+    <Property Name="CodigoRubro" Type="int" />
+    <Property Name="RutVendedor" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoPromocionVenta" Type="int" />
+    <Property Name="MontoCuota" Type="int" />
+    <Property Name="FechaPrimerVencimiento" Type="datetime" />
+    <Property Name="FechaUltimoVencimiento" Type="datetime" />
+    <Property Name="Confirmada" Type="char" MaxLength="1" />
+    <Property Name="ModoProceso" Type="char" MaxLength="2" />
+    <Property Name="NroTrxPos" Type="int" />
+    <Property Name="NroCaja" Type="int" />
+    <Property Name="TipoDiferencia" Type="char" MaxLength="1" />
+    <Property Name="Estado" Type="char" MaxLength="2" />
+    <Property Name="MontonoAfecto" Type="int" />
+  </EntityType>
+  <EntityType Name="LIBRO_VENTA">
+    <Key>
+      <PropertyRef Name="Sociedad" />
+      <PropertyRef Name="Centro" />
+      <PropertyRef Name="ClaseDocumental" />
+      <PropertyRef Name="NumeroDocto" />
+      <PropertyRef Name="FechaContabilizacion" />
+      <PropertyRef Name="FechaDocumento" />
+      <PropertyRef Name="BaseImponibleMP" />
+    </Key>
+    <Property Name="Sociedad" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Centro" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="ClaseDocumental" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="NumeroDocto" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="FechaContabilizacion" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Referencia" Type="nvarchar" MaxLength="12" />
+    <Property Name="FechaDocumento" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IndicadorImpuesto" Type="nvarchar" MaxLength="2" />
+    <Property Name="NombreCliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumeroIdentFiscal" Type="nvarchar" MaxLength="10" />
+    <Property Name="Exento" Type="money" />
+    <Property Name="Afecto" Type="money" />
+    <Property Name="Iva" Type="money" />
+    <Property Name="BaseImponibleMP" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LIBRO_VENTA_PROD">
+    <Key>
+      <PropertyRef Name="Sociedad" />
+      <PropertyRef Name="Centro" />
+      <PropertyRef Name="ClaseDocumental" />
+      <PropertyRef Name="NumeroDocto" />
+      <PropertyRef Name="FechaContabilizacion" />
+      <PropertyRef Name="FechaDocumento" />
+      <PropertyRef Name="BaseImponibleMP" />
+    </Key>
+    <Property Name="Sociedad" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Centro" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="ClaseDocumental" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="NumeroDocto" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="FechaContabilizacion" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Referencia" Type="nvarchar(max)" />
+    <Property Name="FechaDocumento" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IndicadorImpuesto" Type="nvarchar" MaxLength="2" />
+    <Property Name="NombreCliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumeroIdentFiscal" Type="nvarchar" MaxLength="10" />
+    <Property Name="Exento" Type="money" />
+    <Property Name="Afecto" Type="money" />
+    <Property Name="Iva" Type="money" />
+    <Property Name="BaseImponibleMP" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LibroMayor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Texto_cab_documento" Type="varchar" MaxLength="50" />
+    <Property Name="Lib_mayor" Type="varchar" MaxLength="50" />
+    <Property Name="Soc" Type="varchar" MaxLength="10" />
+    <Property Name="Fecha_Compensacion" Type="datetime" />
+    <Property Name="Centro" Type="varchar" MaxLength="10" />
+    <Property Name="Asignacion" Type="varchar(max)" />
+    <Property Name="Referencia" Type="varchar(max)" />
+    <Property Name="N_Documento" Type="varchar" MaxLength="50" />
+    <Property Name="Div" Type="varchar" MaxLength="50" />
+    <Property Name="Clase" Type="varchar" MaxLength="3" />
+    <Property Name="Fecha_Documento" Type="datetime" Nullable="false" />
+    <Property Name="CT" Type="int" />
+    <Property Name="Importe_MD" Type="money" Nullable="false" />
+    <Property Name="Importe_ML" Type="money" Nullable="false" />
+    <Property Name="ML" Type="varchar" MaxLength="4" />
+    <Property Name="IndicadorIMP" Type="varchar" MaxLength="50" />
+    <Property Name="Doc_Compensacion" Type="varchar" MaxLength="50" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="LibroMayorDEP">
+    <Key>
+      <PropertyRef Name="IdLibroMayor" />
+      <PropertyRef Name="IdLibroMayor1" />
+    </Key>
+    <Property Name="Texto_cab_documento" Type="varchar" MaxLength="50" />
+    <Property Name="Soc" Type="varchar" MaxLength="10" />
+    <Property Name="Asignacion" Type="varchar(max)" />
+    <Property Name="Referencia" Type="varchar(max)" />
+    <Property Name="N_Documento" Type="varchar" MaxLength="50" />
+    <Property Name="Clase" Type="varchar" MaxLength="3" />
+    <Property Name="Fecha_Documento" Type="datetime" Nullable="false" />
+    <Property Name="CT" Type="int" />
+    <Property Name="Importe_MD" Type="money" Nullable="false" />
+    <Property Name="Importe_ML" Type="money" Nullable="false" />
+    <Property Name="Doc_Compensacion" Type="varchar" MaxLength="50" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+    <Property Name="Lib_mayor" Type="varchar" MaxLength="50" />
+    <Property Name="abs" Type="money" />
+    <Property Name="IdLibroMayor" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Texto_cab_documento1" Type="varchar" MaxLength="50" />
+    <Property Name="Soc1" Type="varchar" MaxLength="10" />
+    <Property Name="Asignacion1" Type="varchar(max)" />
+    <Property Name="Referencia1" Type="varchar(max)" />
+    <Property Name="N_Documento1" Type="varchar" MaxLength="50" />
+    <Property Name="Clase1" Type="varchar" MaxLength="3" />
+    <Property Name="Fecha_Documento1" Type="datetime" Nullable="false" />
+    <Property Name="CT1" Type="int" />
+    <Property Name="Importe_MD1" Type="money" Nullable="false" />
+    <Property Name="Importe_ML1" Type="money" Nullable="false" />
+    <Property Name="Doc_Compensacion1" Type="varchar" MaxLength="50" />
+    <Property Name="Usuario1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion1" Type="varchar" MaxLength="80" />
+    <Property Name="Lib_mayor1" Type="varchar" MaxLength="50" />
+    <Property Name="abs1" Type="money" />
+    <Property Name="IdLibroMayor1" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Estado" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="MEDIOSPAGOS">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="Tipo_Pago" />
+      <PropertyRef Name="Monto_Aprobado" />
+    </Key>
+    <Property Name="TRX" Type="int" Nullable="false" />
+    <Property Name="IdTienda" Type="int" Nullable="false" />
+    <Property Name="Caja" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="15" />
+    <Property Name="Folio" Type="nvarchar" MaxLength="30" />
+    <Property Name="Trans" Type="smallint" />
+    <Property Name="Monto" Type="money" />
+    <Property Name="Tipo_Pago" Type="smallint" Nullable="false" />
+    <Property Name="Pago" Type="varchar" MaxLength="30" />
+    <Property Name="Tarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Autorizador" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AUTH_RESP_CD" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="Monto_Aprobado" Type="money" Nullable="false" />
+    <Property Name="NCheque" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="RutCheque" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="Banco" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="FechaCheque" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="MontoSencillo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdDatalleSencillo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Monto1" Type="int" />
+    <Property Name="Monto2" Type="int" />
+    <Property Name="Monto3" Type="int" />
+    <Property Name="Monto4" Type="int" />
+    <Property Name="Monto5" Type="int" />
+    <Property Name="Monto6" Type="int" />
+    <Property Name="Monto7" Type="int" />
+  </EntityType>
+  <EntityType Name="notaCredito">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Fecha_Emision" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Caja" />
+    </Key>
+    <Property Name="TRX" Type="int" Nullable="false" />
+    <Property Name="Fecha_Emision" Type="date" Nullable="false" />
+    <Property Name="Hora_Emision" Type="varchar" MaxLength="8" />
+    <Property Name="IdTienda" Type="int" Nullable="false" />
+    <Property Name="Caja" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="35" />
+    <Property Name="Folio" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cliente" Type="varchar" MaxLength="10" />
+    <Property Name="Total" Type="money" Nullable="false" />
+    <Property Name="Rut_Cajero" Type="varchar" MaxLength="12" />
+    <Property Name="Rut_Supervisor" Type="varchar" MaxLength="12" />
+    <Property Name="Hora_Aprobacion" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="NotaCredito_BoletaOrigen">
+    <Key>
+      <PropertyRef Name="TRX_NotaCredito" />
+      <PropertyRef Name="Fecha_Emision_NotaCredito" />
+      <PropertyRef Name="IdTienda_NotaCredito" />
+      <PropertyRef Name="Caja_NotaCredito" />
+      <PropertyRef Name="TRX_BoletaOrigen" />
+      <PropertyRef Name="Fecha_Emision_BoletaOrigen" />
+      <PropertyRef Name="IdTienda_BoletaOrigen" />
+      <PropertyRef Name="Caja_BoletaOrigen" />
+      <PropertyRef Name="Nro_Boleta_BoletaOrigen" />
+      <PropertyRef Name="Tipo_Pago_BoletaOrigen" />
+    </Key>
+    <Property Name="TRX_NotaCredito" Type="int" Nullable="false" />
+    <Property Name="Fecha_Emision_NotaCredito" Type="date" Nullable="false" />
+    <Property Name="IdTienda_NotaCredito" Type="int" Nullable="false" />
+    <Property Name="Caja_NotaCredito" Type="int" Nullable="false" />
+    <Property Name="TRX_BoletaOrigen" Type="int" Nullable="false" />
+    <Property Name="Fecha_Emision_BoletaOrigen" Type="datetime" Nullable="false" />
+    <Property Name="IdTienda_BoletaOrigen" Type="int" Nullable="false" />
+    <Property Name="Caja_BoletaOrigen" Type="int" Nullable="false" />
+    <Property Name="Nro_Boleta_BoletaOrigen" Type="bigint" Nullable="false" />
+    <Property Name="Tipo_Pago_BoletaOrigen" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'sisges.dbo.notaCreditoEspecial' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="notaCreditoEspecial">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Fecha_Emision_Nota_Credito" />
+      <PropertyRef Name="IdTienda_notacredito" />
+      <PropertyRef Name="Caja_notacredito" />
+      <PropertyRef Name="Folio_notacredito" />
+      <PropertyRef Name="Total_notacredito" />
+      <PropertyRef Name="Tipo_Pago_Origen" />
+    </Key>
+    <Property Name="TRX" Type="int" Nullable="false" />
+    <Property Name="Fecha_Emision_Nota_Credito" Type="date" Nullable="false" />
+    <Property Name="Hora_Emision_Nota_Credito" Type="varchar" MaxLength="8" />
+    <Property Name="IdTienda_notacredito" Type="int" Nullable="false" />
+    <Property Name="Caja_notacredito" Type="int" Nullable="false" />
+    <Property Name="TIPONOTACREDITO" Type="varchar" MaxLength="35" />
+    <Property Name="Folio_notacredito" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cliente_notacredito" Type="varchar" MaxLength="10" />
+    <Property Name="Total_notacredito" Type="money" Nullable="false" />
+    <Property Name="Documento_Origen" Type="varchar" MaxLength="20" />
+    <Property Name="Trx_Origen" Type="int" />
+    <Property Name="Nro_Boleta" Type="bigint" />
+    <Property Name="IdTienda_Origen_Boleta" Type="int" />
+    <Property Name="Caja_Origen_Boleta" Type="int" />
+    <Property Name="Fecha_Boleta" Type="date" />
+    <Property Name="Monto_Boleta" Type="money" />
+    <Property Name="Tipo_Pago_Origen" Type="int" Nullable="false" />
+    <Property Name="Rut_Cajero" Type="varchar" MaxLength="10" />
+    <Property Name="Rut_Supervisor" Type="varchar" MaxLength="10" />
+    <Property Name="Nombre_trabajador" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion_pago" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre_Jefe" Type="varchar" MaxLength="100" />
+    <Property Name="Hora_Aprov_Nota_Credito" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="PAGOS">
+    <Key>
+      <PropertyRef Name="Tipo_Trx" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Trx_Global" />
+      <PropertyRef Name="Caja" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="Autorizador" />
+      <PropertyRef Name="Tipo_Pago" />
+    </Key>
+    <Property Name="Tipo_Trx" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IdTienda" Type="int" Nullable="false" />
+    <Property Name="Trx_Global" Type="smallint" Nullable="false" />
+    <Property Name="Caja" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="smallint" />
+    <Property Name="TRX" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Cajero" Type="nvarchar" MaxLength="12" />
+    <Property Name="Monto" Type="money" />
+    <Property Name="Autorizador" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="Autorizador_TBK" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="NumeroReferencia" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="RutCliente" Type="nvarchar" MaxLength="10" />
+    <Property Name="Tipo_Pago" Type="smallint" Nullable="false" />
+    <Property Name="Pago" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Monto_Pago" Type="money" Nullable="false" />
+    <Property Name="Tarjeta" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NCheque" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="RutCheque" Type="nvarchar" MaxLength="24" Nullable="false" />
+    <Property Name="Banco" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="FechaCheque" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="EstadoConciliado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Pagos_Apitbk">
+    <Key>
+      <PropertyRef Name="codigoAutorizacion" />
+      <PropertyRef Name="codigoLocal" />
+      <PropertyRef Name="fechaTransaccion" />
+      <PropertyRef Name="montoVenta" />
+      <PropertyRef Name="numeroTarjeta" />
+      <PropertyRef Name="montoAfecto" />
+    </Key>
+    <Property Name="codigoAutorizacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigoLocal" Type="int" Nullable="false" />
+    <Property Name="fechaAbono" Type="datetime" />
+    <Property Name="fechaTransaccion" Type="datetime" Nullable="false" />
+    <Property Name="montoCuotas" Type="money" />
+    <Property Name="montoVenta" Type="money" Nullable="false" />
+    <Property Name="nombreLocal" Type="varchar" MaxLength="100" />
+    <Property Name="numeroTarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoProducto" Type="varchar" MaxLength="50" />
+    <Property Name="tipoTransaccion" Type="varchar" MaxLength="50" />
+    <Property Name="totalCuotas" Type="int" />
+    <Property Name="tipoCuota" Type="varchar" MaxLength="50" />
+    <Property Name="montoAfecto" Type="money" Nullable="false" />
+    <Property Name="montoExentoTotal" Type="varchar" MaxLength="50" />
+    <Property Name="ordenPedido" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'sisges.dbo.PAGOS_MP' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PAGOS_MP">
+    <Key>
+      <PropertyRef Name="MANDT" />
+      <PropertyRef Name="INTERFAZ" />
+      <PropertyRef Name="FECHAINT" />
+      <PropertyRef Name="CORRELAT" />
+      <PropertyRef Name="NITEM" />
+      <PropertyRef Name="BUKRS" />
+      <PropertyRef Name="BLART" />
+      <PropertyRef Name="WAERS" />
+      <PropertyRef Name="BUDAT" />
+      <PropertyRef Name="BLDAT" />
+      <PropertyRef Name="MONAT" />
+      <PropertyRef Name="XBLNR" />
+      <PropertyRef Name="BKTXT" />
+      <PropertyRef Name="BUPLA" />
+      <PropertyRef Name="NEWBS" />
+      <PropertyRef Name="NEWKO" />
+      <PropertyRef Name="NEWUM" />
+      <PropertyRef Name="NEWBK" />
+      <PropertyRef Name="WRBTR" />
+      <PropertyRef Name="FWBAS" />
+      <PropertyRef Name="MWSKZ" />
+      <PropertyRef Name="GSBER" />
+      <PropertyRef Name="KOSTL_PRCTR" />
+      <PropertyRef Name="AUFNR" />
+      <PropertyRef Name="ZTERM" />
+      <PropertyRef Name="ZUONR" />
+      <PropertyRef Name="SGTXT" />
+      <PropertyRef Name="VBUND" />
+      <PropertyRef Name="XREF1" />
+      <PropertyRef Name="XREF2" />
+      <PropertyRef Name="XREF3" />
+      <PropertyRef Name="VALUT" />
+      <PropertyRef Name="XMWST" />
+      <PropertyRef Name="ZLSPR" />
+      <PropertyRef Name="ZFBDT" />
+      <PropertyRef Name="MANSP" />
+      <PropertyRef Name="NEWBW" />
+      <PropertyRef Name="MENGE" />
+      <PropertyRef Name="KURSF" />
+      <PropertyRef Name="WWERT" />
+      <PropertyRef Name="PRCTR" />
+      <PropertyRef Name="SKFBT" />
+      <PropertyRef Name="NAME1" />
+      <PropertyRef Name="ORT01" />
+      <PropertyRef Name="STCD1" />
+      <PropertyRef Name="EBELN" />
+      <PropertyRef Name="WERKS" />
+    </Key>
+    <Property Name="MANDT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="INTERFAZ" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="FECHAINT" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CORRELAT" Type="int" Nullable="false" />
+    <Property Name="NITEM" Type="int" Nullable="false" />
+    <Property Name="BUKRS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="BLART" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WAERS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="BUDAT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="BLDAT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="MONAT" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="XBLNR" Type="int" Nullable="false" />
+    <Property Name="BKTXT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BUPLA" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWBS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWKO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NEWUM" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWBK" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WRBTR" Type="money" Nullable="false" />
+    <Property Name="FWBAS" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MWSKZ" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="GSBER" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="KOSTL_PRCTR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AUFNR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZTERM" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZUONR" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="SGTXT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VBUND" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="XREF1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="XREF2" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="XREF3" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VALUT" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="XMWST" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZLSPR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ZFBDT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MANSP" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NEWBW" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MENGE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="KURSF" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WWERT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="PRCTR" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="SKFBT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NAME1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ORT01" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="STCD1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="EBELN" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="WERKS" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Periodo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AnoNumero" Type="int" Nullable="false" />
+    <Property Name="MesNumero" Type="int" Nullable="false" />
+    <Property Name="Cerrado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Run" Type="varchar" MaxLength="30" StoreGeneratedPattern="Computed" />
+    <Property Name="RunCuerpo" Type="int" Nullable="false" />
+    <Property Name="RunDigito" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="95" StoreGeneratedPattern="Computed" />
+    <Property Name="Nombres" Type="varchar" MaxLength="50" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" />
+    <Property Name="SexoCodigo" Type="int" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Remito">
+    <Key>
+      <PropertyRef Name="Codigo" />
+      <PropertyRef Name="idTienda" />
+    </Key>
+    <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idTienda" Type="int" Nullable="false" />
+    <Property Name="idSencillosTienda" Type="uniqueidentifier" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="CodigoTipoRemito" Type="int" />
+    <Property Name="NumeroDepostio" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Sencillos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="FechaInicio" Type="datetime" />
+    <Property Name="FechaFin" Type="datetime" />
+    <Property Name="Correlativo" Type="int" />
+  </EntityType>
+  <EntityType Name="Sencillos_Tiendas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idDetalleSencillo" Type="uniqueidentifier" />
+    <Property Name="CodigoEstadoSencillo" Type="int" />
+    <Property Name="Fecha_Creacion" Type="datetime" />
+    <Property Name="idTienda" Type="int" />
+  </EntityType>
+  <EntityType Name="SencillosSAP">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Referencia" Type="varchar" MaxLength="50" />
+    <Property Name="Asignacion" Type="varchar" MaxLength="50" />
+    <Property Name="N_doc" Type="varchar" MaxLength="50" />
+    <Property Name="Cla" Type="varchar" MaxLength="3" />
+    <Property Name="Periodo" Type="int" />
+    <Property Name="Fecha_Doc" Type="datetime" />
+    <Property Name="IO" Type="varchar" MaxLength="10" />
+    <Property Name="Lib_Mayor" Type="varchar" MaxLength="50" />
+    <Property Name="ImporML" Type="int" />
+    <Property Name="Texto" Type="varchar" MaxLength="80" />
+    <Property Name="RutProvedor" Type="varchar" MaxLength="50" />
+    <Property Name="ConciliacionTesoreria" Type="bit" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nchar" MaxLength="10" />
+    <Property Name="Sigla" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Sobrante_Faltante">
+    <Key>
+      <PropertyRef Name="IDTIENDA" />
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="MEDIO_PAGO" />
+      <PropertyRef Name="CAJA" />
+      <PropertyRef Name="TIPO" />
+      <PropertyRef Name="FECHHORA" />
+    </Key>
+    <Property Name="IDTIENDA" Type="int" Nullable="false" />
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="MEDIO_PAGO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CAJA" Type="int" Nullable="false" />
+    <Property Name="TOTAL" Type="int" Nullable="false" />
+    <Property Name="TIPO_CIERRE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FECHHORA" Type="datetime" Nullable="false" />
+    <Property Name="MARCA" Type="int" />
+    <Property Name="ID_Empleado" Type="varchar" MaxLength="12" />
+    <Property Name="IdAcumulado" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="TIPO_PAGO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoAceptacion">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TipoPagoGL">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TipoRechazo">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoRemito">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="130" />
+    <Property Name="FechaCreacion" Type="nchar" MaxLength="10" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Usuario_Rol">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="CodigoRol" />
+    </Key>
+    <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CodigoRol" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="UsuarioZona">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="IdZona" />
+    </Key>
+    <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdZona" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VENTAS">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Local" />
+      <PropertyRef Name="Fecha_Venta" />
+    </Key>
+    <Property Name="TRX" Type="int" Nullable="false" />
+    <Property Name="TRX_Impreso" Type="smallint" />
+    <Property Name="Tipo_Trx" Type="smallint" />
+    <Property Name="Local" Type="int" Nullable="false" />
+    <Property Name="Cajero" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="Caja" Type="int" Nullable="false" />
+    <Property Name="Fecha_Venta" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_Vta_Sistema" Type="datetime" />
+    <Property Name="Fecha_Venta_Linea" Type="datetime" />
+    <Property Name="Caja_Fuera_Linea" Type="smallint" Nullable="false" />
+    <Property Name="Modo_Entrenamiento" Type="smallint" Nullable="false" />
+    <Property Name="Codigo_Anula" Type="smallint" Nullable="false" />
+    <Property Name="Cliente" Type="nvarchar" MaxLength="24" />
+    <Property Name="Vendedor" Type="nvarchar" MaxLength="24" />
+    <Property Name="Venta_Iniciada" Type="smallint" Nullable="false" />
+    <Property Name="Total_Venta" Type="money" />
+    <Property Name="Caja2" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="Folio_Documento" Type="nvarchar" MaxLength="30" />
+    <Property Name="Tipo_Documento" Type="nvarchar" MaxLength="15" />
+    <Property Name="Tipo_Impto" Type="int" />
+    <Property Name="Impto" Type="money" />
+    <Property Name="Neto" Type="money" />
+    <Property Name="Bruto" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ventas_Apitbk">
+    <Key>
+      <PropertyRef Name="codigoAutorizacion" />
+      <PropertyRef Name="codigoLocal" />
+      <PropertyRef Name="fechaTransaccion" />
+      <PropertyRef Name="montoVenta" />
+      <PropertyRef Name="numeroTarjeta" />
+      <PropertyRef Name="montoAfecto" />
+      <PropertyRef Name="ordenPedido" />
+    </Key>
+    <Property Name="codigoAutorizacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigoLocal" Type="int" Nullable="false" />
+    <Property Name="fechaAbono" Type="datetime" />
+    <Property Name="fechaTransaccion" Type="datetime" Nullable="false" />
+    <Property Name="montoCuotas" Type="money" />
+    <Property Name="montoVenta" Type="money" Nullable="false" />
+    <Property Name="nombreLocal" Type="varchar" MaxLength="100" />
+    <Property Name="numeroTarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoProducto" Type="varchar" MaxLength="50" />
+    <Property Name="tipoTransaccion" Type="varchar" MaxLength="50" />
+    <Property Name="totalCuotas" Type="int" />
+    <Property Name="tipoCuota" Type="varchar" MaxLength="50" />
+    <Property Name="montoAfecto" Type="money" Nullable="false" />
+    <Property Name="montoExentoTotal" Type="varchar" MaxLength="50" />
+    <Property Name="ordenPedido" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="ZONA">
+    <Key>
+      <PropertyRef Name="IdZona" />
+    </Key>
+    <Property Name="IdZona" Type="int" Nullable="false" />
+    <Property Name="nombreZona" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <Association Name="FK_ACREEDOR_REL_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="1" />
+    <End Role="ACREEDOR_REL" Type="Self.ACREEDOR_REL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="ACREEDOR_REL">
+        <PropertyRef Name="Local" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACREEDOR_REL_TIPO_PAGO">
+    <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="0..1" />
+    <End Role="ACREEDOR_REL" Type="Self.ACREEDOR_REL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PAGO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ACREEDOR_REL">
+        <PropertyRef Name="Tipo_Pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="0..1" />
+    <End Role="AcumuladoSobrante_Faltante" Type="Self.AcumuladoSobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="idTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AcumuladoSobrante_Faltante_TipoAceptacion">
+    <End Role="TipoAceptacion" Type="Self.TipoAceptacion" Multiplicity="0..1" />
+    <End Role="AcumuladoSobrante_Faltante" Type="Self.AcumuladoSobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAceptacion">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="CodigoTipoAceptacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AcumuladoSobrante_Faltante_TipoRechazo">
+    <End Role="TipoRechazo" Type="Self.TipoRechazo" Multiplicity="0..1" />
+    <End Role="AcumuladoSobrante_Faltante" Type="Self.AcumuladoSobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoRechazo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="CodigoTipoRechazo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auditoria_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Auditoria">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_boletaOrigen_TipoPagoGL">
+    <End Role="TipoPagoGL" Type="Self.TipoPagoGL" Multiplicity="1" />
+    <End Role="boletaOrigen" Type="Self.boletaOrigen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPagoGL">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="boletaOrigen">
+        <PropertyRef Name="Tipo_Pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CENTROS_LOCAL_ZONA">
+    <End Role="ZONA" Type="Self.ZONA" Multiplicity="0..1" />
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONA">
+        <PropertyRef Name="IdZona" />
+      </Principal>
+      <Dependent Role="CENTROS_LOCAL">
+        <PropertyRef Name="IdZona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="1" />
+    <End Role="CODIGO_COMERCIO_TBK" Type="Self.CODIGO_COMERCIO_TBK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="Local" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK">
+    <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="0..1" />
+    <End Role="CODIGO_COMERCIO_TBK" Type="Self.CODIGO_COMERCIO_TBK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PAGO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_ACREEDOR_REL">
+    <End Role="ACREEDOR_REL" Type="Self.ACREEDOR_REL" Multiplicity="0..1" />
+    <End Role="DetalleConciliacion" Type="Self.DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACREEDOR_REL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="idAcreededor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_Conciliacion">
+    <End Role="Conciliacion" Type="Self.Conciliacion" Multiplicity="0..1" />
+    <End Role="DetalleConciliacion" Type="Self.DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conciliacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="idConciliacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_Cuenta">
+    <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="0..1" />
+    <End Role="DetalleConciliacion" Type="Self.DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="CodigoCuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_MEDIOSPAGOS">
+    <End Role="MEDIOSPAGOS" Type="Self.MEDIOSPAGOS" Multiplicity="0..1" />
+    <End Role="DetalleConciliacion" Type="Self.DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDIOSPAGOS">
+        <PropertyRef Name="TRX" />
+        <PropertyRef Name="IdTienda" />
+        <PropertyRef Name="Fecha" />
+        <PropertyRef Name="Tipo_Pago" />
+        <PropertyRef Name="Monto_Aprobado" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="TRX" />
+        <PropertyRef Name="IdTienda" />
+        <PropertyRef Name="FechaMp" />
+        <PropertyRef Name="Tipo_Pago" />
+        <PropertyRef Name="MontoMp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_Ventas_Apitbk1">
+    <End Role="Ventas_Apitbk" Type="Self.Ventas_Apitbk" Multiplicity="0..1" />
+    <End Role="DetalleConciliacion" Type="Self.DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ventas_Apitbk">
+        <PropertyRef Name="codigoAutorizacion" />
+        <PropertyRef Name="codigoLocal" />
+        <PropertyRef Name="fechaTransaccion" />
+        <PropertyRef Name="montoVenta" />
+        <PropertyRef Name="numeroTarjeta" />
+        <PropertyRef Name="montoAfecto" />
+        <PropertyRef Name="ordenPedido" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="AutorizadorTbk" />
+        <PropertyRef Name="CodigoLocal" />
+        <PropertyRef Name="FechaTbk" />
+        <PropertyRef Name="montoVentaTbk" />
+        <PropertyRef Name="TarjetaTBk" />
+        <PropertyRef Name="MontoTbk" />
+        <PropertyRef Name="ordenPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacionPagos_ACREEDOR_REL">
+    <End Role="ACREEDOR_REL" Type="Self.ACREEDOR_REL" Multiplicity="0..1" />
+    <End Role="DetalleConciliacionPagos" Type="Self.DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACREEDOR_REL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="idAcreededor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacionPagos_ConciliaciondePagos">
+    <End Role="ConciliaciondePagos" Type="Self.ConciliaciondePagos" Multiplicity="0..1" />
+    <End Role="DetalleConciliacionPagos" Type="Self.DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConciliaciondePagos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="idConciliacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacionPagos_Cuenta">
+    <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="0..1" />
+    <End Role="DetalleConciliacionPagos" Type="Self.DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="CodigoCuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacionPagos_Pagos_Apitbk">
+    <End Role="Pagos_Apitbk" Type="Self.Pagos_Apitbk" Multiplicity="0..1" />
+    <End Role="DetalleConciliacionPagos" Type="Self.DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagos_Apitbk">
+        <PropertyRef Name="codigoAutorizacion" />
+        <PropertyRef Name="codigoLocal" />
+        <PropertyRef Name="fechaTransaccion" />
+        <PropertyRef Name="montoVenta" />
+        <PropertyRef Name="numeroTarjeta" />
+        <PropertyRef Name="montoAfecto" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="AutorizadorTbk" />
+        <PropertyRef Name="CodigoLocal" />
+        <PropertyRef Name="FechaTbk" />
+        <PropertyRef Name="MontoVentatbk" />
+        <PropertyRef Name="TarjetaTBk" />
+        <PropertyRef Name="MontoTbk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleSencillo_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="0..1" />
+    <End Role="DetalleSencillo" Type="Self.DetalleSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="DetalleSencillo">
+        <PropertyRef Name="IdTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleSencillo_Sencillos">
+    <End Role="Sencillos" Type="Self.Sencillos" Multiplicity="1" />
+    <End Role="DetalleSencillo" Type="Self.DetalleSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sencillos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleSencillo">
+        <PropertyRef Name="IdSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleSencillo_SencillosSAP">
+    <End Role="SencillosSAP" Type="Self.SencillosSAP" Multiplicity="0..1" />
+    <End Role="DetalleSencillo" Type="Self.DetalleSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SencillosSAP">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleSencillo">
+        <PropertyRef Name="IdSencillosSAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diferencias_Pagos_ACREEDOR_REL">
+    <End Role="ACREEDOR_REL" Type="Self.ACREEDOR_REL" Multiplicity="1" />
+    <End Role="Diferencias_Pagos" Type="Self.Diferencias_Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACREEDOR_REL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diferencias_Pagos">
+        <PropertyRef Name="idTiendaAcredededor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diferencias_Pagos_Cuenta">
+    <End Role="Cuenta" Type="Self.Cuenta" Multiplicity="1" />
+    <End Role="Diferencias_Pagos" Type="Self.Diferencias_Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Diferencias_Pagos">
+        <PropertyRef Name="Cod_Cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LibroMayorDEP_LibroMayor">
+    <End Role="LibroMayor" Type="Self.LibroMayor" Multiplicity="1" />
+    <End Role="LibroMayorDEP" Type="Self.LibroMayorDEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibroMayor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroMayorDEP">
+        <PropertyRef Name="IdLibroMayor1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LibroMayorDEP_LibroMayor1">
+    <End Role="LibroMayor" Type="Self.LibroMayor" Multiplicity="1" />
+    <End Role="LibroMayorDEP" Type="Self.LibroMayorDEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibroMayor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroMayorDEP">
+        <PropertyRef Name="IdLibroMayor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEDIOSPAGOS_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="1" />
+    <End Role="MEDIOSPAGOS" Type="Self.MEDIOSPAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="MEDIOSPAGOS">
+        <PropertyRef Name="IdTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MontoSencillo_DetalleSencillo">
+    <End Role="DetalleSencillo" Type="Self.DetalleSencillo" Multiplicity="1" />
+    <End Role="MontoSencillo" Type="Self.MontoSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetalleSencillo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MontoSencillo">
+        <PropertyRef Name="IdDatalleSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotaCredito_BoletaOrigen_boletaOrigen">
+    <End Role="boletaOrigen" Type="Self.boletaOrigen" Multiplicity="1" />
+    <End Role="NotaCredito_BoletaOrigen" Type="Self.NotaCredito_BoletaOrigen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="boletaOrigen">
+        <PropertyRef Name="TRX" />
+        <PropertyRef Name="Fecha_Emision" />
+        <PropertyRef Name="IdTienda" />
+        <PropertyRef Name="Caja" />
+        <PropertyRef Name="Nro_Boleta" />
+        <PropertyRef Name="Tipo_Pago" />
+      </Principal>
+      <Dependent Role="NotaCredito_BoletaOrigen">
+        <PropertyRef Name="TRX_BoletaOrigen" />
+        <PropertyRef Name="Fecha_Emision_BoletaOrigen" />
+        <PropertyRef Name="IdTienda_BoletaOrigen" />
+        <PropertyRef Name="Caja_BoletaOrigen" />
+        <PropertyRef Name="Nro_Boleta_BoletaOrigen" />
+        <PropertyRef Name="Tipo_Pago_BoletaOrigen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotaCredito_BoletaOrigen_notaCredito">
+    <End Role="notaCredito" Type="Self.notaCredito" Multiplicity="1" />
+    <End Role="NotaCredito_BoletaOrigen" Type="Self.NotaCredito_BoletaOrigen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="notaCredito">
+        <PropertyRef Name="TRX" />
+        <PropertyRef Name="Fecha_Emision" />
+        <PropertyRef Name="IdTienda" />
+        <PropertyRef Name="Caja" />
+      </Principal>
+      <Dependent Role="NotaCredito_BoletaOrigen">
+        <PropertyRef Name="TRX_NotaCredito" />
+        <PropertyRef Name="Fecha_Emision_NotaCredito" />
+        <PropertyRef Name="IdTienda_NotaCredito" />
+        <PropertyRef Name="Caja_NotaCredito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notaCredito_EMPLEADO">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="notaCredito" Type="Self.notaCredito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLEADO" />
+      </Principal>
+      <Dependent Role="notaCredito">
+        <PropertyRef Name="Rut_Cajero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notaCredito_EMPLEADO1">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="notaCredito" Type="Self.notaCredito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLEADO" />
+      </Principal>
+      <Dependent Role="notaCredito">
+        <PropertyRef Name="Rut_Supervisor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK">
+    <End Role="CODIGO_COMERCIO_TBK" Type="Self.CODIGO_COMERCIO_TBK" Multiplicity="1" />
+    <End Role="Pagos_Apitbk" Type="Self.Pagos_Apitbk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="CodigoComercio" />
+      </Principal>
+      <Dependent Role="Pagos_Apitbk">
+        <PropertyRef Name="codigoLocal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAGOS_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="1" />
+    <End Role="PAGOS" Type="Self.PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="IdTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persona_Sexo">
+    <End Role="Sexo" Type="Self.Sexo" Multiplicity="0..1" />
+    <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="SexoCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Remito_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="1" />
+    <End Role="Remito" Type="Self.Remito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="Remito">
+        <PropertyRef Name="idTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Remito_Sencillos_Tiendas">
+    <End Role="Sencillos_Tiendas" Type="Self.Sencillos_Tiendas" Multiplicity="0..1" />
+    <End Role="Remito" Type="Self.Remito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sencillos_Tiendas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Remito">
+        <PropertyRef Name="idSencillosTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Remito_TipoRemito">
+    <End Role="TipoRemito" Type="Self.TipoRemito" Multiplicity="0..1" />
+    <End Role="Remito" Type="Self.Remito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoRemito">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Remito">
+        <PropertyRef Name="CodigoTipoRemito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sencillos_Tiendas_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="0..1" />
+    <End Role="Sencillos_Tiendas" Type="Self.Sencillos_Tiendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="Sencillos_Tiendas">
+        <PropertyRef Name="idTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sencillos_Tiendas_DetalleSencillo">
+    <End Role="DetalleSencillo" Type="Self.DetalleSencillo" Multiplicity="0..1" />
+    <End Role="Sencillos_Tiendas" Type="Self.Sencillos_Tiendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetalleSencillo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sencillos_Tiendas">
+        <PropertyRef Name="idDetalleSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sencillos_Tiendas_EstadoSencillo">
+    <End Role="EstadoSencillo" Type="Self.EstadoSencillo" Multiplicity="0..1" />
+    <End Role="Sencillos_Tiendas" Type="Self.Sencillos_Tiendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoSencillo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Sencillos_Tiendas">
+        <PropertyRef Name="CodigoEstadoSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sobrante_Faltante_AcumuladoSobrante_Faltante">
+    <End Role="AcumuladoSobrante_Faltante" Type="Self.AcumuladoSobrante_Faltante" Multiplicity="0..1" />
+    <End Role="Sobrante_Faltante" Type="Self.Sobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sobrante_Faltante">
+        <PropertyRef Name="IdAcumulado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sobrante_Faltante_CENTROS_LOCAL">
+    <End Role="CENTROS_LOCAL" Type="Self.CENTROS_LOCAL" Multiplicity="1" />
+    <End Role="Sobrante_Faltante" Type="Self.Sobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="Sobrante_Faltante">
+        <PropertyRef Name="IDTIENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sobrante_Faltante_EMPLEADO">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="Sobrante_Faltante" Type="Self.Sobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLEADO" />
+      </Principal>
+      <Dependent Role="Sobrante_Faltante">
+        <PropertyRef Name="ID_Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario_Rol" Type="Self.Usuario_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Usuario_Rol">
+        <PropertyRef Name="CodigoRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Usuario_Rol" Type="Self.Usuario_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario_Rol">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_Apitbk_Ventas_Apitbk">
+    <End Role="CODIGO_COMERCIO_TBK" Type="Self.CODIGO_COMERCIO_TBK" Multiplicity="1" />
+    <End Role="Ventas_Apitbk" Type="Self.Ventas_Apitbk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="CodigoComercio" />
+      </Principal>
+      <Dependent Role="Ventas_Apitbk">
+        <PropertyRef Name="codigoLocal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AperturaPeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Ano" Type="int" Mode="In" />
+    <Parameter Name="Mes" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_Conciliacion_Manual_aPI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="local" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Centro" Type="int" />
+          <Property Name="CodAutorizador" Type="varchar" MaxLength="30" />
+          <Property Name="MontoV" Type="money" />
+          <Property Name="MontoAfecto" Type="money" />
+          <Property Name="Tipo" Type="bit" />
+          <Property Name="NombreLocal" Type="varchar" MaxLength="50" />
+          <Property Name="Trx" Type="int" />
+          <Property Name="Estado" Type="bit" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fn_ConciliacionPagos_Manual_aPI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="local" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Centro" Type="int" />
+          <Property Name="CodAutorizador" Type="varchar" MaxLength="30" />
+          <Property Name="MontoV" Type="money" />
+          <Property Name="MontoAfecto" Type="money" />
+          <Property Name="Tipo" Type="bit" />
+          <Property Name="NombreLocal" Type="varchar" MaxLength="50" />
+          <Property Name="Trx" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Fn_MP_Cuenta_Rut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TRX" Type="int" />
+          <Property Name="IdTienda" Type="int" />
+          <Property Name="Caja" Type="int" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="15" />
+          <Property Name="Folio" Type="nvarchar" MaxLength="30" />
+          <Property Name="Trans" Type="smallint" />
+          <Property Name="Monto" Type="money" />
+          <Property Name="Tipo_Pago" Type="smallint" />
+          <Property Name="Pago" Type="varchar" MaxLength="30" />
+          <Property Name="Tarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="Autorizador" Type="varchar" MaxLength="50" />
+          <Property Name="AUTH_RESP_CD" Type="nvarchar" MaxLength="8" />
+          <Property Name="Monto_Aprobado" Type="money" />
+          <Property Name="NCheque" Type="nvarchar" MaxLength="14" />
+          <Property Name="RutCheque" Type="nvarchar" MaxLength="24" />
+          <Property Name="Banco" Type="nvarchar" MaxLength="14" />
+          <Property Name="FechaCheque" Type="nvarchar" MaxLength="255" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="cuenta" Type="int" />
+          <Property Name="rut_cliente" Type="varchar" MaxLength="15" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Fn_NC_Especial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Inicio" Type="datetime" Mode="In" />
+    <Parameter Name="Fin" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TRX" Type="int" />
+          <Property Name="Fecha_Emision_Nota_Credito" Type="date" />
+          <Property Name="Hora_Emision_Nota_Credito" Type="varchar" MaxLength="8" />
+          <Property Name="IdTienda_notacredito" Type="int" />
+          <Property Name="Caja_notacredito" Type="int" />
+          <Property Name="TIPONOTACREDITO" Type="varchar" MaxLength="35" />
+          <Property Name="Folio_notacredito" Type="varchar" MaxLength="20" />
+          <Property Name="Cliente_notacredito" Type="varchar" MaxLength="10" />
+          <Property Name="Total_notacredito" Type="money" />
+          <Property Name="Documento_Origen" Type="varchar" MaxLength="20" />
+          <Property Name="Trx_Origen" Type="int" />
+          <Property Name="Nro_Boleta" Type="bigint" />
+          <Property Name="IdTienda_Origen_Boleta" Type="int" />
+          <Property Name="Caja_Origen_Boleta" Type="int" />
+          <Property Name="Fecha_Boleta" Type="date" />
+          <Property Name="Monto_Boleta" Type="money" />
+          <Property Name="Tipo_Pago_Origen" Type="int" />
+          <Property Name="Rut_Cajero" Type="varchar" MaxLength="10" />
+          <Property Name="Rut_Supervisor" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre_Trabajador" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion_pago" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre_Jefe" Type="varchar" MaxLength="100" />
+          <Property Name="Hora_Aprov_Nota_Credito" Type="varchar" MaxLength="8" />
+          <Property Name="CEN_Nombre" Type="varchar" MaxLength="34" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Fn_PAGOS_Cuenta_Rut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Tipo_Trx" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IdTienda" Type="int" Nullable="false" />
+          <Property Name="Trx_Global" Type="smallint" Nullable="false" />
+          <Property Name="Caja" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="smallint" />
+          <Property Name="TRX" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Cajero" Type="nvarchar" MaxLength="12" />
+          <Property Name="Monto" Type="money" />
+          <Property Name="Autorizador" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="Autorizador_TBK" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="NumeroReferencia" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="RutCliente" Type="nvarchar" MaxLength="10" />
+          <Property Name="Tipo_Pago" Type="smallint" Nullable="false" />
+          <Property Name="Pago" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Monto_Pago" Type="money" Nullable="false" />
+          <Property Name="Tarjeta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NCheque" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="RutCheque" Type="nvarchar" MaxLength="24" Nullable="false" />
+          <Property Name="Banco" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="FechaCheque" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EstadoConciliado" Type="bit" />
+          <Property Name="cuenta" Type="int" />
+          <Property Name="rut_cliente" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fn_ReporteNcFULLCuadratura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicioNotaCredito" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFinNotaCredito" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Tipo" Type="varchar" MaxLength="35" />
+          <Property Name="IdTienda" Type="int" Nullable="false" />
+          <Property Name="CEN_Nombre" Type="nvarchar" MaxLength="35" />
+          <Property Name="Folio" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha_Emision" Type="date" Nullable="false" />
+          <Property Name="Hora_Emision" Type="varchar" MaxLength="8" />
+          <Property Name="Caja" Type="int" Nullable="false" />
+          <Property Name="Cliente" Type="varchar" MaxLength="10" />
+          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="Nro_Boleta" Type="bigint" Nullable="false" />
+          <Property Name="FechaEmisionBoletaOrigen" Type="datetime" Nullable="false" />
+          <Property Name="TiendaBoletaOrigen" Type="int" Nullable="false" />
+          <Property Name="CajaBoletaOrigen" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="money" />
+          <Property Name="Tipo_Pago" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="CajeroNotaCredito" Type="varchar" MaxLength="12" />
+          <Property Name="EmpleadoNombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpleadoApellido" Type="nvarchar" MaxLength="35" />
+          <Property Name="NcRutSupervisor" Type="varchar" MaxLength="12" />
+          <Property Name="SupervisorNombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="SupervisorApellido" Type="nvarchar" MaxLength="35" />
+          <Property Name="Hora_Aprobacion" Type="varchar" MaxLength="8" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnDashboard_Detalle_Temp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="P_Fecha" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Fecha" Type="varchar" MaxLength="10" />
+          <Property Name="Centro" Type="varchar" MaxLength="4" />
+          <Property Name="Tipo_Documento" Type="varchar" MaxLength="30" />
+          <Property Name="Total_Tienda" Type="money" />
+          <Property Name="Total_SAP" Type="money" />
+          <Property Name="Diferencia" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnDashboard_Pagos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <Parameter Name="CodigoComercio" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Local" Type="int" />
+          <Property Name="Centro" Type="int" />
+          <Property Name="Tipo_Documento" Type="varchar" MaxLength="10" />
+          <Property Name="TRX" Type="int" />
+          <Property Name="Total_Tienda" Type="money" />
+          <Property Name="Tipo" Type="bit" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnDiferencias_Conciliacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="nvarchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Tipo" Type="varchar" MaxLength="10" />
+          <Property Name="Fecha_TBk" Type="varchar" MaxLength="10" />
+          <Property Name="Cod_TBK" Type="varchar" MaxLength="30" />
+          <Property Name="Local_Tbk" Type="int" />
+          <Property Name="Monto_Tbk" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_MP" Type="varchar" MaxLength="10" />
+          <Property Name="Aut_MP" Type="varchar" MaxLength="50" />
+          <Property Name="Local_MP" Type="int" />
+          <Property Name="Monto_MP" Type="money" />
+          <Property Name="MontoAP_MP" Type="money" />
+          <Property Name="Dif" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnIdoc_FI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="IdTienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="MANDT" Type="varchar" MaxLength="5" />
+          <Property Name="INTERFAZ" Type="varchar" MaxLength="5" />
+          <Property Name="FECHAINT" Type="varchar" MaxLength="8" />
+          <Property Name="CORRELAT" Type="int" />
+          <Property Name="NITEM" Type="int" />
+          <Property Name="BUKRS" Type="varchar" MaxLength="5" />
+          <Property Name="BLART" Type="varchar" MaxLength="5" />
+          <Property Name="WAERS" Type="varchar" MaxLength="5" />
+          <Property Name="BUDAT" Type="varchar" MaxLength="8" />
+          <Property Name="BLDAT" Type="varchar" MaxLength="8" />
+          <Property Name="MONAT" Type="varchar" MaxLength="2" />
+          <Property Name="XBLNR" Type="int" />
+          <Property Name="BKTXT" Type="varchar" MaxLength="50" />
+          <Property Name="BUPLA" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBS" Type="varchar" MaxLength="5" />
+          <Property Name="NEWKO" Type="varchar" MaxLength="20" />
+          <Property Name="NEWUM" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBK" Type="varchar" MaxLength="5" />
+          <Property Name="WRBTR" Type="money" />
+          <Property Name="FWBAS" Type="varchar" MaxLength="5" />
+          <Property Name="MWSKZ" Type="varchar" MaxLength="20" />
+          <Property Name="GSBER" Type="varchar" MaxLength="5" />
+          <Property Name="KOSTL_PRCTR" Type="varchar" MaxLength="5" />
+          <Property Name="AUFNR" Type="varchar" MaxLength="5" />
+          <Property Name="ZTERM" Type="varchar" MaxLength="5" />
+          <Property Name="ZUONR" Type="varchar" MaxLength="8" />
+          <Property Name="SGTXT" Type="varchar" MaxLength="50" />
+          <Property Name="VBUND" Type="varchar" MaxLength="5" />
+          <Property Name="XREF1" Type="varchar" MaxLength="5" />
+          <Property Name="XREF2" Type="varchar" MaxLength="5" />
+          <Property Name="XREF3" Type="varchar" MaxLength="5" />
+          <Property Name="VALUT" Type="varchar" MaxLength="8" />
+          <Property Name="XMWST" Type="varchar" MaxLength="5" />
+          <Property Name="ZLSPR" Type="varchar" MaxLength="5" />
+          <Property Name="ZFBDT" Type="varchar" MaxLength="5" />
+          <Property Name="MANSP" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBW" Type="varchar" MaxLength="5" />
+          <Property Name="MENGE" Type="varchar" MaxLength="5" />
+          <Property Name="KURSF" Type="varchar" MaxLength="5" />
+          <Property Name="WWERT" Type="varchar" MaxLength="5" />
+          <Property Name="PRCTR" Type="varchar" MaxLength="5" />
+          <Property Name="SKFBT" Type="varchar" MaxLength="5" />
+          <Property Name="NAME1" Type="varchar" MaxLength="5" />
+          <Property Name="ORT01" Type="varchar" MaxLength="5" />
+          <Property Name="STCD1" Type="varchar" MaxLength="5" />
+          <Property Name="EBELN" Type="varchar" MaxLength="5" />
+          <Property Name="WERKS" Type="varchar" MaxLength="5" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnIdocPagos_FI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="IdTienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="MANDT" Type="varchar" MaxLength="5" />
+          <Property Name="INTERFAZ" Type="varchar" MaxLength="5" />
+          <Property Name="FECHAINT" Type="varchar" MaxLength="8" />
+          <Property Name="CORRELAT" Type="int" />
+          <Property Name="NITEM" Type="int" />
+          <Property Name="BUKRS" Type="varchar" MaxLength="5" />
+          <Property Name="BLART" Type="varchar" MaxLength="5" />
+          <Property Name="WAERS" Type="varchar" MaxLength="5" />
+          <Property Name="BUDAT" Type="varchar" MaxLength="8" />
+          <Property Name="BLDAT" Type="varchar" MaxLength="8" />
+          <Property Name="MONAT" Type="varchar" MaxLength="2" />
+          <Property Name="XBLNR" Type="int" />
+          <Property Name="BKTXT" Type="varchar" MaxLength="50" />
+          <Property Name="BUPLA" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBS" Type="varchar" MaxLength="5" />
+          <Property Name="NEWKO" Type="varchar" MaxLength="20" />
+          <Property Name="NEWUM" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBK" Type="varchar" MaxLength="5" />
+          <Property Name="WRBTR" Type="money" />
+          <Property Name="FWBAS" Type="varchar" MaxLength="5" />
+          <Property Name="MWSKZ" Type="varchar" MaxLength="20" />
+          <Property Name="GSBER" Type="varchar" MaxLength="5" />
+          <Property Name="KOSTL_PRCTR" Type="varchar" MaxLength="5" />
+          <Property Name="AUFNR" Type="varchar" MaxLength="5" />
+          <Property Name="ZTERM" Type="varchar" MaxLength="5" />
+          <Property Name="ZUONR" Type="varchar" MaxLength="8" />
+          <Property Name="SGTXT" Type="varchar" MaxLength="50" />
+          <Property Name="VBUND" Type="varchar" MaxLength="5" />
+          <Property Name="XREF1" Type="varchar" MaxLength="5" />
+          <Property Name="XREF2" Type="varchar" MaxLength="5" />
+          <Property Name="XREF3" Type="varchar" MaxLength="5" />
+          <Property Name="VALUT" Type="varchar" MaxLength="8" />
+          <Property Name="XMWST" Type="varchar" MaxLength="5" />
+          <Property Name="ZLSPR" Type="varchar" MaxLength="5" />
+          <Property Name="ZFBDT" Type="varchar" MaxLength="5" />
+          <Property Name="MANSP" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBW" Type="varchar" MaxLength="5" />
+          <Property Name="MENGE" Type="varchar" MaxLength="5" />
+          <Property Name="KURSF" Type="varchar" MaxLength="5" />
+          <Property Name="WWERT" Type="varchar" MaxLength="5" />
+          <Property Name="PRCTR" Type="varchar" MaxLength="8" />
+          <Property Name="SKFBT" Type="varchar" MaxLength="5" />
+          <Property Name="NAME1" Type="varchar" MaxLength="5" />
+          <Property Name="ORT01" Type="varchar" MaxLength="5" />
+          <Property Name="STCD1" Type="varchar" MaxLength="5" />
+          <Property Name="EBELN" Type="varchar" MaxLength="5" />
+          <Property Name="WERKS" Type="varchar" MaxLength="5" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnIdocVentas_FI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="IdTienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="MANDT" Type="varchar" MaxLength="5" />
+          <Property Name="INTERFAZ" Type="varchar" MaxLength="5" />
+          <Property Name="FECHAINT" Type="varchar" MaxLength="8" />
+          <Property Name="CORRELAT" Type="int" />
+          <Property Name="NITEM" Type="int" />
+          <Property Name="BUKRS" Type="varchar" MaxLength="5" />
+          <Property Name="BLART" Type="varchar" MaxLength="5" />
+          <Property Name="WAERS" Type="varchar" MaxLength="5" />
+          <Property Name="BUDAT" Type="varchar" MaxLength="8" />
+          <Property Name="BLDAT" Type="varchar" MaxLength="8" />
+          <Property Name="MONAT" Type="varchar" MaxLength="2" />
+          <Property Name="XBLNR" Type="int" />
+          <Property Name="BKTXT" Type="varchar" MaxLength="50" />
+          <Property Name="BUPLA" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBS" Type="varchar" MaxLength="5" />
+          <Property Name="NEWKO" Type="varchar" MaxLength="20" />
+          <Property Name="NEWUM" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBK" Type="varchar" MaxLength="5" />
+          <Property Name="WRBTR" Type="money" />
+          <Property Name="FWBAS" Type="varchar" MaxLength="5" />
+          <Property Name="MWSKZ" Type="varchar" MaxLength="20" />
+          <Property Name="GSBER" Type="varchar" MaxLength="5" />
+          <Property Name="KOSTL_PRCTR" Type="varchar" MaxLength="5" />
+          <Property Name="AUFNR" Type="varchar" MaxLength="5" />
+          <Property Name="ZTERM" Type="varchar" MaxLength="5" />
+          <Property Name="ZUONR" Type="varchar" MaxLength="8" />
+          <Property Name="SGTXT" Type="varchar" MaxLength="50" />
+          <Property Name="VBUND" Type="varchar" MaxLength="5" />
+          <Property Name="XREF1" Type="varchar" MaxLength="5" />
+          <Property Name="XREF2" Type="varchar" MaxLength="5" />
+          <Property Name="XREF3" Type="varchar" MaxLength="5" />
+          <Property Name="VALUT" Type="varchar" MaxLength="8" />
+          <Property Name="XMWST" Type="varchar" MaxLength="5" />
+          <Property Name="ZLSPR" Type="varchar" MaxLength="5" />
+          <Property Name="ZFBDT" Type="varchar" MaxLength="5" />
+          <Property Name="MANSP" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBW" Type="varchar" MaxLength="5" />
+          <Property Name="MENGE" Type="varchar" MaxLength="5" />
+          <Property Name="KURSF" Type="varchar" MaxLength="5" />
+          <Property Name="WWERT" Type="varchar" MaxLength="5" />
+          <Property Name="PRCTR" Type="varchar" MaxLength="5" />
+          <Property Name="SKFBT" Type="varchar" MaxLength="5" />
+          <Property Name="NAME1" Type="varchar" MaxLength="5" />
+          <Property Name="ORT01" Type="varchar" MaxLength="5" />
+          <Property Name="STCD1" Type="varchar" MaxLength="5" />
+          <Property Name="EBELN" Type="varchar" MaxLength="5" />
+          <Property Name="WERKS" Type="varchar" MaxLength="5" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnIdocVentas_MP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="IdTienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="MANDT" Type="varchar" MaxLength="5" />
+          <Property Name="INTERFAZ" Type="varchar" MaxLength="5" />
+          <Property Name="FECHAINT" Type="varchar" MaxLength="8" />
+          <Property Name="CORRELAT" Type="int" />
+          <Property Name="NITEM" Type="int" />
+          <Property Name="BUKRS" Type="varchar" MaxLength="5" />
+          <Property Name="BLART" Type="varchar" MaxLength="5" />
+          <Property Name="WAERS" Type="varchar" MaxLength="5" />
+          <Property Name="BUDAT" Type="varchar" MaxLength="8" />
+          <Property Name="BLDAT" Type="varchar" MaxLength="8" />
+          <Property Name="MONAT" Type="varchar" MaxLength="2" />
+          <Property Name="XBLNR" Type="int" />
+          <Property Name="BKTXT" Type="varchar" MaxLength="50" />
+          <Property Name="BUPLA" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBS" Type="varchar" MaxLength="5" />
+          <Property Name="NEWKO" Type="varchar" MaxLength="20" />
+          <Property Name="NEWUM" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBK" Type="varchar" MaxLength="5" />
+          <Property Name="WRBTR" Type="money" />
+          <Property Name="FWBAS" Type="varchar" MaxLength="5" />
+          <Property Name="MWSKZ" Type="varchar" MaxLength="20" />
+          <Property Name="GSBER" Type="varchar" MaxLength="5" />
+          <Property Name="KOSTL_PRCTR" Type="varchar" MaxLength="5" />
+          <Property Name="AUFNR" Type="varchar" MaxLength="5" />
+          <Property Name="ZTERM" Type="varchar" MaxLength="5" />
+          <Property Name="ZUONR" Type="varchar" MaxLength="8" />
+          <Property Name="SGTXT" Type="varchar" MaxLength="50" />
+          <Property Name="VBUND" Type="varchar" MaxLength="5" />
+          <Property Name="XREF1" Type="varchar" MaxLength="5" />
+          <Property Name="XREF2" Type="varchar" MaxLength="5" />
+          <Property Name="XREF3" Type="varchar" MaxLength="5" />
+          <Property Name="VALUT" Type="varchar" MaxLength="8" />
+          <Property Name="XMWST" Type="varchar" MaxLength="5" />
+          <Property Name="ZLSPR" Type="varchar" MaxLength="5" />
+          <Property Name="ZFBDT" Type="varchar" MaxLength="5" />
+          <Property Name="MANSP" Type="varchar" MaxLength="5" />
+          <Property Name="NEWBW" Type="varchar" MaxLength="5" />
+          <Property Name="MENGE" Type="varchar" MaxLength="5" />
+          <Property Name="KURSF" Type="varchar" MaxLength="5" />
+          <Property Name="WWERT" Type="varchar" MaxLength="5" />
+          <Property Name="PRCTR" Type="varchar" MaxLength="8" />
+          <Property Name="SKFBT" Type="varchar" MaxLength="5" />
+          <Property Name="NAME1" Type="varchar" MaxLength="5" />
+          <Property Name="ORT01" Type="varchar" MaxLength="5" />
+          <Property Name="STCD1" Type="varchar" MaxLength="5" />
+          <Property Name="EBELN" Type="varchar" MaxLength="5" />
+          <Property Name="WERKS" Type="varchar" MaxLength="5" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_Avance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Anio" Type="int" Mode="In" />
+    <Parameter Name="Mes" Type="int" Mode="In" />
+    <Parameter Name="Tienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Mes" Type="int" />
+          <Property Name="Local" Type="int" />
+          <Property Name="Monto" Type="money" />
+          <Property Name="Trx" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_CAAU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Referencia" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoEmpresa" Type="varchar" MaxLength="10" />
+          <Property Name="FechaAutorizacion" Type="datetime" />
+          <Property Name="CodigoAgencia" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroTerminal" Type="int" />
+          <Property Name="NumeroBoleta" Type="varchar" MaxLength="50" />
+          <Property Name="TipoTransaccion" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroAutorizacion" Type="varchar" MaxLength="50" />
+          <Property Name="TipoArchivo" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoCliente" Type="int" />
+          <Property Name="NumeroTarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="Monto" Type="int" />
+          <Property Name="MontoPie" Type="int" />
+          <Property Name="MesesDiferido" Type="int" />
+          <Property Name="MesesGracia" Type="int" />
+          <Property Name="FechaAutoriza" Type="date" />
+          <Property Name="NumeroCuotas" Type="int" />
+          <Property Name="Extrafinanciamiento" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoPlanCredito" Type="int" />
+          <Property Name="MontoAfecto" Type="int" />
+          <Property Name="MontonoAfecto" Type="int" />
+          <Property Name="CodigoComercio" Type="int" />
+          <Property Name="CodigoRubro" Type="int" />
+          <Property Name="RutVendedor" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoPromocionVenta" Type="int" />
+          <Property Name="MontoCuota" Type="int" />
+          <Property Name="FechaPrimerVencimiento" Type="datetime" />
+          <Property Name="FechaUltimoVencimiento" Type="datetime" />
+          <Property Name="Confirmada" Type="char" MaxLength="1" />
+          <Property Name="ModoProceso" Type="char" MaxLength="2" />
+          <Property Name="NroTrxPos" Type="int" />
+          <Property Name="NroRef" Type="varchar" MaxLength="50" />
+          <Property Name="NroCaja" Type="int" />
+          <Property Name="TipoDiferencia" Type="char" MaxLength="1" />
+          <Property Name="Estado" Type="char" MaxLength="2" />
+          <Property Name="Cuenta_GL" Type="int" />
+          <Property Name="Rut_GL" Type="varchar" MaxLength="15" />
+          <Property Name="Monto_GL" Type="money" />
+          <Property Name="MontoAprobado_GL" Type="money" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_CAAU_AVANCES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Referencia" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoEmpresa" Type="varchar" MaxLength="10" />
+          <Property Name="FechaAutorizacion" Type="datetime" />
+          <Property Name="CodigoAgencia" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroTerminal" Type="int" />
+          <Property Name="NumeroBoleta" Type="varchar" MaxLength="50" />
+          <Property Name="TipoTransaccion" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroAutorizacion" Type="varchar" MaxLength="50" />
+          <Property Name="TipoArchivo" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoCliente" Type="int" />
+          <Property Name="NumeroTarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="Monto" Type="int" />
+          <Property Name="MontoPie" Type="int" />
+          <Property Name="MesesDiferido" Type="int" />
+          <Property Name="MesesGracia" Type="int" />
+          <Property Name="FechaAutoriza" Type="date" />
+          <Property Name="NumeroCuotas" Type="int" />
+          <Property Name="Extrafinanciamiento" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoPlanCredito" Type="int" />
+          <Property Name="MontoAfecto" Type="int" />
+          <Property Name="MontonoAfecto" Type="int" />
+          <Property Name="CodigoComercio" Type="int" />
+          <Property Name="CodigoRubro" Type="int" />
+          <Property Name="RutVendedor" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoPromocionVenta" Type="int" />
+          <Property Name="MontoCuota" Type="int" />
+          <Property Name="FechaPrimerVencimiento" Type="datetime" />
+          <Property Name="FechaUltimoVencimiento" Type="datetime" />
+          <Property Name="Confirmada" Type="char" MaxLength="1" />
+          <Property Name="ModoProceso" Type="char" MaxLength="2" />
+          <Property Name="NroTrxPos" Type="int" />
+          <Property Name="NroRef" Type="varchar" MaxLength="50" />
+          <Property Name="NroCaja" Type="int" />
+          <Property Name="TipoDiferencia" Type="char" MaxLength="1" />
+          <Property Name="Estado" Type="char" MaxLength="2" />
+          <Property Name="Cuenta_GL" Type="int" />
+          <Property Name="Rut_GL" Type="varchar" MaxLength="15" />
+          <Property Name="Monto_GL" Type="money" />
+          <Property Name="MontoPago_GL" Type="money" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_CAPA_PAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="CodigoEmpresa" Type="varchar" MaxLength="10" />
+          <Property Name="FechaAutorizacion" Type="datetime" />
+          <Property Name="CodigoAgencia" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroTerminal" Type="int" />
+          <Property Name="CodigoUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroAutorizacion" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroBoleta" Type="varchar" MaxLength="50" />
+          <Property Name="TipoArchivo" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoCliente" Type="varchar" MaxLength="15" />
+          <Property Name="Numerocuenta" Type="int" />
+          <Property Name="Monto" Type="int" />
+          <Property Name="CodigoMedioPago" Type="int" />
+          <Property Name="DetalleMovimiento" Type="varchar" MaxLength="50" />
+          <Property Name="NroTrxPos" Type="int" />
+          <Property Name="NroRef" Type="varchar" MaxLength="50" />
+          <Property Name="NroCaja" Type="int" />
+          <Property Name="Rut_GL" Type="varchar" MaxLength="15" />
+          <Property Name="Estado" Type="char" MaxLength="2" />
+          <Property Name="Cuenta_GL" Type="int" />
+          <Property Name="Monto_GL" Type="money" />
+          <Property Name="MontoPago_GL" Type="money" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_Nota_Credito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="P_FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="P_FechaHasta" Type="datetime" Mode="In" />
+    <Parameter Name="P_Tienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="nombreZona" Type="varchar" MaxLength="50" />
+          <Property Name="TRX" Type="int" />
+          <Property Name="Fecha_Nota_Credito" Type="datetime" />
+          <Property Name="Fecha_Emision_Nota_Credito" Type="datetime" />
+          <Property Name="IdTienda" Type="int" />
+          <Property Name="Nombre_Local" Type="varchar" MaxLength="35" />
+          <Property Name="Caja_Nota_Credito" Type="int" />
+          <Property Name="Tipo_Documento" Type="varchar" MaxLength="15" />
+          <Property Name="Folio_Nota_Credito" Type="varchar" MaxLength="30" />
+          <Property Name="Rut_Cliente_Nota_Credito" Type="varchar" MaxLength="24" />
+          <Property Name="Nombre_Cliente_NC" Type="varchar" MaxLength="90" />
+          <Property Name="Monto_Nota_Credito" Type="money" />
+          <Property Name="Documento_Origen" Type="varchar" MaxLength="15" />
+          <Property Name="Trx_Interno" Type="int" />
+          <Property Name="Nro_Boleta" Type="varchar" MaxLength="30" />
+          <Property Name="IdTienda_Origen_Boleta" Type="int" />
+          <Property Name="Caja_Origen_Boleta" Type="int" />
+          <Property Name="Fecha_Boleta" Type="datetime" />
+          <Property Name="Monto_Boleta" Type="money" />
+          <Property Name="Tipo_Pago_Origen" Type="int" />
+          <Property Name="Nombre_Tipo_Pago_Origen" Type="varchar" MaxLength="30" />
+          <Property Name="Pago_Monto" Type="money" />
+          <Property Name="Rut_Cajero" Type="varchar" MaxLength="12" />
+          <Property Name="Nombre_Cajero" Type="varchar" MaxLength="90" />
+          <Property Name="Rut_Supervisor" Type="varchar" MaxLength="12" />
+          <Property Name="Nombre_Supervisor" Type="varchar" MaxLength="90" />
+          <Property Name="Fecha_Pago_Origen" Type="datetime" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_PagosFSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Anio" Type="int" Mode="In" />
+    <Parameter Name="Mes" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="VIGENCIA" Type="varchar" MaxLength="50" />
+          <Property Name="NOMBRETRX" Type="varchar" MaxLength="50" />
+          <Property Name="LOCAL" Type="varchar" MaxLength="50" />
+          <Property Name="CAJA" Type="varchar" MaxLength="50" />
+          <Property Name="GLOBALTRX" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA" Type="varchar" MaxLength="50" />
+          <Property Name="CODIGOAUTORIZACION" Type="varchar" MaxLength="50" />
+          <Property Name="NROTARJETA" Type="varchar" MaxLength="50" />
+          <Property Name="MONTOTRX" Type="varchar" MaxLength="50" />
+          <Property Name="NRO_CUOTAS" Type="varchar" MaxLength="50" />
+          <Property Name="PAGO_MIN_EECC" Type="varchar" MaxLength="50" />
+          <Property Name="MONTO_REDONDEO" Type="varchar" MaxLength="50" />
+          <Property Name="MONTO_RECAUDADO" Type="varchar" MaxLength="50" />
+          <Property Name="AJUSTE_LEY" Type="varchar" MaxLength="50" />
+          <Property Name="CUENTA" Type="varchar" MaxLength="50" />
+          <Property Name="RUT_CLIENTE" Type="varchar" MaxLength="50" />
+          <Property Name="VIGENCIA2" Type="varchar" MaxLength="50" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_Participacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Anio" Type="int" Mode="In" />
+    <Parameter Name="Mes" Type="int" Mode="In" />
+    <Parameter Name="Tienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="idTienda" Type="int" />
+          <Property Name="TipodePago" Type="varchar" MaxLength="50" />
+          <Property Name="TotalVenta" Type="money" />
+          <Property Name="Porcentaje" Type="money" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_PremisasNC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TRX" Type="int" Nullable="false" />
+          <Property Name="Fecha_Emision_Nota_Credito" Type="date" />
+          <Property Name="IdTienda_notacredito" Type="int" />
+          <Property Name="Caja_notacredito" Type="int" />
+          <Property Name="TIPONOTACREDITO" Type="varchar" MaxLength="35" />
+          <Property Name="Folio_notacredito" Type="varchar" MaxLength="20" />
+          <Property Name="Cliente_notacredito" Type="varchar" MaxLength="10" />
+          <Property Name="Total_notacredito" Type="money" />
+          <Property Name="Documento_Origen" Type="varchar" MaxLength="20" />
+          <Property Name="Trx_Origen" Type="int" />
+          <Property Name="Nro_Boleta" Type="bigint" />
+          <Property Name="IdTienda_Origen_Boleta" Type="int" />
+          <Property Name="Caja_Origen_Boleta" Type="int" />
+          <Property Name="Fecha_Boleta" Type="date" />
+          <Property Name="Monto_Boleta" Type="money" />
+          <Property Name="Tipo_Pago_Origen" Type="int" />
+          <Property Name="Rut_Cajero" Type="varchar" MaxLength="10" />
+          <Property Name="Rut_Supervisor" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre_trabajador" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion_pago" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_premisa" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporte_Ventas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Anio" Type="int" Mode="In" />
+    <Parameter Name="Mes" Type="int" Mode="In" />
+    <Parameter Name="Tienda" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="idTienda" Type="int" />
+          <Property Name="TipodePago" Type="varchar" MaxLength="50" />
+          <Property Name="Monto" Type="money" />
+          <Property Name="Pago" Type="varchar" MaxLength="50" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporteBoletasContraloria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="year" Type="int" Mode="In" />
+    <Parameter Name="month" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TRX" Type="int" Nullable="false" />
+          <Property Name="TRX_Impreso" Type="smallint" />
+          <Property Name="Tipo_Trx" Type="smallint" />
+          <Property Name="Local" Type="int" Nullable="false" />
+          <Property Name="Nombre_Tienda" Type="nvarchar" MaxLength="35" />
+          <Property Name="Cajero" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="NOMBRES" Type="nvarchar" MaxLength="16" />
+          <Property Name="APELLIDOS" Type="nvarchar" MaxLength="35" />
+          <Property Name="Caja" Type="int" Nullable="false" />
+          <Property Name="Fecha_Venta" Type="date" />
+          <Property Name="Hora_Venta" Type="varchar" MaxLength="8" />
+          <Property Name="Fecha_Vta_Sistema" Type="datetime" />
+          <Property Name="Fecha_Venta_Linea" Type="datetime" />
+          <Property Name="Caja_Fuera_Linea" Type="smallint" Nullable="false" />
+          <Property Name="Modo_Entrenamiento" Type="smallint" Nullable="false" />
+          <Property Name="Codigo_Anula" Type="smallint" Nullable="false" />
+          <Property Name="Cliente" Type="nvarchar" MaxLength="24" />
+          <Property Name="Vendedor" Type="nvarchar" MaxLength="24" />
+          <Property Name="Venta_Iniciada" Type="smallint" Nullable="false" />
+          <Property Name="Total_Venta" Type="money" />
+          <Property Name="Caja2" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Folio_Documento" Type="nvarchar" MaxLength="30" />
+          <Property Name="Tipo_Documento" Type="nvarchar" MaxLength="15" />
+          <Property Name="Tipo_Impto" Type="int" />
+          <Property Name="Impto" Type="money" />
+          <Property Name="Neto" Type="money" />
+          <Property Name="Bruto" Type="money" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnReporteNCContraloria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fechainicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TRX" Type="int" Nullable="false" />
+          <Property Name="Fecha_Emision_Nota_Credito" Type="date" Nullable="false" />
+          <Property Name="Hora_Emision_Nota_Credito" Type="varchar" MaxLength="8" />
+          <Property Name="IdTienda_notacredito" Type="int" Nullable="false" />
+          <Property Name="Caja_notacredito" Type="int" Nullable="false" />
+          <Property Name="TIPONOTACREDITO" Type="varchar" MaxLength="35" />
+          <Property Name="Folio_notacredito" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cliente_notacredito" Type="varchar" MaxLength="10" />
+          <Property Name="Total_notacredito" Type="money" />
+          <Property Name="Documento_Origen" Type="varchar" MaxLength="20" />
+          <Property Name="Trx_Origen" Type="int" />
+          <Property Name="Nro_Boleta" Type="bigint" />
+          <Property Name="IdTienda_Origen_Boleta" Type="int" />
+          <Property Name="Caja_Origen_Boleta" Type="int" />
+          <Property Name="Fecha_Boleta" Type="date" />
+          <Property Name="Monto_Boleta" Type="money" />
+          <Property Name="Tipo_Pago_Origen" Type="int" Nullable="false" />
+          <Property Name="Rut_Cajero" Type="varchar" MaxLength="10" />
+          <Property Name="Rut_Supervisor" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre_trabajador" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion_pago" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre_Jefe" Type="varchar" MaxLength="100" />
+          <Property Name="Hora_Aprov_Nota_Credito" Type="varchar" MaxLength="8" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnSencillosTiendaNoConciliados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="idtienda" Type="int" />
+          <Property Name="NuevoTotal" Type="int" />
+          <Property Name="Banco" Type="varchar" MaxLength="50" />
+          <Property Name="DiaLiberacion" Type="varchar" MaxLength="50" />
+          <Property Name="DiaEntrega" Type="varchar" MaxLength="50" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="FechaFin" Type="datetime" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Inserta_tarea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha_tarea" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_CLASE_DOCUMENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_Dashboard_Principal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="P_Fecha" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_Dashboard_Principal_Temp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="P_Fecha" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_DESCARGA_VENTAS_IDOC_X_FECHA_X_LOCAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="C_Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="I_Tienda" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_GENERAR_IDOC_X_BCP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="P_Centro" Type="int" Mode="In" />
+    <Parameter Name="P_Fecha" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GENERAR_VENTAS_IDOC_X_FECHA_X_LOCAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="C_Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="I_Tienda" Type="int" Mode="In" />
+    <Parameter Name="Ambiente" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GenIdocCLI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_GenIdocMP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tda_I" Type="int" Mode="In" />
+    <Parameter Name="Fecha_I" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GenIdocNCFC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tda_I" Type="int" Mode="In" />
+    <Parameter Name="Fecha_I" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GenIdocNCFC_Indiv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tienda_I" Type="int" Mode="In" />
+    <Parameter Name="Fecha_I" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GenIdocVtaIndi_Folio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tienda_I" Type="int" Mode="In" />
+    <Parameter Name="Fecha_I" Type="varchar" Mode="In" />
+    <Parameter Name="NDoc" Type="int" Mode="In" />
+    <Parameter Name="TipoDoc" Type="varchar" Mode="In" />
+    <Parameter Name="Ambiente" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_IdocClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="local" Type="int" Mode="In" />
+    <Parameter Name="Ambiente" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_IdocClientesIndi_Rut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Rut" Type="nvarchar" Mode="In" />
+    <Parameter Name="Ambiente" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_LeerIdocMP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="IdTienda" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_LeerNCFC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tienda_I" Type="int" Mode="In" />
+    <Parameter Name="Fecha_I" Type="varchar" Mode="In" />
+    <Parameter Name="Ambiente" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_LeerNCFC_IND" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tienda_I" Type="int" Mode="In" />
+    <Parameter Name="Fecha_I" Type="varchar" Mode="In" />
+    <Parameter Name="Ambiente" Type="varchar" Mode="In" />
+    <Parameter Name="NDoc" Type="varchar(max)" Mode="In" />
+    <Parameter Name="TipoDoc" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_LeerPAGOSMP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="date" Mode="In" />
+  </Function>
+  <Function Name="Proc_ListaDetalleVenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="C_Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="I_Tienda" Type="varchar" Mode="In" />
+    <Parameter Name="C_Tipo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ListaIdocVenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="C_Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="I_Tienda" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ListaLibroVenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="C_Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="I_Tienda" Type="varchar" Mode="In" />
+    <Parameter Name="C_Tipo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ListaLibroVenta_Temp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="C_Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="I_Tienda" Type="varchar" Mode="In" />
+    <Parameter Name="C_Tipo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_LOCALES_ACTIVOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_Locales_Transbank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_TotaleMediosPagos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha_ini" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_fin" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoComercio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_TotalesTransbankApi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha_ini" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_fin" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoComercio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_TotaleTransbank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha_ini" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_fin" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoComercio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Procesar_IdocClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="local" Type="int" Mode="In" />
+    <Parameter Name="Ambiente" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spConAutomaticaSencilloSAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fechainicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="spConciliacionAutomatica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="spConciliacionAutomaticaCAAU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="spConciliacionAutomaticaCAPA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="spInser_detallelibromayor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spInsertConciliacionAuto_LibMayor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spInsertConciliacionAutoPagos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="spInsertLibroVentas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="sisgesModelStoreContainer">
+    <EntitySet Name="ACREEDOR_REL" EntityType="Self.ACREEDOR_REL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AcumuladoSobrante_Faltante" EntityType="Self.AcumuladoSobrante_Faltante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="boletaOrigen" EntityType="Self.boletaOrigen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CENTROS_LOCAL" EntityType="Self.CENTROS_LOCAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CODIGO_COMERCIO_TBK" EntityType="Self.CODIGO_COMERCIO_TBK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conciliacion" EntityType="Self.Conciliacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConciliacionAutoPagos" EntityType="Self.ConciliacionAutoPagos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConciliaciondePagos" EntityType="Self.ConciliaciondePagos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConciliacionManualPagos" EntityType="Self.ConciliacionManualPagos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cuenta" EntityType="Self.Cuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleConciliacion" EntityType="Self.DetalleConciliacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleConciliacionPagos" EntityType="Self.DetalleConciliacionPagos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleSencillo" EntityType="Self.DetalleSencillo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diferencias_Pagos" EntityType="Self.Diferencias_Pagos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoSencillo" EntityType="Self.EstadoSencillo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IDOC_FI" EntityType="Self.IDOC_FI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InterfazAutorizacion" EntityType="Self.InterfazAutorizacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LIBRO_VENTA" EntityType="Self.LIBRO_VENTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LIBRO_VENTA_PROD" EntityType="Self.LIBRO_VENTA_PROD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LibroMayor" EntityType="Self.LibroMayor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LibroMayorDEP" EntityType="Self.LibroMayorDEP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDIOSPAGOS" EntityType="Self.MEDIOSPAGOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MontoSencillo" EntityType="Self.MontoSencillo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notaCredito" EntityType="Self.notaCredito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotaCredito_BoletaOrigen" EntityType="Self.NotaCredito_BoletaOrigen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAGOS" EntityType="Self.PAGOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagos_Apitbk" EntityType="Self.Pagos_Apitbk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Periodo" EntityType="Self.Periodo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Remito" EntityType="Self.Remito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sencillos" EntityType="Self.Sencillos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sencillos_Tiendas" EntityType="Self.Sencillos_Tiendas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SencillosSAP" EntityType="Self.SencillosSAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sobrante_Faltante" EntityType="Self.Sobrante_Faltante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoAceptacion" EntityType="Self.TipoAceptacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPagoGL" EntityType="Self.TipoPagoGL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoRechazo" EntityType="Self.TipoRechazo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoRemito" EntityType="Self.TipoRemito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario_Rol" EntityType="Self.Usuario_Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VENTAS" EntityType="Self.VENTAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ventas_Apitbk" EntityType="Self.Ventas_Apitbk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZONA" EntityType="Self.ZONA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IDOC_PAGOS_FI" EntityType="Self.IDOC_PAGOS_FI" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IDOC_PAGOS_FI].[MANDT] AS [MANDT], 
+    [IDOC_PAGOS_FI].[INTERFAZ] AS [INTERFAZ], 
+    [IDOC_PAGOS_FI].[FECHAINT] AS [FECHAINT], 
+    [IDOC_PAGOS_FI].[CORRELAT] AS [CORRELAT], 
+    [IDOC_PAGOS_FI].[NITEM] AS [NITEM], 
+    [IDOC_PAGOS_FI].[BUKRS] AS [BUKRS], 
+    [IDOC_PAGOS_FI].[BLART] AS [BLART], 
+    [IDOC_PAGOS_FI].[WAERS] AS [WAERS], 
+    [IDOC_PAGOS_FI].[BUDAT] AS [BUDAT], 
+    [IDOC_PAGOS_FI].[BLDAT] AS [BLDAT], 
+    [IDOC_PAGOS_FI].[MONAT] AS [MONAT], 
+    [IDOC_PAGOS_FI].[XBLNR] AS [XBLNR], 
+    [IDOC_PAGOS_FI].[BKTXT] AS [BKTXT], 
+    [IDOC_PAGOS_FI].[BUPLA] AS [BUPLA], 
+    [IDOC_PAGOS_FI].[NEWBS] AS [NEWBS], 
+    [IDOC_PAGOS_FI].[NEWKO] AS [NEWKO], 
+    [IDOC_PAGOS_FI].[NEWUM] AS [NEWUM], 
+    [IDOC_PAGOS_FI].[NEWBK] AS [NEWBK], 
+    [IDOC_PAGOS_FI].[WRBTR] AS [WRBTR], 
+    [IDOC_PAGOS_FI].[FWBAS] AS [FWBAS], 
+    [IDOC_PAGOS_FI].[MWSKZ] AS [MWSKZ], 
+    [IDOC_PAGOS_FI].[GSBER] AS [GSBER], 
+    [IDOC_PAGOS_FI].[KOSTL_PRCTR] AS [KOSTL_PRCTR], 
+    [IDOC_PAGOS_FI].[AUFNR] AS [AUFNR], 
+    [IDOC_PAGOS_FI].[ZTERM] AS [ZTERM], 
+    [IDOC_PAGOS_FI].[ZUONR] AS [ZUONR], 
+    [IDOC_PAGOS_FI].[SGTXT] AS [SGTXT], 
+    [IDOC_PAGOS_FI].[VBUND] AS [VBUND], 
+    [IDOC_PAGOS_FI].[XREF1] AS [XREF1], 
+    [IDOC_PAGOS_FI].[XREF2] AS [XREF2], 
+    [IDOC_PAGOS_FI].[XREF3] AS [XREF3], 
+    [IDOC_PAGOS_FI].[VALUT] AS [VALUT], 
+    [IDOC_PAGOS_FI].[XMWST] AS [XMWST], 
+    [IDOC_PAGOS_FI].[ZLSPR] AS [ZLSPR], 
+    [IDOC_PAGOS_FI].[ZFBDT] AS [ZFBDT], 
+    [IDOC_PAGOS_FI].[MANSP] AS [MANSP], 
+    [IDOC_PAGOS_FI].[NEWBW] AS [NEWBW], 
+    [IDOC_PAGOS_FI].[MENGE] AS [MENGE], 
+    [IDOC_PAGOS_FI].[KURSF] AS [KURSF], 
+    [IDOC_PAGOS_FI].[WWERT] AS [WWERT], 
+    [IDOC_PAGOS_FI].[PRCTR] AS [PRCTR], 
+    [IDOC_PAGOS_FI].[SKFBT] AS [SKFBT], 
+    [IDOC_PAGOS_FI].[NAME1] AS [NAME1], 
+    [IDOC_PAGOS_FI].[ORT01] AS [ORT01], 
+    [IDOC_PAGOS_FI].[STCD1] AS [STCD1], 
+    [IDOC_PAGOS_FI].[EBELN] AS [EBELN], 
+    [IDOC_PAGOS_FI].[WERKS] AS [WERKS]
+    FROM [dbo].[IDOC_PAGOS_FI] AS [IDOC_PAGOS_FI]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="notaCreditoEspecial" EntityType="Self.notaCreditoEspecial" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [notaCreditoEspecial].[TRX] AS [TRX], 
+    [notaCreditoEspecial].[Fecha_Emision_Nota_Credito] AS [Fecha_Emision_Nota_Credito], 
+    [notaCreditoEspecial].[Hora_Emision_Nota_Credito] AS [Hora_Emision_Nota_Credito], 
+    [notaCreditoEspecial].[IdTienda_notacredito] AS [IdTienda_notacredito], 
+    [notaCreditoEspecial].[Caja_notacredito] AS [Caja_notacredito], 
+    [notaCreditoEspecial].[TIPONOTACREDITO] AS [TIPONOTACREDITO], 
+    [notaCreditoEspecial].[Folio_notacredito] AS [Folio_notacredito], 
+    [notaCreditoEspecial].[Cliente_notacredito] AS [Cliente_notacredito], 
+    [notaCreditoEspecial].[Total_notacredito] AS [Total_notacredito], 
+    [notaCreditoEspecial].[Documento_Origen] AS [Documento_Origen], 
+    [notaCreditoEspecial].[Trx_Origen] AS [Trx_Origen], 
+    [notaCreditoEspecial].[Nro_Boleta] AS [Nro_Boleta], 
+    [notaCreditoEspecial].[IdTienda_Origen_Boleta] AS [IdTienda_Origen_Boleta], 
+    [notaCreditoEspecial].[Caja_Origen_Boleta] AS [Caja_Origen_Boleta], 
+    [notaCreditoEspecial].[Fecha_Boleta] AS [Fecha_Boleta], 
+    [notaCreditoEspecial].[Monto_Boleta] AS [Monto_Boleta], 
+    [notaCreditoEspecial].[Tipo_Pago_Origen] AS [Tipo_Pago_Origen], 
+    [notaCreditoEspecial].[Rut_Cajero] AS [Rut_Cajero], 
+    [notaCreditoEspecial].[Rut_Supervisor] AS [Rut_Supervisor], 
+    [notaCreditoEspecial].[Nombre_trabajador] AS [Nombre_trabajador], 
+    [notaCreditoEspecial].[Descripcion_pago] AS [Descripcion_pago], 
+    [notaCreditoEspecial].[Nombre_Jefe] AS [Nombre_Jefe], 
+    [notaCreditoEspecial].[Hora_Aprov_Nota_Credito] AS [Hora_Aprov_Nota_Credito]
+    FROM [dbo].[notaCreditoEspecial] AS [notaCreditoEspecial]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PAGOS_MP" EntityType="Self.PAGOS_MP" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PAGOS_MP].[MANDT] AS [MANDT], 
+    [PAGOS_MP].[INTERFAZ] AS [INTERFAZ], 
+    [PAGOS_MP].[FECHAINT] AS [FECHAINT], 
+    [PAGOS_MP].[CORRELAT] AS [CORRELAT], 
+    [PAGOS_MP].[NITEM] AS [NITEM], 
+    [PAGOS_MP].[BUKRS] AS [BUKRS], 
+    [PAGOS_MP].[BLART] AS [BLART], 
+    [PAGOS_MP].[WAERS] AS [WAERS], 
+    [PAGOS_MP].[BUDAT] AS [BUDAT], 
+    [PAGOS_MP].[BLDAT] AS [BLDAT], 
+    [PAGOS_MP].[MONAT] AS [MONAT], 
+    [PAGOS_MP].[XBLNR] AS [XBLNR], 
+    [PAGOS_MP].[BKTXT] AS [BKTXT], 
+    [PAGOS_MP].[BUPLA] AS [BUPLA], 
+    [PAGOS_MP].[NEWBS] AS [NEWBS], 
+    [PAGOS_MP].[NEWKO] AS [NEWKO], 
+    [PAGOS_MP].[NEWUM] AS [NEWUM], 
+    [PAGOS_MP].[NEWBK] AS [NEWBK], 
+    [PAGOS_MP].[WRBTR] AS [WRBTR], 
+    [PAGOS_MP].[FWBAS] AS [FWBAS], 
+    [PAGOS_MP].[MWSKZ] AS [MWSKZ], 
+    [PAGOS_MP].[GSBER] AS [GSBER], 
+    [PAGOS_MP].[KOSTL_PRCTR] AS [KOSTL_PRCTR], 
+    [PAGOS_MP].[AUFNR] AS [AUFNR], 
+    [PAGOS_MP].[ZTERM] AS [ZTERM], 
+    [PAGOS_MP].[ZUONR] AS [ZUONR], 
+    [PAGOS_MP].[SGTXT] AS [SGTXT], 
+    [PAGOS_MP].[VBUND] AS [VBUND], 
+    [PAGOS_MP].[XREF1] AS [XREF1], 
+    [PAGOS_MP].[XREF2] AS [XREF2], 
+    [PAGOS_MP].[XREF3] AS [XREF3], 
+    [PAGOS_MP].[VALUT] AS [VALUT], 
+    [PAGOS_MP].[XMWST] AS [XMWST], 
+    [PAGOS_MP].[ZLSPR] AS [ZLSPR], 
+    [PAGOS_MP].[ZFBDT] AS [ZFBDT], 
+    [PAGOS_MP].[MANSP] AS [MANSP], 
+    [PAGOS_MP].[NEWBW] AS [NEWBW], 
+    [PAGOS_MP].[MENGE] AS [MENGE], 
+    [PAGOS_MP].[KURSF] AS [KURSF], 
+    [PAGOS_MP].[WWERT] AS [WWERT], 
+    [PAGOS_MP].[PRCTR] AS [PRCTR], 
+    [PAGOS_MP].[SKFBT] AS [SKFBT], 
+    [PAGOS_MP].[NAME1] AS [NAME1], 
+    [PAGOS_MP].[ORT01] AS [ORT01], 
+    [PAGOS_MP].[STCD1] AS [STCD1], 
+    [PAGOS_MP].[EBELN] AS [EBELN], 
+    [PAGOS_MP].[WERKS] AS [WERKS]
+    FROM [dbo].[PAGOS_MP] AS [PAGOS_MP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsuarioZona" EntityType="Self.UsuarioZona" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsuarioZona].[IdUsuario] AS [IdUsuario], 
+    [UsuarioZona].[IdZona] AS [IdZona]
+    FROM [dbo].[UsuarioZona] AS [UsuarioZona]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ACREEDOR_REL_CENTROS_LOCAL" Association="Self.FK_ACREEDOR_REL_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACREEDOR_REL_TIPO_PAGO" Association="Self.FK_ACREEDOR_REL_TIPO_PAGO">
+      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL" Association="Self.FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AcumuladoSobrante_Faltante_TipoAceptacion" Association="Self.FK_AcumuladoSobrante_Faltante_TipoAceptacion">
+      <End Role="TipoAceptacion" EntitySet="TipoAceptacion" />
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AcumuladoSobrante_Faltante_TipoRechazo" Association="Self.FK_AcumuladoSobrante_Faltante_TipoRechazo">
+      <End Role="TipoRechazo" EntitySet="TipoRechazo" />
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auditoria_Usuario" Association="Self.FK_Auditoria_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Auditoria" EntitySet="Auditoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_boletaOrigen_TipoPagoGL" Association="Self.FK_boletaOrigen_TipoPagoGL">
+      <End Role="TipoPagoGL" EntitySet="TipoPagoGL" />
+      <End Role="boletaOrigen" EntitySet="boletaOrigen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CENTROS_LOCAL_ZONA" Association="Self.FK_CENTROS_LOCAL_ZONA">
+      <End Role="ZONA" EntitySet="ZONA" />
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL" Association="Self.FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK" Association="Self.FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK">
+      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_ACREEDOR_REL" Association="Self.FK_DetalleConciliacion_ACREEDOR_REL">
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_Conciliacion" Association="Self.FK_DetalleConciliacion_Conciliacion">
+      <End Role="Conciliacion" EntitySet="Conciliacion" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_Cuenta" Association="Self.FK_DetalleConciliacion_Cuenta">
+      <End Role="Cuenta" EntitySet="Cuenta" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_MEDIOSPAGOS" Association="Self.FK_DetalleConciliacion_MEDIOSPAGOS">
+      <End Role="MEDIOSPAGOS" EntitySet="MEDIOSPAGOS" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_Ventas_Apitbk1" Association="Self.FK_DetalleConciliacion_Ventas_Apitbk1">
+      <End Role="Ventas_Apitbk" EntitySet="Ventas_Apitbk" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacionPagos_ACREEDOR_REL" Association="Self.FK_DetalleConciliacionPagos_ACREEDOR_REL">
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacionPagos_ConciliaciondePagos" Association="Self.FK_DetalleConciliacionPagos_ConciliaciondePagos">
+      <End Role="ConciliaciondePagos" EntitySet="ConciliaciondePagos" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacionPagos_Cuenta" Association="Self.FK_DetalleConciliacionPagos_Cuenta">
+      <End Role="Cuenta" EntitySet="Cuenta" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacionPagos_Pagos_Apitbk" Association="Self.FK_DetalleConciliacionPagos_Pagos_Apitbk">
+      <End Role="Pagos_Apitbk" EntitySet="Pagos_Apitbk" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleSencillo_CENTROS_LOCAL" Association="Self.FK_DetalleSencillo_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleSencillo_Sencillos" Association="Self.FK_DetalleSencillo_Sencillos">
+      <End Role="Sencillos" EntitySet="Sencillos" />
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleSencillo_SencillosSAP" Association="Self.FK_DetalleSencillo_SencillosSAP">
+      <End Role="SencillosSAP" EntitySet="SencillosSAP" />
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diferencias_Pagos_ACREEDOR_REL" Association="Self.FK_Diferencias_Pagos_ACREEDOR_REL">
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+      <End Role="Diferencias_Pagos" EntitySet="Diferencias_Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diferencias_Pagos_Cuenta" Association="Self.FK_Diferencias_Pagos_Cuenta">
+      <End Role="Cuenta" EntitySet="Cuenta" />
+      <End Role="Diferencias_Pagos" EntitySet="Diferencias_Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LibroMayorDEP_LibroMayor" Association="Self.FK_LibroMayorDEP_LibroMayor">
+      <End Role="LibroMayor" EntitySet="LibroMayor" />
+      <End Role="LibroMayorDEP" EntitySet="LibroMayorDEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LibroMayorDEP_LibroMayor1" Association="Self.FK_LibroMayorDEP_LibroMayor1">
+      <End Role="LibroMayor" EntitySet="LibroMayor" />
+      <End Role="LibroMayorDEP" EntitySet="LibroMayorDEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MEDIOSPAGOS_CENTROS_LOCAL" Association="Self.FK_MEDIOSPAGOS_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="MEDIOSPAGOS" EntitySet="MEDIOSPAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MontoSencillo_DetalleSencillo" Association="Self.FK_MontoSencillo_DetalleSencillo">
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+      <End Role="MontoSencillo" EntitySet="MontoSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotaCredito_BoletaOrigen_boletaOrigen" Association="Self.FK_NotaCredito_BoletaOrigen_boletaOrigen">
+      <End Role="boletaOrigen" EntitySet="boletaOrigen" />
+      <End Role="NotaCredito_BoletaOrigen" EntitySet="NotaCredito_BoletaOrigen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotaCredito_BoletaOrigen_notaCredito" Association="Self.FK_NotaCredito_BoletaOrigen_notaCredito">
+      <End Role="notaCredito" EntitySet="notaCredito" />
+      <End Role="NotaCredito_BoletaOrigen" EntitySet="NotaCredito_BoletaOrigen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notaCredito_EMPLEADO" Association="Self.FK_notaCredito_EMPLEADO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="notaCredito" EntitySet="notaCredito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notaCredito_EMPLEADO1" Association="Self.FK_notaCredito_EMPLEADO1">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="notaCredito" EntitySet="notaCredito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK" Association="Self.FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK">
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+      <End Role="Pagos_Apitbk" EntitySet="Pagos_Apitbk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAGOS_CENTROS_LOCAL" Association="Self.FK_PAGOS_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="PAGOS" EntitySet="PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persona_Sexo" Association="Self.FK_Persona_Sexo">
+      <End Role="Sexo" EntitySet="Sexo" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Remito_CENTROS_LOCAL" Association="Self.FK_Remito_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="Remito" EntitySet="Remito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Remito_Sencillos_Tiendas" Association="Self.FK_Remito_Sencillos_Tiendas">
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+      <End Role="Remito" EntitySet="Remito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Remito_TipoRemito" Association="Self.FK_Remito_TipoRemito">
+      <End Role="TipoRemito" EntitySet="TipoRemito" />
+      <End Role="Remito" EntitySet="Remito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sencillos_Tiendas_CENTROS_LOCAL" Association="Self.FK_Sencillos_Tiendas_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sencillos_Tiendas_DetalleSencillo" Association="Self.FK_Sencillos_Tiendas_DetalleSencillo">
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sencillos_Tiendas_EstadoSencillo" Association="Self.FK_Sencillos_Tiendas_EstadoSencillo">
+      <End Role="EstadoSencillo" EntitySet="EstadoSencillo" />
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sobrante_Faltante_AcumuladoSobrante_Faltante" Association="Self.FK_Sobrante_Faltante_AcumuladoSobrante_Faltante">
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+      <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sobrante_Faltante_CENTROS_LOCAL" Association="Self.FK_Sobrante_Faltante_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sobrante_Faltante_EMPLEADO" Association="Self.FK_Sobrante_Faltante_EMPLEADO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Persona" Association="Self.FK_Usuario_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol_Rol" Association="Self.FK_Usuario_Rol_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol_Usuario" Association="Self.FK_Usuario_Rol_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_Apitbk_Ventas_Apitbk" Association="Self.FK_Ventas_Apitbk_Ventas_Apitbk">
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+      <End Role="Ventas_Apitbk" EntitySet="Ventas_Apitbk" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

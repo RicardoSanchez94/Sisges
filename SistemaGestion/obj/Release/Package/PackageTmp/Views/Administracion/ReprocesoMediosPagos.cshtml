@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Reproceso Medios de Pago";
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Recarga de Medios de Pago
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtFecha" class="col-form-label col-form-label-sm">Ingresar Fecha:</label>
+                                                <input type="date" class="form-control form-control-sm model" id="Fecha" name="Fecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btcarga" class="col-form-label col-form-label-sm invisible">Reproce:</label>
+                                                <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Reprocesar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+@section scripts{
+    <script>
+
+
+        $("#btnBuscar").click(function () {
+
+              var result = confirm("Desea Reprocesar Medios de Pago?");
+            if (result) {
+                $('#cargal').modal('show');
+                 var url = "@Url.Action("ReprocesoMediosPagos", "Administracion")";
+                var manejarErrorAjax = "Eror";
+                var Fecha = $("#Fecha").val();
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {Fecha: Fecha },
+                    success: function (response) {
+                        if (response.error == true) {
+
+                            setTimeout(MostrarMensaje, 3000);
+                            setTimeout(bajar, 5000);
+
+
+                        }
+                        else {
+                            setTimeout(MostrarMensaje, 3000);
+                            setTimeout(bajar, 5000);
+
+                        }
+                        function MostrarMensaje() {
+                            $('#cargal').modal('hide');
+                            $('#cargarMensajes').modal('show');
+                            $('#mensajeLoad').html(response.respuesta);
+                        };
+
+
+                        function bajar() {
+
+                            $('#cargarMensajes').modal('hide');
+                        };
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(thrownError);
+                    }
+                });
+            }
+
+
+
+
+        });
+    </script>
+}
+
+

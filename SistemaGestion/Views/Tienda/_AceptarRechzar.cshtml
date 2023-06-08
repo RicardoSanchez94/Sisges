@@ -1,0 +1,152 @@
+﻿@model SistemaGestion.Models.ViewModels.AceptacionSobranteFaltanteView
+
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Formulario Aceptar/Rechazar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="">
+                @using (Html.BeginForm("AceptarRechzar", "Tienda", FormMethod.Post, new { id = "InsertAceptarRechazar", role = "form", enctype = "multipart/form-data" }))
+                {
+                <div class="col-xl-12">
+
+                    @Html.HiddenFor(x => x.Sobrante_Faltante.IDTIENDA)
+                    @Html.HiddenFor(x => x.Sobrante_Faltante.FECHA)
+                    @Html.HiddenFor(x => x.Sobrante_Faltante.MEDIO_PAGO)
+                    @Html.HiddenFor(x => x.Sobrante_Faltante.CAJA)
+                    @Html.HiddenFor(x => x.Sobrante_Faltante.TIPO)
+                    @Html.HiddenFor(x => x.Sobrante_Faltante.FECHHORA)
+                    
+
+                    @*@Html.HiddenFor(x => x.)
+        @Html.HiddenFor(x => x.Local)*@
+
+                    @*<input type="hidden" id="txtIdPersona" />*@
+
+                    <div class="form-group">
+                        <label for="txtNombre">Acepta/Rechaza</label>
+                        @Html.DropDownListFor(x => x.AceptacionSobranteFaltante.CodigoTipoAceptacion, Model.lstTipoAceptacion.Select(z => new SelectListItem { Value = z.Codigo.ToString(), Text = z.Nombre }), "Seleccione tipo...", new { @class = "form-control", name = "Id2" })
+                        @*@Html.DropDownListFor(x => x.AceptacionSobranteFaltante.CodigoTipoAceptacion, Model.lstTipoAceptacion.OrderBy(z => z.Nombre), "Seleccione tipo...", new { @class = "form-control", name = "Id2" })*@
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="txtNombre">Observacion</label>
+                        @*<input type="text" class="form-control form-control-sm model" id="observacion" name="Remito" autocomplete="off">*@
+                        @Html.TextAreaFor(x => x.AceptacionSobranteFaltante.Observacion, new { @class = "form-control form-control-sm model" })
+                    </div>
+
+
+
+
+                </div>
+
+                }
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" id="btcarga">Ingresar</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    @*$(document).ready(function () {
+
+        var tabla_data;
+         tabla_data= $('#tbReporte').DataTable({
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+    });*@
+
+    $(function () {
+        $("#btcarga").click(function () {
+            event.preventDefault();
+            //var result = confirm("Desea Conciliar?");
+            /*if (result) {*/
+            $('#cargal').modal('show');
+            var url = "@Url.Action("AceptarRechzar", "Tienda")";
+            var manejarErrorAjax = "Eror";
+            var parametros = $("#InsertAceptarRechazar").serialize();
+            //var CodigoRemito = $("#Remito").val();
+            //var Tienda = $("#idTienda").val();
+            //var idSencillosTienda = $("#id").val();
+            //var parametros = { CodigoRemito: CodigoRemito, Tienda: Tienda, idSencillosTienda: idSencillosTienda };
+            console.log(parametros);
+            $.post(url, parametros).done(function (res) {
+                if (res.error == false) {
+
+                    setTimeout(carga, 3000);
+                    setTimeout(mostrarMensaje, 4000);
+                    setTimeout(bajaModal, 6000);
+                    
+
+                    //setTimeout(bajarModalConciliacion, 8000);
+                    function carga() {
+                        $("#cargal").modal('hide');
+                        //$("#cargarMensajes").modal('show');
+                        //$('#mensajeLoad').html(r.respuesta);
+                    };
+                    function bajaModal() {
+
+                        $("#cargarMensajes").modal('hide');
+                        $("#FormularioAceptarRechazar").modal('hide');
+
+                    };
+
+                    function mostrarMensaje() {
+                        $("#cargarMensajes").modal('show');
+                        $('#mensajeLoad').html(res.respuesta);
+
+                    };
+
+                    /*    function Cargar*/
+
+
+                } else {
+
+                    setTimeout(carga, 3000);
+                    setTimeout(mostrarMensaje, 4000);
+                    setTimeout(bajaModal, 6000);
+
+
+                    function carga() {
+                        $("#cargal").modal('hide');
+                        //$("#cargarMensajes").modal('show');
+                        //$('#mensajeLoad').html(r.respuesta);
+                    };
+                    function bajaModal() {
+
+                        $("#cargarMensajes").modal('hide');
+
+                    };
+
+                    function mostrarMensaje() {
+                        $("#cargarMensajes").modal('show');
+                        $('#mensajeLoad').html(res.respuesta);
+
+                    };
+
+                }
+                //$('.modal-backdrop').remove();
+
+            }).fail(manejarErrorAjax);
+
+            //}
+        });
+
+    });
+
+
+
+</script>

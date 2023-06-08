@@ -1,0 +1,62 @@
+﻿@model SistemaGestion.Models.ConciliaciondePagos
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <table id="tbReporte" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">AutorizadorTBk</th>
+                        <th class="text-center">AutorizadorMP</th>
+                        <th class="text-center">Centro</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">FechaConciliada</th>
+                        <th class="text-center">Tarjeta</th>
+                        <th class="text-center">Monto</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.DetalleConciliacionPagos.Where(x => x.TipoConciliacion == "A"))
+                    {
+                        <tr>
+                            <td>@item.AutorizadorTbk</td>
+                            <td>@item.AutorizadorMp</td>
+                            <td>@item.CodigoLocal</td>
+                            <td>@item.FechaTbk.Value.ToString("dd-MM-yyyy")</td>
+                            <td>@(Model.Fecha.Value.ToString("dd-MM-yyyy"))</td>
+                            <td>@item.TarjetaTBk</td>
+                            <td>@item.MontoTbk.Value.ToString("C")</td>
+                            <!--<td>-->
+                            @*<button type='button' id='editar' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@
+                            <!--<button type='button' class='editar btn btn-danger'><span class='fa fa-edit'></span></button>
+                            </td>-->
+
+
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('table.display').DataTable({
+            responsive: true,
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+
+
+
+    });
+
+</script>
+

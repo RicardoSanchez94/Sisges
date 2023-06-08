@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "nc";
+}
+
+
+<style>
+    .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        color: #ffffff;
+        background-color: #6c757d;
+        border-color: #6c757d #6c757d #fff;
+        border-bottom: 1px;
+    s
+    }
+    .nav-tabs .nav-link {
+        margin-bottom: -1px;
+        border: 1px solid #4c414136;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        background-color: #dee2e6;
+        margin-right: 1px;
+        color: #6c757d;
+    }
+</style>
+
+<div id="layoutSidenav">
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Notas de Crédito</li>
+                        <li class="breadcrumb-item"><a href="@Url.Action("nc", "MediosPago")">NC</a></li>
+                    </ol>
+                </nav>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card border-secondary">
+                            <div class="card-header bg-secondary text-white">
+                                IDOC NC
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="row ">
+                                    <div class="col-sm-2">
+                                        <div class="form-group mb-0">
+                                            <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Búsqueda</label>
+                                            <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group mb-0">
+                                            <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                            <button id="btnBuscar" type="submit" class="btn btn-sm btn-secondary btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @*<div id="dataPremisas" class="ml-1 mr-1 mt-4">
+
+                                    </div>*@
+                                </div>
+                            </div>
+                            <div id="dataPremisas" class="ml-1 mr-1 mt-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+    $(document).ready(function () {
+
+
+        $('#btnBuscar').click(function () {
+            var Fecha = $("#txtFecha").val();
+            console.log(Fecha);
+            var url = '@Url.Action("getDataNCPremisas", "MediosPago")';
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: { fecha: Fecha },
+                success: function (response) {
+                    $("#dataPremisas").html(response);
+                    //$("#addComensalModal").modal('show');
+
+                },
+                // Mensaje de error en caso de fallo INTERNO
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("error");
+                }
+            });
+        });
+    });
+    </script>
+}

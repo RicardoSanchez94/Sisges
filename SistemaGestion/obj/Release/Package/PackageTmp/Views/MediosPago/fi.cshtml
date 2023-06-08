@@ -1,0 +1,208 @@
+﻿@{
+    ViewBag.Title = "fi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Transacciones</li>
+                            <li class="breadcrumb-item"><a href="@Url.Action("TransaccionesTotales", "ApiTransbank")">Totales</a></li>
+
+                        </ol>
+                    </nav>
+                    @using (Html.BeginForm("fi", "MediosPago", FormMethod.Post, new { id = "fromfi", role = "form" }))
+                    {
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card border-secondary">
+                                    <div class="card-header bg-secondary text-white">
+                                        IDOC FI
+                                    </div>
+
+                                    <div class="card-body p-2">
+                                        <div class="row">
+                                            @*<div class="col-sm-3">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                    <select class="form-control form-control-sm model" id="cboTienda" name="cboTienda"></select>
+                                                </div>
+                                            </div>*@
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                    <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button id="btnBuscar" type="submit" class="btn btn-sm btn-success btn-block"><i class="fas fa-file-excel"></i> Descargar IDOC</button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        @*<div id="totales">
+                                @if (Model.Count < 1)
+                                {
+                                    <div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+                                        <div class="row">
+                                            <div class="col">
+                                                <table id="tablaVacia" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">MANDT</th>
+                                                            <th class="text-center">INTERFAZ</th>
+                                                            <th class="text-center">FECHAINT</th>
+                                                            <th class="text-center">CORRELAT</th>
+                                                            <th class="text-center">NITEM</th>
+                                                            <th class="text-center">BUKRS</th>
+                                                            <th class="text-center">BLART</th>
+                                                            <th class="text-center">WAERS</th>
+                                                            <th class="text-center">BUDAT</th>
+                                                            <th class="text-center">BLDAT</th>
+                                                            <th class="text-center">MONAT</th>
+                                                            <th class="text-center">XBLNR</th>
+                                                            <th class="text-center">BKTXT</th>
+                                                            <th class="text-center">BUPLA</th>
+                                                            <th class="text-center">NEWBS</th>
+                                                            <th class="text-center">NEWKO</th>
+                                                            <th class="text-center">WRBTR</th>
+                                                            <th class="text-center">MWSKZ</th>
+                                                            <th class="text-center">SGTXT</th>
+                                                            <th class="text-center">VALUT</th>
+                                                            <th class="text-center">WERKS</th>
+
+
+
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>*@
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                    </div>
+            </main>
+        </div>
+    </div>
+</body>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            @*$('#tablaVacia').DataTable(
+                {
+                    responsive: true,
+                     "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+                });*@
+
+            $('#btnBuscar').click(function (event) {
+                event.preventDefault();
+                
+            var url = '@Url.Action("fi", "MediosPago")';
+            var Fecha = $("#txtFecha").val();
+           /* var Tienda = $("#cboTienda").val();*/
+       
+            //var tipo = $("#TypeReporte").val();
+            DownloadIdocFI(Fecha, url);
+        });
+
+            
+
+        });
+
+        jQuery.ajax({
+            url: $.MisUrls.url._TiendaPorNombre,
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                $("<option>").attr({ "value": 0 }).text("-- Seleccionar todas--").appendTo("#cboTienda");
+                $.each(data.data, function (i, item) {
+                    $("<option>").attr({ "value": item.Codigo }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                })
+            },
+            error: function (error) {
+                console.log(error)
+            },
+
+        });
+
+        function DownloadIdocFI(Fecha, urlAc) {
+
+
+            var url = urlAc;
+            //var Fecha = F;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: url,
+                type: "post",
+                data: { Fecha: Fecha },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+
+    </script>
+}
+

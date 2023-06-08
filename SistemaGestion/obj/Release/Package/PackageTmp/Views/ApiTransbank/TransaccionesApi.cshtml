@@ -1,0 +1,173 @@
+﻿@model List<SistemaGestion.Models.Ventas_Apitbk>
+@{
+    ViewBag.Title = "TransaccionesApi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Transacciones</li>
+                            <li class="breadcrumb-item"><a href="@Url.Action("TransaccionesTotales", "ApiTransbank")">Totales</a></li>
+
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Detalle ApiTransbank
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                <select class="form-control form-control-sm model" id="cboTienda" name="cboTienda"></select>
+                                            </div>
+                                        </div>
+                                   
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btcarga" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="totales">
+                                        @if (Model.Count < 1)
+                                        {
+                                            <div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <table id="tablaVacia" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">fechaTransaccion</th>
+                                                                    <th class="text-center">numeroTarjeta</th>
+                                                                    <th class="text-center">totalCuotas</th>
+                                                                    <th class="text-center">montoCuotas</th>
+                                                                    <th class="text-center">codigoAutorizacion</th>
+                                                                    <th class="text-center">codigoLocal</th>
+                                                                    <th class="text-center">Producto</th>
+                                                                    <th class="text-center">montoAfecto</th>
+                                                                    <th class="text-center">tipoTransaccion</th>
+                                                                    <th class="text-center">fechaAbono</th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            </tbody>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tablaVacia').DataTable(
+                {
+                    responsive: true,
+                     "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+                });
+
+             $(function (){
+                 $("#btnBuscar").click(function () {
+                event.preventDefault();
+                var result = confirm("Desea Cargas Ventas?");
+                if (result){
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("TransaccionesApi", "ApiTransbank")";
+                    var manejarErrorAjax = "Eror";
+                    var Tienda = $("#cboTienda").val();
+                    var Fecha = $("#txtFecha").val();
+                    var data = { local: Tienda, Fecha: Fecha };
+                    $.post(url, data).done(function (data) {
+                        setTimeout(bajar, 1000);
+                        setTimeout(Subir, 2000);
+
+                        function bajar() {
+                            $('#cargal').modal('hide');
+
+                        }
+                        function Subir() {
+                            $('#totales').html(data);
+                            $('#totales').show();
+                        }
+
+                    }).fail(manejarErrorAjax);
+
+                }
+            });
+
+        })
+
+        });
+
+        jQuery.ajax({
+            url: $.MisUrls.url._LocalesTransbank,
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                $("<option>").attr({ "value": 0 }).text("-- Seleccionar todas--").appendTo("#cboTienda");
+                $.each(data.data, function (i, item) {
+                    $("<option>").attr({ "value": item.Codigo }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                })
+            },
+            error: function (error) {
+                console.log(error)
+            },
+
+        });
+
+        function buscar() {
+            //event.preventDefault();1
+            if ($("#Fecha").val().trim() == "") {
+                //swal("Mensaje", "Debe ingresar Todos los campos", "warning")
+                return;
+            }
+
+            tabla_data.ajax.url($.MisUrls.url._Transacciones + "?" +
+                "&local=" + $("#cboTienda").val().trim() +
+                "&Fecha=" + $("#Fecha").val()).load();
+        }
+    </script>
+}

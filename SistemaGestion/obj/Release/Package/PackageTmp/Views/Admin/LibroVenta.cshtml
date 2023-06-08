@@ -1,0 +1,262 @@
+﻿@model  List<SistemaGestion.Models.Proc_ListaLibroVenta_Temp_Result>
+
+@{
+    ViewBag.Title = "LibroVenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Reportes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">LibroVenta</li>
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                  Libro Ventas Manual
+                                </div>
+
+                                <div class="card-body p-2">
+                                    <div class="row">
+
+                                        <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                <select class="form-control form-control-sm model" id="cboTienda" name="Tienda"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar:</label>
+                                                <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button type="button" data-toggle="modal" id="VistaParcialLV" data-target="#Using" class="btn btn-sm btn-success btn-block">
+                                                    <i class="fas fa-download"></i> Cargar Libro
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                        <div class="row mb-2">
+
+                                        </div>
+
+                                        <div id="diferencias">
+                                            @if (Model.Count < 1)
+                                            {
+                                                <div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <table id="tablaVacia" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center">Sociedad</th>
+                                                                        <th class="text-center">Centro</th>
+                                                                        <th class="text-center">Documento</th>
+                                                                        <th class="text-center">NumeroDocto</th>
+                                                                        <th class="text-center">FechaContabilizacion</th>
+                                                                        <th class="text-center">Referencia</th>
+                                                                        <th class="text-center">Total</th>
+                                                                        <th class="text-center">Impuesto</th>
+                                                                        <th class="text-center">FechaDocumento</th>
+                                                                        <th class="text-center">Cliente</th>
+                                                                        <th class="text-center">NFis</th>
+                                                                        <th class="text-center">Exe</th>
+                                                                        <th class="text-center">Afe</th>
+                                                                        <th class="text-center">Iva</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody></tbody>
+
+                                                            </table>
+                                                            <div class="footer">
+                                                                <div class="chart-legend">
+                                                                    <div class="text-center">
+                                                                        <i class="fa fa-check-circle text-dark"></i>
+                                                                        DB-Reversa Documento
+                                                                        <i class="fa fa-check-circle text-dark"></i>
+                                                                        DC-Recarga Minuto
+                                                                        <i class="fa fa-check-circle text-dark"></i>
+                                                                        DJ-Factura
+                                                                        <i class="fa fa-check-circle text-dark"></i>
+                                                                        DP-Boleta
+                                                                        <i class="fa fa-check-circle text-dark"></i>
+                                                                        DW-Nota de Credito
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- Modal -->
+                            
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+    <div class="modal fade" id="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    </div>  
+    @section scripts{
+
+        <script>
+        $(document).ready(function () {
+                $('#tablaVacia').DataTable(
+                    {
+                        responsive: true,
+
+                        "language": {
+                            url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                        }
+                    });
+
+                $(function () {
+                    $("#btnBuscar").click(function () {
+                        event.preventDefault();
+                        //var result = confirm("Desea Cargas Ventas?");
+                        //  if (result){
+                        $('#cargal').modal('show');
+                        var url = "@Url.Action("AdminLibro", "Admin")";
+                        var manejarErrorAjax = "Eror";
+                        var Fecha = $("#txtFecha").val();
+                        var local = $("#cboTienda").val()
+                        var data = { Fecha: Fecha, local:local};
+                        $.post(url, data).done(function (data) {
+                            setTimeout(bajar, 1000);
+                            setTimeout(Subir, 2000);
+
+                            function bajar() {
+                                $('#cargal').modal('hide');
+
+                            }
+                            function Subir() {
+                                $('#diferencias').html(data);
+                                $('#diferencias').show();
+                            }
+
+                        }).fail(manejarErrorAjax);
+
+                        //}
+                    });
+
+                })
+
+
+            jQuery.ajax({
+                url: $.MisUrls.url._TiendaPorNombre,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                  /*  $("<option>").attr({ "value": 0 }).text("-- Seleccionar todas--").appendTo("#cboTienda");*/
+                    $.each(data.data, function (i, item) {
+                        $("<option>").attr({ "value": item.Centro }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                    })
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+
+            });
+
+            $('#VistaParcialLV').click(function () {
+                 var url = '@Url.Action("CargarLibroVenta", "Admin")';
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        async: false,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            $("#modal").html(response);
+                            $("#modal").modal('show');
+
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+
+        });
+
+
+            @*$('#Cargarlv').click(function () {
+                event.preventDefault();
+                var para = new FormData($(saveLV).get(0));
+                console.log(para);
+                //var para = new FormData($(this)[0]);
+                $('#cargal').modal('show');
+                 var url = '@Url.Action("saveLV", "Gestion")';
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        async: false,
+                        processData: false,
+                        contentType: false,
+                        data: para,
+                        success: function (response) {
+                            //$("#modal").html(response);
+                            //$("#modal").modal('show');
+                            $('#cargal').modal('hide');
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+
+        });*@
+
+            });
+
+
+
+
+        </script>
+
+
+
+
+    }
+
+

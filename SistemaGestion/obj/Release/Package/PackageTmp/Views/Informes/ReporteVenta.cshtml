@@ -1,0 +1,209 @@
+﻿@model List<SistemaGestion.Models.ViewModels.ReporteVentasView>
+@{
+    ViewBag.Title = "ReporteVenta";
+}
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <br />
+
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Informe Ventas
+                                </div>
+                                @using (Html.BeginForm("DetalleReporteVenta", "Informes", FormMethod.Post, new { id = "fromVenta", role = "form" }))
+                                {
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                    <input type="month" class="form-control form-control-sm model" id="Inicio" name="Inicio" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                    <select class="form-control form-control-sm model" id="cboTienda" name="cboTienda"></select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button class="btn btn-sm btn-danger btn-block" type="submit" role="button" id="btnBuscar"><i class="fa fa-search"> </i> Buscar</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button class="btn btn-sm btn-success btn-block" type="submit" role="button" id="btnIngresar"><i class="fa fa-file-excel"> </i> Reporte del Mes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card">
+                        <div class="card-header text-dark bg-white border border-grey border-bottom-0 pt-0 pb-0">
+                            <div class="row ml-0 mr-0">
+                                <div class="col-lg-3 col-md-12 col-sm-12 text-left ml-0 mt-0 pl-0 pt-2">
+                                    <h6 class="mb-0 mt-1 1h-100"><i class="fa fa-list"></i> Detalle Busqueda</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body border border-grey">
+                            <div id="detalleVenta">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+   
+</body>
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+
+              $(function (){
+                 $("#btnBuscar").click(function () {
+                     event.preventDefault();
+                     var Tienda = $("#cboTienda").val();
+                     if (Tienda == 0) {
+                         alert("Debe al menos enviar una Tienda")
+                         return 0;
+                     }
+            
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("DetalleReporteVenta", "Informes")";
+                     var manejarErrorAjax = "Eror";
+                  
+                     var Inicio = $("#Inicio").val();
+                    
+                     var data = { Inicio: Inicio, Tienda: Tienda };
+                    $.post(url, data).done(function (data) {
+                        setTimeout(bajar, 1000);
+                        setTimeout(Subir, 2000);
+
+                        function bajar() {
+                            $('#cargal').modal('hide');
+
+                        }
+                        function Subir() {
+                            $('#detalleVenta').html(data);
+                            $('#detalleVenta').show();
+                        }
+
+                    }).fail(manejarErrorAjax);
+
+                   
+                });
+
+             })
+
+            $('#btnIngresar').click(function (event) {
+            event.preventDefault();
+            var url = '@Url.Action("ReporteVenta", "Informes")';
+            var Inicio = $("#Inicio").val();
+             var Tienda = $("#cboTienda").val();
+            //var tipo = $("#TypeReporte").val();
+            DownloadFileFechasEntre(Inicio, Tienda ,url);
+         });
+
+
+
+        });
+
+
+        function DownloadFileFechasEntre(Inicio, Tienda ,urlAc) {
+
+
+            var url = urlAc;
+            //var fechaIni = fechaI;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: url,
+                type: "post",
+                data: { Inicio: Inicio, Tienda: Tienda },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+        jQuery.ajax({
+            url: $.MisUrls.url._TiendaPorNombre,
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                $("<option>").attr({ "value": 0 }).text("-- Seleccionar todas--").appendTo("#cboTienda");
+                $.each(data.data, function (i, item) {
+                    $("<option>").attr({ "value": item.Codigo }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                })
+            },
+            error: function (error) {
+                console.log(error)
+            },
+
+        });
+    </script>
+}
+

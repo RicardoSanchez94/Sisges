@@ -1,0 +1,181 @@
+﻿@model List<SistemaGestion.Models.ViewModels.DetalleDahsboard>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tbReporte" class="table table-bordered table-hover display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">Centro</th>
+                        <th class="text-center">TotalTienda</th>
+                        <th class="text-center">TotalSap</th>
+                        <th class="text-center">Diferencia</th>
+                        <th style="width:50px;">Ver Diferencias</th>
+                        @*<th class="text-center">#</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.Fecha</td>
+                        <td>@item.Centro</td>
+                        <td>$@item.Total_Tienda.ToString("0,0")</td>
+                        <td>$@item.Total_SAP.ToString("0,0")</td>
+                        @{
+                            int dif = Convert.ToInt32(item.Diferencia);
+                            if (dif < 0)
+                            {
+                                <td class="bg-danger text-white">$@item.Diferencia.Value.ToString("0,000")</td>
+                            }
+                            else if (dif > 0)
+                            {
+                                <td class="bg-warning text-white">$@item.Diferencia.Value.ToString("0,0")</td>
+                            }
+                            else
+                            {
+                                <td class="bg-success text-white">$@item.Diferencia.Value.ToString("0,000")</td>
+                            }
+                        }
+                        @*<td>$@item.Diferencia.Value.ToString("0,000")</td>*@
+                        <!--<td class="text-center">-->
+                        @*<button type='button' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@
+                        <!--<button type='button' class="btn btn-outline-danger btn-sm shadow-sm" onclick='Reproceso("@item.Fecha","@item.Centro")'><span class='fa fa-edit'></span></button>
+
+                     </td>-->
+                        @*<td style="width:30px;" class="text-center">
+            <button type='button' class='editar btn btn-outline-danger btn-sm shadow-sm' title="Reprocesar"
+                    onclick='Diferencias("@item.Fecha","@item.Centro")'>
+                <span class='fa fa-refresh'></span>
+            </button>
+        </td>*@
+                        <td style="width:30px;" class="text-center">
+                            <button type='button' class='editar btn btn-outline-danger btn-sm shadow-sm' title="Reprocesar"
+                                    onclick='Diferencias("@item.Fecha","@item.Centro")'>
+                                <span class='fa fa-refresh'></span>
+                            </button>
+                        </td>
+
+
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+            <div class="footer">
+                <div class="chart-legend">
+                    <div class="text-center">
+                        <i class="fa fa-circle text-danger"></i>
+                        Tienda con Faltante
+                        <i class="fa fa-circle text-success"></i>
+                        Tienda Cuadrada
+                        <i class="fa fa-circle text-warning"></i>
+                        Tienda Con Sobrante o Libro Venta no Cargado
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Modal -->
+          
+
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var tabla_data;
+         tabla_data= $('#tbReporte').DataTable({
+           /* responsive: true,*/
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+    });
+
+
+
+       $(function () {
+           $("#btcarga").click(function () {
+               event.preventDefault();
+               $('#FormModal').modal('show');
+               var result = confirm("Desea Generar Idoc?");
+               if (result) {
+                   setTimeout(bajar, 1000);
+                   function bajar() {
+
+                       $('#FormModal').modal('hide');
+                   }
+
+                   $('#cargal').modal('show');
+                   var url = "@Url.Action("GeneraIdoc", "Gestion")";
+                   var manejarErrorAjax = "Eror";
+                   var FechBus = $("#Fechacon").val();
+                   var LocalBus = $("#txtLocal").val();
+                   var Documento = $('input:radio[name=exampleRadios]:checked').val()
+                   var data = { Fecha: FechBus, Local: LocalBus, Documento:Documento };
+                   console.log(data);
+                   $.post(url, data).done(function (resultado) {
+                       setTimeout(bajar, 1000);
+                       setTimeout(Subir, 2000);
+                       function bajar() {
+
+                           $('#cargal').modal('hide');
+
+
+                       }
+                       function Subir() {
+                           //$('#totales').html(data);
+                           //$('#totales').show();
+
+                       }
+                       if (resultado.error) {
+                           swal(resultado.respuesta, "Presiona OK Para Continuar", "success");
+                       } else {
+                           swal(resultado.respuesta, "Presiona OK Para Continuar", "warning");
+                       }
+                       $("mensaje-alerta").html(resultado.respuesta)
+                       $('.modal-backdrop').remove();
+
+                   }).fail(manejarErrorAjax);
+
+               }
+
+
+               });
+
+       })
+   function Diferencias(date, local) {
+        console.log('entro al Diferencias');
+        $('#cargal').modal('show');
+         var url = "@Url.Action("Ven", "Admin")";
+           $.ajax({
+            type: 'POST',
+               url: url,
+               data: { local: local, date: date },
+               success: function (data) {
+                 /*  setTimeout(bajardiv, 1000);*/
+                   //setTimeout(bajar, 1000);
+                   //setTimeout(Subir, 2000);
+                   $('#cargal').modal('hide');
+                   $('#diferencias').html(data);
+                   $('#diferencias').show();
+                   function bajar() {
+                       $('#cargal').modal('hide');
+
+                   }
+                   //function Subir() {
+                   //    $('#diferencias').html(data);
+                   //    $('#diferencias').show();
+                   //}
+
+
+               },
+               error: function (xhr, ajaxOptions, thrownError) {
+                   alert(thrownError);
+               }
+             });
+    };
+</script>
+

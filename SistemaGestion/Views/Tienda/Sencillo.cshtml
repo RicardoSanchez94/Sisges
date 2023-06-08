@@ -1,0 +1,445 @@
+﻿@using SistemaGestion.Models.Repositorios;
+@using SistemaGestion.Models.ViewModels;
+@using Newtonsoft.Json;
+@using SistemaGestion.Models.ViewModels;
+@model  List<SistemaGestion.Models.Sencillos_Tiendas>
+@{
+    ViewBag.Title = "Sencillo";
+}
+@{
+
+    var ADU = new AdminUsuarios();
+    var RU = new RolesUsuario();
+    if (User.Identity.IsAuthenticated)
+    {
+        var Json = JsonConvert.DeserializeObject<UserLoginView>(User.Identity.Name);
+        //string loginName = User.Identity.Name;
+        RU = ADU.GetRolesUser(Json.LoginName);
+        //RU = ADU.GetRolesUser(loginName);
+
+
+    }
+
+}
+
+<body class="sb-nav-fixed">
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-info">
+                                <div class="card-header p-2 bg-secondary text-white">
+                                    <h6 class="mb-0">
+                                        <span> <i class="fa fa-chart-bar"></i> Control Sencillo</span>
+                                    </h6>
+                                </div>
+                                <br />
+                                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Cuadratura" || x.RolNombre == "Tesoreria"))
+                                {
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <button class="nav-link active" id="nav-pre1-tab" data-toggle="tab" data-target="#nav-pre1" type="button" role="tab" aria-controls="nav-pre1" aria-selected="true">Recepcion</button>
+                                            <button class="nav-link" id="nav-pre2-tab" data-toggle="tab" data-target="#nav-pre2" type="button" role="tab" aria-controls="nav-pre2" aria-selected="false">Devolucion</button>
+                                            <button class="nav-link" id="nav-pre3-tab" data-toggle="tab" data-target="#nav-pre3" type="button" role="tab" aria-controls="nav-pre3" aria-selected="false">Finalizado</button>
+                                        </div>
+                                    </nav>
+                                    <br />
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-pre1" role="tabpanel" aria-labelledby="nav-pre1-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="Entrega" style="width:100%">
+
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Fecha</th>
+                                                            @*<th class="text-center">Estado</th>*@
+
+                                                            @*<th class="text-center">Remito</th>*@
+                                                            <th class="text-center">Accion</th>
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 1 || x.CodigoEstadoSencillo == 2))
+                                                        {
+
+                                                            <tr>
+
+                                                                <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                                <td class="text-center">@item.idTienda</td>
+                                                                <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                                <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                                <td class="text-center">@item.Fecha_Creacion.Value.ToString("dd-MM-yyyy")</td>
+                                                                @*<td class="text-center">@item.DetalleSencillo.SencillosSAP.Fecha_Doc</td>*@
+                                                                <td class="text-center">@item.EstadoSencillo.Nombre</td>
+
+                                                                @*<td class="text-center">@item.Remito</td>*@
+                                                                @*<td class="text-center">
+                                                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                                                            onclick="DetalleBySencillo('@item.id')">
+                                                                        <span class='fa fa-list-alt'></span>
+                                                                    </button>
+
+
+                                                                </td>*@
+
+
+
+
+
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-pre2" role="tabpanel" aria-labelledby="nav-pre2-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="devolucion" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Estado</th>
+                                                            <th class="text-center">Fecha Aceptacion</th>
+                                                            <th class="text-center">DepositoAceptacion</th>
+                                                            @*<th class="text-center">Remito</th>*@
+                                                            @*<th class="text-center">Accion</th>*@
+
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 3))
+                                                        {
+
+                                                            <tr>
+
+                                                                <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                                <td class="text-center">@item.idTienda</td>
+                                                                <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                                <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                                <td class="text-center">@item.EstadoSencillo.Nombre</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Fecha).FirstOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
+                                                                @*<td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.NumeroDepostio).FirstOrDefault().ToString()</td>*@
+                                                                <!--<td class="text-center">
+                                                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                                                            onclick="Devolucion('@item.id')">
+                                                                        <span class='fa fa-list-alt'></span>
+                                                                    </button>-->
+                                                                    @*<button type='button' class='editar btn btn-outline-danger btn-sm shadow-sm' title="Eliminar"
+                                                    onclick="Eliminar('@item.id')">
+                                                <span class='fa fa-trash'></span>
+                                            </button>*@
+
+                                                                <!--</td>-->
+
+
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-pre3" role="tabpanel" aria-labelledby="nav-pre3-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="finalizado" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Estado</th>
+                                                            <th class="text-center">Fecha Aceptacion</th>
+                                                            <th class="text-center">DepositoAceptacion</th>
+                                                            <th class="text-center">DepositoDevolucion</th>
+                                                            <th class="text-center">Remito</th>
+
+
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 4))
+                                                        {
+
+                                                            <tr>
+
+                                                                <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                                <td class="text-center">@item.idTienda</td>
+                                                                <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                                <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                                <td class="text-center">@item.EstadoSencillo.Nombre</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Fecha).FirstOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1 && x.idTienda == item.idTienda).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.NumeroDepostio).FirstOrDefault().ToString()</td>
+
+
+
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <button class="nav-link active" id="nav-pre1-tab" data-toggle="tab" data-target="#nav-pre1" type="button" role="tab" aria-controls="nav-pre1" aria-selected="true">Recepcion</button>
+                                            <button class="nav-link" id="nav-pre2-tab" data-toggle="tab" data-target="#nav-pre2" type="button" role="tab" aria-controls="nav-pre2" aria-selected="false">Devolucion</button>
+                                         
+                                        </div>
+                                    </nav>
+                                    <br />
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-pre1" role="tabpanel" aria-labelledby="nav-pre1-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="Entrega" style="width:100%">
+
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Fecha</th>
+                                                            <th class="text-center">Estado</th>
+
+                                                            @*<th class="text-center">Remito</th>*@
+                                                            <th class="text-center">Accion</th>
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 1 || x.CodigoEstadoSencillo == 2))
+                                                        {
+
+                                                        <tr>
+
+                                                            <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                            <td class="text-center">@item.idTienda</td>
+                                                            <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                            <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                            <td class="text-center">@item.Fecha_Creacion.Value.ToString("dd-MM-yyyy")</td>
+                                                            @*<td class="text-center">@item.DetalleSencillo.SencillosSAP.Fecha_Doc</td>*@
+                                                            <td class="text-center">@item.EstadoSencillo.Nombre</td>
+
+                                                            @*<td class="text-center">@item.Remito</td>*@
+                                                            @if (item.CodigoEstadoSencillo == 2)
+                                                            {
+                                                                <td class="text-center">
+                                                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                                                            onclick="DetalleBySencillo('@item.id')">
+                                                                        <span class='fa fa-list-alt'></span>
+                                                                    </button>
+
+
+                                                                </td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="text-center"></td>
+                                                            }
+
+
+
+
+
+
+                                                        </tr>
+                                                        }
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-pre2" role="tabpanel" aria-labelledby="nav-pre2-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="devolucion" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Estado</th>
+                                                            <th class="text-center">Fecha Aceptacion</th>
+                                                            <th class="text-center">DepositoAceptacion</th>
+                                                            @*<th class="text-center">Remito</th>*@
+                                                            <th class="text-center">Accion</th>
+
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 3))
+                                                        {
+
+                                                            <tr>
+
+                                                                <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                                <td class="text-center">@item.idTienda</td>
+                                                                <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                                <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                                <td class="text-center">@item.EstadoSencillo.Nombre</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Fecha).FirstOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
+                                                                @*<td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.NumeroDepostio).FirstOrDefault().ToString()</td>*@
+                                                                <td class="text-center">
+                                                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                                                            onclick="Devolucion('@item.id')">
+                                                                        <span class='fa fa-list-alt'></span>
+                                                                    </button>
+                                                                    @*<button type='button' class='editar btn btn-outline-danger btn-sm shadow-sm' title="Eliminar"
+                                                    onclick="Eliminar('@item.id')">
+                                                <span class='fa fa-trash'></span>
+                                            </button>*@
+
+                                                                </td>
+
+
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                               
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br />
+
+            </main>
+            <!-- Modal -->
+
+        </div>
+    </div>
+    <div class="modal fade" id="ModalDetalle" role="dialog">
+    </div>
+    <div class="modal fade" id="Devolucion" role="dialog">
+    </div>
+</body>
+@section scripts{
+    <script>
+    $(document).ready(function () {
+
+        var tableEntrega = $("#Entrega").DataTable({
+            scrollX: true,
+            "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+
+           var tabledevolucion = $("#devolucion").DataTable({
+               scrollX: true,
+            "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+           });
+        var finalizado = $("#finalizado").DataTable({
+               scrollX: true,
+            "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+           });
+
+
+
+        ////////////////////////////////////////////////////////////////
+        //AUTO-AJUSTA LAS TABLAS AL CAMBIAR DE TABS
+        $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $($.fn.dataTable.tables(true)).DataTable()
+                .columns.adjust();
+            //.fixedColumns().relayout();
+        });
+
+
+    });
+           function DetalleBySencillo(Id) {
+            console.log('entro aca');
+            console.log(Id)
+        //var data = { fecha: fecha, idCencos: cencos, idZona: zona, nomCenco: nomCencos};
+         var url = "@Url.Action("DetalleSencillo", "Tienda")";
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: { Id: Id },
+            success: function (response) {
+                $("#ModalDetalle").html(response);
+                $("#ModalDetalle").modal('show');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+            }
+        });
+        }
+
+        function Devolucion(Id) {
+            console.log('entro aca');
+            console.log(Id)
+        //var data = { fecha: fecha, idCencos: cencos, idZona: zona, nomCenco: nomCencos};
+         var url = "@Url.Action("Devolucion", "Tienda")";
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: { Id: Id },
+            success: function (response) {
+                $("#Devolucion").html(response);
+                $("#Devolucion").modal('show');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+            }
+        });
+        }
+        function BajarModalInsertRemito() {
+            $('#ModalDetalle').modal('hide');
+          
+        }
+
+        function BajarModalInserDevolucion() {
+            $('#Devolucion').modal('hide');
+        
+        }
+
+    </script>
+}

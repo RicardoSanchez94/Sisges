@@ -1,0 +1,378 @@
+﻿@{
+    ViewBag.Title = "DetalleVenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="sb-nav-fixed" onload="PintarLinea">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Reportes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ventas</li>
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Ventas Realizadas
+                                </div>
+                                @*@using (Html.BeginForm("ExcelVentas", "Gestion", FormMethod.Post, new { id = "fromConciliacionManual", role = "form" }))
+                                {*@
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="row align-items-end">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group mb-0">
+                                                        <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                        <select class="form-control form-control-sm model" id="cboTienda" name="Tienda"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group mb-0">
+                                                        <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tipo Documento:</label>
+                                                        <select class="form-control form-control-sm model" id="cboDocumento" name="cboDocumento"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group mb-0">
+                                                        <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha:</label>
+                                                        <input type="text" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" required>
+                                                        <div class="valid-feedback">Campo valido</div>
+                                                        <div class="invalid-feedback">Debe completar el campo</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group mb-0">
+                                                        <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                        <button id="btnBuscar" type="button" class="btn btn-sm btn-danger" onclick="buscar()"><i class="fas fa-search"></i> Buscar</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group mb-0">
+                                                        <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                        <button class="btn btn-sm btn-success btn-block" id="DescargarConManual" type="submit" role="button"><i class="fa fa-file-excel"> </i> Detalle</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+
+                                        </div>
+
+                                        <div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+                                            <div class="row" id="inner-right">
+                                                <div class="col-sm-12">
+                                                    <table id="tbReporte" class="table table-striped table-bordered table-sm table-responsive-sm" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-center">Centro</th>
+                                                                <th class="text-center">Caja</th>
+                                                                <th class="text-center">Fecha</th>
+                                                                <th class="text-center">Tipo_documento</th>
+                                                                <th class="text-center">Folio_Documento</th>
+                                                                <th class="text-center">Total</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th><label id="chanchito"></label></th>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @*}*@
+                            </div>
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+@section scripts{
+
+
+    <script>
+
+        var tabla_data;
+
+        $(document).ready(function () {
+            $('#DescargarConManual').click(function (event) {
+                var Fecha = $("#txtFecha").val();
+                var local = $("#cboTienda").val();
+                var documento = $("#cboDocumento").val();
+                if (local == 0) {
+                    alert("Debe al menos enviar una Tienda")
+                    return 0;
+                }
+                if (documento == 0) {
+                    alert("Debe seleccionar Un documento")
+                    return 0;
+                }
+
+
+            event.preventDefault();
+            var url = '@Url.Action("ExcelVentas", "Gestion")';
+        
+            //console.log(Fecha);
+            //console.log(Tienda);
+            //var tipo = $("#TypeReporte").val();
+            DownloadFileFechasEntre(local,documento,Fecha,url);
+        });
+
+            $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '< Ant',
+                nextText: 'Sig >',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd-mm-yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+            $("#txtFecha").datepicker();
+            $("#txtFecha").val(ObtenerFecha());
+
+            tabla_data = $("#tbReporte").DataTable({
+                responsive: true,
+
+
+                "ajax": {
+                    "url": $.MisUrls.url._ObtenerCompras + "?local=" + "&documento=" + "&fechaCon=",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+
+                "columns": [
+
+                    { "data": "Centro", "name": "Centro", "autoWidth": true },
+                    { "data": "Caja", "name": "Caja", "autoWidth": true },
+                    {
+                        "data": "Fecha",
+                        "name": "Fecha",
+                        "autoWidth": true,
+
+                    },
+                    { "data": "Tipo_Documento", "name": "Tipo_Documento", "autoWidth": true },
+                    { "data": "Folio_Documento", "name": "Folio_Documento", "autoWidth": true },
+                    {
+                        "data": "Total", "autoWidth": true,
+                        render: function (data, type) {
+                            var number = $.fn.dataTable.render.number(',', '', '', '$').display(data);
+                            return number;
+                        }
+
+                    },
+
+
+
+                ],
+
+
+                "footerCallback": function (row, data, start, end, display) {
+                    var api = this.api();
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                                i : 0;
+                    };
+
+                    // Total over all pages
+                    total = api
+                        .column(5)
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Total over this page
+                    pageTotal = api
+                        .column(5, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer
+                    $(api.column(5).footer()).html(
+                        '$' + pageTotal + ' ( $' + total + ' Total Tienda Por Fecha)'
+                    );
+                },
+
+
+
+                "language": {
+                    "url": $.MisUrls.url.Url_datatable_spanish
+
+                }
+
+
+
+            });
+
+
+
+
+
+            jQuery.ajax({
+                url: $.MisUrls.url._TiendaPorNombre,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("<option>").attr({ "value": 0 }).text("--  Seleccionar Tienda--").appendTo("#cboTienda");
+                    $.each(data.data, function (i, item) {
+                        $("<option>").attr({ "value": item.Codigo }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                    })
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+
+            });
+
+            jQuery.ajax({
+                url: $.MisUrls.url._TipoDocumento,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("<option>").attr({ "value": 0 }).text("--Seleccionar Documento--").appendTo("#cboDocumento");
+                    $.each(data.data, function (i, item) {
+                        $("<option>").attr({ "value": item.NombreCorto }).text(item.Descripcion).appendTo("#cboDocumento");
+
+                    })
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+
+            });
+
+
+
+        })
+        function buscar() {
+
+            if ($("#cboDocumento").val().trim() == 0) {
+                swal("Mensaje", "Debe ingresar Todos los campos", "warning")
+                return;
+            }
+
+            if ($("#cboTienda").val().trim() == 0) {
+                swal("Mensaje", "Debe ingresar Al menos una Tienda", "warning")
+                return;
+            }
+
+            tabla_data.ajax.url($.MisUrls.url._ObtenerCompras + "?" +
+                "&documento=" + $("#cboDocumento").val() +
+                "&fechaCon=" + $("#txtFecha").val() +
+                "&local=" + $("#cboTienda").val()).load();
+        }
+
+
+        function ObtenerFecha() {
+
+            var d = new Date();
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+            var output = (('' + day).length < 2 ? '0' : '') + day + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' + d.getFullYear();
+
+            return output;
+        }
+
+        function PintarLinea() {
+            setInterval(function () {
+
+
+            }, 0000);
+
+
+        }
+
+        function DownloadFileFechasEntre(local, documento, Fecha, urlAc) {
+
+
+            var url = urlAc;
+            //var Fecha = F;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: url,
+                type: "post",
+                data: { local: local, documento: documento, Fecha: Fecha },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+
+
+    </script>
+}

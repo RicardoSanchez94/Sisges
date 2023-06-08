@@ -1,0 +1,101 @@
+﻿@model SistemaGestion.Models.ConciliaciondePagos
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <table id="tbReporte" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Autorizador</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">CuentaContable</th>
+                        <th class="text-center">Tienda</th>
+                        <th class="text-center">CECO</th>
+                        <th class="text-center">Monto</th>
+                        <th class="text-center">Asiento</th>
+                        <th class="text-center">FechaAsiento</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.DetalleConciliacionPagos.Where(x => x.TipoConciliacion == "D"))
+                    {
+
+                        <tr>
+                            @{
+                                if (item.AutorizadorTbk == null)
+                                {
+
+                                    <td>@item.AutorizadorMp</td>
+                                    <td>@item.FechaMp.Value.ToString("dd-MM-yyyy")</td>
+                                    <td>@item.Cuenta.Descripcion</td>
+                                    <td>@item.ACREEDOR_REL.Local</td>
+
+                                    if (@item.Cuenta.NumeroCuenta.Trim() == "3203000006")
+                                    {
+                                        <td>@item.ACREEDOR_REL.CeCo</td>
+                                    }
+                                    else
+                                    {
+                                        <td>/</td>
+                                    }
+
+
+                                    <td>@item.MontoMp.Value.ToString("C")</td>
+                                    <td>@item.TipoAsiento</td>
+                                    <td>@(Model.FechaConciliar)</td>
+
+
+
+                                }
+                                else
+                                {
+                                    <td>@item.AutorizadorTbk</td>
+                                    <td>@item.FechaTbk.Value.ToString("dd-MM-yyyy")</td>
+                                    <td>@item.Cuenta.Descripcion</td>
+                                    <td>@item.ACREEDOR_REL.Local</td>
+
+                                    if (@item.Cuenta.NumeroCuenta.Trim() == "3203000006")
+                                    {
+                                        <td>@item.ACREEDOR_REL.CeCo</td>
+                                    }
+                                    else
+                                    {
+                                        <td>/</td>
+                                    }
+
+
+                                    <td>@item.MontoTbk.Value.ToString("C")</td>
+                                    <td>@item.TipoAsiento</td>
+                                    <td>@(Model.FechaConciliar)</td>
+
+                                }
+
+                            }
+
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('table.display').DataTable({
+            responsive: true,
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+
+
+
+    });
+
+</script>
+

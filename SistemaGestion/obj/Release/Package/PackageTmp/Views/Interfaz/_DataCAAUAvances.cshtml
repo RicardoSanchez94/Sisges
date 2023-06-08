@@ -1,0 +1,481 @@
+﻿@model  List<SistemaGestion.Models.fnReporte_CAAU_AVANCES_Result>
+
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-pre1-tab" data-toggle="tab" data-target="#nav-pre1" type="button" role="tab" aria-controls="nav-pre1" aria-selected="true">Conciliadas</button>
+        <button class="nav-link" id="nav-pre2-tab" data-toggle="tab" data-target="#nav-pre2" type="button" role="tab" aria-controls="nav-pre2" aria-selected="false">Solo Global</button>
+        <button class="nav-link" id="nav-pre3-tab" data-toggle="tab" data-target="#nav-pre3" type="button" role="tab" aria-controls="nav-pre3" aria-selected="false">Solo CAAU</button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+
+    <div class="tab-pane fade show active" id="nav-pre1" role="tabpanel" aria-labelledby="nav-pre1-tab">
+
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="TablePremisa1" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Referencia</th>
+                        <th scope="col" class="text-center">CodigoEmpresa</th>
+                        <th scope="col" class="text-center">FechaAutorizacion</th>
+                        <th scope="col" class="text-center">CodigoAgencia</th>
+                        <th scope="col" class="text-center">NumeroTerminal</th>
+                        <th scope="col" class="text-center">NumeroBoleta</th>
+                        <th scope="col" class="text-center">TipoTransaccion</th>
+                        <th scope="col" class="text-center">CodigoUsuario</th>
+                        <th scope="col" class="text-center">NumeroAutorizacion</th>
+                        <th scope="col" class="text-center">TipoArchivo</th>
+                        <th scope="col" class="text-center">CodigoCliente</th>
+                        <th scope="col" class="text-center">NumeroTarjeta</th>
+                        <th scope="col" class="text-center">Monto</th>
+                        <th scope="col" class="text-center">MontoPie</th>
+                        <th scope="col" class="text-center">MesesDiferido</th>
+                        <th scope="col" class="text-center">MesesGracia</th>
+                        <th scope="col" class="text-center">FechaAutoriza</th>
+                        <th scope="col" class="text-center">NumeroCuotas</th>
+                        <th scope="col" class="text-center">Extrafinanciamiento</th>
+                        <th scope="col" class="text-center">CodigoPlanCredito</th>
+                        <th scope="col" class="text-center">MontoAfecto</th>
+                        <th scope="col" class="text-center">MontonoAfecto</th>
+                        <th scope="col" class="text-center">CodigoComercio</th>
+                        <th scope="col" class="text-center">CodigoRubro</th>
+                        <th scope="col" class="text-center">RutVendedor</th>
+                        <th scope="col" class="text-center">CodigoPromocionVenta</th>
+                        <th scope="col" class="text-center">MontoCuota</th>
+                        <th scope="col" class="text-center">FechaPrimerVencimiento</th>
+                        <th scope="col" class="text-center">FechaUltimoVencimiento</th>
+                        <th scope="col" class="text-center">Confirmada</th>
+                        <th scope="col" class="text-center">ModoProceso</th>
+                        <th scope="col" class="text-center">NroTrxPos</th>
+                        <th scope="col" class="text-center">NroRef</th>
+                        <th scope="col" class="text-center">NroCaja</th>
+                        <th scope="col" class="text-center">TipoDiferencia</th>
+                        <th scope="col" class="text-center">Estado</th>
+                        <th scope="col" class="text-center">Cuenta_GL</th>
+                        <th scope="col" class="text-center">Rut_GL</th>
+                        <th scope="col" class="text-center">Monto_GL</th>
+                        <th scope="col" class="text-center">MontoAprobado_GL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in Model.Where(x => x.Estado.Equals("AA")))
+                    {
+                        <tr>
+                            <td class="text-center">@a.Referencia</td>
+                            <td class="text-center">@a.CodigoEmpresa</td>
+                            <td class="text-center">@a.FechaAutorizacion</td>
+                            <td class="text-center">@a.CodigoAgencia</td>
+                            <td class="text-center">@a.NumeroTerminal</td>
+                            <td class="text-center">@a.NumeroBoleta</td>
+                            <td class="text-center">@a.TipoTransaccion</td>
+                            <td class="text-center">@a.CodigoUsuario</td>
+                            <td class="text-center">@a.NumeroAutorizacion</td>
+                            <td class="text-center">@a.TipoArchivo</td>
+                            <td class="text-center">@a.CodigoCliente</td>
+                            <td class="text-center">@a.NumeroTarjeta</td>
+                            <td class="text-center">@a.Monto</td>
+                            <td class="text-center">@a.MontoPie</td>
+                            <td class="text-center">@a.MesesDiferido</td>
+                            <td class="text-center">@a.MesesGracia</td>
+                            <td class="text-center">@a.FechaAutoriza</td>
+                            <td class="text-center">@a.NumeroCuotas</td>
+                            <td class="text-center">@a.Extrafinanciamiento</td>
+                            <td class="text-center">@a.CodigoPlanCredito</td>
+                            <td class="text-center">@a.MontoAfecto</td>
+                            <td class="text-center">@a.MontonoAfecto</td>
+                            <td class="text-center">@a.CodigoComercio</td>
+                            <td class="text-center">@a.CodigoRubro</td>
+                            <td class="text-center">@a.RutVendedor</td>
+                            <td class="text-center">@a.CodigoPromocionVenta</td>
+                            <td class="text-center">@a.MontoCuota</td>
+                            <td class="text-center">@a.FechaPrimerVencimiento</td>
+                            <td class="text-center">@a.FechaUltimoVencimiento</td>
+                            <td class="text-center">@a.Confirmada</td>
+                            <td class="text-center">@a.ModoProceso</td>
+                            <td class="text-center">@a.NroTrxPos</td>
+                            <td class="text-center">@a.NroRef</td>
+                            <td class="text-center">@a.NroCaja</td>
+                            <td class="text-center">@a.TipoDiferencia</td>
+                            <td class="text-center">@a.Estado</td>
+                            <td class="text-center">@a.Cuenta_GL</td>
+                            <td class="text-center">@a.Rut_GL</td>
+                            <td class="text-center">@a.Monto_GL</td>
+                            <td class="text-center">@a.MontoPago_GL</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="tab-pane fade" id="nav-pre2" role="tabpanel" aria-labelledby="nav-pre2-tab">
+
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="TablePremisa2" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Referencia</th>
+                        <th scope="col" class="text-center">CodigoEmpresa</th>
+                        <th scope="col" class="text-center">FechaAutorizacion</th>
+                        <th scope="col" class="text-center">CodigoAgencia</th>
+                        <th scope="col" class="text-center">NumeroTerminal</th>
+                        <th scope="col" class="text-center">NumeroBoleta</th>
+                        <th scope="col" class="text-center">TipoTransaccion</th>
+                        <th scope="col" class="text-center">CodigoUsuario</th>
+                        <th scope="col" class="text-center">NumeroAutorizacion</th>
+                        <th scope="col" class="text-center">TipoArchivo</th>
+                        <th scope="col" class="text-center">CodigoCliente</th>
+                        <th scope="col" class="text-center">NumeroTarjeta</th>
+                        <th scope="col" class="text-center">Monto</th>
+                        <th scope="col" class="text-center">MontoPie</th>
+                        <th scope="col" class="text-center">MesesDiferido</th>
+                        <th scope="col" class="text-center">MesesGracia</th>
+                        <th scope="col" class="text-center">FechaAutoriza</th>
+                        <th scope="col" class="text-center">NumeroCuotas</th>
+                        <th scope="col" class="text-center">Extrafinanciamiento</th>
+                        <th scope="col" class="text-center">CodigoPlanCredito</th>
+                        <th scope="col" class="text-center">MontoAfecto</th>
+                        <th scope="col" class="text-center">MontonoAfecto</th>
+                        <th scope="col" class="text-center">CodigoComercio</th>
+                        <th scope="col" class="text-center">CodigoRubro</th>
+                        <th scope="col" class="text-center">RutVendedor</th>
+                        <th scope="col" class="text-center">CodigoPromocionVenta</th>
+                        <th scope="col" class="text-center">MontoCuota</th>
+                        <th scope="col" class="text-center">FechaPrimerVencimiento</th>
+                        <th scope="col" class="text-center">FechaUltimoVencimiento</th>
+                        <th scope="col" class="text-center">Confirmada</th>
+                        <th scope="col" class="text-center">ModoProceso</th>
+                        <th scope="col" class="text-center">NroTrxPos</th>
+                        <th scope="col" class="text-center">NroRef</th>
+                        <th scope="col" class="text-center">NroCaja</th>
+                        <th scope="col" class="text-center">TipoDiferencia</th>
+                        <th scope="col" class="text-center">Estado</th>
+                        <th scope="col" class="text-center">Cuenta_GL</th>
+                        <th scope="col" class="text-center">Rut_GL</th>
+                        <th scope="col" class="text-center">Monto_GL</th>
+                        <th scope="col" class="text-center">MontoAprobado_GL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in Model.Where(x => x.Estado.Equals("CA")))
+                    {
+                        <tr>
+                            <td class="text-center">@a.Referencia</td>
+                            <td class="text-center">@a.CodigoEmpresa</td>
+                            <td class="text-center">@a.FechaAutorizacion</td>
+                            <td class="text-center">@a.CodigoAgencia</td>
+                            <td class="text-center">@a.NumeroTerminal</td>
+                            <td class="text-center">@a.NumeroBoleta</td>
+                            <td class="text-center">@a.TipoTransaccion</td>
+                            <td class="text-center">@a.CodigoUsuario</td>
+                            <td class="text-center">@a.NumeroAutorizacion</td>
+                            <td class="text-center">@a.TipoArchivo</td>
+                            <td class="text-center">@a.CodigoCliente</td>
+                            <td class="text-center">@a.NumeroTarjeta</td>
+                            <td class="text-center">@a.Monto</td>
+                            <td class="text-center">@a.MontoPie</td>
+                            <td class="text-center">@a.MesesDiferido</td>
+                            <td class="text-center">@a.MesesGracia</td>
+                            <td class="text-center">@a.FechaAutoriza</td>
+                            <td class="text-center">@a.NumeroCuotas</td>
+                            <td class="text-center">@a.Extrafinanciamiento</td>
+                            <td class="text-center">@a.CodigoPlanCredito</td>
+                            <td class="text-center">@a.MontoAfecto</td>
+                            <td class="text-center">@a.MontonoAfecto</td>
+                            <td class="text-center">@a.CodigoComercio</td>
+                            <td class="text-center">@a.CodigoRubro</td>
+                            <td class="text-center">@a.RutVendedor</td>
+                            <td class="text-center">@a.CodigoPromocionVenta</td>
+                            <td class="text-center">@a.MontoCuota</td>
+                            <td class="text-center">@a.FechaPrimerVencimiento</td>
+                            <td class="text-center">@a.FechaUltimoVencimiento</td>
+                            <td class="text-center">@a.Confirmada</td>
+                            <td class="text-center">@a.ModoProceso</td>
+                            <td class="text-center">@a.NroTrxPos</td>
+                            <td class="text-center">@a.NroRef</td>
+                            <td class="text-center">@a.NroCaja</td>
+                            <td class="text-center">@a.TipoDiferencia</td>
+                            <td class="text-center">@a.Estado</td>
+                            <td class="text-center">@a.Cuenta_GL</td>
+                            <td class="text-center">@a.Rut_GL</td>
+                            <td class="text-center">@a.Monto_GL</td>
+                            <td class="text-center">@a.MontoPago_GL</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-pre3" role="tabpanel" aria-labelledby="nav-pre3-tab">
+
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="TablePremisa3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Referencia</th>
+                        <th scope="col" class="text-center">CodigoEmpresa</th>
+                        <th scope="col" class="text-center">FechaAutorizacion</th>
+                        <th scope="col" class="text-center">CodigoAgencia</th>
+                        <th scope="col" class="text-center">NumeroTerminal</th>
+                        <th scope="col" class="text-center">NumeroBoleta</th>
+                        <th scope="col" class="text-center">TipoTransaccion</th>
+                        <th scope="col" class="text-center">CodigoUsuario</th>
+                        <th scope="col" class="text-center">NumeroAutorizacion</th>
+                        <th scope="col" class="text-center">TipoArchivo</th>
+                        <th scope="col" class="text-center">CodigoCliente</th>
+                        <th scope="col" class="text-center">NumeroTarjeta</th>
+                        <th scope="col" class="text-center">Monto</th>
+                        <th scope="col" class="text-center">MontoPie</th>
+                        <th scope="col" class="text-center">MesesDiferido</th>
+                        <th scope="col" class="text-center">MesesGracia</th>
+                        <th scope="col" class="text-center">FechaAutoriza</th>
+                        <th scope="col" class="text-center">NumeroCuotas</th>
+                        <th scope="col" class="text-center">Extrafinanciamiento</th>
+                        <th scope="col" class="text-center">CodigoPlanCredito</th>
+                        <th scope="col" class="text-center">MontoAfecto</th>
+                        <th scope="col" class="text-center">MontonoAfecto</th>
+                        <th scope="col" class="text-center">CodigoComercio</th>
+                        <th scope="col" class="text-center">CodigoRubro</th>
+                        <th scope="col" class="text-center">RutVendedor</th>
+                        <th scope="col" class="text-center">CodigoPromocionVenta</th>
+                        <th scope="col" class="text-center">MontoCuota</th>
+                        <th scope="col" class="text-center">FechaPrimerVencimiento</th>
+                        <th scope="col" class="text-center">FechaUltimoVencimiento</th>
+                        <th scope="col" class="text-center">Confirmada</th>
+                        <th scope="col" class="text-center">ModoProceso</th>
+                        <th scope="col" class="text-center">NroTrxPos</th>
+                        <th scope="col" class="text-center">NroRef</th>
+                        <th scope="col" class="text-center">NroCaja</th>
+                        <th scope="col" class="text-center">TipoDiferencia</th>
+                        <th scope="col" class="text-center">Estado</th>
+                        <th scope="col" class="text-center">Cuenta_GL</th>
+                        <th scope="col" class="text-center">Rut_GL</th>
+                        <th scope="col" class="text-center">Monto_GL</th>
+                        <th scope="col" class="text-center">MontoAprobado_GL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in Model.Where(x => x.Estado.Equals("BA")))
+                    {
+                        <tr>
+                            <td class="text-center">@a.Referencia</td>
+                            <td class="text-center">@a.CodigoEmpresa</td>
+                            <td class="text-center">@a.FechaAutorizacion</td>
+                            <td class="text-center">@a.CodigoAgencia</td>
+                            <td class="text-center">@a.NumeroTerminal</td>
+                            <td class="text-center">@a.NumeroBoleta</td>
+                            <td class="text-center">@a.TipoTransaccion</td>
+                            <td class="text-center">@a.CodigoUsuario</td>
+                            <td class="text-center">@a.NumeroAutorizacion</td>
+                            <td class="text-center">@a.TipoArchivo</td>
+                            <td class="text-center">@a.CodigoCliente</td>
+                            <td class="text-center">@a.NumeroTarjeta</td>
+                            <td class="text-center">@a.Monto</td>
+                            <td class="text-center">@a.MontoPie</td>
+                            <td class="text-center">@a.MesesDiferido</td>
+                            <td class="text-center">@a.MesesGracia</td>
+                            <td class="text-center">@a.FechaAutoriza</td>
+                            <td class="text-center">@a.NumeroCuotas</td>
+                            <td class="text-center">@a.Extrafinanciamiento</td>
+                            <td class="text-center">@a.CodigoPlanCredito</td>
+                            <td class="text-center">@a.MontoAfecto</td>
+                            <td class="text-center">@a.MontonoAfecto</td>
+                            <td class="text-center">@a.CodigoComercio</td>
+                            <td class="text-center">@a.CodigoRubro</td>
+                            <td class="text-center">@a.RutVendedor</td>
+                            <td class="text-center">@a.CodigoPromocionVenta</td>
+                            <td class="text-center">@a.MontoCuota</td>
+                            <td class="text-center">@a.FechaPrimerVencimiento</td>
+                            <td class="text-center">@a.FechaUltimoVencimiento</td>
+                            <td class="text-center">@a.Confirmada</td>
+                            <td class="text-center">@a.ModoProceso</td>
+                            <td class="text-center">@a.NroTrxPos</td>
+                            <td class="text-center">@a.NroRef</td>
+                            <td class="text-center">@a.NroCaja</td>
+                            <td class="text-center">@a.TipoDiferencia</td>
+                            <td class="text-center">@a.Estado</td>
+                            <td class="text-center">@a.Cuenta_GL</td>
+                            <td class="text-center">@a.Rut_GL</td>
+                            <td class="text-center">@a.Monto_GL</td>
+                            <td class="text-center">@a.MontoPago_GL</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        var tablePre1 = $("#TablePremisa1").DataTable({
+            scrollX: true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        });
+
+
+
+        var tablePre2 = $("#TablePremisa2").DataTable({
+            scrollX: true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        });
+
+        var tablePre3 = $("#TablePremisa3").DataTable({
+            scrollX: true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        });
+
+
+        ////////////////////////////////////////////////////////////////
+         //AUTO-AJUSTA LAS TABLAS AL CAMBIAR DE TABS
+        $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $($.fn.dataTable.tables(true)).DataTable()
+                .columns.adjust();
+                //.fixedColumns().relayout();
+        });
+
+         ////////////////////////////////////////////////////////////////
+         ////////////////////////////////////////////////////////////////
+         /////////                PREMISA 1            //////////////////
+        // Handle click on "Select all" control
+        $('#example-select-all-p1').on('click', function () {
+            // Get all rows with search applied
+            var rows = tablePre1.rows({ 'search': 'applied' }).nodes();
+            // Check/uncheck checkboxes for all rows in the table
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        // Handle click on checkbox to set state of "Select all" control
+        $('#TablePremisa1 tbody').on('change', 'input[type="checkbox"]', function () {
+            // If checkbox is not checked
+            if (!this.checked) {
+                var el = $('#example-select-all').get(0);
+                // If "Select all" control is checked and has 'indeterminate' property
+                if (el && el.checked && ('indeterminate' in el)) {
+                    // Set visual state of "Select all" control
+                    // as 'indeterminate'
+                    el.indeterminate = true;
+                }
+            }
+        });
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        /////////                PREMISA 2            //////////////////
+        $('#example-select-all-p2').on('click', function () {
+            var rows = tablePre2.rows({ 'search': 'applied' }).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        $('#TablePremisa2 tbody').on('change', 'input[type="checkbox"]', function () {
+            if (!this.checked) {
+                var el = $('#example-select-all-p2').get(0);
+                if (el && el.checked && ('indeterminate' in el)) {
+                    el.indeterminate = true;
+                }
+            }
+        });
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        /////////                PREMISA 3            //////////////////
+        $('#example-select-all-p3').on('click', function () {
+            var rows = tablePre3.rows({ 'search': 'applied' }).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        $('#TablePremisa3 tbody').on('change', 'input[type="checkbox"]', function () {
+            if (!this.checked) {
+                var el = $('#example-select-all-p3').get(0);
+                if (el && el.checked && ('indeterminate' in el)) {
+                    el.indeterminate = true;
+                }
+            }
+        });
+
+        ////////////////////////////////////////////////////////////////
+
+         $('#btnSendData').click(function (event) {
+
+
+             var ListPremisa1 = tablePre1.$('input').serialize();
+             var ListPremisa2 = tablePre2.$('input').serialize();
+             var ListPremisa3 = tablePre3.$('input').serialize();
+
+             //ListPremisa1 = ListPremisa1 + "&" + ListPremisa2 + "&" + ListPremisa3 + "&" + ListPremisa4;
+             var arg = ListPremisa1 + "&" + ListPremisa2 + "&" + ListPremisa3;
+             console.log(arg.toString());
+             var url = '@Url.Action("GenerateDoc", "MediosPago")';
+
+             //DownloadIdocNC(ListPremisa1, url);
+             //DownloadIdocNC(arg, url);
+
+
+            // $.ajax({
+            //     type: 'POST',
+            //     url: url,
+            //     data: ListPremisa1,
+            //    success: function (response) {
+
+            //    },
+            //    error: function (r, error) {
+            //        alert('Error FormUsuario.cshtml, function.click #btnCrear');
+            //    }
+            //});
+    });
+
+
+    });
+
+
+    //function DownloadIdocNC(data, urlNC) {
+
+    //    var url = urlNC;
+    //    var list = [];
+    //    var fileName = '';
+    //    list.push({ fileName: fileName });
+
+    //    $('#cargal').modal('show');
+    //    $.ajax({
+    //        url: url,
+    //        type: "post",
+    //        data: data,
+    //        xhrFields: {
+    //            responseType: 'blob'
+    //        },
+    //        success: function (data, textStatus, xhr) {
+    //            var filename = list[0].filename;
+    //            var disposition = xhr.getResponseHeader('Content-Disposition');
+    //            if (disposition && disposition.indexOf('attachment') !== -1) {
+    //                var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+    //                var matches = filenameRegex.exec(disposition);
+    //                if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+    //                var a = document.createElement('a');
+    //                var url = window.URL.createObjectURL(data);
+    //                a.href = url;
+    //                a.download = filename;
+    //                document.body.append(a);
+    //                a.click();
+    //                a.remove();
+    //                window.URL.revokeObjectURL(url);
+    //            }
+    //            else {
+    //                getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+    //            }
+    //        },
+    //        error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+    //        },
+    //        complete: function () {
+    //            setTimeout(function () {
+    //                $("#cargal").modal('hide');
+    //            }, 1500);
+
+    //        }
+    //    });
+    //}
+</script>
+

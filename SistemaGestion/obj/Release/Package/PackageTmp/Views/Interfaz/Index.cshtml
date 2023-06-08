@@ -1,0 +1,283 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        color: #ffffff;
+        background-color: #6c757d;
+        border-color: #6c757d #6c757d #fff;
+        border-bottom: 1px;
+    }
+
+    .nav-tabs .nav-link {
+        margin-bottom: -1px;
+        border: 1px solid #4c414136;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        background-color: #dee2e6;
+        margin-right: 1px;
+        color: #6c757d;
+    }
+</style>
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">CAAU</li>
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Interfaz")">Conciliación Automática</a></li>
+                        </ol>
+                    </nav>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Conciliación CAAU
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Búsqueda</label>
+                                                <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnGenerar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="ConciliacionAuto" type="submit" class="btn btn-sm btn-primary btn-block"><i class="fa fa-cubes"></i> Generar Conciliación</button>
+                                                @*<button id="ConciliacionAuto" type="submit" class="btn btn-primary btn-block">
+                                                    <i class="fa fa-cubes"></i> Generar Conciliación
+                                                </button>*@
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="btnBuscar" type="submit" class="btn btn-sm btn-secondary btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnExportar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="Descarga" type="submit" class="btn btn-sm btn-success btn-block"><i class="fas fa-file-excel"></i> Exportar a Excel</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        @*<div id="dataPremisas" class="ml-1 mr-1 mt-4">
+
+                                        </div>*@
+                                    </div>
+                                </div>
+                                <div id="dataPremisas" class="ml-1 mr-1 mt-4">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<div class="modal fade" id="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+</div>
+<div class="modal fade" id="ModalDetalle" role="dialog">
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#ConciliacionAuto').click(function () {
+                event.preventDefault();
+                var Fecha = $("#txtFecha").val();
+                var url = '@Url.Action("ConciliacionAutomatica", "Interfaz")';
+                var result = confirm("Desea Conciliar Automaticamente?");
+                var manejarErrorAjax = "Eror";
+                console.log(Fecha);
+                if (result) {
+                    $('#cargal').modal('show');
+
+                    $.post(url, { Fecha : Fecha }).done(function (response) {
+
+                        if (response.error == false) {
+                            setTimeout(mostrarMensaje, 2000);
+                            setTimeout(Subir, 4000);
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(response.respuesta);
+                                console.log("mostrarMensaje");
+                            };
+                            function Subir() {
+                                $('#cargarMensajes').modal('hide');
+                                $('#cargal').modal('hide');
+                            };
+
+                        } else {
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(Subir, 2000);
+                            console.log("Entre en el else");
+                            function Subir() {
+                                $('#cargarMensajes').modal('hide');
+                                $('#cargal').modal('hide');
+                            }
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(response.respuesta);
+                            };
+
+                        }
+
+
+                    }).fail(manejarErrorAjax);
+
+                };
+            });
+
+            $('#btnBuscar').click(function (event) {
+                event.preventDefault();
+                $('#cargal').modal('show');
+
+                var Fecha = $("#txtFecha").val();
+                console.log(Fecha);
+                var url = '@Url.Action("getConciliadasCAAU", "Interfaz")';
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { fecha: Fecha },
+                    success: function (response) {
+                        $('#cargal').modal('hide');
+                        $("#dataPremisas").html(response);
+                        //$("#addComensalModal").modal('show');
+
+                    },
+                    // Mensaje de error en caso de fallo INTERNO
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("error");
+                    }
+                });
+            });
+
+            $('#Descarga').click(function (event) {
+                event.preventDefault();
+                var url = '@Url.Action("ExcelConciliadasA", "Interfaz")';
+
+                var Fecha = $("#txtFecha").val();
+                DownloadFile(url, Fecha);
+
+            });
+
+            $('#tbNCIDetalleByCenco').DataTable(
+                {
+                    responsive: true,
+
+                    "language": {
+                        url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                    }
+                });
+
+            $('#VistaParcialLV').click(function () {
+                var result = confirm("Desea Cargar El libro mayor?.. Si Carga nuevamente el libro eliminara los datos anteriormente cargados");
+                if (result) {
+                    var url = '@Url.Action("CargaLibroMayor", "CuadraturaEFO")';
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        async: false,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            $("#modal").html(response);
+                            $("#modal").modal('show');
+
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+                }
+
+            });
+
+
+
+
+
+
+
+
+
+            });
+
+
+        function DownloadFile(urlAc,Fecha) {
+
+
+            /*var url = urlAc;*/
+            //var Fecha = F;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: urlAc,
+                type: "post",
+                data: { Fecha: Fecha},
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+    </script>
+}

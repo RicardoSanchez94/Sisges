@@ -1,0 +1,127 @@
+﻿@model SistemaGestion.Models.ViewModels.DetalleDahsboard
+
+
+@*ModalReproceso*@
+@*<div class="modal fade" id="FormModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">*@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-retweet"></i> Reprocesar Idoc</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-12">
+
+
+                    <input type="hidden" id="txtIdPersona" />
+                    <div class="form-group">
+                        <label for="txtNombre">Local:</label>
+                        <input type="text" class="form-control" id="txtLocal" value="@Model.Centro">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtApellidos">Fecha:</label>
+                        <input type="text" class="form-control" id="Fechacon" value="@Model.Fecha">
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Ventas
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            NotasCredito- Factura
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3">
+                        <label class="form-check-label" for="exampleRadios3">
+                            Todos
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-sm btn-danger" id="btcarga">Reprocesar</button>
+        </div>
+    </div>
+</div>
+@*</div>*@
+
+
+<script>
+
+
+
+    //$(document).ready(function () {
+
+
+
+
+
+    //});
+
+    $("#btcarga").click(function () {
+
+            var result = confirm("Desea Generar Idoc?.. Este proceso puede durar mas de 5min");
+            if (result) {
+                $('#cargal').modal('show');
+                var url = "@Url.Action("GeneraIdoc", "Gestion")";
+                var manejarErrorAjax = "Eror";
+                var FechBus = $("#Fechacon").val();
+                var LocalBus = $("#txtLocal").val();
+                var Documento = $('input:radio[name=exampleRadios]:checked').val();
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { Fecha: FechBus, Local: LocalBus, Documento: Documento },
+                    success: function (response) {
+                        if (response.error == true) {
+                            $('#VistaParcialReprocesoIdoc').modal('hide');
+                            setTimeout(MostrarMensaje, 3000);
+                            setTimeout(bajar, 4000);
+                         /*   $("#cargarMensajes").modal('show');*/
+                          
+                        }
+                        else {
+                            setTimeout(MostrarMensaje, 3000);
+                            setTimeout(bajar, 4000);
+                      //      $('#cargal').modal('hide');
+                      ///*      $("#cargarMensajes").modal('show');*/
+                      //      $('#mensajeLoad').html(response.respuesta);
+                           /* $('#cargarMensajes').modal('hide');*/
+                        }
+                        function MostrarMensaje() {
+                            $('#cargal').modal('hide');
+                            $('#cargarMensajes').modal('show');
+                            $('#mensajeLoad').html(response.respuesta);
+                        };
+
+                       
+                        function bajar() {
+
+                            $('#cargarMensajes').modal('hide');
+                        };
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(thrownError);
+                    }
+                });
+            }
+
+
+
+
+        });
+</script>

@@ -1,0 +1,306 @@
+﻿@using SistemaGestion.Models.Repositorios;
+@using SistemaGestion.Models.ViewModels;
+@using Newtonsoft.Json;
+@using SistemaGestion.Models.ViewModels;
+@{
+    ViewBag.Title = "SobranteFaltante";
+}
+
+@{
+
+    var ADU = new AdminUsuarios();
+    var RU = new RolesUsuario();
+    if (User.Identity.IsAuthenticated)
+    {
+        var Json = JsonConvert.DeserializeObject<UserLoginView>(User.Identity.Name);
+        //string loginName = User.Identity.Name;
+        RU = ADU.GetRolesUser(Json.LoginName);
+        //RU = ADU.GetRolesUser(loginName);
+
+
+    }
+
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header text-white bg-secondary border border-grey border-bottom-0">
+                                <h6 class="mb-0">
+                                    <span> <i class="fa fa-chart-pie"></i> Dashboard Sobrante Faltante</span>
+                                </h6>
+                            </div>
+                            <div class="card-body border border-grey pt-1">
+                                <div class="row justify-content-lg-center">
+                                    <div class="col-sm-2">
+                                        <div class="form-group mb-0">
+                                            <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                            <input type="month" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group mb-0">
+                                            <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">On:</label>
+                                            <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                        </div>
+                                    </div>
+                                    @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                                    {
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">On:</label>
+                                                @*<button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>*@
+                                            <button id="btnAdmin" type="button" class="btn btn-sm btn-success btn-block"><i class="fas fa-search"></i> Descargar Informe</button>
+                                            
+                                            </div>
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-dark bg-white border border-grey border-bottom-0 pt-0 pb-0">
+                                <div class="row ml-0 mr-0">
+                                    <div class="col-lg-3 col-md-12 col-sm-12 text-left ml-0 mt-0 pl-0 pt-2">
+                                        <h6 class="mb-0 mt-1 1h-100"><i class="fa fa-list"></i> Detalle Busqueda</h6>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body border border-grey">
+                                <div id="diferencias">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<div class="modal fade" id="FormularioAceptarRechazar" role="dialog">
+</div>
+
+<div class="modal fade" id="DetalleFaltante" role="dialog">
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+
+            $('[data-toggle="tooltip"]').tooltip()
+
+                $('#tablaVacia').DataTable(
+                    {
+                        responsive: true,
+                        "language": {
+                            url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                        }
+                    });
+
+            $('#btnAdmin').click(function (event) {
+                event.preventDefault();
+                    var Fecha = $("#txtFecha").val();
+                    var url = '@Url.Action("ExcelSobranteFaltante", "Tienda")';
+
+                    //var num = 1;
+                DownloadFile(url, Fecha);
+                });
+
+
+                    $("#btnBuscar").click(function () {
+                        event.preventDefault();
+                        //var result = confirm("Desea Cargas Ventas?");
+                        //  if (result){
+                        $('#cargal').modal('show');
+                        var url = "@Url.Action("SobranteFaltante", "Tienda")";
+                        var manejarErrorAjax = "Eror";
+                        var Fecha = $("#txtFecha").val();
+                        var data = { Fecha: Fecha };
+                        $.post(url, data).done(function (data) {
+                            setTimeout(bajar, 1000);
+                            setTimeout(Subir, 2000);
+
+
+                            function bajar() {
+                                $('#cargal').modal('hide');
+
+                            }
+                            function Subir() {
+                                $('#diferencias').html(data);
+                                $('#diferencias').show();
+                            }
+
+
+                        }).fail(manejarErrorAjax);
+
+                        //}
+                    });
+        });
+
+
+        function DownloadFile(urlAc, Fecha) {
+
+
+            /*var url = urlAc;*/
+            //var Fecha = F;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: urlAc,
+                type: "post",
+                data: { Fecha: Fecha },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+        function AceptarRechazar(ANO, MES, IDTIENDA, IDEMPLEADO) {
+            console.log('entro al aceptar rechzar');
+            console.log(FECHA)
+        //$('#cargal').modal('show');
+        //var item = { IDTIENDA: IDTIENDA, FECHA: FECHA, MEDIO_PAGO: MEDIO_PAGO, CAJA: CAJA, TIPO: TIPO, FECHHORA: FECHHORA}
+            var item = { ANO: ANO, MES: MES, IDTIENDA: IDTIENDA, IDEMPLEADO: IDEMPLEADO }
+            var url = "@Url.Action("AceptarRechzar", "Tienda")";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                data: item,
+                success: function (data) {
+                    console.log('esta en el success');
+
+                    $("#FormularioAceptarRechazar").html(data);
+                    $("#FormularioAceptarRechazar").modal('show');
+                    function bajar() {
+                        $('#cargal').modal('hide');
+
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
+
+        };
+
+        function AceptarRechazarAcumulado(ANO, MES, IDTIENDA, ID_EMPLEADO) {
+            console.log('entro al aceptar rechzar');
+        //$('#cargal').modal('show');
+        //var item = { IDTIENDA: IDTIENDA, FECHA: FECHA, MEDIO_PAGO: MEDIO_PAGO, CAJA: CAJA, TIPO: TIPO, FECHHORA: FECHHORA}
+            var Fecha = $("#txtFecha").val();
+
+            var item = { IDTIENDA: IDTIENDA, IDEMPLEADO: ID_EMPLEADO }
+         /*   var item = { ANO: ANO, MES: MES, IDTIENDA: IDTIENDA, ID_EMPLEADO: ID_EMPLEADO }*/
+            var url = "@Url.Action("AceptarRechazarAcumulado", "Tienda")";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                data: item,
+                success: function (data) {
+                    console.log('esta en el success');
+
+                    $("#FormularioAceptarRechazar").html(data);
+                    $("#FormularioAceptarRechazar").modal('show');
+                    function bajar() {
+                        $('#cargal').modal('hide');
+
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
+
+        };
+
+        function Detalle(IDTIENDA,IDEMPLEADO) {
+            console.log('entro al detalle');
+            var Fecha = $("#txtFecha").val();
+          
+            var item = { Fecha:Fecha, IDTIENDA: IDTIENDA, IDEMPLEADO: IDEMPLEADO }
+         var url = "@Url.Action("ListSobranteFaltante", "Tienda")";
+           $.ajax({
+            type: 'GET',
+               url: url,
+               data: item,
+               success: function (data) {
+                   console.log('esta en el success');
+
+                   $("#DetalleFaltante").html(data);
+                   $("#DetalleFaltante").modal('show');
+                   function bajar() {
+                       $('#cargal').modal('hide');
+
+                   }
+
+
+
+               },
+               error: function (xhr, ajaxOptions, thrownError) {
+                   alert(thrownError);
+               }
+             });
+        };
+
+        function BajarModal() {
+
+         $("#DetalleFaltante").modal('hide');
+          /* $('#cargarMensajes').modal('hide');*/
+         $('#cargal').modal('hide');
+
+
+        };
+
+    </script>
+}

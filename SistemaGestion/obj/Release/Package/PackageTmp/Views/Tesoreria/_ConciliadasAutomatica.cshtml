@@ -1,0 +1,76 @@
+﻿@model List<SistemaGestion.Models.ViewModels.SencillosSAPView>
+
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <table id="tbReporte" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Tienda</th>
+                        <th class="text-center">MontoSAP</th>
+                        <th class="text-center">MontoTesoreria</th>
+                        <th class="text-center">Banco</th>
+                        <th class="text-center">DiaLiberacion</th>
+                        <th class="text-center">DiaEntrega</th>
+                        <th class="text-center">Asignacion</th>
+                        <th class="text-center">FechaDOC</th>
+                        <th class="text-center">Estado</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.idTienda</td>
+                        <td>@item.MontoSAP</td>
+                        <td>@item.MontoTesoreria</td>
+                        <td>@item.Banco</td>
+                        <td>@item.DiaLiberacion</td>
+                        <td>@item.DiaEntrega</td>
+                        <td>@item.Asignacion</td>
+                        <td>@item.FechaDoc.Value.ToString("dd-MM-yyyy")</td>
+                        @{
+                            //int dif = Convert.ToInt32(item.diff);
+                            int dif = Convert.ToInt32(item.Estado);
+
+                            if (dif == 1)
+                            {
+                              <td class="bg-success text-white">Conciliado</td>
+                            }
+                           
+                            else
+                            {
+                                <td class="bg-danger text-white">Sin Conciliar</td>
+                            }
+                        }
+
+
+
+
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('table.display').DataTable({
+            responsive: true,
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+
+
+
+    });
+
+</script>

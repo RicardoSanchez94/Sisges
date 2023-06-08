@@ -1,0 +1,106 @@
+﻿@model SistemaGestion.Models.ViewModels.ChangePassView
+@{
+    ViewBag.Title = "CAMBIO DE CONTRASEÑA";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<div class="container h-100">
+    <div class="row justify-content-sm-center h-100">
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+            <div class="text-center my-5">
+                <img src="~/Content/img/fp-logo.png" class="img-fluid">
+            </div>
+            <div class="card shadow-lg">
+                <div class="card-body pt-3 pr-5 pl-5">
+                    <h3 class="fs-4 card-title fw-bold mb-4 text-center"><i class="fa fa-unlock-alt"></i> SisGes Cambio Contraseña</h3>
+                    @using (Html.BeginForm("changePass", "Account", FormMethod.Post, new { id = "FormChangePass", role = "form" }))
+                    {
+                        <div class="panel-body">
+                            <div class="col-lg-3">
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                @Html.HiddenFor(m => m.loginName)
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.newPass)
+                                    @*@Html.TextBoxFor(m => m.newPass, new { @class = "form-control", @autofocus = "autofocus" })*@
+                                    <input type="password" id="newPass" class="form-control" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(m => m.repeatNewPass)
+                                    @*@Html.TextBoxFor(m => m.repeatNewPass, new { @class = "form-control", @autofocus = "autofocus" })*@
+                                    <input type="password" id="repeatNewPass" class="form-control" />
+                                </div>
+                                <div class="form-group col-md-12 text-right">
+                                    <button id="btnCambiar" class="btn btn-outline btn-danger btn-block">CAMBIAR CONTRASEÑA</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="text-center mt-5 text-muted">
+                Copyright &copy; 2017-2022 &mdash; FashionPark
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="mensaje" role="dialog">
+    <div class="modal-dialog modalCustom modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="content" class="text-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnCambiar').click(function (event) {
+            event.preventDefault();
+            var url = '@Url.Content("~/Account/changePass")';
+            var parameters = $("#FormChangePass").serialize();
+
+            var ln = $("#loginName").val();
+            var np = $("#newPass").val();
+            var npr = $("#repeatNewPass").val();
+            console.log(np + " " + npr);
+
+            var r = {
+                newPass: np,
+                repeatNewPass: npr,
+                loginName: ln
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                traditional: true,
+                contentType: "application/json",
+                data: JSON.stringify(r),
+                success: function (r) {
+                    if (!r.error) {
+                        $("#content").html(r.respuesta);
+                        $("#mensaje").modal('show');
+                        setTimeout('window.location.href = "homeRedirect"', 2000);                    }
+                    else {
+                        $("#content").html(r.respuesta);
+                        $("#mensaje").modal('show');
+                    }
+                },
+                error: function (r, error) {
+                    alert('ERROR EN ENVIO DE INFORMACIÓN');
+                }
+            });
+        });
+    });// FIN DOCUMENTO
+</script>

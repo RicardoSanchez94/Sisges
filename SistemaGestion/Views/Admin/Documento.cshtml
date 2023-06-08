@@ -1,0 +1,200 @@
+﻿@model List<SistemaGestion.Models.fnDashboard_Detalle_Temp_Result>
+
+@{
+    ViewBag.Title = "SisGes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<style>
+    tabla thead {
+        background-color: #ff0000;
+    }
+</style>
+
+<body class="sb-nav-fixed">
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Diferencias por Documento</li>
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-info">
+                                <div class="card-header p-2 bg-secondary text-white">
+                                    Diferencias por Documento
+                                </div>
+                               
+                                <div class="card-body p-2">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                <select class="form-control form-control-sm model" id="cboTienda" name="Tienda"></select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="diferencias">
+                                        @if (Model.Count < 1)
+                                        {
+                                            <div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <table id="tablaVacia" class="table table-striped" style="width:100%">
+
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Centro</th>
+                                                                    <th>Fecha</th>
+                                                                    <th>Tipo_doc</th>
+                                                                    <th>Totven</th>
+                                                                    <th>Totliv</th>
+                                                                    <th>Diferencia</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody>
+
+                                                        </table>
+                                                        <div class="footer">
+                                                            <div class="chart-legend">
+                                                                <div class="text-center">
+                                                                    <i class="fa fa-circle text-danger"></i>
+                                                                    Tienda con Faltante
+                                                                    <i class="fa fa-circle text-success"></i>
+                                                                    Tienda Cuadrada
+                                                                    <i class="fa fa-circle text-warning"></i>
+                                                                    Tienda Con Sobrante o Libro Venta no Cargado
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br />
+
+            </main>
+            <!-- Modal -->
+
+        </div>
+    </div>
+</body>
+
+@section scripts{
+    <script>
+
+            $(document).ready(function () {
+                $('#tablaVacia').DataTable(
+                    {
+                        responsive: true,
+                        "language": {
+                            url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                        }
+                    });
+
+                $(function () {
+                    $("#btnBuscar").click(function () {
+                        event.preventDefault();
+                        //var result = confirm("Desea Cargas Ventas?");
+                        //  if (result){
+                        $('#cargal').modal('show');
+                        var url = "@Url.Action("Ven", "Admin")";
+                        var manejarErrorAjax = "Eror";
+                        var date = $("#txtFecha").val();
+                        var local = $("#cboTienda").val();
+                        //var documento = $("#cboDocumento").val();
+                        var data = { local: local, date: date };
+                        console.log(data);
+
+                        $.post(url, data).done(function (data) {
+                            setTimeout(bajar, 1000);
+                            setTimeout(Subir, 2000);
+
+                            function bajar() {
+                                $('#cargal').modal('hide');
+
+                            }
+                            function Subir() {
+                                $('#diferencias').html(data);
+                                $('#diferencias').show();
+                            }
+
+                        }).fail(manejarErrorAjax);
+
+                        //}
+                    });
+
+                })
+
+                jQuery.ajax({
+                    url: $.MisUrls.url._TiendaPorNombre,
+                    type: "GET",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $("<option>").attr({ "value": 0 }).text("-- Seleccionar todas--").appendTo("#cboTienda");
+                        $.each(data.data, function (i, item) {
+                            $("<option>").attr({ "value": item.Centro }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                        })
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    },
+
+                });
+
+                jQuery.ajax({
+                    url: $.MisUrls.url._TipoDocumento,
+                    type: "GET",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $("<option>").attr({ "value": 0 }).text("--Seleccionar Documento--").appendTo("#cboDocumento");
+                        $.each(data.data, function (i, item) {
+                            $("<option>").attr({ "value": item.NombreCorto }).text(item.Descripcion).appendTo("#cboDocumento");
+
+                        })
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    },
+
+                });
+            });
+    </script>
+}

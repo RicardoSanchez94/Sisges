@@ -1,0 +1,2957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sisgesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SisGesEntities3" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Proc_Dashboard_Detalle" ReturnType="Collection(sisgesModel.Proc_Dashboard_Detalle_Result)">
+      <Parameter Name="P_Fecha" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Dashboard_Principal" ReturnType="Collection(sisgesModel.Proc_Dashboard_Principal_Result)">
+      <Parameter Name="P_Fecha" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Dashboard_Principal_Temp" ReturnType="Collection(sisgesModel.Proc_Dashboard_Principal_Temp_Result)">
+      <Parameter Name="P_Fecha" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GenIdocNCFC">
+      <Parameter Name="Tda_I" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_I" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_IdocClientes">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="local" Mode="In" Type="Int32" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_IdocClientesIndi_Rut">
+      <Parameter Name="Rut" Mode="In" Type="String" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_IMPORTAR_LIBRO_VENTA_SAP">
+      <Parameter Name="P_Archivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_LeerNCFC">
+      <Parameter Name="Tienda_I" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_I" Mode="In" Type="String" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ListaDetalleVenta" ReturnType="Collection(sisgesModel.Proc_ListaDetalleVenta_Result)">
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="I_Tienda" Mode="In" Type="String" />
+      <Parameter Name="C_Tipo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ListaIdocVenta" ReturnType="Collection(sisgesModel.Proc_ListaIdocVenta_Result)">
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="I_Tienda" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ListaLibroVenta" ReturnType="Collection(sisgesModel.Proc_ListaLibroVenta_Result)">
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="I_Tienda" Mode="In" Type="String" />
+      <Parameter Name="C_Tipo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ListaLibroVenta_Temp" ReturnType="Collection(sisgesModel.Proc_ListaLibroVenta_Temp_Result)">
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="I_Tienda" Mode="In" Type="String" />
+      <Parameter Name="C_Tipo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_LOCALES_ACTIVOS" ReturnType="Collection(sisgesModel.Proc_LOCALES_ACTIVOS_Result)" />
+    <FunctionImport Name="Proc_Locales_Transbank" ReturnType="Collection(sisgesModel.Proc_Locales_Transbank_Result)" />
+    <FunctionImport Name="Proc_CLASE_DOCUMENTO" ReturnType="Collection(sisgesModel.Proc_CLASE_DOCUMENTO_Result)" />
+    <FunctionImport Name="Proc_Dashboard_Detalle_Temp" ReturnType="Collection(sisgesModel.Proc_Dashboard_Detalle_Temp_Result)">
+      <Parameter Name="P_Fecha" Mode="In" Type="String" />
+      <Parameter Name="P_Centro" Mode="In" Type="String" />
+      <Parameter Name="P_Tipo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Inserta_tarea">
+      <Parameter Name="fecha_tarea" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GENERAR_VENTAS_IDOC_X_FECHA_X_LOCAL">
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="I_Tienda" Mode="In" Type="Int32" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GENERAR_IDOC_X_BCP">
+      <Parameter Name="P_Centro" Mode="In" Type="Int32" />
+      <Parameter Name="P_Fecha" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Procesar_IdocClientes">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="local" Mode="In" Type="Int32" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GenIdocVtaIndi_Folio">
+      <Parameter Name="Tienda_I" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_I" Mode="In" Type="String" />
+      <Parameter Name="NDoc" Mode="In" Type="Int32" />
+      <Parameter Name="TipoDoc" Mode="In" Type="String" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fnDiferencias_Conciliacion" IsComposable="true" ReturnType="Collection(sisgesModel.fnDiferencias_Conciliacion_Result)">
+      <Parameter Name="fecha" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertLibroVentas" />
+    <FunctionImport Name="Proc_LeerClientes_Indiv">
+      <Parameter Name="Rut" Mode="In" Type="String" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fnReporte_Nota_Credito" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_Nota_Credito_Result)">
+      <Parameter Name="P_FechaDesde" Mode="In" Type="DateTime" />
+      <Parameter Name="P_FechaHasta" Mode="In" Type="DateTime" />
+      <Parameter Name="P_Tienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fn_Conciliacion_Automatica" IsComposable="true" ReturnType="Collection(sisgesModel.fn_Conciliacion_Automatica_Result)">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Tienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GenIdocNCFC_Indiv">
+      <Parameter Name="Tienda_I" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_I" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_LeerNCFC_IND">
+      <Parameter Name="Tienda_I" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_I" Mode="In" Type="String" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+      <Parameter Name="NDoc" Mode="In" Type="String" />
+      <Parameter Name="TipoDoc" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GenIdocMP">
+      <Parameter Name="Tda_I" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_I" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_LeerIdocMP">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="IdTienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fnIdoc_FI" IsComposable="true" ReturnType="Collection(sisgesModel.fnIdoc_FI_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="IdTienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TotaleMediosPagos" ReturnType="Collection(sisgesModel.Proc_TotaleMediosPagos_Result)">
+      <Parameter Name="Fecha_ini" Mode="In" Type="String" />
+      <Parameter Name="Fecha_fin" Mode="In" Type="String" />
+      <Parameter Name="CodigoComercio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertConciliacionAutoo">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="fnReporte_PagosFSP" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_PagosFSP_Result)">
+      <Parameter Name="Anio" Mode="In" Type="Int32" />
+      <Parameter Name="Mes" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fnDashboard_Pagos" IsComposable="true" ReturnType="Collection(sisgesModel.fnDashboard_Pagos_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="CodigoComercio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_LeerPAGOSMP">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="fnUsuarioRol" IsComposable="true" ReturnType="Collection(sisgesModel.fnUsuarioRol_Result)" />
+    <EntitySet Name="Persona" EntityType="sisgesModel.Persona" />
+    <EntitySet Name="Rol" EntityType="sisgesModel.Rol" />
+    <EntitySet Name="Usuario" EntityType="sisgesModel.Usuario" />
+    <AssociationSet Name="FK_Usuario_Persona" Association="sisgesModel.FK_Usuario_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Usuario_Rol" Association="sisgesModel.Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <EntitySet Name="Sexo" EntityType="sisgesModel.Sexo" />
+    <EntitySet Name="PAGOS_MP" EntityType="sisgesModel.PAGOS_MP" />
+    <AssociationSet Name="FK_Persona_Sexo" Association="sisgesModel.FK_Persona_Sexo">
+      <End Role="Sexo" EntitySet="Sexo" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <EntitySet Name="LIBRO_VENTA" EntityType="sisgesModel.LIBRO_VENTA" />
+    <EntitySet Name="LIBRO_VENTA_PROD" EntityType="sisgesModel.LIBRO_VENTA_PROD" />
+    <EntitySet Name="IDOC_PAGOS_FI" EntityType="sisgesModel.IDOC_PAGOS_FI" />
+    <EntitySet Name="ConciliacionAutoPagos" EntityType="sisgesModel.ConciliacionAutoPagos" />
+    <EntitySet Name="ConciliacionManualPagos" EntityType="sisgesModel.ConciliacionManualPagos" />
+    <EntitySet Name="Cuenta" EntityType="sisgesModel.Cuenta" />
+    <EntitySet Name="Diferencias_Pagos" EntityType="sisgesModel.Diferencias_Pagos" />
+    <AssociationSet Name="FK_Diferencias_Pagos_Cuenta" Association="sisgesModel.FK_Diferencias_Pagos_Cuenta">
+      <End Role="Cuenta" EntitySet="Cuenta" />
+      <End Role="Diferencias_Pagos" EntitySet="Diferencias_Pagos" />
+    </AssociationSet>
+    <EntitySet Name="ACREEDOR_REL" EntityType="sisgesModel.ACREEDOR_REL" />
+    <EntitySet Name="CODIGO_COMERCIO_TBK" EntityType="sisgesModel.CODIGO_COMERCIO_TBK" />
+    <AssociationSet Name="FK_Diferencias_Pagos_ACREEDOR_REL" Association="sisgesModel.FK_Diferencias_Pagos_ACREEDOR_REL">
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+      <End Role="Diferencias_Pagos" EntitySet="Diferencias_Pagos" />
+    </AssociationSet>
+    <EntitySet Name="TIPO_PAGO" EntityType="sisgesModel.TIPO_PAGO" />
+    <AssociationSet Name="FK_ACREEDOR_REL_TIPO_PAGO" Association="sisgesModel.FK_ACREEDOR_REL_TIPO_PAGO">
+      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK" Association="sisgesModel.FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK">
+      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+    </AssociationSet>
+    <FunctionImport Name="Proc_TotalesTransbankApi" ReturnType="Collection(sisgesModel.Proc_TotalesTransbankApi_Result)">
+      <Parameter Name="Fecha_ini" Mode="In" Type="String" />
+      <Parameter Name="Fecha_fin" Mode="In" Type="String" />
+      <Parameter Name="CodigoComercio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_DESCARGA_VENTAS_IDOC_X_FECHA_X_LOCAL">
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="I_Tienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_IDOC_X_BCP_IND" />
+    <FunctionImport Name="Proc_IDOC_VENTA">
+      <Parameter Name="I_Tienda" Mode="In" Type="Int32" />
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_IdocClientes2">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="local" Mode="In" Type="Int32" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_IDOC_VENTA_IND">
+      <Parameter Name="I_Tienda" Mode="In" Type="Int32" />
+      <Parameter Name="C_Fecha" Mode="In" Type="String" />
+      <Parameter Name="Ambiente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GenIdocCLI" />
+    <FunctionImport Name="Proc_GenIdocClientes_Indiv" />
+    <EntitySet Name="VENTAS" EntityType="sisgesModel.VENTAS" />
+    <FunctionImport Name="fnDashboard_Detalle_Temp" IsComposable="true" ReturnType="Collection(sisgesModel.fnDashboard_Detalle_Temp_Result)">
+      <Parameter Name="P_Fecha" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ZONA" EntityType="sisgesModel.ZONA" />
+    <AssociationSet Name="UsuarioZona" Association="sisgesModel.UsuarioZona">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="ZONA" EntitySet="ZONA" />
+    </AssociationSet>
+    <FunctionImport Name="fnReporte_Participacion" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_Participacion_Result)">
+      <Parameter Name="Anio" Mode="In" Type="Int32" />
+      <Parameter Name="Mes" Mode="In" Type="Int32" />
+      <Parameter Name="Tienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="MEDIOSPAGOS" EntityType="sisgesModel.MEDIOSPAGOS" />
+    <FunctionImport Name="fnReporte_TicketPromedio" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_TicketPromedio_Result)">
+      <Parameter Name="Anio" Mode="In" Type="Int32" />
+      <Parameter Name="Mes" Mode="In" Type="Int32" />
+      <Parameter Name="Tienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fnReporte_Avance" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_Avance_Result)">
+      <Parameter Name="Anio" Mode="In" Type="Int32" />
+      <Parameter Name="Mes" Mode="In" Type="Int32" />
+      <Parameter Name="Tienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="notaCreditoEspecial" EntityType="sisgesModel.notaCreditoEspecial" />
+    <EntitySet Name="Conciliacion" EntityType="sisgesModel.Conciliacion" />
+    <EntitySet Name="Auditoria" EntityType="sisgesModel.Auditoria" />
+    <AssociationSet Name="FK_Auditoria_Usuario" Association="sisgesModel.FK_Auditoria_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Auditoria" EntitySet="Auditoria" />
+    </AssociationSet>
+    <EntitySet Name="CENTROS_LOCAL" EntityType="sisgesModel.CENTROS_LOCAL" />
+    <AssociationSet Name="FK_CENTROS_LOCAL_ZONA" Association="sisgesModel.FK_CENTROS_LOCAL_ZONA">
+      <End Role="ZONA" EntitySet="ZONA" />
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL" Association="sisgesModel.FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MEDIOSPAGOS_CENTROS_LOCAL" Association="sisgesModel.FK_MEDIOSPAGOS_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="MEDIOSPAGOS" EntitySet="MEDIOSPAGOS" />
+    </AssociationSet>
+    <FunctionImport Name="spConciliacionAutomatica">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="fn_Conciliacion_Manual_aPI" IsComposable="true" ReturnType="Collection(sisgesModel.fn_Conciliacion_Manual_aPI_Result)">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="local" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fnIdocPagos_FI" IsComposable="true" ReturnType="Collection(sisgesModel.fnIdocPagos_FI_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="IdTienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fnIdocVentas_FI" IsComposable="true" ReturnType="Collection(sisgesModel.fnIdocVentas_FI_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="IdTienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fnIdocVentas_MP" IsComposable="true" ReturnType="Collection(sisgesModel.fnIdocVentas_MP_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="IdTienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Fn_NC_Especial" IsComposable="true" ReturnType="Collection(sisgesModel.Fn_NC_Especial_Result)">
+      <Parameter Name="Inicio" Mode="In" Type="DateTime" />
+      <Parameter Name="Fin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="Pagos_Apitbk" EntityType="sisgesModel.Pagos_Apitbk" />
+    <AssociationSet Name="FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK" Association="sisgesModel.FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK">
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+      <End Role="Pagos_Apitbk" EntitySet="Pagos_Apitbk" />
+    </AssociationSet>
+    <FunctionImport Name="spInsertConciliacionAutoPagos">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <EntitySet Name="ConciliaciondePagos" EntityType="sisgesModel.ConciliaciondePagos" />
+    <EntitySet Name="DetalleConciliacionPagos" EntityType="sisgesModel.DetalleConciliacionPagos" />
+    <AssociationSet Name="FK_DetalleConciliacionPagos_ConciliaciondePagos" Association="sisgesModel.FK_DetalleConciliacionPagos_ConciliaciondePagos">
+      <End Role="ConciliaciondePagos" EntitySet="ConciliaciondePagos" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacionPagos_Pagos_Apitbk" Association="sisgesModel.FK_DetalleConciliacionPagos_Pagos_Apitbk">
+      <End Role="Pagos_Apitbk" EntitySet="Pagos_Apitbk" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <FunctionImport Name="fn_ConciliacionPagos_Manual_aPI" IsComposable="true" ReturnType="Collection(sisgesModel.fn_ConciliacionPagos_Manual_aPI_Result)">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="local" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <AssociationSet Name="FK_DetalleConciliacionPagos_ACREEDOR_REL" Association="sisgesModel.FK_DetalleConciliacionPagos_ACREEDOR_REL">
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacionPagos_Cuenta" Association="sisgesModel.FK_DetalleConciliacionPagos_Cuenta">
+      <End Role="Cuenta" EntitySet="Cuenta" />
+      <End Role="DetalleConciliacionPagos" EntitySet="DetalleConciliacionPagos" />
+    </AssociationSet>
+    <FunctionImport Name="Fn_PAGOS_Cuenta_Rut" IsComposable="true" ReturnType="Collection(sisgesModel.Fn_PAGOS_Cuenta_Rut_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Fn_MP_Cuenta_Rut" IsComposable="true" ReturnType="Collection(sisgesModel.Fn_MP_Cuenta_Rut_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spInser_detallelibromayor" />
+    <EntitySet Name="IDOC_FI" EntityType="sisgesModel.IDOC_FI" />
+    <EntitySet Name="LibroMayor" EntityType="sisgesModel.LibroMayor" />
+    <EntitySet Name="LibroMayorDEP" EntityType="sisgesModel.LibroMayorDEP" />
+    <AssociationSet Name="FK_LibroMayorDEP_LibroMayor" Association="sisgesModel.FK_LibroMayorDEP_LibroMayor">
+      <End Role="LibroMayor" EntitySet="LibroMayor" />
+      <End Role="LibroMayorDEP" EntitySet="LibroMayorDEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LibroMayorDEP_LibroMayor1" Association="sisgesModel.FK_LibroMayorDEP_LibroMayor1">
+      <End Role="LibroMayor" EntitySet="LibroMayor" />
+      <End Role="LibroMayorDEP" EntitySet="LibroMayorDEP" />
+    </AssociationSet>
+    <FunctionImport Name="spInsertConciliacionAuto_LibMayor" />
+    <FunctionImport Name="spConciliacionAutomaticaCAAU">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="InterfazAutorizacion" EntityType="sisgesModel.InterfazAutorizacion" />
+    <EntitySet Name="Periodo" EntityType="sisgesModel.Periodo" />
+    <AssociationSet Name="FK_ACREEDOR_REL_CENTROS_LOCAL" Association="sisgesModel.FK_ACREEDOR_REL_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+    </AssociationSet>
+    <FunctionImport Name="AperturaPeriodo" ReturnType="Collection(sisgesModel.AperturaPeriodo_Result)">
+      <Parameter Name="Ano" Mode="In" Type="Int32" />
+      <Parameter Name="Mes" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fnReporte_CAAU" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_CAAU_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spConAutomaticaSencilloSAP">
+      <Parameter Name="Fechainicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="fnSencillosTiendaNoConciliados" IsComposable="true" ReturnType="Collection(sisgesModel.fnSencillosTiendaNoConciliados_Result)" />
+    <FunctionImport Name="fnReporteBoletasContraloria" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporteBoletasContraloria_Result)">
+      <Parameter Name="year" Mode="In" Type="Int32" />
+      <Parameter Name="month" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="PAGOS" EntityType="sisgesModel.PAGOS" />
+    <AssociationSet Name="FK_PAGOS_CENTROS_LOCAL" Association="sisgesModel.FK_PAGOS_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="PAGOS" EntitySet="PAGOS" />
+    </AssociationSet>
+    <FunctionImport Name="fnReporteNCContraloria" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporteNCContraloria_Result)">
+      <Parameter Name="Fechainicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="EMPLEADO" EntityType="sisgesModel.EMPLEADO" />
+    <EntitySet Name="TipoPagoGL" EntityType="sisgesModel.TipoPagoGL" />
+    <EntitySet Name="boletaOrigen" EntityType="sisgesModel.boletaOrigen" />
+    <EntitySet Name="notaCredito" EntityType="sisgesModel.notaCredito" />
+    <AssociationSet Name="FK_boletaOrigen_TipoPagoGL" Association="sisgesModel.FK_boletaOrigen_TipoPagoGL">
+      <End Role="TipoPagoGL" EntitySet="TipoPagoGL" />
+      <End Role="boletaOrigen" EntitySet="boletaOrigen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notaCredito_EMPLEADO" Association="sisgesModel.FK_notaCredito_EMPLEADO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="notaCredito" EntitySet="notaCredito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notaCredito_EMPLEADO1" Association="sisgesModel.FK_notaCredito_EMPLEADO1">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="notaCredito" EntitySet="notaCredito" />
+    </AssociationSet>
+    <AssociationSet Name="NotaCredito_BoletaOrigen" Association="sisgesModel.NotaCredito_BoletaOrigen">
+      <End Role="boletaOrigen" EntitySet="boletaOrigen" />
+      <End Role="notaCredito" EntitySet="notaCredito" />
+    </AssociationSet>
+    <EntitySet Name="EstadoSencillo" EntityType="sisgesModel.EstadoSencillo" />
+    <EntitySet Name="SencillosSAP" EntityType="sisgesModel.SencillosSAP" />
+    <EntitySet Name="TipoRemito" EntityType="sisgesModel.TipoRemito" />
+    <EntitySet Name="Remito" EntityType="sisgesModel.Remito" />
+    <EntitySet Name="Sencillos_Tiendas" EntityType="sisgesModel.Sencillos_Tiendas" />
+    <AssociationSet Name="FK_Remito_CENTROS_LOCAL" Association="sisgesModel.FK_Remito_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="Remito" EntitySet="Remito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sencillos_Tiendas_CENTROS_LOCAL" Association="sisgesModel.FK_Sencillos_Tiendas_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sencillos_Tiendas_EstadoSencillo" Association="sisgesModel.FK_Sencillos_Tiendas_EstadoSencillo">
+      <End Role="EstadoSencillo" EntitySet="EstadoSencillo" />
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Remito_Sencillos_Tiendas" Association="sisgesModel.FK_Remito_Sencillos_Tiendas">
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+      <End Role="Remito" EntitySet="Remito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Remito_TipoRemito" Association="sisgesModel.FK_Remito_TipoRemito">
+      <End Role="TipoRemito" EntitySet="TipoRemito" />
+      <End Role="Remito" EntitySet="Remito" />
+    </AssociationSet>
+    <EntitySet Name="DetalleSencillo" EntityType="sisgesModel.DetalleSencillo" />
+    <EntitySet Name="MontoSencillo" EntityType="sisgesModel.MontoSencillo" />
+    <EntitySet Name="Sencillos" EntityType="sisgesModel.Sencillos" />
+    <AssociationSet Name="FK_DetalleSencillo_CENTROS_LOCAL" Association="sisgesModel.FK_DetalleSencillo_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleSencillo_Sencillos" Association="sisgesModel.FK_DetalleSencillo_Sencillos">
+      <End Role="Sencillos" EntitySet="Sencillos" />
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleSencillo_SencillosSAP" Association="sisgesModel.FK_DetalleSencillo_SencillosSAP">
+      <End Role="SencillosSAP" EntitySet="SencillosSAP" />
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MontoSencillo_DetalleSencillo" Association="sisgesModel.FK_MontoSencillo_DetalleSencillo">
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+      <End Role="MontoSencillo" EntitySet="MontoSencillo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sencillos_Tiendas_DetalleSencillo" Association="sisgesModel.FK_Sencillos_Tiendas_DetalleSencillo">
+      <End Role="DetalleSencillo" EntitySet="DetalleSencillo" />
+      <End Role="Sencillos_Tiendas" EntitySet="Sencillos_Tiendas" />
+    </AssociationSet>
+    <FunctionImport Name="fnReporte_Ventas" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_Ventas_Result)">
+      <Parameter Name="Anio" Mode="In" Type="Int32" />
+      <Parameter Name="Mes" Mode="In" Type="Int32" />
+      <Parameter Name="Tienda" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="DetalleConciliacion" EntityType="sisgesModel.DetalleConciliacion" />
+    <EntitySet Name="Ventas_Apitbk" EntityType="sisgesModel.Ventas_Apitbk" />
+    <AssociationSet Name="FK_DetalleConciliacion_ACREEDOR_REL" Association="sisgesModel.FK_DetalleConciliacion_ACREEDOR_REL">
+      <End Role="ACREEDOR_REL" EntitySet="ACREEDOR_REL" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ventas_Apitbk_Ventas_Apitbk" Association="sisgesModel.FK_Ventas_Apitbk_Ventas_Apitbk">
+      <End Role="CODIGO_COMERCIO_TBK" EntitySet="CODIGO_COMERCIO_TBK" />
+      <End Role="Ventas_Apitbk" EntitySet="Ventas_Apitbk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_Conciliacion" Association="sisgesModel.FK_DetalleConciliacion_Conciliacion">
+      <End Role="Conciliacion" EntitySet="Conciliacion" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_Cuenta" Association="sisgesModel.FK_DetalleConciliacion_Cuenta">
+      <End Role="Cuenta" EntitySet="Cuenta" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_MEDIOSPAGOS" Association="sisgesModel.FK_DetalleConciliacion_MEDIOSPAGOS">
+      <End Role="MEDIOSPAGOS" EntitySet="MEDIOSPAGOS" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleConciliacion_Ventas_Apitbk1" Association="sisgesModel.FK_DetalleConciliacion_Ventas_Apitbk1">
+      <End Role="Ventas_Apitbk" EntitySet="Ventas_Apitbk" />
+      <End Role="DetalleConciliacion" EntitySet="DetalleConciliacion" />
+    </AssociationSet>
+    <EntitySet Name="TipoAceptacion" EntityType="sisgesModel.TipoAceptacion" />
+    <EntitySet Name="TipoRechazo" EntityType="sisgesModel.TipoRechazo" />
+    <FunctionImport Name="fnReporte_CAAU_AVANCES" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_CAAU_AVANCES_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fnReporte_PremisasNC" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_PremisasNC_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="fnReporte_CAPA_PAGOS" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_CAPA_PAGOS_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spConciliacionAutomaticaCAPA">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="fn_ReporteNcFULLCuadratura" IsComposable="true" ReturnType="Collection(sisgesModel.fn_ReporteNcFULLCuadratura_Result)">
+      <Parameter Name="FechaInicioNotaCredito" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinNotaCredito" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="AcumuladoSobrante_Faltante" EntityType="sisgesModel.AcumuladoSobrante_Faltante" />
+    <EntitySet Name="Sobrante_Faltante" EntityType="sisgesModel.Sobrante_Faltante" />
+    <AssociationSet Name="FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL" Association="sisgesModel.FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AcumuladoSobrante_Faltante_TipoAceptacion" Association="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoAceptacion">
+      <End Role="TipoAceptacion" EntitySet="TipoAceptacion" />
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AcumuladoSobrante_Faltante_TipoRechazo" Association="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoRechazo">
+      <End Role="TipoRechazo" EntitySet="TipoRechazo" />
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sobrante_Faltante_AcumuladoSobrante_Faltante" Association="sisgesModel.FK_Sobrante_Faltante_AcumuladoSobrante_Faltante">
+      <End Role="AcumuladoSobrante_Faltante" EntitySet="AcumuladoSobrante_Faltante" />
+      <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sobrante_Faltante_CENTROS_LOCAL" Association="sisgesModel.FK_Sobrante_Faltante_CENTROS_LOCAL">
+      <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
+      <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sobrante_Faltante_EMPLEADO" Association="sisgesModel.FK_Sobrante_Faltante_EMPLEADO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="Proc_Dashboard_Detalle_Result">
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Centro" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Tipo_Documento" Nullable="true" MaxLength="15" />
+    <Property Type="Decimal" Name="Total_Tienda" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="Total_SAP" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="Diferencia" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="Proc_Dashboard_Principal_Result">
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Centro" Nullable="true" MaxLength="4" />
+    <Property Type="Decimal" Name="Total_Tienda" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="Total_SAP" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="Diferencia" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="Proc_Dashboard_Principal_Temp_Result">
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Centro" Nullable="true" MaxLength="4" />
+    <Property Type="Decimal" Name="Total_Tienda" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="Total_SAP" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="Diferencia" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="Proc_ListaDetalleVenta_Result">
+    <Property Type="String" Name="Centro" Nullable="true" MaxLength="4" />
+    <Property Type="Int32" Name="Caja" Nullable="false" />
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Tipo_Documento" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Folio_Documento" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Total" Nullable="false" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="Proc_ListaIdocVenta_Result">
+    <Property Type="Int32" Name="Centro" Nullable="true" />
+    <Property Type="String" Name="Local" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Observacion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Archivo_IDOC" Nullable="true" MaxLength="30" />
+    <Property Type="Int64" Name="ID_Proceso" Nullable="false" />
+    <Property Type="String" Name="FechaHora" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="Proc_ListaLibroVenta_Result">
+    <Property Type="String" Name="Sociedad" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="Centro" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="ClaseDocumental" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="NumeroDocto" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="FechaContabilizacion" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Referencia" Nullable="true" MaxLength="12" />
+    <Property Type="Decimal" Name="BaseImponibleMP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="IndicadorImpuesto" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="FechaDocumento" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroIdentFiscal" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Exento" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Afecto" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Iva" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="Proc_ListaLibroVenta_Temp_Result">
+    <Property Type="String" Name="Sociedad" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="Centro" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="ClaseDocumental" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="NumeroDocto" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="FechaContabilizacion" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Referencia" Nullable="true" MaxLength="12" />
+    <Property Type="Decimal" Name="BaseImponibleMP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="IndicadorImpuesto" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="FechaDocumento" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroIdentFiscal" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Exento" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Afecto" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Iva" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="Proc_LOCALES_ACTIVOS_Result">
+    <Property Type="Int32" Name="Codigo" Nullable="true" />
+    <Property Type="String" Name="Centro" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Nombre_Centro" Nullable="true" MaxLength="42" />
+  </ComplexType>
+  <ComplexType Name="Proc_Locales_Transbank_Result">
+    <Property Type="Int32" Name="Codigo" Nullable="false" />
+    <Property Type="String" Name="Centro" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Nombre_Centro" Nullable="true" MaxLength="75" />
+  </ComplexType>
+  <ComplexType Name="Proc_TotaleTransbank_Result">
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="8000" />
+    <Property Type="Int32" Name="IdTienda" Nullable="false" />
+    <Property Type="Int32" Name="CodigoComercio" Nullable="true" />
+    <Property Type="String" Name="TipoPago" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Trx" Nullable="true" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="Proc_CLASE_DOCUMENTO_Result">
+    <Property Type="String" Name="Clase" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="NombreCorto" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="Proc_Dashboard_Detalle_Temp_Result">
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Centro" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="Tipo_Documento" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Total_Tienda" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="Total_SAP" Nullable="false" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="fnDiferencias_Conciliacion_Result">
+    <Property Type="String" Name="Tipo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Fecha_TBk" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Cod_TBK" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Local_Tbk" Nullable="true" />
+    <Property Type="String" Name="Monto_Tbk" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Fecha_MP" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Aut_MP" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Local_MP" Nullable="true" />
+    <Property Type="Decimal" Name="Monto_MP" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoAP_MP" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Dif" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="fnReporte_Nota_Credito_Result">
+    <Property Type="String" Name="nombreZona" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TRX" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Nota_Credito" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Emision_Nota_Credito" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="IdTienda" Nullable="true" />
+    <Property Type="String" Name="Nombre_Local" Nullable="true" MaxLength="35" />
+    <Property Type="Int32" Name="Caja_Nota_Credito" Nullable="true" />
+    <Property Type="String" Name="Tipo_Documento" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Folio_Nota_Credito" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Rut_Cliente_Nota_Credito" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Nombre_Cliente_NC" Nullable="true" MaxLength="90" />
+    <Property Type="Decimal" Name="Monto_Nota_Credito" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Documento_Origen" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="Trx_Interno" Nullable="true" />
+    <Property Type="String" Name="Nro_Boleta" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="IdTienda_Origen_Boleta" Nullable="true" />
+    <Property Type="Int32" Name="Caja_Origen_Boleta" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Boleta" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Monto_Boleta" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Tipo_Pago_Origen" Nullable="true" />
+    <Property Type="String" Name="Nombre_Tipo_Pago_Origen" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Pago_Monto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Rut_Cajero" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="Nombre_Cajero" Nullable="true" MaxLength="90" />
+    <Property Type="String" Name="Rut_Supervisor" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="Nombre_Supervisor" Nullable="true" MaxLength="90" />
+    <Property Type="DateTime" Name="Fecha_Pago_Origen" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="fn_Conciliacion_Automatica_Result">
+    <Property Type="DateTime" Name="FechaTBk" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Cod_TBK" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="CentroTBK" Nullable="true" />
+    <Property Type="Decimal" Name="MontoVTBK" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="TipoProducto" Nullable="true" MaxLength="5" />
+    <Property Type="DateTime" Name="FechaMP" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Cod_MP" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="CentroMP" Nullable="true" />
+    <Property Type="Decimal" Name="MontoVMP" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoAMP" Nullable="true" Precision="19" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="fnIdoc_FI_Result">
+    <Property Type="String" Name="MANDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="INTERFAZ" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="FECHAINT" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="CORRELAT" Nullable="true" />
+    <Property Type="Int32" Name="NITEM" Nullable="true" />
+    <Property Type="String" Name="BUKRS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BLART" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WAERS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BUDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="BLDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="MONAT" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="XBLNR" Nullable="true" />
+    <Property Type="String" Name="BKTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BUPLA" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWKO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="NEWUM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBK" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="WRBTR" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="FWBAS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MWSKZ" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="GSBER" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KOSTL_PRCTR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="AUFNR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZTERM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZUONR" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SGTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VBUND" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF2" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF3" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="VALUT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="XMWST" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZLSPR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZFBDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MANSP" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBW" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MENGE" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KURSF" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WWERT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="PRCTR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="SKFBT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NAME1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ORT01" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="STCD1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="EBELN" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WERKS" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="Proc_TotaleMediosPagos_Result">
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="8000" />
+    <Property Type="Int32" Name="IdTienda" Nullable="false" />
+    <Property Type="Int32" Name="CodigoComercio" Nullable="true" />
+    <Property Type="String" Name="TipoPago" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="fnReporte_PagosFSP_Result">
+    <Property Type="String" Name="VIGENCIA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NOMBRETRX" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LOCAL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CAJA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GLOBALTRX" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FECHA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CODIGOAUTORIZACION" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NROTARJETA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MONTOTRX" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NRO_CUOTAS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PAGO_MIN_EECC" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MONTO_REDONDEO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MONTO_RECAUDADO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AJUSTE_LEY" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CUENTA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RUT_CLIENTE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VIGENCIA2" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="fnDashboard_Pagos_Result">
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Local" Nullable="true" />
+    <Property Type="Int32" Name="Centro" Nullable="true" />
+    <Property Type="String" Name="Tipo_Documento" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="TRX" Nullable="true" />
+    <Property Type="Decimal" Name="Total_Tienda" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="Tipo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="fnUsuarioRol_Result">
+    <Property Type="Guid" Name="IdUsuario" Nullable="true" />
+    <Property Type="Int32" Name="CodigoRol" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Run" Type="String" MaxLength="30" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="RunCuerpo" Type="Int32" Nullable="false" />
+    <Property Name="RunDigito" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="95" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SexoCodigo" Type="Int32" />
+    <NavigationProperty Name="Usuario" Relationship="sisgesModel.FK_Usuario_Persona" FromRole="Persona" ToRole="Usuario" />
+    <NavigationProperty Name="Sexo" Relationship="sisgesModel.FK_Persona_Sexo" FromRole="Persona" ToRole="Sexo" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
+    <NavigationProperty Name="Usuario" Relationship="sisgesModel.Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Activo" Type="Boolean" />
+    <NavigationProperty Name="Persona" Relationship="sisgesModel.FK_Usuario_Persona" FromRole="Usuario" ToRole="Persona" />
+    <NavigationProperty Name="Rol" Relationship="sisgesModel.Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+    <NavigationProperty Name="ZONA" Relationship="sisgesModel.UsuarioZona" FromRole="Usuario" ToRole="ZONA" />
+    <NavigationProperty Name="Auditoria" Relationship="sisgesModel.FK_Auditoria_Usuario" FromRole="Usuario" ToRole="Auditoria" />
+  </EntityType>
+  <Association Name="FK_Usuario_Persona">
+    <End Type="sisgesModel.Persona" Role="Persona" Multiplicity="1" />
+    <End Type="sisgesModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Usuario_Rol">
+    <End Type="sisgesModel.Rol" Role="Rol" Multiplicity="*" />
+    <End Type="sisgesModel.Usuario" Role="Usuario" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Sigla" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Persona" Relationship="sisgesModel.FK_Persona_Sexo" FromRole="Sexo" ToRole="Persona" />
+  </EntityType>
+  <EntityType Name="PAGOS_MP">
+    <Key>
+      <PropertyRef Name="MANDT" />
+      <PropertyRef Name="INTERFAZ" />
+      <PropertyRef Name="FECHAINT" />
+      <PropertyRef Name="CORRELAT" />
+      <PropertyRef Name="NITEM" />
+      <PropertyRef Name="BUKRS" />
+      <PropertyRef Name="BLART" />
+      <PropertyRef Name="WAERS" />
+      <PropertyRef Name="BUDAT" />
+      <PropertyRef Name="BLDAT" />
+      <PropertyRef Name="MONAT" />
+      <PropertyRef Name="XBLNR" />
+      <PropertyRef Name="BKTXT" />
+      <PropertyRef Name="BUPLA" />
+      <PropertyRef Name="NEWBS" />
+      <PropertyRef Name="NEWKO" />
+      <PropertyRef Name="NEWUM" />
+      <PropertyRef Name="NEWBK" />
+      <PropertyRef Name="WRBTR" />
+      <PropertyRef Name="FWBAS" />
+      <PropertyRef Name="MWSKZ" />
+      <PropertyRef Name="GSBER" />
+      <PropertyRef Name="KOSTL_PRCTR" />
+      <PropertyRef Name="AUFNR" />
+      <PropertyRef Name="ZTERM" />
+      <PropertyRef Name="ZUONR" />
+      <PropertyRef Name="SGTXT" />
+      <PropertyRef Name="VBUND" />
+      <PropertyRef Name="XREF1" />
+      <PropertyRef Name="XREF2" />
+      <PropertyRef Name="XREF3" />
+      <PropertyRef Name="VALUT" />
+      <PropertyRef Name="XMWST" />
+      <PropertyRef Name="ZLSPR" />
+      <PropertyRef Name="ZFBDT" />
+      <PropertyRef Name="MANSP" />
+      <PropertyRef Name="NEWBW" />
+      <PropertyRef Name="MENGE" />
+      <PropertyRef Name="KURSF" />
+      <PropertyRef Name="WWERT" />
+      <PropertyRef Name="PRCTR" />
+      <PropertyRef Name="SKFBT" />
+      <PropertyRef Name="NAME1" />
+      <PropertyRef Name="ORT01" />
+      <PropertyRef Name="STCD1" />
+      <PropertyRef Name="EBELN" />
+      <PropertyRef Name="WERKS" />
+    </Key>
+    <Property Name="MANDT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="INTERFAZ" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAINT" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CORRELAT" Type="Int32" Nullable="false" />
+    <Property Name="NITEM" Type="Int32" Nullable="false" />
+    <Property Name="BUKRS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BLART" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WAERS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BUDAT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="BLDAT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="MONAT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="XBLNR" Type="Int32" Nullable="false" />
+    <Property Name="BKTXT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BUPLA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWKO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NEWUM" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBK" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WRBTR" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FWBAS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MWSKZ" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="GSBER" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="KOSTL_PRCTR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="AUFNR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZTERM" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZUONR" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="SGTXT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VBUND" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF2" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF3" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VALUT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="XMWST" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZLSPR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZFBDT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MANSP" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBW" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MENGE" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="KURSF" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WWERT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PRCTR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SKFBT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NAME1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ORT01" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="STCD1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EBELN" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WERKS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Persona_Sexo">
+    <End Type="sisgesModel.Sexo" Role="Sexo" Multiplicity="0..1" />
+    <End Type="sisgesModel.Persona" Role="Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="SexoCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LIBRO_VENTA">
+    <Key>
+      <PropertyRef Name="Sociedad" />
+      <PropertyRef Name="Centro" />
+      <PropertyRef Name="ClaseDocumental" />
+      <PropertyRef Name="NumeroDocto" />
+      <PropertyRef Name="FechaContabilizacion" />
+      <PropertyRef Name="FechaDocumento" />
+      <PropertyRef Name="BaseImponibleMP" />
+    </Key>
+    <Property Name="Sociedad" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Centro" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ClaseDocumental" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroDocto" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FechaContabilizacion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Referencia" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="FechaDocumento" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IndicadorImpuesto" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="NombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroIdentFiscal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Exento" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Afecto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Iva" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BaseImponibleMP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="LIBRO_VENTA_PROD">
+    <Key>
+      <PropertyRef Name="Sociedad" />
+      <PropertyRef Name="Centro" />
+      <PropertyRef Name="ClaseDocumental" />
+      <PropertyRef Name="NumeroDocto" />
+      <PropertyRef Name="FechaContabilizacion" />
+      <PropertyRef Name="FechaDocumento" />
+      <PropertyRef Name="BaseImponibleMP" />
+    </Key>
+    <Property Name="Sociedad" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Centro" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ClaseDocumental" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroDocto" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FechaContabilizacion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Referencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaDocumento" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IndicadorImpuesto" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="NombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroIdentFiscal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Exento" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Afecto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Iva" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BaseImponibleMP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="IDOC_PAGOS_FI">
+    <Key>
+      <PropertyRef Name="MANDT" />
+      <PropertyRef Name="INTERFAZ" />
+      <PropertyRef Name="FECHAINT" />
+      <PropertyRef Name="CORRELAT" />
+      <PropertyRef Name="NITEM" />
+      <PropertyRef Name="BUKRS" />
+      <PropertyRef Name="BLART" />
+      <PropertyRef Name="WAERS" />
+      <PropertyRef Name="BUDAT" />
+      <PropertyRef Name="BLDAT" />
+      <PropertyRef Name="MONAT" />
+      <PropertyRef Name="XBLNR" />
+      <PropertyRef Name="BKTXT" />
+      <PropertyRef Name="BUPLA" />
+      <PropertyRef Name="NEWBS" />
+      <PropertyRef Name="NEWKO" />
+      <PropertyRef Name="NEWUM" />
+      <PropertyRef Name="NEWBK" />
+      <PropertyRef Name="WRBTR" />
+      <PropertyRef Name="FWBAS" />
+      <PropertyRef Name="MWSKZ" />
+      <PropertyRef Name="GSBER" />
+      <PropertyRef Name="KOSTL_PRCTR" />
+      <PropertyRef Name="AUFNR" />
+      <PropertyRef Name="ZTERM" />
+      <PropertyRef Name="ZUONR" />
+      <PropertyRef Name="SGTXT" />
+      <PropertyRef Name="VBUND" />
+      <PropertyRef Name="XREF1" />
+      <PropertyRef Name="XREF2" />
+      <PropertyRef Name="XREF3" />
+      <PropertyRef Name="VALUT" />
+      <PropertyRef Name="XMWST" />
+      <PropertyRef Name="ZLSPR" />
+      <PropertyRef Name="ZFBDT" />
+      <PropertyRef Name="MANSP" />
+      <PropertyRef Name="NEWBW" />
+      <PropertyRef Name="MENGE" />
+      <PropertyRef Name="KURSF" />
+      <PropertyRef Name="WWERT" />
+      <PropertyRef Name="PRCTR" />
+      <PropertyRef Name="SKFBT" />
+      <PropertyRef Name="NAME1" />
+      <PropertyRef Name="ORT01" />
+      <PropertyRef Name="STCD1" />
+      <PropertyRef Name="EBELN" />
+      <PropertyRef Name="WERKS" />
+    </Key>
+    <Property Name="MANDT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="INTERFAZ" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAINT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="CORRELAT" Type="Int32" Nullable="false" />
+    <Property Name="NITEM" Type="Int32" Nullable="false" />
+    <Property Name="BUKRS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BLART" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WAERS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BUDAT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="BLDAT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="MONAT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="XBLNR" Type="Int32" Nullable="false" />
+    <Property Name="BKTXT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BUPLA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWKO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NEWUM" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBK" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WRBTR" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FWBAS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MWSKZ" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="GSBER" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="KOSTL_PRCTR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="AUFNR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZTERM" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZUONR" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="SGTXT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VBUND" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF2" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF3" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VALUT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="XMWST" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZLSPR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZFBDT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MANSP" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBW" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MENGE" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="KURSF" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WWERT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PRCTR" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SKFBT" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NAME1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ORT01" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="STCD1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EBELN" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WERKS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ConciliacionAutoPagos">
+    <Key>
+      <PropertyRef Name="AutorizadorTbk" />
+      <PropertyRef Name="Tarjeta" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="CodigoLocal" />
+    </Key>
+    <Property Name="AutorizadorMp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AutorizadorTbk" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tarjeta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CodigoLocal" Type="Int32" Nullable="false" />
+    <Property Name="idTienda" Type="Int32" Nullable="false" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FechaConciliacion" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ConciliacionManualPagos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="TrxMP" Type="Int32" />
+    <Property Name="Autorizadortbk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaMp" Type="DateTime" Precision="3" />
+    <Property Name="Fechatbk" Type="DateTime" Precision="3" />
+    <Property Name="codigoLocal" Type="Int32" />
+    <Property Name="idtienda" Type="Int32" />
+    <Property Name="MontoMp" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Montotbk" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tipo_Pago" Type="Int16" />
+    <Property Name="FechaConciliacion" Type="DateTime" Precision="3" />
+    <Property Name="TarjetaMp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TarjetaTbk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Cuenta">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoPago" Type="Int32" />
+    <Property Name="NumeroCuenta" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Diferencias_Pagos" Relationship="sisgesModel.FK_Diferencias_Pagos_Cuenta" FromRole="Cuenta" ToRole="Diferencias_Pagos" />
+    <NavigationProperty Name="DetalleConciliacionPagos" Relationship="sisgesModel.FK_DetalleConciliacionPagos_Cuenta" FromRole="Cuenta" ToRole="DetalleConciliacionPagos" />
+    <NavigationProperty Name="DetalleConciliacion" Relationship="sisgesModel.FK_DetalleConciliacion_Cuenta" FromRole="Cuenta" ToRole="DetalleConciliacion" />
+  </EntityType>
+  <EntityType Name="Diferencias_Pagos">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Cod_Cuenta" />
+      <PropertyRef Name="idTiendaAcredededor" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cod_Cuenta" Type="Int32" Nullable="false" />
+    <Property Name="TipoAsiento" Type="Int32" Nullable="false" />
+    <Property Name="Tienda" Type="Int32" Nullable="false" />
+    <Property Name="Cod_TRX" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TRX" Type="Int32" Nullable="false" />
+    <Property Name="FechaDiferencia" Type="DateTime" Precision="3" />
+    <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="idTiendaAcredededor" Type="Int32" Nullable="false" />
+    <Property Name="numeroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cuenta" Relationship="sisgesModel.FK_Diferencias_Pagos_Cuenta" FromRole="Diferencias_Pagos" ToRole="Cuenta" />
+    <NavigationProperty Name="ACREEDOR_REL" Relationship="sisgesModel.FK_Diferencias_Pagos_ACREEDOR_REL" FromRole="Diferencias_Pagos" ToRole="ACREEDOR_REL" />
+  </EntityType>
+  <Association Name="FK_Diferencias_Pagos_Cuenta">
+    <End Type="sisgesModel.Cuenta" Role="Cuenta" Multiplicity="1" />
+    <End Type="sisgesModel.Diferencias_Pagos" Role="Diferencias_Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Diferencias_Pagos">
+        <PropertyRef Name="Cod_Cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ACREEDOR_REL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Local" Type="Int32" Nullable="false" />
+    <Property Name="Cuenta" Type="Int32" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CeCo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Acreedor" Type="Int32" />
+    <Property Name="Tipo_Pago" Type="Int32" />
+    <NavigationProperty Name="Diferencias_Pagos" Relationship="sisgesModel.FK_Diferencias_Pagos_ACREEDOR_REL" FromRole="ACREEDOR_REL" ToRole="Diferencias_Pagos" />
+    <NavigationProperty Name="TIPO_PAGO1" Relationship="sisgesModel.FK_ACREEDOR_REL_TIPO_PAGO" FromRole="ACREEDOR_REL" ToRole="TIPO_PAGO" />
+    <NavigationProperty Name="DetalleConciliacionPagos" Relationship="sisgesModel.FK_DetalleConciliacionPagos_ACREEDOR_REL" FromRole="ACREEDOR_REL" ToRole="DetalleConciliacionPagos" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_ACREEDOR_REL_CENTROS_LOCAL" FromRole="ACREEDOR_REL" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="DetalleConciliacion" Relationship="sisgesModel.FK_DetalleConciliacion_ACREEDOR_REL" FromRole="ACREEDOR_REL" ToRole="DetalleConciliacion" />
+  </EntityType>
+  <EntityType Name="CODIGO_COMERCIO_TBK">
+    <Key>
+      <PropertyRef Name="CodigoComercio" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoComercio" Type="Int32" Nullable="false" />
+    <Property Name="Local" Type="Int32" Nullable="false" />
+    <Property Name="NombreLocal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Int32" />
+    <NavigationProperty Name="TIPO_PAGO" Relationship="sisgesModel.FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK" FromRole="CODIGO_COMERCIO_TBK" ToRole="TIPO_PAGO" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL" FromRole="CODIGO_COMERCIO_TBK" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="Pagos_Apitbk" Relationship="sisgesModel.FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK" FromRole="CODIGO_COMERCIO_TBK" ToRole="Pagos_Apitbk" />
+    <NavigationProperty Name="Ventas_Apitbk" Relationship="sisgesModel.FK_Ventas_Apitbk_Ventas_Apitbk" FromRole="CODIGO_COMERCIO_TBK" ToRole="Ventas_Apitbk" />
+  </EntityType>
+  <Association Name="FK_Diferencias_Pagos_ACREEDOR_REL">
+    <End Type="sisgesModel.ACREEDOR_REL" Role="ACREEDOR_REL" Multiplicity="1" />
+    <End Type="sisgesModel.Diferencias_Pagos" Role="Diferencias_Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACREEDOR_REL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diferencias_Pagos">
+        <PropertyRef Name="idTiendaAcredededor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TIPO_PAGO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ACREEDOR_REL" Relationship="sisgesModel.FK_ACREEDOR_REL_TIPO_PAGO" FromRole="TIPO_PAGO" ToRole="ACREEDOR_REL" />
+    <NavigationProperty Name="CODIGO_COMERCIO_TBK" Relationship="sisgesModel.FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK" FromRole="TIPO_PAGO" ToRole="CODIGO_COMERCIO_TBK" />
+  </EntityType>
+  <Association Name="FK_ACREEDOR_REL_TIPO_PAGO">
+    <End Type="sisgesModel.TIPO_PAGO" Role="TIPO_PAGO" Multiplicity="0..1" />
+    <End Type="sisgesModel.ACREEDOR_REL" Role="ACREEDOR_REL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PAGO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ACREEDOR_REL">
+        <PropertyRef Name="Tipo_Pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK">
+    <End Type="sisgesModel.TIPO_PAGO" Role="TIPO_PAGO" Multiplicity="0..1" />
+    <End Type="sisgesModel.CODIGO_COMERCIO_TBK" Role="CODIGO_COMERCIO_TBK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PAGO">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Proc_TotalesTransbankApi_Result">
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="IdTienda" Nullable="true" />
+    <Property Type="Int32" Name="CodigoComercio" Nullable="false" />
+    <Property Type="String" Name="TipoPago" Nullable="true" MaxLength="7" />
+    <Property Type="Int32" Name="Trx" Nullable="true" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+  </ComplexType>
+  <EntityType Name="ZONA">
+    <Key>
+      <PropertyRef Name="IdZona" />
+    </Key>
+    <Property Name="IdZona" Type="Int32" Nullable="false" />
+    <Property Name="nombreZona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="Usuario" Relationship="sisgesModel.UsuarioZona" FromRole="ZONA" ToRole="Usuario" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_CENTROS_LOCAL_ZONA" FromRole="ZONA" ToRole="CENTROS_LOCAL" />
+  </EntityType>
+  <Association Name="UsuarioZona">
+    <End Type="sisgesModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <End Type="sisgesModel.ZONA" Role="ZONA" Multiplicity="*" />
+  </Association>
+  <EntityType Name="VENTAS">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Local" />
+      <PropertyRef Name="Fecha_Venta" />
+    </Key>
+    <Property Name="TRX" Type="Int32" Nullable="false" />
+    <Property Name="TRX_Impreso" Type="Int16" />
+    <Property Name="Tipo_Trx" Type="Int16" />
+    <Property Name="Local" Type="Int32" Nullable="false" />
+    <Property Name="Cajero" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Caja" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Venta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Vta_Sistema" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Venta_Linea" Type="DateTime" Precision="3" />
+    <Property Name="Caja_Fuera_Linea" Type="Int16" Nullable="false" />
+    <Property Name="Modo_Entrenamiento" Type="Int16" Nullable="false" />
+    <Property Name="Codigo_Anula" Type="Int16" Nullable="false" />
+    <Property Name="Cliente" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Vendedor" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Venta_Iniciada" Type="Int16" Nullable="false" />
+    <Property Name="Total_Venta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Caja2" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Folio_Documento" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo_Documento" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo_Impto" Type="Int32" />
+    <Property Name="Impto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Neto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Bruto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+  </EntityType>
+  <ComplexType Name="fnDashboard_Detalle_Temp_Result">
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Centro" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Tipo_Documento" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Total_Tienda" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Total_SAP" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Diferencia" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="fnReporte_Participacion_Result">
+    <Property Type="Int32" Name="idTienda" Nullable="true" />
+    <Property Type="String" Name="TipodePago" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TotalVenta" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Porcentaje" Nullable="true" Precision="19" Scale="4" />
+  </ComplexType>
+  <EntityType Name="MEDIOSPAGOS">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="Tipo_Pago" />
+      <PropertyRef Name="Monto_Aprobado" />
+    </Key>
+    <Property Name="TRX" Type="Int32" Nullable="false" />
+    <Property Name="IdTienda" Type="Int32" Nullable="false" />
+    <Property Name="Caja" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Tipo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Folio" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Trans" Type="Int16" />
+    <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tipo_Pago" Type="Int16" Nullable="false" />
+    <Property Name="Pago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Tarjeta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Autorizador" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AUTH_RESP_CD" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Monto_Aprobado" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="NCheque" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="RutCheque" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Banco" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCheque" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_MEDIOSPAGOS_CENTROS_LOCAL" FromRole="MEDIOSPAGOS" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="DetalleConciliacion" Relationship="sisgesModel.FK_DetalleConciliacion_MEDIOSPAGOS" FromRole="MEDIOSPAGOS" ToRole="DetalleConciliacion" />
+  </EntityType>
+  <ComplexType Name="fnReporte_TicketPromedio_Result">
+    <Property Type="Int32" Name="idTienda" Nullable="true" />
+    <Property Type="String" Name="TipodePago" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TotalVenta" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Porcentaje" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="TRX" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="fnReporte_Avance_Result">
+    <Property Type="Int32" Name="Mes" Nullable="true" />
+    <Property Type="Int32" Name="Local" Nullable="true" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Trx" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="notaCreditoEspecial">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Fecha_Emision_Nota_Credito" />
+      <PropertyRef Name="IdTienda_notacredito" />
+      <PropertyRef Name="Caja_notacredito" />
+      <PropertyRef Name="Folio_notacredito" />
+      <PropertyRef Name="Total_notacredito" />
+      <PropertyRef Name="Tipo_Pago_Origen" />
+    </Key>
+    <Property Name="TRX" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Emision_Nota_Credito" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_Emision_Nota_Credito" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="IdTienda_notacredito" Type="Int32" Nullable="false" />
+    <Property Name="Caja_notacredito" Type="Int32" Nullable="false" />
+    <Property Name="TIPONOTACREDITO" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Folio_notacredito" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Cliente_notacredito" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Total_notacredito" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Documento_Origen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Trx_Origen" Type="Int32" />
+    <Property Name="Nro_Boleta" Type="Int64" />
+    <Property Name="IdTienda_Origen_Boleta" Type="Int32" />
+    <Property Name="Caja_Origen_Boleta" Type="Int32" />
+    <Property Name="Fecha_Boleta" Type="DateTime" Precision="0" />
+    <Property Name="Monto_Boleta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tipo_Pago_Origen" Type="Int32" Nullable="false" />
+    <Property Name="Rut_Cajero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Rut_Supervisor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_trabajador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Jefe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Hora_Aprov_Nota_Credito" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Conciliacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="FechaConciliar" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DetalleConciliacion" Relationship="sisgesModel.FK_DetalleConciliacion_Conciliacion" FromRole="Conciliacion" ToRole="DetalleConciliacion" />
+  </EntityType>
+  <EntityType Name="Auditoria">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="Fecha" />
+    </Key>
+    <Property Name="IdUsuario" Type="Guid" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="sisgesModel.FK_Auditoria_Usuario" FromRole="Auditoria" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Auditoria_Usuario">
+    <End Type="sisgesModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="sisgesModel.Auditoria" Role="Auditoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Auditoria">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CENTROS_LOCAL">
+    <Key>
+      <PropertyRef Name="CEN_Codigo" />
+    </Key>
+    <Property Name="CEN_Pos" Type="Int64" Nullable="false" />
+    <Property Name="CEN_Codigo" Type="Int32" Nullable="false" />
+    <Property Name="CEN_Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="CEN_CodigoBanco" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="CEN_CuentaBanco" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="CEN_Servidor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CEN_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="IdZona" Type="Int32" />
+    <Property Name="Correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ZONA" Relationship="sisgesModel.FK_CENTROS_LOCAL_ZONA" FromRole="CENTROS_LOCAL" ToRole="ZONA" />
+    <NavigationProperty Name="CODIGO_COMERCIO_TBK" Relationship="sisgesModel.FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="CODIGO_COMERCIO_TBK" />
+    <NavigationProperty Name="MEDIOSPAGOS" Relationship="sisgesModel.FK_MEDIOSPAGOS_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="MEDIOSPAGOS" />
+    <NavigationProperty Name="ACREEDOR_REL" Relationship="sisgesModel.FK_ACREEDOR_REL_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="ACREEDOR_REL" />
+    <NavigationProperty Name="PAGOS" Relationship="sisgesModel.FK_PAGOS_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="PAGOS" />
+    <NavigationProperty Name="Remito" Relationship="sisgesModel.FK_Remito_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="Remito" />
+    <NavigationProperty Name="Sencillos_Tiendas" Relationship="sisgesModel.FK_Sencillos_Tiendas_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="Sencillos_Tiendas" />
+    <NavigationProperty Name="DetalleSencillo" Relationship="sisgesModel.FK_DetalleSencillo_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="DetalleSencillo" />
+    <NavigationProperty Name="AcumuladoSobrante_Faltante" Relationship="sisgesModel.FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="AcumuladoSobrante_Faltante" />
+    <NavigationProperty Name="Sobrante_Faltante" Relationship="sisgesModel.FK_Sobrante_Faltante_CENTROS_LOCAL" FromRole="CENTROS_LOCAL" ToRole="Sobrante_Faltante" />
+  </EntityType>
+  <Association Name="FK_CENTROS_LOCAL_ZONA">
+    <End Type="sisgesModel.ZONA" Role="ZONA" Multiplicity="0..1" />
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONA">
+        <PropertyRef Name="IdZona" />
+      </Principal>
+      <Dependent Role="CENTROS_LOCAL">
+        <PropertyRef Name="IdZona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="1" />
+    <End Type="sisgesModel.CODIGO_COMERCIO_TBK" Role="CODIGO_COMERCIO_TBK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="Local" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEDIOSPAGOS_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="1" />
+    <End Type="sisgesModel.MEDIOSPAGOS" Role="MEDIOSPAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="MEDIOSPAGOS">
+        <PropertyRef Name="IdTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="fn_Conciliacion_Manual_aPI_Result">
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Centro" Nullable="true" />
+    <Property Type="String" Name="CodAutorizador" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="MontoV" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoAfecto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="Tipo" Nullable="true" />
+    <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Trx" Nullable="true" />
+    <Property Type="Boolean" Name="Estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="fnIdocPagos_FI_Result">
+    <Property Type="String" Name="MANDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="INTERFAZ" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="FECHAINT" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="CORRELAT" Nullable="true" />
+    <Property Type="Int32" Name="NITEM" Nullable="true" />
+    <Property Type="String" Name="BUKRS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BLART" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WAERS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BUDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="BLDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="MONAT" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="XBLNR" Nullable="true" />
+    <Property Type="String" Name="BKTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BUPLA" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWKO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="NEWUM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBK" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="WRBTR" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="FWBAS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MWSKZ" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="GSBER" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KOSTL_PRCTR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="AUFNR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZTERM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZUONR" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SGTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VBUND" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF2" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF3" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="VALUT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="XMWST" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZLSPR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZFBDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MANSP" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBW" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MENGE" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KURSF" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WWERT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="PRCTR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="SKFBT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NAME1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ORT01" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="STCD1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="EBELN" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WERKS" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="fnIdocVentas_FI_Result">
+    <Property Type="String" Name="MANDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="INTERFAZ" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="FECHAINT" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="CORRELAT" Nullable="true" />
+    <Property Type="Int32" Name="NITEM" Nullable="true" />
+    <Property Type="String" Name="BUKRS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BLART" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WAERS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BUDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="BLDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="MONAT" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="XBLNR" Nullable="true" />
+    <Property Type="String" Name="BKTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BUPLA" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWKO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="NEWUM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBK" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="WRBTR" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="FWBAS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MWSKZ" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="GSBER" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KOSTL_PRCTR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="AUFNR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZTERM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZUONR" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SGTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VBUND" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF2" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF3" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="VALUT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="XMWST" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZLSPR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZFBDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MANSP" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBW" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MENGE" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KURSF" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WWERT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="PRCTR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="SKFBT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NAME1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ORT01" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="STCD1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="EBELN" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WERKS" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="fnIdocVentas_MP_Result">
+    <Property Type="String" Name="MANDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="INTERFAZ" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="FECHAINT" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="CORRELAT" Nullable="true" />
+    <Property Type="Int32" Name="NITEM" Nullable="true" />
+    <Property Type="String" Name="BUKRS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BLART" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WAERS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BUDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="BLDAT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="MONAT" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="XBLNR" Nullable="true" />
+    <Property Type="String" Name="BKTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BUPLA" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWKO" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="NEWUM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBK" Nullable="true" MaxLength="5" />
+    <Property Type="Decimal" Name="WRBTR" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="FWBAS" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MWSKZ" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="GSBER" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KOSTL_PRCTR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="AUFNR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZTERM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZUONR" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SGTXT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VBUND" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF2" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="XREF3" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="VALUT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="XMWST" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZLSPR" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ZFBDT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MANSP" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NEWBW" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="MENGE" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="KURSF" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WWERT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="PRCTR" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="SKFBT" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NAME1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ORT01" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="STCD1" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="EBELN" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="WERKS" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="Fn_NC_Especial_Result">
+    <Property Type="Int32" Name="TRX" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Emision_Nota_Credito" Nullable="true" Precision="10" />
+    <Property Type="String" Name="Hora_Emision_Nota_Credito" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="IdTienda_notacredito" Nullable="true" />
+    <Property Type="Int32" Name="Caja_notacredito" Nullable="true" />
+    <Property Type="String" Name="TIPONOTACREDITO" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="Folio_notacredito" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Cliente_notacredito" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Total_notacredito" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Documento_Origen" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Trx_Origen" Nullable="true" />
+    <Property Type="Int64" Name="Nro_Boleta" Nullable="true" />
+    <Property Type="Int32" Name="IdTienda_Origen_Boleta" Nullable="true" />
+    <Property Type="Int32" Name="Caja_Origen_Boleta" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Boleta" Nullable="true" Precision="10" />
+    <Property Type="Decimal" Name="Monto_Boleta" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Tipo_Pago_Origen" Nullable="true" />
+    <Property Type="String" Name="Rut_Cajero" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Rut_Supervisor" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Nombre_Trabajador" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descripcion_pago" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nombre_Jefe" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hora_Aprov_Nota_Credito" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="CEN_Nombre" Nullable="true" MaxLength="34" />
+  </ComplexType>
+  <EntityType Name="Pagos_Apitbk">
+    <Key>
+      <PropertyRef Name="codigoAutorizacion" />
+      <PropertyRef Name="codigoLocal" />
+      <PropertyRef Name="fechaTransaccion" />
+      <PropertyRef Name="montoVenta" />
+      <PropertyRef Name="numeroTarjeta" />
+      <PropertyRef Name="montoAfecto" />
+    </Key>
+    <Property Name="codigoAutorizacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codigoLocal" Type="Int32" Nullable="false" />
+    <Property Name="fechaAbono" Type="DateTime" Precision="3" />
+    <Property Name="fechaTransaccion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="montoCuotas" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="montoVenta" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="nombreLocal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="numeroTarjeta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="totalCuotas" Type="Int32" />
+    <Property Name="tipoCuota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="montoAfecto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="montoExentoTotal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ordenPedido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="CODIGO_COMERCIO_TBK" Relationship="sisgesModel.FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK" FromRole="Pagos_Apitbk" ToRole="CODIGO_COMERCIO_TBK" />
+    <NavigationProperty Name="DetalleConciliacionPagos" Relationship="sisgesModel.FK_DetalleConciliacionPagos_Pagos_Apitbk" FromRole="Pagos_Apitbk" ToRole="DetalleConciliacionPagos" />
+  </EntityType>
+  <Association Name="FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK">
+    <End Type="sisgesModel.CODIGO_COMERCIO_TBK" Role="CODIGO_COMERCIO_TBK" Multiplicity="1" />
+    <End Type="sisgesModel.Pagos_Apitbk" Role="Pagos_Apitbk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="CodigoComercio" />
+      </Principal>
+      <Dependent Role="Pagos_Apitbk">
+        <PropertyRef Name="codigoLocal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ConciliaciondePagos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="FechaConciliar" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DetalleConciliacionPagos" Relationship="sisgesModel.FK_DetalleConciliacionPagos_ConciliaciondePagos" FromRole="ConciliaciondePagos" ToRole="DetalleConciliacionPagos" />
+  </EntityType>
+  <EntityType Name="DetalleConciliacionPagos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="AutorizadorMp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AutorizadorTbk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoLocal" Type="Int32" />
+    <Property Name="IdTienda" Type="Int32" />
+    <Property Name="TipoConciliacion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="idConciliacion" Type="Guid" />
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="FechaMp" Type="DateTime" Precision="3" />
+    <Property Name="FechaTbk" Type="DateTime" Precision="3" />
+    <Property Name="MontoMp" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MontoTbk" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tipo_Pago" Type="Int16" />
+    <Property Name="TarjetaMp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TarjetaTBk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoCuenta" Type="Int32" />
+    <Property Name="TipoAsiento" Type="Int32" />
+    <Property Name="TRX" Type="Int32" />
+    <Property Name="idAcreededor" Type="Int32" />
+    <Property Name="MontoVentatbk" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="ConciliaciondePagos" Relationship="sisgesModel.FK_DetalleConciliacionPagos_ConciliaciondePagos" FromRole="DetalleConciliacionPagos" ToRole="ConciliaciondePagos" />
+    <NavigationProperty Name="Pagos_Apitbk" Relationship="sisgesModel.FK_DetalleConciliacionPagos_Pagos_Apitbk" FromRole="DetalleConciliacionPagos" ToRole="Pagos_Apitbk" />
+    <NavigationProperty Name="ACREEDOR_REL" Relationship="sisgesModel.FK_DetalleConciliacionPagos_ACREEDOR_REL" FromRole="DetalleConciliacionPagos" ToRole="ACREEDOR_REL" />
+    <NavigationProperty Name="Cuenta" Relationship="sisgesModel.FK_DetalleConciliacionPagos_Cuenta" FromRole="DetalleConciliacionPagos" ToRole="Cuenta" />
+  </EntityType>
+  <Association Name="FK_DetalleConciliacionPagos_ConciliaciondePagos">
+    <End Type="sisgesModel.ConciliaciondePagos" Role="ConciliaciondePagos" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacionPagos" Role="DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConciliaciondePagos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="idConciliacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacionPagos_Pagos_Apitbk">
+    <End Type="sisgesModel.Pagos_Apitbk" Role="Pagos_Apitbk" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacionPagos" Role="DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagos_Apitbk">
+        <PropertyRef Name="codigoAutorizacion" />
+        <PropertyRef Name="codigoLocal" />
+        <PropertyRef Name="fechaTransaccion" />
+        <PropertyRef Name="montoVenta" />
+        <PropertyRef Name="numeroTarjeta" />
+        <PropertyRef Name="montoAfecto" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="AutorizadorTbk" />
+        <PropertyRef Name="CodigoLocal" />
+        <PropertyRef Name="FechaTbk" />
+        <PropertyRef Name="MontoVentatbk" />
+        <PropertyRef Name="TarjetaTBk" />
+        <PropertyRef Name="MontoTbk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="fn_ConciliacionPagos_Manual_aPI_Result">
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Centro" Nullable="true" />
+    <Property Type="String" Name="CodAutorizador" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="MontoV" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoAfecto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="Tipo" Nullable="true" />
+    <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Trx" Nullable="true" />
+  </ComplexType>
+  <Association Name="FK_DetalleConciliacionPagos_ACREEDOR_REL">
+    <End Type="sisgesModel.ACREEDOR_REL" Role="ACREEDOR_REL" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacionPagos" Role="DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACREEDOR_REL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="idAcreededor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacionPagos_Cuenta">
+    <End Type="sisgesModel.Cuenta" Role="Cuenta" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacionPagos" Role="DetalleConciliacionPagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="DetalleConciliacionPagos">
+        <PropertyRef Name="CodigoCuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Fn_PAGOS_Cuenta_Rut_Result">
+    <Property Type="String" Name="Tipo_Trx" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="IdTienda" Nullable="false" />
+    <Property Type="Int16" Name="Trx_Global" Nullable="false" />
+    <Property Type="Int32" Name="Caja" Nullable="false" />
+    <Property Type="Int16" Name="Tipo" Nullable="true" />
+    <Property Type="Int32" Name="TRX" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Cajero" Nullable="true" MaxLength="12" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Autorizador" Nullable="false" MaxLength="14" />
+    <Property Type="String" Name="Autorizador_TBK" Nullable="false" MaxLength="14" />
+    <Property Type="String" Name="NumeroReferencia" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="RutCliente" Nullable="true" MaxLength="10" />
+    <Property Type="Int16" Name="Tipo_Pago" Nullable="false" />
+    <Property Type="String" Name="Pago" Nullable="false" MaxLength="30" />
+    <Property Type="Decimal" Name="Monto_Pago" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="String" Name="Tarjeta" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NCheque" Nullable="false" MaxLength="14" />
+    <Property Type="String" Name="RutCheque" Nullable="false" MaxLength="24" />
+    <Property Type="String" Name="Banco" Nullable="false" MaxLength="14" />
+    <Property Type="String" Name="FechaCheque" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="EstadoConciliado" Nullable="true" />
+    <Property Type="Int32" Name="cuenta" Nullable="true" />
+    <Property Type="Int32" Name="rut_cliente" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Fn_MP_Cuenta_Rut_Result">
+    <Property Type="Int32" Name="TRX" Nullable="true" />
+    <Property Type="Int32" Name="IdTienda" Nullable="true" />
+    <Property Type="Int32" Name="Caja" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Tipo" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Folio" Nullable="true" MaxLength="30" />
+    <Property Type="Int16" Name="Trans" Nullable="true" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int16" Name="Tipo_Pago" Nullable="true" />
+    <Property Type="String" Name="Pago" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Tarjeta" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Autorizador" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AUTH_RESP_CD" Nullable="true" MaxLength="8" />
+    <Property Type="Decimal" Name="Monto_Aprobado" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="NCheque" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="RutCheque" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Banco" Nullable="true" MaxLength="14" />
+    <Property Type="String" Name="FechaCheque" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="Estado" Nullable="true" />
+    <Property Type="Int32" Name="cuenta" Nullable="true" />
+    <Property Type="String" Name="rut_cliente" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <EntityType Name="IDOC_FI">
+    <Key>
+      <PropertyRef Name="FECHAINT" />
+      <PropertyRef Name="NEWBS" />
+      <PropertyRef Name="WRBTR" />
+      <PropertyRef Name="SGTXT" />
+      <PropertyRef Name="WERKS" />
+    </Key>
+    <Property Name="MANDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="INTERFAZ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FECHAINT" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="CORRELAT" Type="Int32" />
+    <Property Name="NITEM" Type="Int32" />
+    <Property Name="BUKRS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BLART" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WAERS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BUDAT" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="BLDAT" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="MONAT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="XBLNR" Type="Int32" />
+    <Property Name="BKTXT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BUPLA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWKO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NEWUM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBK" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WRBTR" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FWBAS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MWSKZ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="GSBER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="KOSTL_PRCTR" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="AUFNR" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZTERM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZUONR" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="SGTXT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VBUND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="XREF3" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VALUT" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="XMWST" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZLSPR" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ZFBDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MANSP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NEWBW" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MENGE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="KURSF" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WWERT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PRCTR" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SKFBT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NAME1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ORT01" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="STCD1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EBELN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WERKS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LibroMayor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Texto_cab_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lib_mayor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Soc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Compensacion" Type="DateTime" Precision="3" />
+    <Property Name="Centro" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Asignacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Referencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="N_Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Div" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Clase" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Documento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CT" Type="Int32" />
+    <Property Name="Importe_MD" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Importe_ML" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ML" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="IndicadorIMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Doc_Compensacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="LibroMayorDEP" Relationship="sisgesModel.FK_LibroMayorDEP_LibroMayor" FromRole="LibroMayor" ToRole="LibroMayorDEP" />
+    <NavigationProperty Name="LibroMayorDEP1" Relationship="sisgesModel.FK_LibroMayorDEP_LibroMayor1" FromRole="LibroMayor" ToRole="LibroMayorDEP" />
+  </EntityType>
+  <EntityType Name="LibroMayorDEP">
+    <Key>
+      <PropertyRef Name="IdLibroMayor" />
+      <PropertyRef Name="IdLibroMayor1" />
+    </Key>
+    <Property Name="Texto_cab_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Soc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Asignacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Referencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="N_Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Clase" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Documento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CT" Type="Int32" />
+    <Property Name="Importe_MD" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Importe_ML" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Doc_Compensacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Lib_mayor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="abs" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IdLibroMayor" Type="Guid" Nullable="false" />
+    <Property Name="Texto_cab_documento1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Soc1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Asignacion1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Referencia1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="N_Documento1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Clase1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Documento1" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CT1" Type="Int32" />
+    <Property Name="Importe_MD1" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Importe_ML1" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Doc_Compensacion1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion1" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Lib_mayor1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="abs1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IdLibroMayor1" Type="Guid" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="LibroMayor" Relationship="sisgesModel.FK_LibroMayorDEP_LibroMayor" FromRole="LibroMayorDEP" ToRole="LibroMayor" />
+    <NavigationProperty Name="LibroMayor1" Relationship="sisgesModel.FK_LibroMayorDEP_LibroMayor1" FromRole="LibroMayorDEP" ToRole="LibroMayor" />
+  </EntityType>
+  <Association Name="FK_LibroMayorDEP_LibroMayor">
+    <End Type="sisgesModel.LibroMayor" Role="LibroMayor" Multiplicity="1" />
+    <End Type="sisgesModel.LibroMayorDEP" Role="LibroMayorDEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibroMayor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroMayorDEP">
+        <PropertyRef Name="IdLibroMayor1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LibroMayorDEP_LibroMayor1">
+    <End Type="sisgesModel.LibroMayor" Role="LibroMayor" Multiplicity="1" />
+    <End Type="sisgesModel.LibroMayorDEP" Role="LibroMayorDEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibroMayor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroMayorDEP">
+        <PropertyRef Name="IdLibroMayor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="InterfazAutorizacion">
+    <Key>
+      <PropertyRef Name="FechaAutorizacion" />
+      <PropertyRef Name="CodigoAgencia" />
+      <PropertyRef Name="NumeroAutorizacion" />
+    </Key>
+    <Property Name="NroRef" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoEmpresa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FechaAutorizacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CodigoAgencia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroTerminal" Type="Int32" />
+    <Property Name="NumeroBoleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroAutorizacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoArchivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoCliente" Type="Int32" />
+    <Property Name="NumeroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Monto" Type="Int32" />
+    <Property Name="MontoPie" Type="Int32" />
+    <Property Name="MesesDiferido" Type="Int32" />
+    <Property Name="MesesGracia" Type="Int32" />
+    <Property Name="FechaAutoriza" Type="DateTime" Precision="0" />
+    <Property Name="NumeroCuotas" Type="Int32" />
+    <Property Name="Extrafinanciamiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPlanCredito" Type="Int32" />
+    <Property Name="MontoAfecto" Type="Int32" />
+    <Property Name="CodigoComercio" Type="Int32" />
+    <Property Name="CodigoRubro" Type="Int32" />
+    <Property Name="RutVendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPromocionVenta" Type="Int32" />
+    <Property Name="MontoCuota" Type="Int32" />
+    <Property Name="FechaPrimerVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="FechaUltimoVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="Confirmada" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ModoProceso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="NroTrxPos" Type="Int32" />
+    <Property Name="NroCaja" Type="Int32" />
+    <Property Name="TipoDiferencia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="MontonoAfecto" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Periodo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="AnoNumero" Type="Int32" Nullable="false" />
+    <Property Name="MesNumero" Type="Int32" Nullable="false" />
+    <Property Name="Cerrado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ACREEDOR_REL_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="1" />
+    <End Type="sisgesModel.ACREEDOR_REL" Role="ACREEDOR_REL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="ACREEDOR_REL">
+        <PropertyRef Name="Local" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="AperturaPeriodo_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="AnoNumero" Nullable="false" />
+    <Property Type="Int32" Name="MesNumero" Nullable="false" />
+    <Property Type="Boolean" Name="Cerrado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="fnReporte_CAAU_Result">
+    <Property Type="String" Name="Referencia" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CodigoEmpresa" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="FechaAutorizacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CodigoAgencia" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NumeroTerminal" Nullable="true" />
+    <Property Type="String" Name="NumeroBoleta" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CodigoUsuario" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroAutorizacion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TipoArchivo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodigoCliente" Nullable="true" />
+    <Property Type="String" Name="NumeroTarjeta" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Monto" Nullable="true" />
+    <Property Type="Int32" Name="MontoPie" Nullable="true" />
+    <Property Type="Int32" Name="MesesDiferido" Nullable="true" />
+    <Property Type="Int32" Name="MesesGracia" Nullable="true" />
+    <Property Type="DateTime" Name="FechaAutoriza" Nullable="true" Precision="10" />
+    <Property Type="Int32" Name="NumeroCuotas" Nullable="true" />
+    <Property Type="String" Name="Extrafinanciamiento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodigoPlanCredito" Nullable="true" />
+    <Property Type="Int32" Name="MontoAfecto" Nullable="true" />
+    <Property Type="Int32" Name="MontonoAfecto" Nullable="true" />
+    <Property Type="Int32" Name="CodigoComercio" Nullable="true" />
+    <Property Type="Int32" Name="CodigoRubro" Nullable="true" />
+    <Property Type="String" Name="RutVendedor" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodigoPromocionVenta" Nullable="true" />
+    <Property Type="Int32" Name="MontoCuota" Nullable="true" />
+    <Property Type="DateTime" Name="FechaPrimerVencimiento" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaUltimoVencimiento" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Confirmada" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="ModoProceso" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="NroTrxPos" Nullable="true" />
+    <Property Type="String" Name="NroRef" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NroCaja" Nullable="true" />
+    <Property Type="String" Name="TipoDiferencia" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="Cuenta_GL" Nullable="true" />
+    <Property Type="String" Name="Rut_GL" Nullable="true" MaxLength="15" />
+    <Property Type="Decimal" Name="Monto_GL" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoAprobado_GL" Nullable="true" Precision="19" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="fnSencillosTiendaNoConciliados_Result">
+    <Property Type="Int32" Name="idtienda" Nullable="true" />
+    <Property Type="Int32" Name="NuevoTotal" Nullable="true" />
+    <Property Type="String" Name="Banco" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DiaLiberacion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DiaEntrega" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="fnReporteBoletasContraloria_Result">
+    <Property Type="Int32" Name="TRX" Nullable="false" />
+    <Property Type="Int16" Name="TRX_Impreso" Nullable="true" />
+    <Property Type="Int16" Name="Tipo_Trx" Nullable="true" />
+    <Property Type="Int32" Name="Local" Nullable="false" />
+    <Property Type="String" Name="Nombre_Tienda" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="Cajero" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="NOMBRES" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="APELLIDOS" Nullable="true" MaxLength="35" />
+    <Property Type="Int32" Name="Caja" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_Venta" Nullable="true" Precision="10" />
+    <Property Type="String" Name="Hora_Venta" Nullable="true" MaxLength="8" />
+    <Property Type="DateTime" Name="Fecha_Vta_Sistema" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Venta_Linea" Nullable="true" Precision="23" />
+    <Property Type="Int16" Name="Caja_Fuera_Linea" Nullable="false" />
+    <Property Type="Int16" Name="Modo_Entrenamiento" Nullable="false" />
+    <Property Type="Int16" Name="Codigo_Anula" Nullable="false" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Vendedor" Nullable="true" MaxLength="24" />
+    <Property Type="Int16" Name="Venta_Iniciada" Nullable="false" />
+    <Property Type="Decimal" Name="Total_Venta" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Caja2" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="Folio_Documento" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Tipo_Documento" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="Tipo_Impto" Nullable="true" />
+    <Property Type="Decimal" Name="Impto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Neto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Bruto" Nullable="false" Precision="19" Scale="4" />
+  </ComplexType>
+  <EntityType Name="PAGOS">
+    <Key>
+      <PropertyRef Name="Tipo_Trx" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Trx_Global" />
+      <PropertyRef Name="Caja" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="Autorizador" />
+      <PropertyRef Name="Tipo_Pago" />
+    </Key>
+    <Property Name="Tipo_Trx" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IdTienda" Type="Int32" Nullable="false" />
+    <Property Name="Trx_Global" Type="Int16" Nullable="false" />
+    <Property Name="Caja" Type="Int32" Nullable="false" />
+    <Property Name="Tipo" Type="Int16" />
+    <Property Name="TRX" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cajero" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Autorizador" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Autorizador_TBK" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroReferencia" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="RutCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo_Pago" Type="Int16" Nullable="false" />
+    <Property Name="Pago" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Monto_Pago" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Tarjeta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NCheque" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="RutCheque" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Banco" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCheque" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoConciliado" Type="Boolean" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_PAGOS_CENTROS_LOCAL" FromRole="PAGOS" ToRole="CENTROS_LOCAL" />
+  </EntityType>
+  <Association Name="FK_PAGOS_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="1" />
+    <End Type="sisgesModel.PAGOS" Role="PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="IdTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="fnReporteNCContraloria_Result">
+    <Property Type="Int32" Name="TRX" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_Emision_Nota_Credito" Nullable="false" Precision="10" />
+    <Property Type="String" Name="Hora_Emision_Nota_Credito" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="IdTienda_notacredito" Nullable="false" />
+    <Property Type="Int32" Name="Caja_notacredito" Nullable="false" />
+    <Property Type="String" Name="TIPONOTACREDITO" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="Folio_notacredito" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Cliente_notacredito" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Total_notacredito" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Documento_Origen" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Trx_Origen" Nullable="true" />
+    <Property Type="Int64" Name="Nro_Boleta" Nullable="true" />
+    <Property Type="Int32" Name="IdTienda_Origen_Boleta" Nullable="true" />
+    <Property Type="Int32" Name="Caja_Origen_Boleta" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Boleta" Nullable="true" Precision="10" />
+    <Property Type="Decimal" Name="Monto_Boleta" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Tipo_Pago_Origen" Nullable="false" />
+    <Property Type="String" Name="Rut_Cajero" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Rut_Supervisor" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Nombre_trabajador" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descripcion_pago" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nombre_Jefe" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Hora_Aprov_Nota_Credito" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="ID_EMPLEADO" />
+    </Key>
+    <Property Name="ID_EMPLEADO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="APELLIDOS" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="notaCredito" Relationship="sisgesModel.FK_notaCredito_EMPLEADO" FromRole="EMPLEADO" ToRole="notaCredito" />
+    <NavigationProperty Name="notaCredito1" Relationship="sisgesModel.FK_notaCredito_EMPLEADO1" FromRole="EMPLEADO" ToRole="notaCredito" />
+    <NavigationProperty Name="Sobrante_Faltante" Relationship="sisgesModel.FK_Sobrante_Faltante_EMPLEADO" FromRole="EMPLEADO" ToRole="Sobrante_Faltante" />
+  </EntityType>
+  <EntityType Name="TipoPagoGL">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="boletaOrigen" Relationship="sisgesModel.FK_boletaOrigen_TipoPagoGL" FromRole="TipoPagoGL" ToRole="boletaOrigen" />
+  </EntityType>
+  <EntityType Name="boletaOrigen">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Fecha_Emision" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Caja" />
+      <PropertyRef Name="Nro_Boleta" />
+      <PropertyRef Name="Tipo_Pago" />
+    </Key>
+    <Property Name="TRX" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Emision" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdTienda" Type="Int32" Nullable="false" />
+    <Property Name="Caja" Type="Int32" Nullable="false" />
+    <Property Name="Nro_Boleta" Type="Int64" Nullable="false" />
+    <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tipo_Pago" Type="Int32" Nullable="false" />
+    <Property Name="TipoDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TipoPagoGL" Relationship="sisgesModel.FK_boletaOrigen_TipoPagoGL" FromRole="boletaOrigen" ToRole="TipoPagoGL" />
+    <NavigationProperty Name="notaCredito" Relationship="sisgesModel.NotaCredito_BoletaOrigen" FromRole="boletaOrigen" ToRole="notaCredito" />
+  </EntityType>
+  <EntityType Name="notaCredito">
+    <Key>
+      <PropertyRef Name="TRX" />
+      <PropertyRef Name="Fecha_Emision" />
+      <PropertyRef Name="IdTienda" />
+      <PropertyRef Name="Caja" />
+    </Key>
+    <Property Name="TRX" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Emision" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_Emision" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="IdTienda" Type="Int32" Nullable="false" />
+    <Property Name="Caja" Type="Int32" Nullable="false" />
+    <Property Name="Tipo" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Folio" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Cliente" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Rut_Cajero" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Rut_Supervisor" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Hora_Aprobacion" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLEADO" Relationship="sisgesModel.FK_notaCredito_EMPLEADO" FromRole="notaCredito" ToRole="EMPLEADO" />
+    <NavigationProperty Name="EMPLEADO1" Relationship="sisgesModel.FK_notaCredito_EMPLEADO1" FromRole="notaCredito" ToRole="EMPLEADO" />
+    <NavigationProperty Name="boletaOrigen" Relationship="sisgesModel.NotaCredito_BoletaOrigen" FromRole="notaCredito" ToRole="boletaOrigen" />
+  </EntityType>
+  <Association Name="FK_boletaOrigen_TipoPagoGL">
+    <End Type="sisgesModel.TipoPagoGL" Role="TipoPagoGL" Multiplicity="1" />
+    <End Type="sisgesModel.boletaOrigen" Role="boletaOrigen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPagoGL">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="boletaOrigen">
+        <PropertyRef Name="Tipo_Pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notaCredito_EMPLEADO">
+    <End Type="sisgesModel.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1" />
+    <End Type="sisgesModel.notaCredito" Role="notaCredito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLEADO" />
+      </Principal>
+      <Dependent Role="notaCredito">
+        <PropertyRef Name="Rut_Cajero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notaCredito_EMPLEADO1">
+    <End Type="sisgesModel.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1" />
+    <End Type="sisgesModel.notaCredito" Role="notaCredito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLEADO" />
+      </Principal>
+      <Dependent Role="notaCredito">
+        <PropertyRef Name="Rut_Supervisor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NotaCredito_BoletaOrigen">
+    <End Type="sisgesModel.boletaOrigen" Role="boletaOrigen" Multiplicity="*" />
+    <End Type="sisgesModel.notaCredito" Role="notaCredito" Multiplicity="*" />
+  </Association>
+  <EntityType Name="EstadoSencillo">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Sigla" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Sencillos_Tiendas" Relationship="sisgesModel.FK_Sencillos_Tiendas_EstadoSencillo" FromRole="EstadoSencillo" ToRole="Sencillos_Tiendas" />
+  </EntityType>
+  <EntityType Name="SencillosSAP">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="Referencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Asignacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="N_doc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cla" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Periodo" Type="Int32" />
+    <Property Name="Fecha_Doc" Type="DateTime" Precision="3" />
+    <Property Name="IO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Lib_Mayor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImporML" Type="Int32" />
+    <Property Name="Texto" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="RutProvedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConciliacionTesoreria" Type="Boolean" />
+    <NavigationProperty Name="DetalleSencillo" Relationship="sisgesModel.FK_DetalleSencillo_SencillosSAP" FromRole="SencillosSAP" ToRole="DetalleSencillo" />
+  </EntityType>
+  <EntityType Name="TipoRemito">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Remito" Relationship="sisgesModel.FK_Remito_TipoRemito" FromRole="TipoRemito" ToRole="Remito" />
+  </EntityType>
+  <EntityType Name="Remito">
+    <Key>
+      <PropertyRef Name="Codigo" />
+      <PropertyRef Name="idTienda" />
+    </Key>
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idTienda" Type="Int32" Nullable="false" />
+    <Property Name="idSencillosTienda" Type="Guid" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="CodigoTipoRemito" Type="Int32" />
+    <Property Name="NumeroDepostio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_Remito_CENTROS_LOCAL" FromRole="Remito" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="Sencillos_Tiendas" Relationship="sisgesModel.FK_Remito_Sencillos_Tiendas" FromRole="Remito" ToRole="Sencillos_Tiendas" />
+    <NavigationProperty Name="TipoRemito" Relationship="sisgesModel.FK_Remito_TipoRemito" FromRole="Remito" ToRole="TipoRemito" />
+  </EntityType>
+  <EntityType Name="Sencillos_Tiendas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="idDetalleSencillo" Type="Guid" />
+    <Property Name="CodigoEstadoSencillo" Type="Int32" />
+    <Property Name="Fecha_Creacion" Type="DateTime" Precision="3" />
+    <Property Name="idTienda" Type="Int32" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_Sencillos_Tiendas_CENTROS_LOCAL" FromRole="Sencillos_Tiendas" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="EstadoSencillo" Relationship="sisgesModel.FK_Sencillos_Tiendas_EstadoSencillo" FromRole="Sencillos_Tiendas" ToRole="EstadoSencillo" />
+    <NavigationProperty Name="Remito" Relationship="sisgesModel.FK_Remito_Sencillos_Tiendas" FromRole="Sencillos_Tiendas" ToRole="Remito" />
+    <NavigationProperty Name="DetalleSencillo" Relationship="sisgesModel.FK_Sencillos_Tiendas_DetalleSencillo" FromRole="Sencillos_Tiendas" ToRole="DetalleSencillo" />
+  </EntityType>
+  <Association Name="FK_Remito_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="1" />
+    <End Type="sisgesModel.Remito" Role="Remito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="Remito">
+        <PropertyRef Name="idTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sencillos_Tiendas_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="0..1" />
+    <End Type="sisgesModel.Sencillos_Tiendas" Role="Sencillos_Tiendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="Sencillos_Tiendas">
+        <PropertyRef Name="idTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sencillos_Tiendas_EstadoSencillo">
+    <End Type="sisgesModel.EstadoSencillo" Role="EstadoSencillo" Multiplicity="0..1" />
+    <End Type="sisgesModel.Sencillos_Tiendas" Role="Sencillos_Tiendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoSencillo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Sencillos_Tiendas">
+        <PropertyRef Name="CodigoEstadoSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Remito_Sencillos_Tiendas">
+    <End Type="sisgesModel.Sencillos_Tiendas" Role="Sencillos_Tiendas" Multiplicity="0..1" />
+    <End Type="sisgesModel.Remito" Role="Remito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sencillos_Tiendas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Remito">
+        <PropertyRef Name="idSencillosTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Remito_TipoRemito">
+    <End Type="sisgesModel.TipoRemito" Role="TipoRemito" Multiplicity="0..1" />
+    <End Type="sisgesModel.Remito" Role="Remito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoRemito">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Remito">
+        <PropertyRef Name="CodigoTipoRemito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DetalleSencillo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="IdSencillo" Type="Guid" Nullable="false" />
+    <Property Name="IdTienda" Type="Int32" />
+    <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Int32" />
+    <Property Name="DiaLiberacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DiaEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="NuevoTotal" Type="Int32" />
+    <Property Name="ConciliacionTesoreria" Type="Boolean" />
+    <Property Name="IdSencillosSAP" Type="Guid" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_DetalleSencillo_CENTROS_LOCAL" FromRole="DetalleSencillo" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="Sencillos" Relationship="sisgesModel.FK_DetalleSencillo_Sencillos" FromRole="DetalleSencillo" ToRole="Sencillos" />
+    <NavigationProperty Name="SencillosSAP" Relationship="sisgesModel.FK_DetalleSencillo_SencillosSAP" FromRole="DetalleSencillo" ToRole="SencillosSAP" />
+    <NavigationProperty Name="MontoSencillo" Relationship="sisgesModel.FK_MontoSencillo_DetalleSencillo" FromRole="DetalleSencillo" ToRole="MontoSencillo" />
+    <NavigationProperty Name="Sencillos_Tiendas" Relationship="sisgesModel.FK_Sencillos_Tiendas_DetalleSencillo" FromRole="DetalleSencillo" ToRole="Sencillos_Tiendas" />
+    <Property Name="FechaLiberacion" Type="DateTime" Precision="0" />
+    <Property Name="FechaEntrega" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="MontoSencillo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="IdDatalleSencillo" Type="Guid" Nullable="false" />
+    <Property Name="Monto1" Type="Int32" />
+    <Property Name="Monto2" Type="Int32" />
+    <Property Name="Monto3" Type="Int32" />
+    <Property Name="Monto4" Type="Int32" />
+    <Property Name="Monto5" Type="Int32" />
+    <Property Name="Monto6" Type="Int32" />
+    <Property Name="Monto7" Type="Int32" />
+    <NavigationProperty Name="DetalleSencillo" Relationship="sisgesModel.FK_MontoSencillo_DetalleSencillo" FromRole="MontoSencillo" ToRole="DetalleSencillo" />
+  </EntityType>
+  <EntityType Name="Sencillos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="Correlativo" Type="Int32" />
+    <NavigationProperty Name="DetalleSencillo" Relationship="sisgesModel.FK_DetalleSencillo_Sencillos" FromRole="Sencillos" ToRole="DetalleSencillo" />
+  </EntityType>
+  <Association Name="FK_DetalleSencillo_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleSencillo" Role="DetalleSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="DetalleSencillo">
+        <PropertyRef Name="IdTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleSencillo_Sencillos">
+    <End Type="sisgesModel.Sencillos" Role="Sencillos" Multiplicity="1" />
+    <End Type="sisgesModel.DetalleSencillo" Role="DetalleSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sencillos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleSencillo">
+        <PropertyRef Name="IdSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleSencillo_SencillosSAP">
+    <End Type="sisgesModel.SencillosSAP" Role="SencillosSAP" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleSencillo" Role="DetalleSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SencillosSAP">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleSencillo">
+        <PropertyRef Name="IdSencillosSAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MontoSencillo_DetalleSencillo">
+    <End Type="sisgesModel.DetalleSencillo" Role="DetalleSencillo" Multiplicity="1" />
+    <End Type="sisgesModel.MontoSencillo" Role="MontoSencillo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetalleSencillo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MontoSencillo">
+        <PropertyRef Name="IdDatalleSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sencillos_Tiendas_DetalleSencillo">
+    <End Type="sisgesModel.DetalleSencillo" Role="DetalleSencillo" Multiplicity="0..1" />
+    <End Type="sisgesModel.Sencillos_Tiendas" Role="Sencillos_Tiendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetalleSencillo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sencillos_Tiendas">
+        <PropertyRef Name="idDetalleSencillo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="fnReporte_Ventas_Result">
+    <Property Type="Int32" Name="idTienda" Nullable="true" />
+    <Property Type="String" Name="TipodePago" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Pago" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="DetalleConciliacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="AutorizadorMp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AutorizadorTbk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoLocal" Type="Int32" />
+    <Property Name="IdTienda" Type="Int32" />
+    <Property Name="TipoConciliacion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="idConciliacion" Type="Guid" />
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="FechaMp" Type="DateTime" Precision="3" />
+    <Property Name="FechaTbk" Type="DateTime" Precision="3" />
+    <Property Name="MontoMp" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MontoTbk" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tipo_Pago" Type="Int16" />
+    <Property Name="TarjetaMp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TarjetaTBk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoCuenta" Type="Int32" />
+    <Property Name="TipoAsiento" Type="Int32" />
+    <Property Name="TRX" Type="Int32" />
+    <Property Name="idAcreededor" Type="Int32" />
+    <Property Name="montoVentaTbk" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ordenPedido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ACREEDOR_REL" Relationship="sisgesModel.FK_DetalleConciliacion_ACREEDOR_REL" FromRole="DetalleConciliacion" ToRole="ACREEDOR_REL" />
+    <NavigationProperty Name="Conciliacion" Relationship="sisgesModel.FK_DetalleConciliacion_Conciliacion" FromRole="DetalleConciliacion" ToRole="Conciliacion" />
+    <NavigationProperty Name="Cuenta" Relationship="sisgesModel.FK_DetalleConciliacion_Cuenta" FromRole="DetalleConciliacion" ToRole="Cuenta" />
+    <NavigationProperty Name="MEDIOSPAGOS" Relationship="sisgesModel.FK_DetalleConciliacion_MEDIOSPAGOS" FromRole="DetalleConciliacion" ToRole="MEDIOSPAGOS" />
+    <NavigationProperty Name="Ventas_Apitbk" Relationship="sisgesModel.FK_DetalleConciliacion_Ventas_Apitbk1" FromRole="DetalleConciliacion" ToRole="Ventas_Apitbk" />
+  </EntityType>
+  <EntityType Name="Ventas_Apitbk">
+    <Key>
+      <PropertyRef Name="codigoAutorizacion" />
+      <PropertyRef Name="codigoLocal" />
+      <PropertyRef Name="fechaTransaccion" />
+      <PropertyRef Name="montoVenta" />
+      <PropertyRef Name="numeroTarjeta" />
+      <PropertyRef Name="montoAfecto" />
+      <PropertyRef Name="ordenPedido" />
+    </Key>
+    <Property Name="codigoAutorizacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codigoLocal" Type="Int32" Nullable="false" />
+    <Property Name="fechaAbono" Type="DateTime" Precision="3" />
+    <Property Name="fechaTransaccion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="montoCuotas" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="montoVenta" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="nombreLocal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="numeroTarjeta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="totalCuotas" Type="Int32" />
+    <Property Name="tipoCuota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="montoAfecto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="montoExentoTotal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ordenPedido" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="CODIGO_COMERCIO_TBK" Relationship="sisgesModel.FK_Ventas_Apitbk_Ventas_Apitbk" FromRole="Ventas_Apitbk" ToRole="CODIGO_COMERCIO_TBK" />
+    <NavigationProperty Name="DetalleConciliacion" Relationship="sisgesModel.FK_DetalleConciliacion_Ventas_Apitbk1" FromRole="Ventas_Apitbk" ToRole="DetalleConciliacion" />
+  </EntityType>
+  <Association Name="FK_DetalleConciliacion_ACREEDOR_REL">
+    <End Type="sisgesModel.ACREEDOR_REL" Role="ACREEDOR_REL" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacion" Role="DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACREEDOR_REL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="idAcreededor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ventas_Apitbk_Ventas_Apitbk">
+    <End Type="sisgesModel.CODIGO_COMERCIO_TBK" Role="CODIGO_COMERCIO_TBK" Multiplicity="1" />
+    <End Type="sisgesModel.Ventas_Apitbk" Role="Ventas_Apitbk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CODIGO_COMERCIO_TBK">
+        <PropertyRef Name="CodigoComercio" />
+      </Principal>
+      <Dependent Role="Ventas_Apitbk">
+        <PropertyRef Name="codigoLocal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_Conciliacion">
+    <End Type="sisgesModel.Conciliacion" Role="Conciliacion" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacion" Role="DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conciliacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="idConciliacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_Cuenta">
+    <End Type="sisgesModel.Cuenta" Role="Cuenta" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacion" Role="DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="CodigoCuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_MEDIOSPAGOS">
+    <End Type="sisgesModel.MEDIOSPAGOS" Role="MEDIOSPAGOS" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacion" Role="DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDIOSPAGOS">
+        <PropertyRef Name="TRX" />
+        <PropertyRef Name="IdTienda" />
+        <PropertyRef Name="Fecha" />
+        <PropertyRef Name="Tipo_Pago" />
+        <PropertyRef Name="Monto_Aprobado" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="TRX" />
+        <PropertyRef Name="IdTienda" />
+        <PropertyRef Name="FechaMp" />
+        <PropertyRef Name="Tipo_Pago" />
+        <PropertyRef Name="MontoMp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleConciliacion_Ventas_Apitbk1">
+    <End Type="sisgesModel.Ventas_Apitbk" Role="Ventas_Apitbk" Multiplicity="0..1" />
+    <End Type="sisgesModel.DetalleConciliacion" Role="DetalleConciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ventas_Apitbk">
+        <PropertyRef Name="codigoAutorizacion" />
+        <PropertyRef Name="codigoLocal" />
+        <PropertyRef Name="fechaTransaccion" />
+        <PropertyRef Name="montoVenta" />
+        <PropertyRef Name="numeroTarjeta" />
+        <PropertyRef Name="montoAfecto" />
+        <PropertyRef Name="ordenPedido" />
+      </Principal>
+      <Dependent Role="DetalleConciliacion">
+        <PropertyRef Name="AutorizadorTbk" />
+        <PropertyRef Name="CodigoLocal" />
+        <PropertyRef Name="FechaTbk" />
+        <PropertyRef Name="montoVentaTbk" />
+        <PropertyRef Name="TarjetaTBk" />
+        <PropertyRef Name="MontoTbk" />
+        <PropertyRef Name="ordenPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TipoAceptacion">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AcumuladoSobrante_Faltante" Relationship="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoAceptacion" FromRole="TipoAceptacion" ToRole="AcumuladoSobrante_Faltante" />
+  </EntityType>
+  <EntityType Name="TipoRechazo">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AcumuladoSobrante_Faltante" Relationship="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoRechazo" FromRole="TipoRechazo" ToRole="AcumuladoSobrante_Faltante" />
+  </EntityType>
+  <ComplexType Name="fnReporte_CAAU_AVANCES_Result">
+    <Property Type="String" Name="Referencia" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CodigoEmpresa" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="FechaAutorizacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CodigoAgencia" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NumeroTerminal" Nullable="true" />
+    <Property Type="String" Name="NumeroBoleta" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CodigoUsuario" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroAutorizacion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TipoArchivo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodigoCliente" Nullable="true" />
+    <Property Type="String" Name="NumeroTarjeta" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Monto" Nullable="true" />
+    <Property Type="Int32" Name="MontoPie" Nullable="true" />
+    <Property Type="Int32" Name="MesesDiferido" Nullable="true" />
+    <Property Type="Int32" Name="MesesGracia" Nullable="true" />
+    <Property Type="DateTime" Name="FechaAutoriza" Nullable="true" Precision="10" />
+    <Property Type="Int32" Name="NumeroCuotas" Nullable="true" />
+    <Property Type="String" Name="Extrafinanciamiento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodigoPlanCredito" Nullable="true" />
+    <Property Type="Int32" Name="MontoAfecto" Nullable="true" />
+    <Property Type="Int32" Name="MontonoAfecto" Nullable="true" />
+    <Property Type="Int32" Name="CodigoComercio" Nullable="true" />
+    <Property Type="Int32" Name="CodigoRubro" Nullable="true" />
+    <Property Type="String" Name="RutVendedor" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodigoPromocionVenta" Nullable="true" />
+    <Property Type="Int32" Name="MontoCuota" Nullable="true" />
+    <Property Type="DateTime" Name="FechaPrimerVencimiento" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaUltimoVencimiento" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Confirmada" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="ModoProceso" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="NroTrxPos" Nullable="true" />
+    <Property Type="String" Name="NroRef" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NroCaja" Nullable="true" />
+    <Property Type="String" Name="TipoDiferencia" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="Cuenta_GL" Nullable="true" />
+    <Property Type="String" Name="Rut_GL" Nullable="true" MaxLength="15" />
+    <Property Type="Decimal" Name="Monto_GL" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoPago_GL" Nullable="true" Precision="19" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="fnReporte_PremisasNC_Result">
+    <Property Type="Int32" Name="TRX" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_Emision_Nota_Credito" Nullable="true" Precision="10" />
+    <Property Type="Int32" Name="IdTienda_notacredito" Nullable="true" />
+    <Property Type="Int32" Name="Caja_notacredito" Nullable="true" />
+    <Property Type="String" Name="TIPONOTACREDITO" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="Folio_notacredito" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Cliente_notacredito" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Total_notacredito" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="String" Name="Documento_Origen" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Trx_Origen" Nullable="true" />
+    <Property Type="Int64" Name="Nro_Boleta" Nullable="true" />
+    <Property Type="Int32" Name="IdTienda_Origen_Boleta" Nullable="true" />
+    <Property Type="Int32" Name="Caja_Origen_Boleta" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Boleta" Nullable="true" Precision="10" />
+    <Property Type="Decimal" Name="Monto_Boleta" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Tipo_Pago_Origen" Nullable="true" />
+    <Property Type="String" Name="Rut_Cajero" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Rut_Supervisor" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Nombre_trabajador" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descripcion_pago" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="tipo_premisa" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="fnReporte_CAPA_PAGOS_Result">
+    <Property Type="String" Name="CodigoEmpresa" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="FechaAutorizacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CodigoAgencia" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NumeroTerminal" Nullable="true" />
+    <Property Type="String" Name="CodigoUsuario" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroAutorizacion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroBoleta" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TipoArchivo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CodigoCliente" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="Numerocuenta" Nullable="true" />
+    <Property Type="Int32" Name="Monto" Nullable="true" />
+    <Property Type="Int32" Name="CodigoMedioPago" Nullable="true" />
+    <Property Type="String" Name="DetalleMovimiento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NroTrxPos" Nullable="true" />
+    <Property Type="String" Name="NroRef" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="NroCaja" Nullable="true" />
+    <Property Type="String" Name="Rut_GL" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="2" />
+    <Property Type="Int32" Name="Cuenta_GL" Nullable="true" />
+    <Property Type="Decimal" Name="Monto_GL" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoPago_GL" Nullable="true" Precision="19" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="fn_ReporteNcFULLCuadratura_Result">
+    <Property Type="String" Name="Tipo" Nullable="true" MaxLength="35" />
+    <Property Type="Int32" Name="IdTienda" Nullable="false" />
+    <Property Type="String" Name="CEN_Nombre" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="Folio" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="Fecha_Emision" Nullable="false" Precision="10" />
+    <Property Type="String" Name="Hora_Emision" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="Caja" Nullable="false" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Total" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Int64" Name="Nro_Boleta" Nullable="false" />
+    <Property Type="DateTime" Name="FechaEmisionBoletaOrigen" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="TiendaBoletaOrigen" Nullable="false" />
+    <Property Type="Int32" Name="CajaBoletaOrigen" Nullable="false" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="Tipo_Pago" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="CajeroNotaCredito" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="EmpleadoNombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmpleadoApellido" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="NcRutSupervisor" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="SupervisorNombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SupervisorApellido" Nullable="true" MaxLength="35" />
+    <Property Type="String" Name="Hora_Aprobacion" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <EntityType Name="AcumuladoSobrante_Faltante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TotalAcumulado" Type="Int32" />
+    <Property Name="CodigoTipoAceptacion" Type="Int32" />
+    <Property Name="FechaAprobacion" Type="DateTime" Precision="3" />
+    <Property Name="CodigoTipoRechazo" Type="Int32" />
+    <Property Name="Cuotas" Type="Int32" />
+    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ano" Type="Int32" />
+    <Property Name="Mes" Type="Int32" />
+    <Property Name="idTienda" Type="Int32" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL" FromRole="AcumuladoSobrante_Faltante" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="TipoAceptacion" Relationship="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoAceptacion" FromRole="AcumuladoSobrante_Faltante" ToRole="TipoAceptacion" />
+    <NavigationProperty Name="TipoRechazo" Relationship="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoRechazo" FromRole="AcumuladoSobrante_Faltante" ToRole="TipoRechazo" />
+    <NavigationProperty Name="Sobrante_Faltante" Relationship="sisgesModel.FK_Sobrante_Faltante_AcumuladoSobrante_Faltante" FromRole="AcumuladoSobrante_Faltante" ToRole="Sobrante_Faltante" />
+  </EntityType>
+  <EntityType Name="Sobrante_Faltante">
+    <Key>
+      <PropertyRef Name="IDTIENDA" />
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="MEDIO_PAGO" />
+      <PropertyRef Name="CAJA" />
+      <PropertyRef Name="TIPO" />
+      <PropertyRef Name="FECHHORA" />
+    </Key>
+    <Property Name="IDTIENDA" Type="Int32" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MEDIO_PAGO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CAJA" Type="Int32" Nullable="false" />
+    <Property Name="TOTAL" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_CIERRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHHORA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MARCA" Type="Int32" />
+    <Property Name="ID_Empleado" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="IdAcumulado" Type="Guid" />
+    <NavigationProperty Name="AcumuladoSobrante_Faltante" Relationship="sisgesModel.FK_Sobrante_Faltante_AcumuladoSobrante_Faltante" FromRole="Sobrante_Faltante" ToRole="AcumuladoSobrante_Faltante" />
+    <NavigationProperty Name="CENTROS_LOCAL" Relationship="sisgesModel.FK_Sobrante_Faltante_CENTROS_LOCAL" FromRole="Sobrante_Faltante" ToRole="CENTROS_LOCAL" />
+    <NavigationProperty Name="EMPLEADO" Relationship="sisgesModel.FK_Sobrante_Faltante_EMPLEADO" FromRole="Sobrante_Faltante" ToRole="EMPLEADO" />
+  </EntityType>
+  <Association Name="FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="0..1" />
+    <End Type="sisgesModel.AcumuladoSobrante_Faltante" Role="AcumuladoSobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="idTienda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AcumuladoSobrante_Faltante_TipoAceptacion">
+    <End Type="sisgesModel.TipoAceptacion" Role="TipoAceptacion" Multiplicity="0..1" />
+    <End Type="sisgesModel.AcumuladoSobrante_Faltante" Role="AcumuladoSobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAceptacion">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="CodigoTipoAceptacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AcumuladoSobrante_Faltante_TipoRechazo">
+    <End Type="sisgesModel.TipoRechazo" Role="TipoRechazo" Multiplicity="0..1" />
+    <End Type="sisgesModel.AcumuladoSobrante_Faltante" Role="AcumuladoSobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoRechazo">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="CodigoTipoRechazo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sobrante_Faltante_AcumuladoSobrante_Faltante">
+    <End Type="sisgesModel.AcumuladoSobrante_Faltante" Role="AcumuladoSobrante_Faltante" Multiplicity="0..1" />
+    <End Type="sisgesModel.Sobrante_Faltante" Role="Sobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AcumuladoSobrante_Faltante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sobrante_Faltante">
+        <PropertyRef Name="IdAcumulado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sobrante_Faltante_CENTROS_LOCAL">
+    <End Type="sisgesModel.CENTROS_LOCAL" Role="CENTROS_LOCAL" Multiplicity="1" />
+    <End Type="sisgesModel.Sobrante_Faltante" Role="Sobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CENTROS_LOCAL">
+        <PropertyRef Name="CEN_Codigo" />
+      </Principal>
+      <Dependent Role="Sobrante_Faltante">
+        <PropertyRef Name="IDTIENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sobrante_Faltante_EMPLEADO">
+    <End Type="sisgesModel.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1" />
+    <End Type="sisgesModel.Sobrante_Faltante" Role="Sobrante_Faltante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID_EMPLEADO" />
+      </Principal>
+      <Dependent Role="Sobrante_Faltante">
+        <PropertyRef Name="ID_Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

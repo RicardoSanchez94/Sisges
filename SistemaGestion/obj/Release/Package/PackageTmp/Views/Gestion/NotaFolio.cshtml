@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "NotaFolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Idoc Notacredito</li>
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Idoc Individuales por Numero de folio
+                                </div>
+
+                                <div class="card-body">
+                                   
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                <select class="form-control form-control-sm model" id="cboTienda" name="cboTienda"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Ingresar Folio</label>
+                                                <input type="number" class="form-control form-control-sm model" id="Documento" name="Documento" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tipo Documento</label>
+                                                <select class="form-control form-control-sm model" id="Tipo" name="Tipo">
+                                                    <option selected>-Seleccione Documentos-</option>
+                                                    <option value="FACTURA">FACTURA</option>
+                                                    <option value="NOTACREDITO">NOTACREDITO</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btcarga" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="btcarga" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+</body>
+
+
+@section scripts{
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            jQuery.ajax({
+                url: $.MisUrls.url._TiendaPorNombre,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("<option>").attr({ "value": 0 }).text("--  Seleccionar Tienda--").appendTo("#cboTienda");
+                    $.each(data.data, function (i, item) {
+                        $("<option>").attr({ "value": item.Codigo }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                    })
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+
+            });
+
+
+        })
+        $(function (){
+            $("#btcarga").click(function () {
+                event.preventDefault();
+                var result = confirm("Desea Generar Idoc?");
+                if (result){
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("NotaFolio", "Gestion")";
+                    var manejarErrorAjax = "Eror";
+                    var FechBus = $("#txtFecha").val();
+                    var LocalBus = $("#cboTienda").val();
+                    var Documento = $("#Documento").val();
+                    var TipoDocumento = $("#Tipo").val();
+                    var data = { Fecha: FechBus, Local: LocalBus, Documento: Documento, TipoDocumento: TipoDocumento };
+
+                    $.post(url, data).done(function (resultado) {
+                        $('#cargal').modal('hide');
+                        if (resultado.error) {
+                            swal(resultado.respuesta, "Presiona OK Para Continuar", "success");
+                        } else {
+                            swal(resultado.respuesta, "Presiona OK Para Continuar", "warning");
+                        }
+                        $("mensaje-alerta").html(resultado.respuesta)
+                    }).fail(manejarErrorAjax);
+
+                }
+
+
+
+            });
+
+        })
+
+
+    </script>
+}

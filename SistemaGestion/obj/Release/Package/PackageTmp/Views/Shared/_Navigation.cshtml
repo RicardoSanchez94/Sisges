@@ -1,0 +1,144 @@
+﻿<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark ">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="@Url.Action("Index", "Home")">FashionsPark</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Buscar" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <!-- Navbar-->
+    <div class="dropdown show">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user fa-fw"></i>
+            CerrarSesion
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="@Url.Action("CerrarSesion", "Home")">Salir</a>
+        </div>
+    </div>
+
+</nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading"> Gestion De cuadratura</div>
+                    @*Dashboard*@
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth1" aria-expanded="false" aria-controls="pagesCollapseAuth1">
+                        <div></div>
+                        Dashboard
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="@Url.Action("Index","Home")">Principal</a>
+                            <a class="nav-link" href="@Url.Action("Dash","Admin")">Manual</a>
+                            <a class="nav-link" href="@Url.Action("Documento","Admin")">Diferencias</a>
+                            <a class="nav-link" href="@Url.Action("LibroVenta","Admin")">LibroVentaM</a>
+                            <a class="nav-link" href="@Url.Action("IdocClientes", "Gestion")">IdocXRut</a>
+                            <a class="nav-link" href="@Url.Action("NotaFolio", "Gestion")">NotaXFolio</a>
+                        </nav>
+                    </div>
+                    @*MenuConciliacion*@
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth1" aria-expanded="false" aria-controls="pagesCollapseAuth1">
+                        <div></div>
+                        Conciliacion
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="">Bancos</a>
+                            <a class="nav-link" href="@Url.Action("mp", "MediosPago")">MP</a>
+                            <a class="nav-link" href="#">TFP</a>
+                            <a class="nav-link" href="@Url.Action("Index", "ApiTransbank")">TBK</a>
+                            <a class="nav-link" href="#">Mercado Libre</a>
+                            <a class="nav-link" href="#">Mercado Pago</a>
+                            <a class="nav-link" href="#">Dafiti</a>
+                            <a class="nav-link" href="#">Ripley</a>
+                        </nav>
+                    </div>
+
+                    @*Transaccion*@
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth2" aria-expanded="false" aria-controls="pagesCollapseAuth2">
+                        <div></div>
+                        Transaccion
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Cuadratura Diaria</a>
+                            <a class="nav-link" href="#">Ventas</a>
+                            <a class="nav-link" href="#">Pagos</a>
+                            <a class="nav-link" href="#">Avances</a>
+                        </nav>
+                    </div>
+
+                    @*Gestion*@
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth3" aria-expanded="false" aria-controls="pagesCollapseAuth3">
+                        Gestion
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="@Url.Action("Ventas", "Gestion")">Idoc Vta</a>
+                            <a class="nav-link" href="@Url.Action("LibroVenta", "Gestion")">Idoc Libro Vta</a>
+                            <a class="nav-link" href="@Url.Action("DetalleVenta", "Gestion")">Detalle</a>
+                            <a class="nav-link" href="#">Idoc Pago</a>
+                            <a class="nav-link" href="#">Cargas SPA</a>
+                            <a class="nav-link" href="#">Cargas VTa</a>
+                            <a class="nav-link" href="#">Cargas Pagos/Avances</a>
+                            <a class="nav-link" href="#">Sencillos</a>
+                            <a class="nav-link" href="#">Faltante</a>
+                        </nav>
+                    </div>
+
+                    @*Informes*@
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth4" aria-expanded="false" aria-controls="pagesCollapseAuth4">
+                        Informes
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth4" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">NC</a>
+                            <a class="nav-link" href="#">Vencer</a>
+                            <a class="nav-link" href="#">Libro de Ventas</a>
+                        </nav>
+                    </div>
+
+                    @*Herramientas*@
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth5" aria-expanded="false" aria-controls="pagesCollapseAuth5">
+                        Herramientas
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth5" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Identificar TRX</a>
+                            <a class="nav-link" href="#">Generar Vaucher</a>
+
+                        </nav>
+                    </div>
+
+                    @*Gestion De Tiendas*@
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth6" aria-expanded="false" aria-controls="pagesCollapseAuth6">
+                        <div></div>
+                        Gestion De Tiendas
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth6" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Depositos</a>
+                            <a class="nav-link" href="#">Sencillos</a>
+                            <a class="nav-link" href="#">Faltantes</a>
+                            <a class="nav-link" href="#">Arqueo</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

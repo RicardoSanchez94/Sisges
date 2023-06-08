@@ -1,0 +1,313 @@
+﻿@model SistemaGestion.Models.ViewModels.ConciliacionEFOManualView
+@{
+    ViewBag.Title = "ConciliacionManual";
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Conciliacion Manual
+                                </div>
+                                @using (Html.BeginForm("ExcelConciliadasM", "MediosPago", FormMethod.Post, new { id = "fromConciliacionManual", role = "form" }))
+                                {
+                                    <div class="card-body p-2">
+                                        <div class="row">
+
+
+                                            <div class="col-sm-3">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button type="button" data-toggle="modal" id="Descarga" data-target="#Using" class="btn btn-success btn-block">
+                                                        <i class="fas fa-download"></i> DescargarConciliacionAuto
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button type="button" data-toggle="modal" id="DescargaDif" data-target="#Using" class="btn btn-danger btn-block">
+                                                        <i class="fas fa-download"></i> DescargarDiferencias
+                                                    </button>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                }
+                            </div>
+                           
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h1 style="text-align:center;color:maroon;">
+                                            FI
+                                        </h1>
+                                        <table id="tbReporte" class="display" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Centro</th>
+                                                    <th class="text-center">Asignacion</th>
+                                                    <th class="text-center">Referencia</th>
+                                                    <th class="text-center">Importe_ML</th>
+                                                    <th class="text-center">Fecha_Documento</th>
+                                                    <th class="text-center">Texto_cab_documento</th>
+                                                    <th class="text-center">Conciliar</th>
+
+                                                    @*<th class="text-center">Diferencias</th>*@
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.ListaFI.ToList())
+                                                {
+                                                    <tr>
+
+                                                        <td>@item.Centro</td>
+                                                        <td>@item.Asignacion</td>
+                                                        <td>@item.Referencia</td>
+                                                        <td>@item.Importe_ML.ToString("C")</td>
+                                                        <td>@item.Fecha_Documento</td>
+                                                        <td>@item.Texto_cab_documento</td>
+
+                                                        <td>
+                                                            @*<button type='button' id='editar' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@
+                                                            <button type='button' class='editar btn btn-danger' onclick='Conciliacion("@item.Id")'><span class='fa fa fa-edit'></span></button>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                }
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h1 style="text-align:center;color:maroon;">
+                                            ZQ
+                                        </h1>
+                                        <table id="tbReport" class="display" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">ImporteMD</th>
+                                                    <th class="text-center">ImporteML</th>
+                                                    <th class="text-center">FechaDocumento</th>
+                                                    <th class="text-center">Texto</th>
+                                                    <th class="text-center">LibroMayor</th>
+
+                                                    @*<th class="text-center">Diferencias</th>*@
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.ListaZQ.ToList())
+                                                {
+                                                <tr>
+                                                    <td>@item.Importe_MD.ToString("C")</td>
+                                                    <td>@item.Importe_ML.ToString("C")</td>
+                                                    <td>@item.Fecha_Documento</td>
+                                                    <td>@item.Descripcion</td>
+                                                    <td>@item.Lib_mayor</td>
+
+
+                                                </tr>
+                                                }
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                            
+                        </div>
+                    </div>
+                    <div id="totales">
+
+
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+<div class="modal fade" id="modalConciliacion" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+
+@section scripts
+{
+    <script>
+    $(document).ready(function () {
+        $('table.display').DataTable({
+            responsive: true,
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+        $('#DescargaDif').click(function (event) {
+            event.preventDefault();
+            var url = '@Url.Action("ExcelNoConciliadas", "CuadraturaEFO")';
+
+            DownloadFileFechasdif(url);
+        });
+  
+        $('#Descarga').click(function (event) {
+            event.preventDefault();
+            var url = '@Url.Action("ExcelConciliadasA", "CuadraturaEFO")';
+
+            var num = 2;
+            DownloadFileFechasEntre(url,num);
+        });
+    });
+         function Conciliacion(id) {
+        //  var local = Local;
+          console.log('entro al reproceso');
+
+         var url = '@Url.Action("MontosZQ", "CuadraturaEFO")';
+           $.ajax({
+            type: 'POST',
+               url: url,
+               data: { id },
+               success: function (response) {
+                   $("#modalConciliacion").html(response);
+                   $("#modalConciliacion").modal('show');
+
+
+               },
+               error: function (xhr, ajaxOptions, thrownError) {
+                   alert(thrownError);
+               }
+             });
+    };
+
+        function bajarModalConciliacion() {
+            $('#modalConciliacion').modal('hide');
+        }
+
+        function bajarModalDiferencias() {
+            $('#modalDiferencia').modal('hide');
+        }
+
+        function DownloadFileFechasEntre(urlAc, num) {
+
+
+            /*var url = urlAc;*/
+            //var Fecha = F;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: urlAc,
+                type: "post",
+                data: { num: num },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+        function DownloadFileFechasdif(urlAc) {
+
+
+            /*var url = urlAc;*/
+            //var Fecha = F;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: urlAc,
+                type: "post",
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+
+    </script>
+    }
+

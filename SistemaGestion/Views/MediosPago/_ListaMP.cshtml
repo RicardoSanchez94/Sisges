@@ -1,0 +1,61 @@
+﻿@model List<SistemaGestion.Models.MEDIOSPAGOS>
+
+<div class="mb-2 mt-1">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tbReporte" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">TRX</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">TipoDocumento</th>
+                        <th class="text-center">Monto</th>
+                        <th class="text-center">TipoPago</th>
+                        <th class="text-center">Tienda</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Fecha</td>
+                            <td>@item.Centro</td>
+                            <td>$@item.Total_Tienda.ToString("0,000")</td>
+                            <td>$@item.Total_SAP.ToString("0,000")</td>
+                     
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+            <div class="footer">
+                <div class="chart-legend">
+                    <div class="text-center">
+                        <i class="fa fa-circle text-danger"></i>
+                        Tienda con Faltante
+                        <i class="fa fa-circle text-success"></i>
+                        Tienda Cuadrada
+                        <i class="fa fa-circle text-warning"></i>
+                        Tienda Con Sobrante o Libro Venta no Cargado
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        var tabla_data;
+         tabla_data= $('#tbReporte').DataTable({
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+    });

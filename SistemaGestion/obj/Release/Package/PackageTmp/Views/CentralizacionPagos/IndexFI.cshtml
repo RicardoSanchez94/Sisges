@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "IndexFI";
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                   <br />
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                   Idoc FI Pagos
+
+                                </div>
+                                @using (Html.BeginForm("IndexMP", "CentralizacionPagos", FormMethod.Post, new { id = "fromRepoNotaCredito", role = "form" }))
+                                {
+                                    <div class="card-body p-2">
+                                        <div class="row">
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                    <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button class="btn btn-sm btn-success btn-block" type="submit" role="button" id="btnIngresar"><i class="fa fa-file-excel"> </i> Descargar</button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+
+            $('#btnIngresar').click(function (event) {
+            event.preventDefault();
+            var url = '@Url.Action("IdocFI", "CentralizacionPagos")';
+            var Inicio = $("#txtFecha").val();
+            console.log(Inicio);
+            //var fechaFin = $("#Fin").val();
+            //var tipo = $("#TypeReporte").val();
+                DownloadFileFechasEntre(Inicio, url);
+            });
+
+
+        });
+
+        function DownloadFileFechasEntre(Inicio, urlAc) {
+
+
+            var url = urlAc;
+            //var fechaIni = fechaI;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: url,
+                type: "post",
+                data: { Inicio: Inicio },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+
+
+
+    </script>
+}
+
+

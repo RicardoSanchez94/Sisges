@@ -1,0 +1,78 @@
+﻿@model List<SistemaGestion.Models.Sobrante_Faltante>
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Detalle faltantes</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            @*<div class="table-responsive">*@
+            <table class="table table-bordered table-hover" id="DT" style="width:100%">
+                @*<table id="tbDetalle" class="table table-bordered  display nowrap" cellspacing="0" width="100%">*@
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">rut cajero</th>
+                        <th scope="col" class="text-center">Nombre cajero</th>
+                        <th scope="col" class="text-center">Tienda</th>
+                        <th scope="col" class="text-center">Fecha</th>
+                        <th scope="col" class="text-center">caja</th>
+                        <th scope="col" class="text-center">Tipo</th>
+                        <th scope="col" class="text-center">Total</th>
+                 
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                    @foreach (var item in Model.OrderBy(x => x.IDTIENDA))
+                    {
+
+                        <tr>
+                            <td class="text-center">@item.ID_Empleado</td>
+                            <td class="text-center">@(item.EMPLEADO.NOMBRES + " " + item.EMPLEADO.APELLIDOS)</td>
+                            <td class="text-center">@item.IDTIENDA</td>
+                            <td class="text-center">@item.FECHA.ToString("dd-MM-yyyy")</td>
+                            <td class="text-center">@item.CAJA</td>
+                            <td class="text-center">@item.TIPO</td>
+                            <td class="text-center">@Math.Abs(item.TOTAL)</td>
+                   
+
+
+                        </tr>
+                   
+                    }
+                </tbody>
+            </table>
+
+            @*</div>*@
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+         
+
+            @*<button type='button' class='editar btn btn-outline-success btn-sm shadow-sm' title="Aceptar/Rechazar"
+                        onclick='AceptarRechazarAcumulado("@item.idTienda","@item.idEmpleado")'>
+                    <span class='fa fa-edit'></span>
+                </button>*@
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var tabla_data = $("#DT").DataTable({
+            scrollX: true,
+            /*    responsive : true,*/
+            "language": {
+                url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+            },
+            "order": [[2, "asc"]]
+        });
+    });
+</script>

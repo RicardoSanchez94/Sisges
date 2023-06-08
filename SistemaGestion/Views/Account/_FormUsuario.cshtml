@@ -1,0 +1,114 @@
+﻿@model SistemaGestion.Models.ViewModels.UserProfileView
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        @using (Html.BeginForm("SaveUser", "Account", FormMethod.Post, new { id = "FormUsuario", role = "form" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="modal-header">
+                <h3 class="modal-title text-secondary"><span class="glyphicon glyphicon-user"></span> @ViewBag.Title </h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    @Html.HiddenFor(x => x.idUsuario)
+                    <div class="col-lg-12">
+                        <div class="col-md-12 form-group">
+                            @Html.LabelFor(x => x.rut, "INGRESE RUN")*
+                            @Html.TextBoxFor(x => x.rut, new { @class = "form-control", @placeHolder = "EJ: 12345656-7", @maxlength = 12 })
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            @Html.LabelFor(x => x.nombres, "INGRESE NOMBRES")*
+                            @Html.TextBoxFor(x => x.nombres, new { @class = "form-control", @placeHolder = "INGRESE NOMBRES" })
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            @Html.LabelFor(x => x.ApellidoPaterno, "APELLIDO PATERNO")*
+                            @Html.TextBoxFor(x => x.ApellidoPaterno, new { @class = "form-control", @placeHolder = "APELLIDOS PATERNO" })
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            @Html.LabelFor(x => x.ApellidoMaterno, "APELLIDO MATERNO")*
+                            @Html.TextBoxFor(x => x.ApellidoMaterno, new { @class = "form-control", @placeHolder = "APELLIDOS MATERNO" })
+                        </div>                       
+                        <div class="col-lg-12 form-group">
+                            <div class="list-group">
+                                <div class="list-group-item bg-secondary text-white">
+                                    LISTA DE ROLES
+                                </div>
+                                @foreach (var itemRols in Model.roles)
+                                {
+                                    var tomado = false;
+                                    if (Model.rolesSeleccionados != null)
+                                    {
+                                        foreach (var itemAsignaTomada in Model.rolesSeleccionados)
+                                        {
+                                            if (itemRols.idRol == itemAsignaTomada.idRol)
+                                            {
+                                                tomado = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    {
+                                        <div class="list-group-item text-left">
+                                            <input type="checkbox" @(tomado ? "checked" : "") name="roles_seleccionados" value="@itemRols.idRol" /> @itemRols.RolNombre
+                                        </div>
+                                    }
+                                }
+                            </div>
+                            <p class="text-left">(*) Debe Seleccionar 1 Rol Como Minimo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" id="btnCrear">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('#btnCrear').click(function (event) {
+            event.preventDefault();
+            var idUsuario = '@Model.idUsuario' == null ? 0 : '@Model.idUsuario';
+            var rut = $("#rut").val();
+            var nombre = $("#nombres").val();
+            var apellidoP = $("#ApellidoPaterno").val();
+            var apellidoM = $("#ApellidoMaterno").val();
+          
+
+            if ((rut != "") && (nombres != "") && (apellidoP != "") && (apellidoM != "")) {
+                var parameters = $("#FormUsuario").serialize();
+                var url = '@Url.Action("SaveUser","account")';
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: parameters,
+                    success: function (r) {
+                        if (!r.error) {
+
+                            alert(r.respuesta);
+                            setTimeout('window.location.href = "PanelControl"', 300);
+
+                        } else {
+                            alert(r.respuesta);
+                        }
+                    },
+                    error: function (r, error) {
+                        alert('Error FormUsuario.cshtml, function.click #btnCrear');
+                    }
+                });
+            }
+            else {
+                alert('Debe seleccionar y/o completar correctamente todos los campos obligatorios(*)');
+            };
+            return false;
+        });
+
+    });
+
+   
+
+</script>
+

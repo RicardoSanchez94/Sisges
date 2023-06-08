@@ -1,0 +1,96 @@
+﻿@model  List<SistemaGestion.Models.Proc_ListaDetalleVenta_Result>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+            <table id="tbReporte" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+
+                        <th class="text-center">Centro</th>
+                        <th class="text-center">Caja</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">Tipo_documento</th>
+                        <th class="text-center">Folio_Documento</th>
+                        <th class="text-center">Total</th>
+                   
+                    </tr>
+
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.Centro</td>
+                            <td>@item.Caja</td>
+                            <td>@item.Fecha</td>
+                            <td>@item.Tipo_Documento</td>
+                            <td>@item.Folio_Documento</td>
+                            <td>@item.Total.ToString("N2")</td>
+                          
+
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        
+                    </tr>
+                </tfoot>
+            </table>
+           
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        tabla_data = $('#tbReporte').DataTable({
+            responsive: true,
+            "footerCallback": function (row, data, start, end, display) {
+                var api = this.api();
+
+                // Remove the formatting to get integer data for summation
+                var intVal = function (i) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+
+                // Total over all pages
+                total = api
+                    .column(5)
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+
+                // Total over this page
+                pageTotal = api
+                    .column(5, { page: 'current' })
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+
+                // Update footer
+                $(api.column(5).footer()).html(
+                    '$' + pageTotal + ' ( $' + total.toFixed(2) + ' Total Tienda Por Fecha)'
+                );
+            },
+
+            "language": {
+                url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+            }
+        });
+    });
+</script>

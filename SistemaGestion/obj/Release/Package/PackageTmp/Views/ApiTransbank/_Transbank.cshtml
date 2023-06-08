@@ -1,0 +1,214 @@
+﻿@model SistemaGestion.Models.Repositorios.prueba
+
+<div class="card">
+    <div class="card-header bg-secondary text-white">
+        Totales Por Transancciones Api Transbank
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card text-white mb-3">
+                    <div class="card-header bg-success text-center">Abonadas</div>
+                    <div class="card-body text-center">
+                        <h3 class="text-dark">N°@Model.Root.data.totalVentasAbonadas</h3>
+                    </div>
+                    <div class="card-footer text-center bg-light">
+                        <a>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card text-white mb-3">
+                    <div class="card-header bg-success text-center">AbonoPendiente</div>
+                    <div class="card-body text-center">
+                        <h3 class="text-dark">N°@Model.Root.data.totalVentasAbonoPendiente</h3>
+                    </div>
+                    <div class="card-footer text-center bg-light">
+                        <a>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card text-white mb-3">
+                    <div class="card-header bg-success text-center">NoProcesadas</div>
+                    <div class="card-body text-center">
+                        <h3 class="text-dark"> N°@Model.Root.data.totalVentasNoProcesadas</h3>
+                    </div>
+                    <div class="card-footer text-center bg-light">
+                        <a>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card text-white mb-3">
+                    <div class="card-header bg-success text-center">Anuladas</div>
+                    <div class="card-body text-center">
+                        <h3 class="text-dark"> N°@Model.Root.data.totalVentasAnuladas</h3>
+                    </div>
+                    <div class="card-footer text-center bg-light">
+                        <a>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card text-white mb-3">
+                    <div class="card-header bg-success text-center">Registros</div>
+                    <div class="card-body text-center">
+                        <h3 class="text-dark"> N°@Model.Root.data.totalRegistros</h3>
+                    </div>
+                    <div class="card-footer text-center bg-light">
+                        <a>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+<div class="card">
+    <div class="card-header bg-danger text-white">
+        Totales de Transbank Api
+    </div>
+    <div class="card-body">
+        <div class="row">
+            @if (Model.TotalesTranbank.Count < 1)
+            {
+                <div class="col-lg-4">
+                    <div class="card text-white mb-1">
+                        <div class="card-header bg-success text-center"><h5 class="text-black">Debito</h5></div>
+                        <div class="card-body  text-center">
+                            <h3 class="text-dark"> 0</h3>
+                        </div>
+                        <div class="card-footer text-center bg-light">
+                            <button type="button" class="btn bg-success text-dark"> N° Transacciones 0</button>
+                            <a class="small text-white stretched-link" href="@Url.Action("TransaccionesApi", "ApiTransbank")"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card text-white mb-1">
+                        <div class="card-header bg-success text-center"><h5 class="text-black">Credito</h5></div>
+                        <div class="card-body  text-center">
+                            <h3 class="text-dark"> 0</h3>
+                        </div>
+                        <div class="card-footer text-center bg-light">
+                            <button type="button" class="btn bg-success text-dark"> N° Transacciones 0</button>
+                            <a class="small text-white stretched-link" href="@Url.Action("TransaccionesApi", "ApiTransbank")"></a>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+
+            @foreach (var a in Model.TotalesTranbank)
+            {
+                <div class="col-lg-4">
+                    <div class="card text-white mb-1">
+                        <div class="card-header bg-success text-center"><h5 class="text-black">@a.TipoPago</h5></div>
+                        <div class="card-body  text-center">
+                            <h3 class="text-dark">@a.Total.Value.ToString("0,000")</h3>
+                        </div>
+                        <div class="card-footer text-center bg-light">
+                            <button type="button" class="btn bg-success text-dark">@a.Trx Transancciones</button>
+                            <a class="small text-white stretched-link" href="@Url.Action("TransaccionesApi", "ApiTransbank")"></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            }
+
+        </div>
+    </div>
+</div>
+<br>
+<div class="card">
+    <div class="card-header bg-danger text-white">
+        Totales de Medios de pago GL
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+
+            @if (Model.TotalesMedios.Count < 1)
+            {
+
+                <div class="col-lg-4">
+                    <div class="card text-white">
+                        <div class="card-header text-center bg-success"><h5 class="">Debito</h5></div>
+                        <div class="card-body  text-center">
+                            <h3 class="text-dark">0</h3>
+                        </div>
+                        <div class="card-footer text-center bg-light">
+                            <a>
+                                <div class="btn btn-outline-secondary btn-sm">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card text-white">
+                        <div class="card-header text-center bg-success"><h5 class="">Credito</h5></div>
+                        <div class="card-body  text-center">
+                            <h3 class="text-dark">0</h3>
+                        </div>
+                        <div class="card-footer text-center bg-light">
+                            <a>
+                                <div class="btn btn-outline-secondary btn-sm">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    No hay datos para esa tienda
+                </div>
+            }
+
+            @foreach (var a in Model.TotalesMedios)
+            {
+
+                <div class="col-lg-4">
+                    <div class="card text-white">
+                        <div class="card-header text-center bg-success"><h5 class="">@a.TipoPago</h5></div>
+                        <div class="card-body  text-center">
+                            <h3 class="text-dark">@a.Total.Value.ToString("0,000")</h3>
+                        </div>
+                        <div class="card-footer text-center bg-light">
+                            <a>
+                                <div class="btn btn-outline-secondary btn-sm">
+                                    @a.Fecha
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            }
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,126 @@
+﻿@model List<SistemaGestion.Models.ViewModels.DetalleDahsboard>
+@{
+    ViewBag.Title = "SisGes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<style>
+    tabla thead {
+        background-color: #ff0000;
+    }
+</style>
+
+<body class="sb-nav-fixed">
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+                    @*<nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Dashboard Manual</li>
+                            </ol>
+                        </nav>*@
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-info">
+                                <div class="card-header p-2 bg-secondary text-white">
+                                    <h6 class="mb-0">
+                                        <span> <i class="fa fa-chart-bar"></i> Dashboard Manual</span>
+                                    </h6>
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">LibroVenta:</label>
+                                                <a href="@Url.Action("LibroVenta", "Admin")" class="btn btn-sm btn-danger btn-block">Libro de Venta</a>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" id="diferencias">
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br />
+
+            </main>
+            <!-- Modal -->
+
+        </div>
+    </div>
+</body>
+
+@section scripts{
+    <script>
+
+         $(document).ready(function () {
+                $('#tablaVacia').DataTable(
+                    {
+                        responsive: true,
+                        "language": {
+                            url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                        }
+                    });
+
+                $(function () {
+                    $("#btnBuscar").click(function () {
+                        event.preventDefault();
+                        //var result = confirm("Desea Cargas Ventas?");
+                        //  if (result){
+                        $('#cargal').modal('show');
+                        var url = "@Url.Action("Listar", "Admin")";
+                        var manejarErrorAjax = "Eror";
+                        var Fecha = $("#txtFecha").val();
+                        var data = { Fecha: Fecha };
+                        $.post(url, data).done(function (data) {
+                            setTimeout(bajar, 1000);
+                            setTimeout(Subir, 2000);
+
+                            function bajar() {
+                                $('#cargal').modal('hide');
+
+                            }
+                            function Subir() {
+                                $('#diferencias').html(data);
+                                $('#diferencias').show();
+                            }
+
+                        }).fail(manejarErrorAjax);
+
+                        //}
+                    });
+
+                })
+
+            });
+    </script>
+
+}
+

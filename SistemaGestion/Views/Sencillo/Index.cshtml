@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Transacciones</li>
+                            <li class="breadcrumb-item"><a href="@Url.Action("TransaccionesTotales", "ApiTransbank")">Totales</a></li>
+
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Reversas Manuales
+                                </div>
+                                @using (Html.BeginForm("SaveDeposito", "Sencillo", FormMethod.Post, new { id = "FromSaveSencillo", role = "form" }))
+                                {
+                                    <div class="card-body p-2">
+                                        <div class="row">
+                                            @*<div class="col-sm-3">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                    <select class="form-control form-control-sm model" id="cboTienda" name="cboTienda"></select>
+                                                </div>
+                                            </div>*@
+                                              <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Referencia</label>
+                                                    <input type="text" class="form-control form-control-sm model" id="Referencia" name="Referencia" >
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                    <input type="date" class="form-control form-control-sm model" id="Fecha" name="Fecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button id="btnSave" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Guardar Deposito</button>
+                                                </div>
+                                            </div>
+                                            @*<div class="col-sm-2">
+                                                    <div class="form-group mb-0">
+                                                        <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                        <button id="btnReversa" type="button" class="btn btn-sm btn-primary btn-block"><i class="fas fa-search"></i> N°2 Ver Asiento</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group mb-0">
+                                                        <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                        <button class="btn btn-sm btn-success btn-block" id="DescargarConManual" type="submit" role="button"><i class="fa fa-file-excel"> </i> Generar Asiento</button>
+                                                    </div>
+                                                </div>*@
+
+
+                                        </div>
+                                        <div id="totales">
+
+
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+@section scripts
+{
+    <script>
+
+        $(document).ready(function () {
+            $('table.display').DataTable({
+                responsive: true,
+                "language": {
+                    url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                }
+            });
+    
+
+
+
+
+            $("#btnSave").click(function () {
+                event.preventDefault();
+               /* var Tienda = $("#cboTienda").val();*/
+
+                var result = confirm("Desea Guardar el Deposito Informado?");
+                if (result) {
+                    
+                    $('#cargal').modal('show');
+
+                    var url = "@Url.Action("SaveDeposito", "Sencillo")";
+                    var manejarErrorAjax = "Eror";
+
+
+                  /*  var Fecha = $("#txtFecha").val();*/
+                    var parametros = $("#FromSaveSencillo").serialize();
+                    $.post(url, parametros).done(function (data) {
+                        setTimeout(bajar, 1000);
+                        setTimeout(Subir, 2000);
+
+                        function bajar() {
+                            $('#cargal').modal('hide');
+
+                        }
+                        function Subir() {
+                            $('#totales').html(data);
+                            $('#totales').show();
+                        }
+
+                    }).fail(manejarErrorAjax);
+
+                }
+            });
+
+        });
+
+
+
+
+    </script>
+
+}
+

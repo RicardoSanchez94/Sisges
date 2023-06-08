@@ -1,0 +1,82 @@
+﻿
+@model SistemaGestion.Models.ViewModels.adminZonalView
+
+<div class="row justify-content-lg-center mt-4">
+    <div class="col-lg-4">
+        <div class="form-group mb-0">
+            <div class="list-group">
+                <div class="list-group-item bg-secondary text-white">
+                    LISTA DE ZONAS ASIGNADAS
+                </div>
+                @foreach (var itemZona in Model.listZonas)
+                {
+                    var tomado = false;
+                    if (Model.listZonasSeleccionadas != null)
+                    {
+                        foreach (var itemAsignaTomada in Model.listZonasSeleccionadas)
+                        {
+                            if (itemZona.idZona == itemAsignaTomada.idZona)
+                            {
+                                tomado = true;
+                                break;
+                            }
+                        }
+                    }
+                    {
+                        <div class="list-group-item text-left">
+                            <input type="checkbox" @(tomado ? "checked" : "") name="zonas_seleccionadas" value="@itemZona.idZona" /> @itemZona.desZona
+                        </div>
+                    }
+                }
+            </div>
+            <button type="submit" class="btn btn-danger" id="btnAsignar">Guardar</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+        $(document).ready(function () {
+
+            $('#btnAsignar').click(function (event) {
+                event.preventDefault();
+
+                var parameters = $("#FormZonasZonal").serialize();
+                var url = '@Url.Action("SaveAsigZonas", "AdminUser")';
+                var user = $('#idUsuario').val();
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: parameters,
+                    success: function (r) {
+                        getZonasUser(user);
+                        if (r.error) {
+                            $('#tituloh6MensajeModal').html("ERROR");
+                        }
+                        else {
+                            $('#tituloh6MensajeModal').html("MENSAJE");
+                        }
+                        //$('#tituloh6MensajeModal').html("ERROR");
+                        $('#mensajeLoad').html(r.respuesta);
+                        $('#cargarMensajes').modal("show");
+                        //if (!r.error) {
+                        //    alert(r.respuesta);
+                        //    setTimeout('window.location.href = "PanelControl"', 300);
+
+                        //} else {
+                        //    alert(r.respuesta);
+                        //}
+                    },
+                    error: function (r, error) {
+                        alert('Error FormUsuario.cshtml, function.click #btnCrear');
+                    }
+                });
+
+            //return false;
+        });
+
+
+        });
+
+</script>

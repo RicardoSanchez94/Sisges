@@ -1,0 +1,205 @@
+﻿@using SistemaGestion.Models.Repositorios;
+@using SistemaGestion.Models.ViewModels;
+@using Newtonsoft.Json;
+@using SistemaGestion.Models.ViewModels;
+@model List<SistemaGestion.Models.Sobrante_Faltante>
+@{
+
+    var ADU = new AdminUsuarios();
+    var RU = new RolesUsuario();
+    if (User.Identity.IsAuthenticated)
+    {
+        var Json = JsonConvert.DeserializeObject<UserLoginView>(User.Identity.Name);
+        //string loginName = User.Identity.Name;
+        RU = ADU.GetRolesUser(Json.LoginName);
+        //RU = ADU.GetRolesUser(loginName);
+
+
+    }
+
+}
+
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Detalle faltantes</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            @*<div class="table-responsive">*@
+            <table class="table table-bordered table-hover" id="tbDetalle" style="width:100%">
+                @*<table id="tbDetalle" class="table table-bordered  display nowrap" cellspacing="0" width="100%">*@
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">rut cajero</th>
+                        <th scope="col" class="text-center">Nombre cajero</th>
+                        <th scope="col" class="text-center">Tienda</th>
+                        <th scope="col" class="text-center">Fecha</th>
+                        <th scope="col" class="text-center">caja</th>
+                        <th scope="col" class="text-center">Tipo</th>
+                        <th scope="col" class="text-center">Total</th>
+                        <th scope="col" class="text-center">
+                            <input type="checkbox" name="select_all_pre1" value="1" id="example-select-all-p1">
+                        </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i1 = 0;
+                        var Fecha = DateTime.Now;
+                    }
+                    @foreach (var item in Model.OrderBy(x => x.IDTIENDA))
+                    {
+
+                        <tr>
+                            <td class="text-center">@item.ID_Empleado</td>
+                            <td class="text-center">@(item.EMPLEADO.NOMBRES + " " + item.EMPLEADO.APELLIDOS)</td>
+                            <td class="text-center">@item.IDTIENDA</td>
+                            <td class="text-center">@item.FECHA.ToString("dd-MM-yyyy")</td>
+                            <td class="text-center">@item.CAJA</td>
+                            <td class="text-center">@item.TIPO</td>
+                            <td class="text-center">@Math.Abs(item.TOTAL)</td>
+                            <td class="text-center">
+                                <input id="lstSobranteFaltantecheck[@i1].isCheck" type="checkbox" name="lstSobranteFaltantecheck[@i1].isCheck" value="true" />
+                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].ID_Empleado" value="@(item.ID_Empleado)">
+                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].FECHA" value="@(item.FECHA)">
+                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].CAJA" value="@(item.CAJA)">
+                                @*<input type="hidden" name="lstSobranteFaltantecheck[@i1].TIPO" value="@(item.TIPO)">*@
+                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].IDTIENDA" value="@(item.IDTIENDA)">
+                            </td>
+
+
+                        </tr>
+                        Fecha = item.FECHA;
+                        i1 = i1 + 1;
+                    }
+                </tbody>
+            </table>
+
+            @*</div>*@
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Tienda"))
+            {
+                if (Fecha.Month < DateTime.Now.Month)
+                {
+                    <button type="submit" class="btn btn-primary" id="IngresaSobranteTabla">Ingresar</button>
+                    }
+                }
+                @*<button type='button' class='editar btn btn-outline-success btn-sm shadow-sm' title="Aceptar/Rechazar"
+                    onclick='AceptarRechazarAcumulado("@item.idTienda","@item.idEmpleado")'>
+                <span class='fa fa-edit'></span>
+            </button>*@
+            </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+
+        var tabla_data = $("#tbDetalle").DataTable({
+            scrollX: true,
+        /*    responsive : true,*/
+            "language": {
+                 url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+            },
+            "order": [[2, "asc"]]
+        });
+        @*var tabla_data;
+         tabla_data= $('#tbDetalle').DataTable({
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+             },
+             "order": [[2, "asc"]]
+        });*@
+        ////////////////////////////////////////////////////////////////
+        //AUTO-AJUSTA LAS TABLAS AL CAMBIAR DE TABS
+        $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $($.fn.dataTable.tables(true)).DataTable()
+                .columns.adjust();
+            //.fixedColumns().relayout();
+        });
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        /////////                PREMISA 1            //////////////////
+        // Handle click on "Select all" control
+        $('#example-select-all-p1').on('click', function () {
+            // Get all rows with search applied
+            var rows = tabla_data.rows({ 'search': 'applied' }).nodes();
+            // Check/uncheck checkboxes for all rows in the table
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        // Handle click on checkbox to set state of "Select all" control
+        $('#tbDetalle tbody').on('change', 'input[type="checkbox"]', function () {
+            // If checkbox is not checked
+            if (!this.checked) {
+                var el = $('#example-select-all').get(0);
+                // If "Select all" control is checked and has 'indeterminate' property
+                if (el && el.checked && ('indeterminate' in el)) {
+                    // Set visual state of "Select all" control
+                    // as 'indeterminate'
+                    el.indeterminate = true;
+                }
+            }
+        });
+        $('#IngresaSobranteTabla').click(function () {
+                event.preventDefault();
+            $('#cargal').modal('show');
+            var lstSobranteFaltantecheck = tabla_data.$('input').serialize();
+ /*           console.log(lstSobranteFaltantecheck.toString() + "Entreaqui en la lista");*/
+                /*var para = new FormData($(saveCartaInstruccion).get(0));*/
+                var url = '@Url.Action("AceptarRechazarAcumulado", "Tienda")';
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    //async: false,
+                    //processData: false,
+                    //contentType: false,
+                    data: lstSobranteFaltantecheck,
+                     success: function (data) {
+                         console.log('esta en el success');
+                         setTimeout(BajarModal, 2000);
+                         setTimeout(SubirModal, 3000)
+
+                         //function bajaModal() {
+
+                         //    $("#DetalleFaltante").modal('hide');
+                         //    /* $('#cargarMensajes').modal('hide');*/
+                         //    $('#cargal').modal('hide');
+
+
+                         //};
+
+                         function SubirModal() {
+                             $("#FormularioAceptarRechazar").html(data);
+                             $("#FormularioAceptarRechazar").modal('show');
+
+                         };
+
+
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+                });
+
+            });
+    });
+
+
+
+
+
+</script>

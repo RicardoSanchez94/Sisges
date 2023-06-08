@@ -1,0 +1,70 @@
+﻿@model SistemaGestion.Models.ViewModels.adminZonalView
+
+
+<div class="card mt-2 shadow-sm">
+    @*<div class="card-header text-white bg-secondary border border-grey border-bottom-0">
+        <h6 class="mb-0">
+            <span> <i class="fa fa-zona"></i>  Asignación de Zonas</span>
+        </h6>
+    </div>*@
+    @*<div class="card-header bg-secondary text-left">
+
+        <div class="form-row">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <h5 class="text-white"><i class="fa fa-users fa-fw"> </i> ASIGNACIÓN DE ZONAS</h5>
+                </div>
+            </div>
+    </div>*@
+    @using (Html.BeginForm("SaveAsigZonas", "AdminUser", FormMethod.Post, new { id = "FormZonasZonal", role = "form" }))
+    {
+        <div class="card-body">
+            <div class="row justify-content-lg-center">
+                <div class="col-lg-4">
+                    <div class="form-group mb-0">
+                        <label class="col-form-label col-form-label-sm">SELECCIONE ZONAL</label>
+                        @Html.DropDownListFor(x => x.idUsuario, new SelectList(Model.listUserRolZonal.OrderBy(x => x.nombres), "idUsuario", "nombres"), "Seleccione...", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div id="zonasList">
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+<script>
+        function getZonasUser(data) {
+
+            var url = '@Url.Action("zonasByUser", "AdminUser")';
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: { idUser: data },
+                async: false,
+                success: function (response) {
+                    $("#zonasList").html(response);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
+        }
+        $(document).ready(function () {
+
+            $("#idUsuario").change(function () {
+                var user = $('#idUsuario').val();
+
+                if (user != "") {
+                    getZonasUser(user);
+                } else {
+                    $("#zonasList").html("");
+                }
+            });
+        });
+
+</script>
+
+

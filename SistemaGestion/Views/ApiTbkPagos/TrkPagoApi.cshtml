@@ -1,0 +1,163 @@
+﻿@model List<SistemaGestion.Models.Pagos_Apitbk>
+@{
+    ViewBag.Title = "TrxPagoApi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    tabla thead {
+        background-color: #ff0000;
+    }
+</style>
+
+<body class="sb-nav-fixed">
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item text-dark"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Trx</li>
+                        </ol>
+                    </nav>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card border-info">
+                                <div class="card-header p-2 bg-secondary text-white">
+                                    Trx PagosTBK
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                <input type="date" class="form-control form-control-sm model" id="txtFecha" name="txtFecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                                <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                <select class="form-control form-control-sm model" id="cboTienda" name="cboTienda"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group mb-0">
+                                                <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">On:</label>
+                                                <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div id="totales">
+                                        @if (Model.Count < 1)
+                                        {
+                                            <div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <table id="tablaVacia" class="table table-striped" style="width:100%">
+
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Fecha</th>
+                                                                    <th>Centro</th>
+                                                                    <th>Monto</th>
+                                                                    <th>Autorizador</th>
+                                                                    <th>TipoProducto</th>
+                                                                   
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody>
+
+                                                        </table>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <br />
+
+            </main>
+
+
+        </div>
+    </div>
+</body>
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $('#tablaVacia').DataTable(
+                {
+                    responsive: true,
+                    "language": {
+                        url: "@Url.Content("~/Content/datatable / js / datatable_spanish.json")"
+                    }
+                });
+        });
+
+           $(function (){
+                 $("#btnBuscar").click(function () {
+                event.preventDefault();
+                var result = confirm("Desea Cargar Pagos?");
+                if (result){
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("TrkPagoApi", "ApiTbkPagos")";
+                    var manejarErrorAjax = "Eror";
+                    var Local = $("#cboTienda").val();
+                    var Fecha = $("#txtFecha").val();
+                    var data = { Local: Local, Fecha: Fecha };
+                    $.post(url, data).done(function (data) {
+                        setTimeout(bajar, 1000);
+                        setTimeout(Subir, 2000);
+
+                        function bajar() {
+                            $('#cargal').modal('hide');
+
+                        }
+                        function Subir() {
+                            $('#totales').html(data);
+                            $('#totales').show();
+                        }
+
+                    }).fail(manejarErrorAjax);
+
+                }
+            });
+
+        })
+
+        jQuery.ajax({
+            url: $.MisUrls.url._LocalesTBKPagos,
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                $("<option>").attr({ "value": 0 }).text("-- Seleccione Una Tienda--").appendTo("#cboTienda");
+                $.each(data.data, function (i, item) {
+                    $("<option>").attr({ "value": item.Codigo }).text(item.Nombre_Centro + "-" + item.Codigo).appendTo("#cboTienda");
+
+                })
+            },
+            error: function (error) {
+                console.log(error)
+            },
+
+        });
+    </script> 
+    
+}

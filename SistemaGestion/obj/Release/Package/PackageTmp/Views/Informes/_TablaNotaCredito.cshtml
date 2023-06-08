@@ -1,0 +1,75 @@
+﻿@model List<SistemaGestion.Models.fnReporte_Nota_Credito_Result>
+<table id="tablaDatos" class="table table-bordered  display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Zona</th>
+            <th>TRX</th>
+            <th>Fecha Nota Credito</th>
+            <th>Fecha Emision Nota Credito</th>
+            <th>Nombre Local</th>
+            <th>Folio Nota Credito</th>
+            <th>Rut Cliente</th>
+            <th>Monto Nota Credito</th>
+            <th>Documento Origen</th>
+            <th>Numero Boleta</th>
+            <th>Tienda Origen</th>
+            <th>Fecha Boleta</th>
+            <th>Monto Boleta</th>
+            <th>Tipo Pago</th>
+            <th>Monto Pago</th>
+            <th>Nombre Cajero</th>
+            <th>Nombre Supervisor</th>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody id="diferencias">
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.nombreZona</td>
+            <td>@item.TRX</td>
+            <td>@item.Fecha_Nota_Credito.ToString()</td>
+            <td>@item.Fecha_Emision_Nota_Credito</td>
+            <td>@item.Nombre_Local</td>
+            <td>@item.Folio_Nota_Credito</td>
+            <td>@item.Rut_Cliente_Nota_Credito</td>
+            <td>@item.Monto_Nota_Credito</td>
+            <td>@item.Documento_Origen</td>
+            <td>@item.Nro_Boleta</td>
+            <td>@item.Nombre_Local</td>
+            <td>@item.Fecha_Boleta</td>
+            <td>@item.Monto_Boleta</td>
+            <td>@item.Nombre_Tipo_Pago_Origen</td>
+            <td>@item.Pago_Monto</td>
+            <td>@item.Nombre_Cajero</td>
+            <td>@item.Nombre_Supervisor</td>
+
+            @*<td>$@item.Diferencia.Value.ToString("0,000")</td>*@
+            <td>
+                @*<button type='button' id='editar' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@
+                @*<button type='button' class='editar btn btn-danger' onclick='Reproceso("@item.Fecha","@item.Centro")'><span class='fa fa-edit'></span></button>*@
+            </td>
+
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+@*</tbody>*@
+
+<script>
+    $(document).ready(function () {
+           
+
+        $('#tablaDatos').DataTable({
+              responsive: true,
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                }
+        });
+        
+
+    });
+</script>

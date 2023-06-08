@@ -1,0 +1,84 @@
+﻿
+@model List<SistemaGestion.Models.Ventas_Apitbk>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+            <table id="tbReporte" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">fechaTransaccion</th>
+                        <th class="text-center">numeroTarjeta</th>
+                        <th class="text-center">totalCuotas</th>
+                        <th class="text-center">montoCuotas</th>
+                        <th class="text-center">codigoAutorizacion</th>
+                        <th class="text-center">codigoLocal</th>
+                        <th class="text-center">Producto</th>
+                        <th class="text-center">montoAfecto</th>
+                        <th class="text-center">tipoTransaccion</th>
+                        <th class="text-center">fechaAbono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fechaTransaccion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.numeroTarjeta)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.totalCuotas)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.montoCuotas)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.codigoAutorizacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.codigoLocal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tipoProducto)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.montoAfecto.ToString("C"))*@
+
+                                @{var prueba = item.montoAfecto.Value;
+                                    var prueba1 = prueba.ToString("0,000");
+                                }
+                                @Html.DisplayFor(modelItem => prueba1) @*(String.Format("{0:#,###.##}",Convert.ToDecimal(item.montoAfecto))))*@
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tipoTransaccion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fechaAbono)
+                            </td>
+                            <!--<td>-->
+                            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                            <!--</td>-->
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#tbReporte').DataTable({
+            responsive: true,
+            "language": {
+                url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                        }
+        });
+
+    });
+</script>

@@ -1,0 +1,66 @@
+﻿@model List<SistemaGestion.Models.PAGOS>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+            <table id="tbReporte" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Tipo_Trx</th>
+                        <th class="text-center">Tienda</th>
+                        <th class="text-center">Trx_Global</th>
+                        <th class="text-center">Trx</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">Monto</th>
+                        <th class="text-center">Monto_Pago</th>
+                        <th class="text-center">Autorizador</th>
+                        <th class="text-center">AutorizadorTBk</th>
+                        <th class="text-center">Referencia</th>
+                        <th class="text-center">RutCliente</th>
+                        <th class="text-center">Pago</th>
+                        <th class="text-center">Estado</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Tipo_Trx</td>
+                            <td>@item.IdTienda</td>
+                            <td>@item.Trx_Global</td>
+                            <td>@item.TRX</td>
+                            <td>@item.Fecha</td>
+                            <td>@item.Monto.Value.ToString("C")</td>
+                            <td>@item.Monto_Pago.ToString("C")</td>
+                            <td>@item.Autorizador</td>
+                            <td>@item.Autorizador_TBK</td>
+                            <td>@item.NumeroReferencia</td>
+                            <td>@item.RutCliente</td>
+                            <td>@item.Pago</td>
+                            <td>@item.Estado</td>
+
+
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+        $(document).ready(function () {
+            $('#tbReporte').DataTable(
+                    {
+                    scrollX: true,
+                        "language": {
+                            url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+                        }
+                    });
+        });
+</script>

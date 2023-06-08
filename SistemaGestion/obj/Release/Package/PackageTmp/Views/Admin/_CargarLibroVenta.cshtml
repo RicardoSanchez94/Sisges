@@ -1,0 +1,108 @@
+﻿
+    
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carga de Libro Ventas Manual
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("saveLV", "Gestion", FormMethod.Post, new { id = "saveLV", role = "form", enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-body">
+                        <div class="form-group col-md-6">
+                            <label>Ajuntar Libro Ventas</label>
+                            <INPUT id="oFile" type="file" runat="server" NAME="oFile" accept=".xml, .xlsx">
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="Cargarlv">Cargar Libro</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    
+    <script>
+        $(document).ready(function () {
+            $('#Cargarlv').click(function () {
+                event.preventDefault();
+                $('#cargal').modal('show');
+                var para = new FormData($(saveLV).get(0));
+                var url = '@Url.Action("saveLV", "Gestion")';
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    //async: false,
+                    processData: false,
+                    contentType: false,
+                    data: para,
+                    success: function (r) {
+                        if (r.error == false) {
+                        
+                            setTimeout(carga, 3000);
+                           /* setTimeout(CerrarVistaP, 10000);*/
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(bajaModal, 6000);
+                            function carga() {
+
+                                $("#cargal").modal('hide');
+
+                            };
+                            //function CerrarVistaP() {
+                            //    $('#modal').modal('hide');
+                            //};
+                            function bajaModal() {
+                                $('#cargarMensajes').modal('hide');
+                                $('#modal').modal('hide');
+                               
+
+                            };
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(r.respuesta);
+
+                            };
+
+                           
+                        }
+                        else {
+                            setTimeout(carga, 3000);
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(bajaModal, 6000);
+                            function carga() {
+                                $("#cargal").modal('hide');
+                                //$("#cargarMensajes").modal('show');
+                                //$('#mensajeLoad').html(r.respuesta);
+                            };
+                            function bajaModal() {
+
+                                $("#cargarMensajes").modal('hide');
+
+                            };
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(r.respuesta);
+
+                            };
+                        }
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(thrownError);
+                    }
+                });
+
+            });
+        });
+    </script>

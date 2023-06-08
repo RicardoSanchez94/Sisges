@@ -1,0 +1,128 @@
+﻿@model List<SistemaGestion.Models.fn_Conciliacion_Manual_aPI_Result>
+
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 style="text-align:center;color:maroon;">
+              Transbank
+            </h1>
+            <table id="tbReporte" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Autorizador</th>
+                        <th class="text-center">Local</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">MontoVenta</th>
+                        <th class="text-center">MontoAP</th>
+                        <th class="text-center">NombreLocal</th>
+                        <th class="text-center">Diferencias</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Where(x => x.Tipo == true))
+                    {
+                        <tr>
+                            <td>@item.CodAutorizador</td>
+                            <td>@item.Centro</td>
+                            <td>@item.Fecha</td>
+                            <td>@item.MontoV</td>
+                            <td>@item.MontoAfecto</td>
+                            <td>@item.NombreLocal</td>
+                            <td>
+                                @*<button type='button' id='editar' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@
+                                <button type='button'
+                                        class='editar btn btn-danger' onclick='Diferencia("@item.CodAutorizador","@item.MontoAfecto","@item.Fecha","@item.Centro")'>
+                                    <span  class='fa fa-edit'></span>
+                                </button>
+                            </td>
+
+
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 style="text-align:center;color:maroon;">
+                Global Store
+            </h1>
+            <table id="tbReport" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Autorizador</th>
+                        <th class="text-center">Local</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">MontoVenta</th>
+                        <th class="text-center">MontoAP</th>
+                        @*<th class="text-center">NombreLocal</th>*@
+                        <th class="text-center">Diferencias</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Where(x => x.Tipo == false))
+                    {
+                        <tr>
+                            <td>@item.CodAutorizador</td>
+                            <td>@item.Centro</td>
+                            <td>@item.Fecha</td>
+                            <td>@item.MontoV</td>
+                            <td>@item.MontoAfecto</td>
+                            @*<td>@item.NombreLocal</td>*@
+                            <td>
+                                @*<button type='button' id='editar' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@
+                                <button type='button'  class='editar btn btn-danger'onclick='Diferencia("@item.CodAutorizador","@item.MontoAfecto","@item.Fecha","@item.Centro")'><span class='fa fa-edit'></span></button>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDiferencia" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+
+<script>
+    $(document).ready(function () {
+        $('table.display').DataTable({
+            responsive: true,
+             "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+        });
+    });
+
+
+          function Diferencia(Autorizador,Monto,Fecha,Tienda) {
+        //  var local = Local;
+          console.log('entro al reproceso');
+        console.log(Autorizador);
+        console.log(Monto);
+         var url = '@Url.Action("Diferencias", "MediosPago")';
+           $.ajax({
+            type: 'POST',
+               url: url,
+               data: { Autorizador: Autorizador, Monto: Monto,Fecha:Fecha,Tienda:Tienda },
+               success: function (response) {
+                   $("#modalDiferencia").html(response);
+                   $("#modalDiferencia").modal('show');
+
+
+               },
+               error: function (xhr, ajaxOptions, thrownError) {
+                   alert(thrownError);
+               }
+             });
+    };
+
+
+
+</script>

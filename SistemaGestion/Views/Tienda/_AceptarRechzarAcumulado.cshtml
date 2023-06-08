@@ -1,0 +1,207 @@
+﻿@using Newtonsoft.Json
+@model SistemaGestion.Models.ViewModels.AcumuladoSobranteFaltanteView
+    @{ 
+        var lstJson = JsonConvert.SerializeObject(Model.lstSobranteFaltantecheck);
+    }
+
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Formulario Aceptar/Rechazar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="">
+                @using (Html.BeginForm("AceptarRechzar", "Tienda", FormMethod.Post, new { id = "InsertAceptarRechazar", role = "form", enctype = "multipart/form-data" }))
+                {
+                <div class="col-xl-12">
+
+                    @*@Html.HiddenFor(x => x.AcumuladoSobrante_Faltante.ID_Empleado, new { @class = "form-control form-control-sm model", id = "IdEmpleado" })
+        @Html.HiddenFor(x => x.AcumuladoSobrante_Faltante.Ano, new { @class = "form-control form-control-sm model" })
+        @Html.HiddenFor(x => x.AcumuladoSobrante_Faltante.Mes, new { @class = "form-control form-control-sm model" })
+        @Html.HiddenFor(x => x.AcumuladoSobrante_Faltante.TIPO, new { @class = "form-control form-control-sm model" })
+        @Html.HiddenFor(x => x.AcumuladoSobrante_Faltante.TotalAcumulado, new { @class = "form-control form-control-sm model", id = "Total" })
+        @Html.HiddenFor(x => x.AcumuladoSobrante_Faltante.IDTIENDA, new { @class = "form-control form-control-sm model" })*@
+
+
+                    @*@Html.HiddenFor(x => x.lstSobranteFaltantecheck, Model.lstSobranteFaltantecheck.ToList())*@
+                    @*@Html.HiddenFor(x => x.lstSobranteFaltantecheck, new { @class = "form-control form-control-sm model", value = "@lstJson" })}*@
+
+                    @Html.HiddenFor(x => x.Total, new { @class = "form-control form-control-sm model", id = "Total" })
+                    @*<input type="hidden" name="lstJson" id="lstJson" value="@lstJson" />*@
+                    @for (int i = 0; i < Model.Lstsobrante_Faltantes.Count; i++)
+                    {
+                        <input type="hidden" name="Lstsobrante_Faltantes[@i].ID_Empleado" value="@Model.Lstsobrante_Faltantes[i].ID_Empleado" />
+                        @*<input type="hidden" name="lstSobranteFaltantecheck[@i].isCheck" value="@Model.lstSobranteFaltantecheck[i].isCheck.ToString()" />*@
+                        <input type="hidden" name="Lstsobrante_Faltantes[@i].FECHA" value="@Model.Lstsobrante_Faltantes[i].FECHA" />
+                        <input type="hidden" name="Lstsobrante_Faltantes[@i].CAJA" value="@Model.Lstsobrante_Faltantes[i].CAJA" />
+                        <input type="hidden" name="Lstsobrante_Faltantes[@i].IDTIENDA" value="@Model.Lstsobrante_Faltantes[i].IDTIENDA" />
+
+                    }
+
+                    @*@Html.HiddenFor(x => x.lstSobranteFaltantecheck, Model.lstSobranteFaltantecheck.ToList())*@
+
+                    <div class="form-group">
+                        <label for="txtNombre">Acepta/Rechaza</label>
+                        @Html.DropDownListFor(x => x.AcumuladoSobrante_Faltante.CodigoTipoAceptacion, Model.lstTipoAceptacion.Select(z => new SelectListItem { Value = z.Codigo.ToString(), Text = z.Nombre }), "Seleccione tipo...", new { @class = "form-control", name = "Id2", id = "tipoAceptacion" })
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombre">porque rechaza</label>
+                        @Html.DropDownListFor(x => x.AcumuladoSobrante_Faltante.CodigoTipoRechazo, Model.lstTipoRechazo.Select(z => new SelectListItem { Value = z.Codigo.ToString(), Text = z.Nombre }), "Seleccione tipo Rechazo...", new { @class = "form-control", name = "Id3", id = "tipoRechazo" })
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="txtNombre">Cuotas</label>
+                        @Html.TextBoxFor(x => x.AcumuladoSobrante_Faltante.Cuotas, new { @class = "form-control form-control-sm model", id = "Cuotas", maxlength = "1" })
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="txtNombre">Observacion</label>
+                        @Html.TextAreaFor(x => x.AcumuladoSobrante_Faltante.Observacion, new { @class = "form-control form-control-sm model" })
+                    </div>
+
+                </div>
+
+                }
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="Cerrar">Cerrar</button>
+            <button type="submit" class="btn btn-primary" id="AceptarRechazados">Ingresar</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        // Ocultar la lista 'TipoRechazo' al cargar la página
+        $("#tipoRechazo").closest(".form-group").hide();
+        $("#Cuotas").closest(".form-group").hide();
+
+        // Agregar el evento 'change' al DropDownList 'TipoAceptacion'
+        $("#tipoAceptacion").change(function () {
+            var seleccionado = $(this).val();
+            var total = $("#Total").val();
+            console.log(total);
+            // Reemplaza 'CODIGO_RECHAZO' por el valor que indica que se ha seleccionado el tipo Rechazo
+            if (seleccionado == 2) {
+                $("#tipoRechazo").closest(".form-group").show();
+                $("#Cuotas").closest(".form-group").hide();
+            } else if (seleccionado == 1) {
+                $("#tipoRechazo").closest(".form-group").hide();
+                if (total >= 20000) {
+                    $("#Cuotas").closest(".form-group").show();
+                }
+                
+            }
+            else {
+                $("#tipoRechazo").closest(".form-group").hide();
+                $("#Cuotas").closest(".form-group").hide();
+            }
+        });
+
+        $("#Cuotas").keypress(function (e) {
+            // Filtrar la entrada del teclado para permitir solo números (dígitos del 0 al 9)
+            if (e.which < 48 || e.which > 57) {
+                e.preventDefault();
+            }
+        });
+
+        $('#Cerrar').click(function (event) {
+            event.preventDefault();
+            console.log("Entre a Cerrar la modal");
+            $("#FormularioAceptarRechazar").modal('hide');
+        });
+
+    });
+
+    $(function () {
+        $("#AceptarRechazados").click(function () {
+            event.preventDefault();
+            //var result = confirm("Desea Conciliar?");
+            /*if (result) {*/
+            $('#cargal').modal('show');
+            var url = "@Url.Action("AceptarRechzarAcumulado", "Tienda")";
+            var manejarErrorAjax = "Eror";
+            var item = $("#InsertAceptarRechazar").serialize();
+           
+   /*         var lstJson = $("#lstJson").val();*/
+         /*   var Json = */
+            //var CodigoRemito = $("#Remito").val();
+            //var Tienda = $("#idTienda").val();
+            //var idSencillosTienda = $("#id").val();
+        /*    var data = { item: item, lstJson: lstJson };*/
+      /*      console.log(parametros.toString());*/
+            $.post(url, item ).done(function (res) {
+                if (res.error == false) {
+
+                    setTimeout(carga, 3000);
+                    setTimeout(mostrarMensaje, 4000);
+                    setTimeout(bajaModal, 6000);
+
+
+                    //setTimeout(bajarModalConciliacion, 8000);
+                    function carga() {
+                        $("#cargal").modal('hide');
+                        //$("#cargarMensajes").modal('show');
+                        //$('#mensajeLoad').html(r.respuesta);
+                    };
+                    function bajaModal() {
+
+                        $("#cargarMensajes").modal('hide');
+                        $("#FormularioAceptarRechazar").modal('hide');
+
+                    };
+
+                    function mostrarMensaje() {
+                        $("#cargarMensajes").modal('show');
+                        $('#mensajeLoad').html(res.respuesta);
+
+                    };
+
+                    /*    function Cargar*/
+
+
+                } else {
+
+                    setTimeout(carga, 3000);
+                    setTimeout(mostrarMensaje, 4000);
+                    setTimeout(bajaModal, 6000);
+
+
+                    function carga() {
+                        $("#cargal").modal('hide');
+                        //$("#cargarMensajes").modal('show');
+                        //$('#mensajeLoad').html(r.respuesta);
+                    };
+                    function bajaModal() {
+
+                        $("#cargarMensajes").modal('hide');
+
+                    };
+
+                    function mostrarMensaje() {
+                        $("#cargarMensajes").modal('show');
+                        $('#mensajeLoad').html(res.respuesta);
+
+                    };
+
+                }
+                //$('.modal-backdrop').remove();
+
+            }).fail(manejarErrorAjax);
+
+            //}
+        });
+
+    });
+
+
+    
+
+</script>

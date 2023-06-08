@@ -1,0 +1,160 @@
+﻿@model List<SistemaGestion.Models.ViewModels.IndicadorNC>
+
+
+<style>
+    .btn-outline-primary {
+        color: #007bffdb !important;
+        border-color: #007bffa3 !important;
+    }
+
+        .btn-outline-primary:hover {
+            color: #fff !important;
+            background-color: #007bff99 !important;
+            border-color: #007bff !important;
+        }
+</style>
+
+<div class="mb-2 mt-1">
+    <div class="row">
+        @{
+            var modelData = Model.GroupBy(x => x.idZona).ToList();
+        }
+        @if (Model.Count != 0)
+        {
+            foreach (var a in modelData)
+            {
+                var data = Model.Where(x => x.idZona == a.Key).ToList();
+                var nombreZona = data.FirstOrDefault().NombreZona;
+                <div class="col-lg-3">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h6><i class="fa fa-globe"></i> ZONA @nombreZona</h6>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                @foreach (var m in data)
+                                {
+                                    <li class="list-group-item @(m.TipoNC.Contains("NORMAL") == true ?"list-group-item-success":"list-group-item-warning")" style="font-size:12px;">@m.TipoNC <h4>@m.cantNC</h4></li>
+                                    if (data.Count == 1)
+                                    {
+                                        <li class="list-group-item  list-group-item-light" style="height:86px; font-size:12px;">SIN INFORMACIÓN</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <button onclick="verDetalle(@a.Key)" class="btn btn-outline-info">Ver Detalle</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert">
+                    SIN INFORMACIÓN ENCONTRADA
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
+<script>
+        function verDetalle(idZona) {
+
+            $('#cargal').modal('show');
+
+            var url = "@Url.Action("detailsNCByZona", "Informes")";
+            var Inicio = $("#Inicio").val();
+            var Fin = $("#Fin").val();
+            var data = { Inicio: Inicio, Fin: Fin, idZona: idZona };
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data,
+                success: function (response) {
+                    setTimeout(carga, 2000);
+                    setTimeout(bajaModal, 3000);
+                    function bajaModal() {
+                        $('#cargal').modal('hide');
+                    };
+                    function carga() {
+                        $("#detalleNC").hide();
+                        $("#detalleNCListaByZona").html(response);
+                    };
+
+
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
+        }
+
+function GenerarInformeFull() {
+        var Inicio = $("#Inicio").val();
+        var Fin = $("#Fin").val();
+        var data = { Inicio: Inicio, Fin: Fin };
+        var url = "@Url.Action("GetReporteNCFull", "Informes")";
+
+
+        var list = [];
+        var fileName = '';
+        list.push({ fileName: fileName });
+
+        $('#cargal').modal('show');
+        $.ajax({
+            url: url,
+            type: "post",
+            data: data,
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function (data, textStatus, xhr) {
+                var filename = list[0].filename;
+                var disposition = xhr.getResponseHeader('Content-Disposition');
+                if (disposition && disposition.indexOf('attachment') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                    var a = document.createElement('a');
+                    var url = window.URL.createObjectURL(data);
+                    a.href = url;
+                    a.download = filename;
+                    document.body.append(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                }
+                else {
+                    alert("ERROR AL DESCARGAR ARCHIVO");
+                    $("#cargal").modal('hide');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            },
+            complete: function () {
+                setTimeout(function () {
+                    $("#cargal").modal('hide');
+                }, 1500);
+
+            }
+        });
+
+}
+
+
+        $(document).ready(function () {
+            var x = '@(Model.Count())'
+
+            if (x > 0) {
+                $("#ReporteFULL").show();
+            }
+        });
+</script>

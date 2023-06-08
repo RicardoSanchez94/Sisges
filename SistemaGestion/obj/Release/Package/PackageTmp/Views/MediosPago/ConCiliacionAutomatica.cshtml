@@ -1,0 +1,290 @@
+﻿@model List<SistemaGestion.Models.Conciliacion>
+@{
+    ViewBag.Title = "mp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <br />
+                    @*<nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">Transacciones</li>
+                                <li class="breadcrumb-item"><a href="@Url.Action("TransaccionesTotales", "ApiTransbank")">Totales</a></li>
+
+                            </ol>
+                        </nav>*@
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Conciliacion Automatica
+                                </div>
+                                @using (Html.BeginForm("ExcelConciliadasA", "MediosPago", FormMethod.Post, new { id = "fromConciliacionAutomatico", role = "form" }))
+                                {
+                                    <div class="card-body">
+                                        <div class="row align-items-end">
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Inicio:</label>
+                                                    <input type="date" class="form-control form-control-sm model" id="Fecha" name="Fecha" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Tienda:</label>
+                                                    <select class="form-control form-control-sm model" id="cboTienda" name="cboTienda"></select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-block" id="btnConciliar"><i class="fas fa-search"></i> N°1 Conciliar Por Fecha</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <button type="button" class="btn btn-sm btn-danger btn-block" id="btnBuscar"><i class="fas fa-search"></i>N°2 Conciliadas</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button class="btn btn-sm btn-success btn-block" id="DescargarConManual" type="submit" role="button"><i class="fa fa-file-excel"> </i> Descargar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="totales">
+                    
+                                        </div>
+
+
+
+
+                                    </div>
+                                }
+                                </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tablaVacia').DataTable(
+                {
+                    responsive: true,
+                     "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
+                });
+         $('#DescargarConManual').click(function (event) {
+            event.preventDefault();
+            var url = '@Url.Action("ExcelConciliadasA", "MediosPago")';
+            var Fecha = $("#Fecha").val();
+            var Tienda = $("#cboTienda").val();
+            console.log(Fecha);
+            console.log(Tienda);
+            //var tipo = $("#TypeReporte").val();
+            DownloadFileFechasEntre(Fecha, Tienda, url);
+        });
+             $(function (){
+                 $("#btnBuscar").click(function () {
+                     event.preventDefault();
+                     var local = $("#cboTienda").val();
+                     if (local == 0) {
+                         alert("Debe al menos enviar una Tienda")
+                         return 0;
+                     }
+                     
+                var result = confirm("Desea Cargar Las Conciliadas Automaticamente?");
+                 if (result){
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("ObtenerConciliacionAuto", "MediosPago")";
+                    var manejarErrorAjax = "Eror";
+                    var Fecha = $("#Fecha").val();
+            /*        var local = $("#cboTienda").val();*/
+                    var data = { Fecha: Fecha, local:local };
+                    $.post(url, data).done(function (data) {
+                        setTimeout(bajar, 1000);
+                        setTimeout(Subir, 2000);
+
+                        function bajar() {
+                            $('#cargal').modal('hide');
+
+                        }
+                        function Subir() {
+                            $('#totales').html(data);
+                            $('#totales').show();
+                        }
+
+                    }).fail(manejarErrorAjax);
+
+                     }
+                });
+
+             })
+
+              $(function (){
+                  $("#btnConciliar").click(function () {
+                event.preventDefault();
+                var result = confirm("Desea Generar Conciliacion Automatica?");
+                if (result){
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("ValidadorConciliacionAuto", "MediosPago")";
+                    var manejarErrorAjax = "Eror";
+                    var Fecha = $("#Fecha").val();
+                    var data = { Fecha: Fecha};
+                    $.post(url, data).done(function (res) {
+                        if (res.error == false) {
+                            var Confirmacion = confirm(res.respuesta);
+                            if (Confirmacion) {
+                                var url2 = "@Url.Action("ConciliacionAuto", "MediosPago")";
+                                $.post(url2, data).done(function (res2) {
+                                    setTimeout(carga, 3000);
+                                    /* setTimeout(CerrarVistaP, 10000);*/
+                                    setTimeout(mostrarMensaje, 4000);
+                                    setTimeout(bajaModal, 6000);
+                                    function carga() {
+
+                                        $("#cargal").modal('hide');
+
+                                    };
+                                    //function CerrarVistaP() {
+                                    //    $('#modal').modal('hide');
+                                    //};
+                                    function bajaModal() {
+                                        $('#cargarMensajes').modal('hide');
+                                        $('#modal').modal('hide');
+
+
+                                    };
+
+                                    function mostrarMensaje() {
+                                        $("#cargarMensajes").modal('show');
+                                        $('#mensajeLoad').html(res2.respuesta);
+
+                                    };
+
+                                });
+                            }
+                          
+                        }
+                        else {
+                            setTimeout(carga, 3000);
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(bajaModal, 6000);
+                            function carga() {
+                                $("#cargal").modal('hide');
+                                //$("#cargarMensajes").modal('show');
+                                //$('#mensajeLoad').html(r.respuesta);
+                            };
+                            function bajaModal() {
+
+                                $("#cargarMensajes").modal('hide');
+
+                            };
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(res.respuesta);
+
+                            };
+                        }
+
+
+                    }).fail(manejarErrorAjax);
+
+                }
+            });
+
+        })
+
+        });
+
+        jQuery.ajax({
+            url: $.MisUrls.url._TiendaPorNombre,
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+           
+                $.each(data.data, function (i, item) {
+                    $("<option>").attr({ "value": item.Codigo }).text(item.Nombre_Centro).appendTo("#cboTienda");
+
+                })
+            },
+            error: function (error) {
+                console.log(error)
+            },
+
+        });
+
+        function DownloadFileFechasEntre(Fecha, Tienda, urlAc) {
+
+
+            var url = urlAc;
+            //var Fecha = F;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: url,
+                type: "post",
+                data: { Fecha: Fecha, Tienda: Tienda },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+
+    </script>
+}

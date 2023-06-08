@@ -1,0 +1,544 @@
+﻿@model  SistemaGestion.Models.ViewModels.NotaCreditoView
+
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-pre1-tab" data-toggle="tab" data-target="#nav-pre1" type="button" role="tab" aria-controls="nav-pre1" aria-selected="true">PREMISA 1</button>
+        <button class="nav-link" id="nav-pre2-tab" data-toggle="tab" data-target="#nav-pre2" type="button" role="tab" aria-controls="nav-pre2" aria-selected="false">PREMISA 2</button>
+        <button class="nav-link" id="nav-pre3-tab" data-toggle="tab" data-target="#nav-pre3" type="button" role="tab" aria-controls="nav-pre3" aria-selected="false">PREMISA 3</button>
+        <button class="nav-link" id="nav-pre4-tab" data-toggle="tab" data-target="#nav-pre4" type="button" role="tab" aria-controls="nav-pre4" aria-selected="false">PREMISA 4</button>
+        
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    
+    <div class="mt-3 mb-2 mr-1 float-right ">
+        <button type="button" id="btnSendData" class="btn btn-sm btn-success btn-block">
+            <i class="fa fa-file-excel"></i> Generar IDOC<span class="glyphicon glyphicon-arrow-right"></span>
+        </button>
+    </div>
+  
+    <div class="tab-pane fade show active" id="nav-pre1" role="tabpanel" aria-labelledby="nav-pre1-tab">
+
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="TablePremisa1" style="width:100%">
+
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">TRX</th>
+                        <th scope="col" class="text-center">Fecha Emision NC</th>
+                        <th scope="col" class="text-center">Tienda NC</th>
+                        <th scope="col" class="text-center">Caja NC</th>
+                        <th scope="col" class="text-center">Tipo NC</th>
+                        <th scope="col" class="text-center">Folio NC</th>
+                        <th scope="col" class="text-center">Total NC</th>
+                        <th scope="col" class="text-center">Docu. Origen</th>
+                        <th scope="col" class="text-center">Trx Origen</th>
+                        <th scope="col" class="text-center">N° Boleta</th>
+                        <th scope="col" class="text-center">Tienda Ori. Boleta</th>
+                        <th scope="col" class="text-center">Caja Ori. Boleta</th>
+                        <th scope="col" class="text-center">Fecha Ori. Boleta</th>
+                        <th scope="col" class="text-center">Monto Ori. Boleta</th>
+                        <th scope="col" class="text-center">Tipo Pago Ori. Boleta</th>
+                        <th scope="col" class="text-center">Rut Cajero</th>
+                        <th scope="col" class="text-center">
+                            <input type="checkbox" name="select_all_pre1" value="1" id="example-select-all-p1">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i1 = 0;
+                    }
+                    @foreach (var a in Model.ListPremisa1.OrderBy(x => x.TRX))
+                    {
+                    <tr>
+                        <td class="text-center">@a.TRX</td>
+                        <td class="text-center">@a.Fecha_Emision_Nota_Credito.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.IdTienda_notacredito</td>
+                        <td class="text-center">@a.Caja_notacredito</td>
+                        <td class="text-center">@a.TIPONOTACREDITO.Replace("NOTA CREDITO", "")</td>
+                        <td class="text-center">@a.Folio_notacredito</td>
+                        <td class="text-center">@a.Total_notacredito.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Documento_Origen</td>
+                        <td class="text-center">@a.Trx_Origen</td>
+                        <td class="text-center">@a.Nro_Boleta</td>
+                        <td class="text-center">@a.IdTienda_Origen_Boleta</td>
+                        <td class="text-center">@a.Caja_Origen_Boleta</td>
+                        <td class="text-center">@a.Fecha_Boleta.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.Monto_Boleta.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Tipo_Pago_Origen</td>
+                        <td class="text-center">@a.Rut_Cajero</td>
+                        <td class="text-center" style="padding-right:24px;">
+
+                            <input id="ListPremisa1[@i1].isCheck" type="checkbox" @(a.isCheck ? "checked" : "") name="ListPremisa1[@i1].isCheck" value="true" />
+                            <input type="hidden" name="ListPremisa1[@i1].TRX" value="@(a.TRX)">
+                            <input type="hidden" name="ListPremisa1[@i1].Fecha_Emision_Nota_Credito" value="@(a.Fecha_Emision_Nota_Credito)">
+                            <input type="hidden" name="ListPremisa1[@i1].IdTienda_notacredito" value="@(a.IdTienda_notacredito)">
+                            <input type="hidden" name="ListPremisa1[@i1].Caja_notacredito" value="@(a.Caja_notacredito)">
+                            <input type="hidden" name="ListPremisa1[@i1].TIPONOTACREDITO" value="@(a.TIPONOTACREDITO)">
+                            <input type="hidden" name="ListPremisa1[@i1].Folio_notacredito" value="@(a.Folio_notacredito)">
+                            <input type="hidden" name="ListPremisa1[@i1].Cliente_notacredito" value="@(a.Cliente_notacredito)">
+                            <input type="hidden" name="ListPremisa1[@i1].Total_notacredito" value="@(a.Total_notacredito)">
+                            <input type="hidden" name="ListPremisa1[@i1].Documento_Origen" value="@(a.Documento_Origen)">
+                            <input type="hidden" name="ListPremisa1[@i1].Trx_Origen" value="@(a.Trx_Origen)">
+                            <input type="hidden" name="ListPremisa1[@i1].Nro_Boleta" value="@(a.Nro_Boleta)">
+                            <input type="hidden" name="ListPremisa1[@i1].IdTienda_Origen_Boleta" value="@(a.IdTienda_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa1[@i1].Caja_Origen_Boleta" value="@(a.Caja_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa1[@i1].Fecha_Boleta" value="@(a.Fecha_Boleta)">
+
+                            <input type="hidden" name="ListPremisa1[@i1].Monto_Boleta" value="@(a.Monto_Boleta)">
+                            <input type="hidden" name="ListPremisa1[@i1].Tipo_Pago_Origen" value="@(a.Tipo_Pago_Origen)">
+                            <input type="hidden" name="ListPremisa1[@i1].Rut_Cajero" value="@(a.Rut_Cajero)">
+                            <input type="hidden" name="ListPremisa1[@i1].Rut_Supervisor" value="@(a.Rut_Supervisor)">
+                            <input type="hidden" name="ListPremisa1[@i1].Nombre_trabajador" value="@(a.Nombre_trabajador)">
+                            <input type="hidden" name="ListPremisa1[@i1].Descripcion_pago" value="@(a.Descripcion_pago)">
+                            <input type="hidden" name="ListPremisa1[@i1].tipo_premisa" value="@(a.tipo_premisa)">
+
+                        </td>
+                    </tr>
+                        i1 = i1 + 1;
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="tab-pane fade" id="nav-pre2" role="tabpanel" aria-labelledby="nav-pre2-tab">
+
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="TablePremisa2" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">TRX</th>
+                        <th scope="col" class="text-center">Fecha Emision NC</th>
+                        <th scope="col" class="text-center">Tienda NC</th>
+                        <th scope="col" class="text-center">Caja NC</th>
+                        <th scope="col" class="text-center">Tipo NC</th>
+                        <th scope="col" class="text-center">Folio NC</th>
+                        <th scope="col" class="text-center">Total NC</th>
+                        <th scope="col" class="text-center">Docu. Origen</th>
+                        <th scope="col" class="text-center">Trx Origen</th>
+                        <th scope="col" class="text-center">N° Boleta</th>
+                        <th scope="col" class="text-center">Tienda Ori. Boleta</th>
+                        <th scope="col" class="text-center">Caja Ori. Boleta</th>
+                        <th scope="col" class="text-center">Fecha Ori. Boleta</th>
+                        <th scope="col" class="text-center">Monto Ori. Boleta</th>
+                        <th scope="col" class="text-center">Tipo Pago Ori. Boleta</th>
+                        <th scope="col" class="text-center">Rut Cajero</th>
+                        <th scope="col" class="text-center">
+                            <input type="checkbox" name="select_all_pre2" value="2" id="example-select-all-p2">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i2 = 0;
+                    }
+                    @foreach (var a in Model.ListPremisa2)
+                    {
+                    <tr>
+                        <td class="text-center">@a.TRX</td>
+                        <td class="text-center">@a.Fecha_Emision_Nota_Credito.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.IdTienda_notacredito</td>
+                        <td class="text-center">@a.Caja_notacredito</td>
+                        <td class="text-center">@a.TIPONOTACREDITO.Replace("NOTA CREDITO", "")</td>
+                        <td class="text-center">@a.Folio_notacredito</td>
+                        <td class="text-center">@a.Total_notacredito.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Documento_Origen</td>
+                        <td class="text-center">@a.Trx_Origen</td>
+                        <td class="text-center">@a.Nro_Boleta</td>
+                        <td class="text-center">@a.IdTienda_Origen_Boleta</td>
+                        <td class="text-center">@a.Caja_Origen_Boleta</td>
+                        <td class="text-center">@a.Fecha_Boleta.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.Monto_Boleta.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Tipo_Pago_Origen</td>
+                        <td class="text-center">@a.Rut_Cajero</td>
+                        <td class="text-center" style="padding-right:24px;">
+                            <input id="ListPremisa2[@i2].isCheck" type="checkbox" @(a.isCheck ? "checked" : "") name="ListPremisa2[@i2].isCheck" value="true" />
+                            <input type="hidden" name="ListPremisa2[@i2].TRX" value="@(a.TRX)">
+                            <input type="hidden" name="ListPremisa2[@i2].Fecha_Emision_Nota_Credito" value="@(a.Fecha_Emision_Nota_Credito)">
+                            <input type="hidden" name="ListPremisa2[@i2].IdTienda_notacredito" value="@(a.IdTienda_notacredito)">
+                            <input type="hidden" name="ListPremisa2[@i2].Caja_notacredito" value="@(a.Caja_notacredito)">
+                            <input type="hidden" name="ListPremisa2[@i2].TIPONOTACREDITO" value="@(a.TIPONOTACREDITO)">
+                            <input type="hidden" name="ListPremisa2[@i2].Folio_notacredito" value="@(a.Folio_notacredito)">
+                            <input type="hidden" name="ListPremisa2[@i2].Cliente_notacredito" value="@(a.Cliente_notacredito)">
+                            <input type="hidden" name="ListPremisa2[@i2].Total_notacredito" value="@(a.Total_notacredito)">
+                            <input type="hidden" name="ListPremisa2[@i2].Documento_Origen" value="@(a.Documento_Origen)">
+                            <input type="hidden" name="ListPremisa2[@i2].Trx_Origen" value="@(a.Trx_Origen)">
+                            <input type="hidden" name="ListPremisa2[@i2].Nro_Boleta" value="@(a.Nro_Boleta)">
+                            <input type="hidden" name="ListPremisa2[@i2].IdTienda_Origen_Boleta" value="@(a.IdTienda_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa2[@i2].Caja_Origen_Boleta" value="@(a.Caja_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa2[@i2].Fecha_Boleta" value="@(a.Fecha_Boleta)">
+                            <input type="hidden" name="ListPremisa2[@i2].Monto_Boleta" value="@(a.Monto_Boleta)">
+                            <input type="hidden" name="ListPremisa2[@i2].Tipo_Pago_Origen" value="@(a.Tipo_Pago_Origen)">
+                            <input type="hidden" name="ListPremisa2[@i2].Rut_Cajero" value="@(a.Rut_Cajero)">
+                            <input type="hidden" name="ListPremisa2[@i2].Rut_Supervisor" value="@(a.Rut_Supervisor)">
+                            <input type="hidden" name="ListPremisa2[@i2].Nombre_trabajador" value="@(a.Nombre_trabajador)">
+                            <input type="hidden" name="ListPremisa2[@i2].Descripcion_pago" value="@(a.Descripcion_pago)">
+                            <input type="hidden" name="ListPremisa2[@i2].tipo_premisa" value="@(a.tipo_premisa)">
+                        </td>
+                    </tr>
+                        i2 = i2 + 1;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-pre3" role="tabpanel" aria-labelledby="nav-pre3-tab">
+
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="TablePremisa3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">TRX</th>
+                        <th scope="col" class="text-center">Fecha Emision NC</th>
+                        <th scope="col" class="text-center">Tienda NC</th>
+                        <th scope="col" class="text-center">Caja NC</th>
+                        <th scope="col" class="text-center">Tipo NC</th>
+                        <th scope="col" class="text-center">Folio NC</th>
+                        <th scope="col" class="text-center">Total NC</th>
+                        <th scope="col" class="text-center">Docu. Origen</th>
+                        <th scope="col" class="text-center">Trx Origen</th>
+                        <th scope="col" class="text-center">N° Boleta</th>
+                        <th scope="col" class="text-center">Tienda Ori. Boleta</th>
+                        <th scope="col" class="text-center">Caja Ori. Boleta</th>
+                        <th scope="col" class="text-center">Fecha Ori. Boleta</th>
+                        <th scope="col" class="text-center">Monto Ori. Boleta</th>
+                        <th scope="col" class="text-center">Tipo Pago Ori. Boleta</th>
+                        <th scope="col" class="text-center">Rut Cajero</th>
+                        <th scope="col" class="text-center">
+                            <input type="checkbox" name="select_all_pre3" value="3" id="example-select-all-p3">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i3 = 0;
+                    }
+                    @foreach (var a in Model.ListPremisa3)
+                    {
+                    <tr>
+                        <td class="text-center">@a.TRX</td>
+                        <td class="text-center">@a.Fecha_Emision_Nota_Credito.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.IdTienda_notacredito</td>
+                        <td class="text-center">@a.Caja_notacredito</td>
+                        <td class="text-center">@a.TIPONOTACREDITO.Replace("NOTA CREDITO", "")</td>
+                        <td class="text-center">@a.Folio_notacredito</td>
+                        <td class="text-center">@a.Total_notacredito.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Documento_Origen</td>
+                        <td class="text-center">@a.Trx_Origen</td>
+                        <td class="text-center">@a.Nro_Boleta</td>
+                        <td class="text-center">@a.IdTienda_Origen_Boleta</td>
+                        <td class="text-center">@a.Caja_Origen_Boleta</td>
+                        <td class="text-center">@a.Fecha_Boleta.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.Monto_Boleta.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Tipo_Pago_Origen</td>
+                        <td class="text-center">@a.Rut_Cajero</td>
+                        <td class="text-center" style="padding-right:24px;">
+                            <input id="ListPremisa3[@i3].isCheck" type="checkbox" @(a.isCheck ? "checked" : "") name="ListPremisa3[@i3].isCheck" value="true" />
+                            <input type="hidden" name="ListPremisa3[@i3].TRX" value="@(a.TRX)">
+                            <input type="hidden" name="ListPremisa3[@i3].Fecha_Emision_Nota_Credito" value="@(a.Fecha_Emision_Nota_Credito)">
+                            <input type="hidden" name="ListPremisa3[@i3].IdTienda_notacredito" value="@(a.IdTienda_notacredito)">
+                            <input type="hidden" name="ListPremisa3[@i3].Caja_notacredito" value="@(a.Caja_notacredito)">
+                            <input type="hidden" name="ListPremisa3[@i3].TIPONOTACREDITO" value="@(a.TIPONOTACREDITO)">
+                            <input type="hidden" name="ListPremisa3[@i3].Folio_notacredito" value="@(a.Folio_notacredito)">
+                            <input type="hidden" name="ListPremisa3[@i3].Cliente_notacredito" value="@(a.Cliente_notacredito)">
+                            <input type="hidden" name="ListPremisa3[@i3].Total_notacredito" value="@(a.Total_notacredito)">
+                            <input type="hidden" name="ListPremisa3[@i3].Documento_Origen" value="@(a.Documento_Origen)">
+                            <input type="hidden" name="ListPremisa3[@i3].Trx_Origen" value="@(a.Trx_Origen)">
+                            <input type="hidden" name="ListPremisa3[@i3].Nro_Boleta" value="@(a.Nro_Boleta)">
+                            <input type="hidden" name="ListPremisa3[@i3].IdTienda_Origen_Boleta" value="@(a.IdTienda_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa3[@i3].Caja_Origen_Boleta" value="@(a.Caja_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa3[@i3].Fecha_Boleta" value="@(a.Fecha_Boleta)">
+                            <input type="hidden" name="ListPremisa3[@i3].Monto_Boleta" value="@(a.Monto_Boleta)">
+                            <input type="hidden" name="ListPremisa3[@i3].Tipo_Pago_Origen" value="@(a.Tipo_Pago_Origen)">
+                            <input type="hidden" name="ListPremisa3[@i3].Rut_Cajero" value="@(a.Rut_Cajero)">
+                            <input type="hidden" name="ListPremisa3[@i3].Rut_Supervisor" value="@(a.Rut_Supervisor)">
+                            <input type="hidden" name="ListPremisa3[@i3].Nombre_trabajador" value="@(a.Nombre_trabajador)">
+                            <input type="hidden" name="ListPremisa3[@i3].Descripcion_pago" value="@(a.Descripcion_pago)">
+                            <input type="hidden" name="ListPremisa3[@i3].tipo_premisa" value="@(a.tipo_premisa)">
+                        </td>
+                    </tr>
+                        i3 = i3 + 1;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-pre4" role="tabpanel" aria-labelledby="nav-pre4-tab">
+
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="TablePremisa4" cellspacing="0" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">TRX</th>
+                        <th scope="col" class="text-center">Fecha Emision NC</th>
+                        <th scope="col" class="text-center">Tienda NC</th>
+                        <th scope="col" class="text-center">Caja NC</th>
+                        <th scope="col" class="text-center">Tipo NC</th>
+                        <th scope="col" class="text-center">Folio NC</th>
+                        <th scope="col" class="text-center">Total NC</th>
+                        <th scope="col" class="text-center">Docu. Origen</th>
+                        <th scope="col" class="text-center">Trx Origen</th>
+                        <th scope="col" class="text-center">N° Boleta</th>
+                        <th scope="col" class="text-center">Tienda Ori. Boleta</th>
+                        <th scope="col" class="text-center">Caja Ori. Boleta</th>
+                        <th scope="col" class="text-center">Fecha Ori. Boleta</th>
+                        <th scope="col" class="text-center">Monto Ori. Boleta</th>
+                        <th scope="col" class="text-center">Tipo Pago Ori. Boleta</th>
+                        <th scope="col" class="text-center">Rut Cajero</th>
+                        <th scope="col" class="text-center">
+                            <input type="checkbox" name="select_all_pre4" value="4" id="example-select-all-p4">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i4 = 0;
+                    }
+                    @foreach (var a in Model.ListPremisa4)
+                    {
+                    <tr>
+                        <td class="text-center">@a.TRX</td>
+                        <td class="text-center">@a.Fecha_Emision_Nota_Credito.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.IdTienda_notacredito</td>
+                        <td class="text-center">@a.Caja_notacredito</td>
+                        <td class="text-center">@a.TIPONOTACREDITO.Replace("NOTA CREDITO", "")</td>
+                        <td class="text-center">@a.Folio_notacredito</td>
+                        <td class="text-center">@a.Total_notacredito.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Documento_Origen</td>
+                        <td class="text-center">@a.Trx_Origen</td>
+                        <td class="text-center">@a.Nro_Boleta</td>
+                        <td class="text-center">@a.IdTienda_Origen_Boleta</td>
+                        <td class="text-center">@a.Caja_Origen_Boleta</td>
+                        <td class="text-center">@a.Fecha_Boleta.Value.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@a.Monto_Boleta.Value.ToString("N0")</td>
+                        <td class="text-center">@a.Tipo_Pago_Origen</td>
+                        <td class="text-center">@a.Rut_Cajero</td>
+                        <td class="text-center" style="padding-right:24px;">
+                            <input id="ListPremisa4[@i4].isCheck" type="checkbox" @(a.isCheck ? "checked" : "") name="ListPremisa4[@i4].isCheck" value="true" />
+                            <input type="hidden" name="ListPremisa4[@i4].TRX" value="@(a.TRX)">
+                            <input type="hidden" name="ListPremisa4[@i4].Fecha_Emision_Nota_Credito" value="@(a.Fecha_Emision_Nota_Credito)">
+                            <input type="hidden" name="ListPremisa4[@i4].IdTienda_notacredito" value="@(a.IdTienda_notacredito)">
+                            <input type="hidden" name="ListPremisa4[@i4].Caja_notacredito" value="@(a.Caja_notacredito)">
+                            <input type="hidden" name="ListPremisa4[@i4].TIPONOTACREDITO" value="@(a.TIPONOTACREDITO)">
+                            <input type="hidden" name="ListPremisa4[@i4].Folio_notacredito" value="@(a.Folio_notacredito)">
+                            <input type="hidden" name="ListPremisa4[@i4].Cliente_notacredito" value="@(a.Cliente_notacredito)">
+                            <input type="hidden" name="ListPremisa4[@i4].Total_notacredito" value="@(a.Total_notacredito)">
+                            <input type="hidden" name="ListPremisa4[@i4].Documento_Origen" value="@(a.Documento_Origen)">
+                            <input type="hidden" name="ListPremisa4[@i4].Trx_Origen" value="@(a.Trx_Origen)">
+                            <input type="hidden" name="ListPremisa4[@i4].Nro_Boleta" value="@(a.Nro_Boleta)">
+                            <input type="hidden" name="ListPremisa4[@i4].IdTienda_Origen_Boleta" value="@(a.IdTienda_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa4[@i4].Caja_Origen_Boleta" value="@(a.Caja_Origen_Boleta)">
+                            <input type="hidden" name="ListPremisa4[@i4].Fecha_Boleta" value="@(a.Fecha_Boleta)">
+                            <input type="hidden" name="ListPremisa4[@i4].Monto_Boleta" value="@(a.Monto_Boleta)">
+                            <input type="hidden" name="ListPremisa4[@i4].Tipo_Pago_Origen" value="@(a.Tipo_Pago_Origen)">
+                            <input type="hidden" name="ListPremisa4[@i4].Rut_Cajero" value="@(a.Rut_Cajero)">
+                            <input type="hidden" name="ListPremisa4[@i4].Rut_Supervisor" value="@(a.Rut_Supervisor)">
+                            <input type="hidden" name="ListPremisa4[@i4].Nombre_trabajador" value="@(a.Nombre_trabajador)">
+                            <input type="hidden" name="ListPremisa4[@i4].Descripcion_pago" value="@(a.Descripcion_pago)">
+                            <input type="hidden" name="ListPremisa4[@i4].tipo_premisa" value="@(a.tipo_premisa)">
+                        </td>
+                    </tr>
+                        i4 = i4 + 1;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        var tablePre1 = $("#TablePremisa1").DataTable({
+            scrollX: true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        });
+
+    
+
+        var tablePre2 = $("#TablePremisa2").DataTable({
+            scrollX: true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        });
+
+        var tablePre3 = $("#TablePremisa3").DataTable({
+            scrollX: true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        });
+        var tablePre4 = $("#TablePremisa4").DataTable({
+            scrollX: true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        });
+
+        ////////////////////////////////////////////////////////////////
+         //AUTO-AJUSTA LAS TABLAS AL CAMBIAR DE TABS
+        $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $($.fn.dataTable.tables(true)).DataTable()
+                .columns.adjust();
+                //.fixedColumns().relayout();
+        });
+
+         ////////////////////////////////////////////////////////////////
+         ////////////////////////////////////////////////////////////////
+         /////////                PREMISA 1            //////////////////
+        // Handle click on "Select all" control
+        $('#example-select-all-p1').on('click', function () {
+            // Get all rows with search applied
+            var rows = tablePre1.rows({ 'search': 'applied' }).nodes();
+            // Check/uncheck checkboxes for all rows in the table
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        // Handle click on checkbox to set state of "Select all" control
+        $('#TablePremisa1 tbody').on('change', 'input[type="checkbox"]', function () {
+            // If checkbox is not checked
+            if (!this.checked) {
+                var el = $('#example-select-all').get(0);
+                // If "Select all" control is checked and has 'indeterminate' property
+                if (el && el.checked && ('indeterminate' in el)) {
+                    // Set visual state of "Select all" control
+                    // as 'indeterminate'
+                    el.indeterminate = true;
+                }
+            }
+        });
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        /////////                PREMISA 2            //////////////////
+        $('#example-select-all-p2').on('click', function () {
+            var rows = tablePre2.rows({ 'search': 'applied' }).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        $('#TablePremisa2 tbody').on('change', 'input[type="checkbox"]', function () {
+            if (!this.checked) {
+                var el = $('#example-select-all-p2').get(0);
+                if (el && el.checked && ('indeterminate' in el)) {
+                    el.indeterminate = true;
+                }
+            }
+        });
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        /////////                PREMISA 3            //////////////////
+        $('#example-select-all-p3').on('click', function () {
+            var rows = tablePre3.rows({ 'search': 'applied' }).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        $('#TablePremisa3 tbody').on('change', 'input[type="checkbox"]', function () {
+            if (!this.checked) {
+                var el = $('#example-select-all-p3').get(0);
+                if (el && el.checked && ('indeterminate' in el)) {
+                    el.indeterminate = true;
+                }
+            }
+        });
+        ////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        /////////                PREMISA 4           //////////////////
+        $('#example-select-all-p4').on('click', function () {
+            var rows = tablePre4.rows({ 'search': 'applied' }).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+        $('#TablePremisa4 tbody').on('change', 'input[type="checkbox"]', function () {
+            if (!this.checked) {
+                var el = $('#example-select-all-p4').get(0);
+                if (el && el.checked && ('indeterminate' in el)) {
+                    el.indeterminate = true;
+                }
+            }
+        });
+
+        ////////////////////////////////////////////////////////////////
+
+         $('#btnSendData').click(function (event) {
+
+
+             var ListPremisa1 = tablePre1.$('input').serialize();
+             var ListPremisa2 = tablePre2.$('input').serialize();
+             var ListPremisa3 = tablePre3.$('input').serialize();
+             var ListPremisa4 = tablePre4.$('input').serialize();
+
+             //ListPremisa1 = ListPremisa1 + "&" + ListPremisa2 + "&" + ListPremisa3 + "&" + ListPremisa4;
+             var arg = ListPremisa1 + "&" + ListPremisa2 + "&" + ListPremisa3 + "&" + ListPremisa4;
+             console.log(arg.toString());
+             var url = '@Url.Action("GenerateDoc", "MediosPago")';
+
+             //DownloadIdocNC(ListPremisa1, url);
+             DownloadIdocNC(arg, url);
+
+
+            // $.ajax({
+            //     type: 'POST',
+            //     url: url,
+            //     data: ListPremisa1,
+            //    success: function (response) {
+
+            //    },
+            //    error: function (r, error) {
+            //        alert('Error FormUsuario.cshtml, function.click #btnCrear');
+            //    }
+            //});
+    });
+
+
+    });
+
+
+    function DownloadIdocNC(data, urlNC) {
+
+        var url = urlNC;
+        var list = [];
+        var fileName = '';
+        list.push({ fileName: fileName });
+
+        $('#cargal').modal('show');
+        $.ajax({
+            url: url,
+            type: "post",
+            data: data,
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function (data, textStatus, xhr) {
+                var filename = list[0].filename;
+                var disposition = xhr.getResponseHeader('Content-Disposition');
+                if (disposition && disposition.indexOf('attachment') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                    var a = document.createElement('a');
+                    var url = window.URL.createObjectURL(data);
+                    a.href = url;
+                    a.download = filename;
+                    document.body.append(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                }
+                else {
+                    getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            },
+            complete: function () {
+                setTimeout(function () {
+                    $("#cargal").modal('hide');
+                }, 1500);
+
+            }
+        });
+    }
+</script>

@@ -1,0 +1,14 @@
+﻿@model List<SistemaGestion.Models.ViewModels.RolesDisponibles>
+
+
+<ul class="list-group">
+    @{
+        foreach (var a in Model)
+        {
+            <li class="list-group-item">
+                <h4 class="list-group-item-heading">@a.RolNombre</h4>
+                <p class="list-group-item-text">@a.RolDescription</p>
+            </li>
+        }
+    }
+</ul>

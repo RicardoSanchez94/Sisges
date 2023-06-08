@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="993949e1ab244516b202aba72d769629" Name="Diagram1" ZoomLevel="10">
+        <EntityTypeShape EntityType="sisgesModel.Persona" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="sisgesModel.Rol" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="sisgesModel.Usuario" Width="1.5" PointX="2.25" PointY="0.75" />
+        <AssociationConnector Association="sisgesModel.FK_Usuario_Persona" />
+        <AssociationConnector Association="sisgesModel.Usuario_Rol" />
+        <EntityTypeShape EntityType="sisgesModel.Sexo" Width="1.5" PointX="0.75" PointY="8.625" />
+        <EntityTypeShape EntityType="sisgesModel.PAGOS_MP" Width="1.5" PointX="3.875" PointY="0.75" />
+        <AssociationConnector Association="sisgesModel.FK_Persona_Sexo" />
+        <EntityTypeShape EntityType="sisgesModel.LIBRO_VENTA" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="sisgesModel.LIBRO_VENTA_PROD" Width="1.5" PointX="5.875" PointY="0.625" />
+        <EntityTypeShape EntityType="sisgesModel.IDOC_PAGOS_FI" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="sisgesModel.ConciliacionAutoPagos" Width="1.5" PointX="9.625" PointY="11.375" />
+        <EntityTypeShape EntityType="sisgesModel.ConciliacionManualPagos" Width="1.5" PointX="11.375" PointY="5.75" />
+        <EntityTypeShape EntityType="sisgesModel.Cuenta" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="sisgesModel.Diferencias_Pagos" Width="1.5" PointX="5.625" PointY="16.25" />
+        <AssociationConnector Association="sisgesModel.FK_Diferencias_Pagos_Cuenta" />
+        <EntityTypeShape EntityType="sisgesModel.ACREEDOR_REL" Width="1.5" PointX="12.375" PointY="11" />
+        <EntityTypeShape EntityType="sisgesModel.CODIGO_COMERCIO_TBK" Width="1.5" PointX="5.125" PointY="20.75" />
+        <AssociationConnector Association="sisgesModel.FK_Diferencias_Pagos_ACREEDOR_REL" />
+        <EntityTypeShape EntityType="sisgesModel.TIPO_PAGO" Width="1.5" PointX="15.625" PointY="13.125" />
+        <AssociationConnector Association="sisgesModel.FK_ACREEDOR_REL_TIPO_PAGO" />
+        <AssociationConnector Association="sisgesModel.FK_CODIGO_COMERCIO_TBK_CODIGO_COMERCIO_TBK" />
+        <EntityTypeShape EntityType="sisgesModel.ZONA" Width="1.5" PointX="5.25" PointY="24.625" />
+        <AssociationConnector Association="sisgesModel.UsuarioZona" />
+        <EntityTypeShape EntityType="sisgesModel.VENTAS" Width="1.5" PointX="14.375" PointY="6.75" />
+        <EntityTypeShape EntityType="sisgesModel.MEDIOSPAGOS" Width="1.5" PointX="8.25" PointY="0.5" />
+        <EntityTypeShape EntityType="sisgesModel.notaCreditoEspecial" Width="1.5" PointX="14.375" PointY="15.75" />
+        <EntityTypeShape EntityType="sisgesModel.Conciliacion" Width="1.5" PointX="18.875" PointY="1.75" />
+        <EntityTypeShape EntityType="sisgesModel.Auditoria" Width="1.5" PointX="5.25" PointY="34.75" />
+        <AssociationConnector Association="sisgesModel.FK_Auditoria_Usuario" />
+        <EntityTypeShape EntityType="sisgesModel.CENTROS_LOCAL" Width="1.5" PointX="36.625" PointY="38.25" />
+        <AssociationConnector Association="sisgesModel.FK_CENTROS_LOCAL_ZONA" />
+        <AssociationConnector Association="sisgesModel.FK_CODIGO_COMERCIO_TBK_CENTROS_LOCAL" />
+        <AssociationConnector Association="sisgesModel.FK_MEDIOSPAGOS_CENTROS_LOCAL" />
+        <EntityTypeShape EntityType="sisgesModel.Pagos_Apitbk" Width="1.5" PointX="7.875" PointY="34.75" />
+        <AssociationConnector Association="sisgesModel.FK_Pagos_Apitbk_CODIGO_COMERCIO_TBK" />
+        <EntityTypeShape EntityType="sisgesModel.ConciliaciondePagos" Width="1.5" PointX="13" PointY="35.25" />
+        <EntityTypeShape EntityType="sisgesModel.DetalleConciliacionPagos" Width="1.5" PointX="10.25" PointY="35" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacionPagos_ConciliaciondePagos" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacionPagos_Pagos_Apitbk" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacionPagos_ACREEDOR_REL" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacionPagos_Cuenta" />
+        <EntityTypeShape EntityType="sisgesModel.IDOC_FI" Width="1.5" PointX="10.375" PointY="15.75" />
+        <EntityTypeShape EntityType="sisgesModel.LibroMayor" Width="1.5" PointX="38.125" PointY="0.5" />
+        <EntityTypeShape EntityType="sisgesModel.LibroMayorDEP" Width="1.5" PointX="36.125" PointY="0.5" />
+        <AssociationConnector Association="sisgesModel.FK_LibroMayorDEP_LibroMayor" />
+        <AssociationConnector Association="sisgesModel.FK_LibroMayorDEP_LibroMayor1" />
+        <EntityTypeShape EntityType="sisgesModel.InterfazAutorizacion" Width="1.5" PointX="16.375" PointY="15.75" />
+        <EntityTypeShape EntityType="sisgesModel.Periodo" Width="1.5" PointX="3.75" PointY="11.75" />
+        <AssociationConnector Association="sisgesModel.FK_ACREEDOR_REL_CENTROS_LOCAL" />
+        <EntityTypeShape EntityType="sisgesModel.PAGOS" Width="1.5" PointX="4.625" PointY="40.875" />
+        <AssociationConnector Association="sisgesModel.FK_PAGOS_CENTROS_LOCAL" />
+        <EntityTypeShape EntityType="sisgesModel.EMPLEADO" Width="1.5" PointX="45" PointY="10.75" />
+        <EntityTypeShape EntityType="sisgesModel.TipoPagoGL" Width="1.5" PointX="30.375" PointY="10.375" />
+        <EntityTypeShape EntityType="sisgesModel.boletaOrigen" Width="1.5" PointX="32.625" PointY="14.125" />
+        <EntityTypeShape EntityType="sisgesModel.notaCredito" Width="1.5" PointX="28" PointY="13.875" />
+        <AssociationConnector Association="sisgesModel.FK_boletaOrigen_TipoPagoGL" />
+        <AssociationConnector Association="sisgesModel.FK_notaCredito_EMPLEADO" />
+        <AssociationConnector Association="sisgesModel.FK_notaCredito_EMPLEADO1" />
+        <AssociationConnector Association="sisgesModel.NotaCredito_BoletaOrigen" />
+        <EntityTypeShape EntityType="sisgesModel.EstadoSencillo" Width="1.5" PointX="30.875" PointY="31.5" />
+        <EntityTypeShape EntityType="sisgesModel.SencillosSAP" Width="1.5" PointX="32.375" PointY="37.375" />
+        <EntityTypeShape EntityType="sisgesModel.TipoRemito" Width="1.5" PointX="37.125" PointY="31.5" />
+        <EntityTypeShape EntityType="sisgesModel.Remito" Width="1.5" PointX="33.625" PointY="30.75" />
+        <EntityTypeShape EntityType="sisgesModel.Sencillos_Tiendas" Width="1.5" PointX="31.125" PointY="33.875" />
+        <AssociationConnector Association="sisgesModel.FK_Remito_CENTROS_LOCAL" />
+        <AssociationConnector Association="sisgesModel.FK_Sencillos_Tiendas_CENTROS_LOCAL" />
+        <AssociationConnector Association="sisgesModel.FK_Sencillos_Tiendas_EstadoSencillo" />
+        <AssociationConnector Association="sisgesModel.FK_Remito_Sencillos_Tiendas" />
+        <AssociationConnector Association="sisgesModel.FK_Remito_TipoRemito" />
+        <EntityTypeShape EntityType="sisgesModel.DetalleSencillo" Width="1.5" PointX="36.625" PointY="33.625" />
+        <EntityTypeShape EntityType="sisgesModel.MontoSencillo" Width="1.5" PointX="38.875" PointY="34.125" />
+        <EntityTypeShape EntityType="sisgesModel.Sencillos" Width="1.5" PointX="34.25" PointY="33.75" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleSencillo_CENTROS_LOCAL" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleSencillo_Sencillos" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleSencillo_SencillosSAP" />
+        <AssociationConnector Association="sisgesModel.FK_MontoSencillo_DetalleSencillo" />
+        <AssociationConnector Association="sisgesModel.FK_Sencillos_Tiendas_DetalleSencillo" />
+        <EntityTypeShape EntityType="sisgesModel.DetalleConciliacion" Width="1.5" PointX="21.5" PointY="6" />
+        <EntityTypeShape EntityType="sisgesModel.Ventas_Apitbk" Width="1.5" PointX="19.25" PointY="6.625" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacion_ACREEDOR_REL" />
+        <AssociationConnector Association="sisgesModel.FK_Ventas_Apitbk_Ventas_Apitbk" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacion_Conciliacion" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacion_Cuenta" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacion_MEDIOSPAGOS" />
+        <AssociationConnector Association="sisgesModel.FK_DetalleConciliacion_Ventas_Apitbk1" />
+        <EntityTypeShape EntityType="sisgesModel.TipoAceptacion" Width="1.5" PointX="47.75" PointY="8.75" />
+        <EntityTypeShape EntityType="sisgesModel.TipoRechazo" Width="1.5" PointX="47.875" PointY="11.5" />
+        <EntityTypeShape EntityType="sisgesModel.AcumuladoSobrante_Faltante" Width="1.5" PointX="50.125" PointY="24" />
+        <EntityTypeShape EntityType="sisgesModel.Sobrante_Faltante" Width="1.5" PointX="52.375" PointY="25" />
+        <AssociationConnector Association="sisgesModel.FK_AcumuladoSobrante_Faltante_CENTROS_LOCAL" />
+        <AssociationConnector Association="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoAceptacion" />
+        <AssociationConnector Association="sisgesModel.FK_AcumuladoSobrante_Faltante_TipoRechazo" />
+        <AssociationConnector Association="sisgesModel.FK_Sobrante_Faltante_AcumuladoSobrante_Faltante" />
+        <AssociationConnector Association="sisgesModel.FK_Sobrante_Faltante_CENTROS_LOCAL" />
+        <AssociationConnector Association="sisgesModel.FK_Sobrante_Faltante_EMPLEADO" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,152 @@
+﻿@model SistemaGestion.Models.ViewModels.ManualView
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Obtener No Conciliadas de Tbk Con Mp</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                @using (Html.BeginForm("AgregarConciliacionManual", "MediosPago", FormMethod.Post, new { id = "AgregarConciliacionManual", role = "form", enctype = "multipart/form-data" }))
+                {
+                    <div class="col-sm-12">
+
+                        @Html.HiddenFor(x => x.Centro)
+                        @Html.HiddenFor(x => x.Fecha)
+                        @Html.HiddenFor(x=>x.Local)
+
+                        <input type="hidden" id="txtIdPersona" />
+                        <div class="form-group">
+                            <label for="txtNombre">Autorizador:</label>
+                            @Html.TextBoxFor(x => x.AutorizadorTbk, new { @class = "form-control form-control-sm model", @readonly = "readonly" })
+                            @*<input type="text" class="form-control form-control-sm model" id="Autorizador" name="Fecha" autocomplete="off" value="@Model.AutorizadorTbk">*@
+                        </div>
+                        <div class="form-group">
+                            <label for="txtApellidos">Monto:</label>
+                            @Html.TextBoxFor(x => x.MontoTbk, new { @class = "form-control form-control-sm model", @readonly = "readonly" })
+                            @*<input type="text" class="form-control form-control-sm model" id="Monto" name="Fecha" autocomplete="off" value="@Model.MontoTbk">*@
+                        </div>
+
+                    </div>
+                    <label for="txtNombre">Codigo de Autorizadores MP</label>
+                    @Html.DropDownListFor(x => x.TrxMP, new SelectList(Model.LstMp.OrderBy(z => z.AutorizadorMP), "Trx", "Nombre"), "Seleccione MP...", new { @class = "form-control", name = "TrxMP" })
+                }
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" id="btcarga">Conciliar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+     $(function () {
+         $("#btcarga").click(function () {
+                event.preventDefault();
+                var result = confirm("Desea Conciliar?");
+                if (result) {
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("AgregarConciliacionManual", "MediosPago")";
+                    var manejarErrorAjax = "Eror";
+                    var parametros = $("#AgregarConciliacionManual").serialize();
+                    var Fecha = $("#TrxMP").val();
+                    console.log(Fecha);
+                    $.post(url, parametros).done(function (res) {
+                        if (res.error == false) {
+
+                            setTimeout(carga, 3000);
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(bajaModal, 6000);
+                            bajarModalConciliacion();
+                            MostrarLista();
+
+                            //setTimeout(bajarModalConciliacion, 8000);
+                            function carga() {
+                                $("#cargal").modal('hide');
+                                //$("#cargarMensajes").modal('show');
+                                //$('#mensajeLoad').html(r.respuesta);
+                            };
+                            function bajaModal() {
+
+                                $("#cargarMensajes").modal('hide');
+                                $("#totales").modal('hide');
+
+                            };
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(res.respuesta);
+
+                            };
+
+                        /*    function Cargar*/
+
+
+                        } else {
+
+                            setTimeout(carga, 3000);
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(bajaModal, 6000);
+
+
+                            function carga() {
+                                $("#cargal").modal('hide');
+                                //$("#cargarMensajes").modal('show');
+                                //$('#mensajeLoad').html(r.respuesta);
+                            };
+                            function bajaModal() {
+
+                                $("#cargarMensajes").modal('hide');
+
+                            };
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(res.respuesta);
+
+                            };
+
+                        }
+                        //$('.modal-backdrop').remove();
+
+                    }).fail(manejarErrorAjax);
+
+                }
+            });
+
+     })
+
+    function MostrarLista() {
+        $('#cargal').modal('show');
+        var url = "@Url.Action("ConciliacionManual", "MediosPago")";
+        var manejarErrorAjax = "Eror";
+        var parametros = $("#AgregarConciliacionManual").serialize();
+        var tienda = $("#Local").val();
+        var Fecha = $("#Fecha").val();
+        console.log('Entro en la vista de listas')
+        console.log(tienda);
+        var data = { Fecha: Fecha, local: tienda };
+        $.post(url, data).done(function (data) {
+            setTimeout(bajar, 1000);
+            setTimeout(Subir, 2000);
+
+            function bajar() {
+                $('#cargal').modal('hide');
+
+            }
+            function Subir() {
+                $('#totales').html(data);
+                $('#totales').show();
+            }
+
+        }).fail(manejarErrorAjax);
+
+    }
+</script>
+

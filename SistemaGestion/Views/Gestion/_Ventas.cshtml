@@ -1,0 +1,56 @@
+﻿@model List<SistemaGestion.Models.Proc_ListaIdocVenta_Result>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="col-lg-12">
+            <table id="tbReporte" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Centro</th>
+                        <th class="text-center">Local</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">Observacion</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">Archivo_Idoc</th>
+                        <th class="text-center">ID_Proceso</th>
+                        <th class="text-center">FechaHora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+
+                        <td>@item.Centro</td>
+                        <td>@item.Local</td>
+                        <td>@item.Estado</td>
+                        <td>@item.Observacion</td>
+                        <td>@item.Fecha</td>
+                        <td>@item.Archivo_IDOC</td>
+                        <td>@item.ID_Proceso</td>
+                        <td>@item.FechaHora</td>
+
+
+
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var tabla_data;
+        tabla_data = $('#tbReporte').DataTable({
+            responsive: true,
+            "language": {
+                url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+            }
+        });
+    });
+</script>

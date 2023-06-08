@@ -1,0 +1,622 @@
+﻿@using SistemaGestion.Models.Repositorios;
+@using SistemaGestion.Models.ViewModels;
+@using Newtonsoft.Json;
+@using SistemaGestion.Models;
+
+@{
+
+    var ADU = new AdminUsuarios();
+    var RU = new RolesUsuario();
+    var name = new Persona();
+    if (User.Identity.IsAuthenticated)
+    {
+        var Json = JsonConvert.DeserializeObject<UserLoginView>(User.Identity.Name);
+        //string loginName = User.Identity.Name;
+        RU = ADU.GetRolesUser(Json.LoginName);
+        name = ADU.GetPersona(Json.LoginName);
+}
+
+}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <a href="@Url.Action("Index", "Home")" class="brand-link">
+
+        @*<img src="~/Content/img/LogoSCC2.png" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">*@
+        <span class="brand-text font-weight-light"></span>
+    </a>
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                @*Dashboard*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Home")" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Dashboard
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index","Home")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Automatico</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Dash","Admin")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "ApiTransbank")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Dashboard TBK-MP</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "CentralizacionPagos")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Dashboard Pagos-TBK</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                @*CentralizacionVentas*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"@*|| x.RolNombre == "Contraloria"*@))
+{
+<li class="nav-item">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fa fa-book"></i>
+        <p>
+            Centralizacion Ventas
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+        {
+            <li class="nav-item">
+                <a href="@Url.Action("Documento","Admin")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Diferencias</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("LibroVenta","Admin")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>LibroVentaM</p>
+                </a>
+            </li>
+            @*<li class="nav-item">
+                    <a href="@Url.Action("IdocClientes", "Gestion")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>IdocXRut</p>
+                    </a>
+                </li>*@
+            @*<li class="nav-item">
+                    <a href="@Url.Action("NotaFolio", "Gestion")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>NotaXFolio</p> ReporteParticipacion
+                    </a>
+                </li>*@
+            @*<li class="nav-item">
+                    <a href="@Url.Action("NotaFolio", "Gestion")" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>NotaXFolio</p> ReporteParticipacion
+                    </a>
+                </li>*@
+
+            <li class="nav-item">
+                <a href="@Url.Action("fi", "MediosPago")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>FI VENTAS</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("nc", "MediosPago")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>NC</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Ventas", "Gestion")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Idocs Ventas</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("LibroVenta", "Gestion")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Detalle LibroVenta</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("DetalleVenta", "Gestion")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Detalle Ventas</p>
+                </a>
+            </li>
+        }
+        @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Contraloria"))
+        {
+            <li class="nav-item">
+                <a href="@Url.Action("nc", "MediosPago")" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>NC</p>
+                </a>
+            </li>
+        }
+    </ul>
+</li>
+}
+
+@*ConciliacionVentas*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-area"></i>
+                            <p>
+                                Conciliacion Ventas
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("ConciliacionManual", "MediosPago")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("DifConciliacion", "MediosPago")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Diferencias</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("ConCiliacionAutomatica", "MediosPago")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Automatica</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                @*CentralizacionPagos*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-money-bill"></i>
+                            <p>
+                                Centralizacion Pagos
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("TrkPagoApi", "ApiTbkPagos")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>PagosTBK</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Pagos", "CentralizacionPagos")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Detalle Pagos</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("IndexMP", "CentralizacionPagos")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>MP</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("IndexFI", "CentralizacionPagos")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>FI</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                @*ConciliacionPagos*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-credit-card-alt"></i>
+                            <p>
+                                Conciliacion Pagos
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("ConciliacionManual", "ConciliacionPagos")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manual</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("DifConciliacion", "ConciliacionPagos")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Diferencias</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("ConciliacionAuto", "ConciliacionPagos")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Automatica</p>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                }
+
+                @*EFO*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-cogs"></i>
+                            <p>
+                                ConciliacionEFO
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "CuadraturaEFO")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>LibMayor/Automatica</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("ConciliacionManual", "CuadraturaEFO")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ConciliacionManual</p>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                }
+
+                @*Interfaces*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-cogs"></i>
+                            <p>
+                                Interfaces
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Interfaz")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>CAAU/Ventas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Avances", "Interfaz")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>CAAU/Avances</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("CAPA", "Interfaz")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>CAPA</p>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+                }
+                @*Informe*@
+                @if (!RU.rolesUsuario.Exists(x => x.RolNombre == "Tienda" || x.RolNombre == "Tesoreria" || x.RolNombre == "Existencia"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-file-excel"></i>
+                            <p>
+                                Informes
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("NotaCredito", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>NC</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("ReporteTarjetaFSP", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tarjeta FSP/Vencer</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("ReporteParticipacion", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Participacion</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Avance", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Avance</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("TicktPromedio", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>TicktPromedio</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("mp", "MediosPago")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>MP</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("InformeMPCuentaRut", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>MPCuentaRut</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("InformePagosCuentaRut", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>PagosCuentaRut</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("BoletasContraloria", "Informes")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>BoletasContraloria</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                }
+
+                @*Tesoreria*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura" || x.RolNombre == "Tesoreria"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-file-excel"></i>
+                            <p>
+                                Tesoreria
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Tesoreria")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>CargaSencillo</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("ConciliacionSencillo", "Tesoreria")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ConciliacionSencillo</p>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                }
+                @*//Administrador*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-sitemap"></i>
+                            <p>
+                                Administrador
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "MantenedorCuentas")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Cuentas Contables</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("BarridoGS", "Administracion")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Recarga Ventas</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("ReprocesoMediosPagos", "Administracion")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Recarga MP</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("PanelControl", "AdminUser")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Admin Usuarios</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("CerrarPeriodo", "Administracion")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>CerrarPeriodo</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                }
+
+                @*//Tienda*@
+                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Tienda" || x.RolNombre == "Tesoreria" || x.RolNombre == "Cuadratura"))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-folder-open"></i>
+                            <p>
+                                Tienda
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Sencillo", "Tienda")" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Sencillo</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="@Url.Action("SobranteFaltante", "Tienda")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Sobrante/Faltante</p>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                }
+
+                @*@if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador"))
+                    {
+                        <li class="nav-item">
+                            <a href="@Url.Action("PanelControl", "AdminUser")" class="nav-link">
+                                <i class="far fa-user-circle"></i>
+                                <p>Admin Usuarios</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-plus-square"></i>
+                                <p>
+                                    Conciliacion
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            VentasTBK
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("ConCiliacionAutomatica", "MediosPago")" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Automatica</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("ConciliacionManual", "MediosPago")" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Manual</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("DifConciliacion", "MediosPago")" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Diferencias</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                           PagosTBK
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("ConciliacionAuto", "ConciliacionPagos")" class="nav-link">
+
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Automatica</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("ConciliacionManual", "ConciliacionPagos")" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Manual</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("DifConciliacion", "ConciliacionPagos")" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Diferencias</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                                    }*@
+
+            </ul>
+        </nav>
+    </div>
+</aside>

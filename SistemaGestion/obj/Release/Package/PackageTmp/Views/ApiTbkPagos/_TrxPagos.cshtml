@@ -1,0 +1,58 @@
+﻿@model List<SistemaGestion.Models.Pagos_Apitbk>
+<div class="container shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tbReporte" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">Centro</th>
+                        <th class="text-center">Monto</th>
+                        <th class="text-center">Autorizador</th>
+                        <th class="text-center">FormaPago</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.fechaTransaccion.ToString("dd-MM-yyyy")</td>
+                        <td>@item.codigoLocal</td>
+                        <td>@item.montoAfecto.Value.ToString("C")</td>
+                        <td>@item.codigoAutorizacion</td>
+                        @if (item.tipoProducto == "D")
+                        {
+                            <td>Debito</td>
+                        }
+                        else
+                        {
+                            <td>Credito</td>
+                        }
+                     
+
+
+
+
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+         
+            <!-- Modal -->
+
+        </div>
+    </div>
+</div>
+<script>
+     $(document).ready(function () {
+         $('#tbReporte').DataTable(
+                {
+                    responsive: true,
+                    "language": {
+                        url: "@Url.Content("~/Content/datatable / js / datatable_spanish.json")"
+                    }
+                });
+        });
+</script>

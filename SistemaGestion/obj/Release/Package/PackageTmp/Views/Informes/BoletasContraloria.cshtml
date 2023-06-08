@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewBag.Title = "BoletasContraloria";
+}
+
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <br />
+
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="card border-secondary">
+                                <div class="card-header bg-secondary text-white">
+                                    Reporte Boletas Contraloria
+                                </div>
+                                @using (Html.BeginForm("BoletasContraloria", "Informes", FormMethod.Post, new { id = "BoletasContraloria", role = "form" }))
+                                {
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Fecha Para Ingresar</label>
+                                                    <input type="month" class="form-control form-control-sm model" id="Inicio" name="Inicio" autocomplete="off" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+                                                </div>
+                                            </div>
+                                            @*<div class="col-sm-2">
+                                                    <div class="form-group mb-0">
+                                                        <label for="btcarga" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                        <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
+                                                    </div>
+                                                </div>*@
+                                            <div class="col-sm-2">
+                                                <div class="form-group mb-0">
+                                                    <label for="btnBuscar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
+                                                    <button class="btn btn-sm btn-success btn-block" type="submit" role="button" id="btnIngresar"><i class="fa fa-file-excel"> </i> Descargar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*<div class="row">
+
+                                            </div>*@
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+           
+
+            $('#btnIngresar').click(function (event) {
+            event.preventDefault();
+            var url = '@Url.Action("BoletasContraloria", "Informes")';
+                var Fecha = $("#Inicio").val();
+            //var fechaFin = $("#Fin").val();
+            //var tipo = $("#TypeReporte").val();
+                DownloadFileFechasEntre(Fecha, url);
+        });
+
+
+
+        });
+
+        @*$(function () {
+            $("#btnBuscar").click(function () {
+                event.preventDefault();
+                //var result = confirm("Desea Cargas Ventas?");
+                //  if (result){
+                $('#cargal').modal('show');
+                var url = "@Url.Action("ReporteTarjetaFSP", "Informes")";
+                var manejarErrorAjax = "Eror";
+                var Inicio = $("#Inicio").val();
+                var Fin = $("#Fin").val();
+                var local = $("#cboTienda").val();
+                console.log(Inicio);
+                var data = { Inicio: Inicio};
+                $.post(url, data).done(function (data) {
+                    setTimeout(Bajar, 1000);
+                    setTimeout(Subir, 2000);
+
+
+                    function Bajar() {
+                        $('#cargal').modal('hide');
+                    }
+                    function Subir() {
+                        $('#diferencias').html(data);
+                        $('#diferencias').show();
+                    }
+
+                }).fail(manejarErrorAjax);
+
+                //}
+            });
+
+        });*@
+
+        function DownloadFileFechasEntre(Fecha, urlAc) {
+
+
+            var url = urlAc;
+            //var fechaIni = fechaI;
+            //var fechaFin = fechaT;
+            //var tipoR = tipo;
+
+            var list = [];
+            var fileName = '';
+            list.push({ fileName: fileName });
+
+            $('#cargal').modal('show');
+            $.ajax({
+                url: url,
+                type: "post",
+                data: { Fecha: Fecha },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, textStatus, xhr) {
+                    var filename = list[0].filename;
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(data);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    }
+                    else {
+                        getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function () {
+                    //var interfaz = list[0];
+                    //deleteArchivo(list);
+                    setTimeout(function () {
+                        $("#cargal").modal('hide');
+                    }, 1500);
+
+                }
+            });
+        }
+    </script>
+}
+

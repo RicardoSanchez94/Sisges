@@ -1,0 +1,182 @@
+﻿@model SistemaGestion.Models.ViewModels.DiferenciaView
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Diferencias En Conciliacion</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                @using (Html.BeginForm("AgregarDiferencias", "MediosPago", FormMethod.Post, new { id = "AgregarDiferencias", role = "form", enctype = "multipart/form-data" }))
+                {
+                    <div class="col-sm-12">
+
+                        @Html.HiddenFor(x => x.Centro)
+                        @Html.HiddenFor(x => x.Fecha)
+                        @Html.HiddenFor(x => x.Local)
+
+                        <input type="hidden" id="txtIdPersona" />
+                        <div class="form-group">
+                            <label for="txtNombre">Autorizador:</label>
+                            @Html.TextBoxFor(x => x.Autorizador, new { @class = "form-control form-control-sm model", @readonly = "readonly" })
+                            @*<input type="text" class="form-control form-control-sm model" id="Autorizador" name="Fecha" autocomplete="off" value="@Model.AutorizadorTbk">*@
+                        </div>
+                        <div class="form-group">
+                            <label for="txtApellidos">Monto:</label>
+                            @Html.TextBoxFor(x => x.Monto, new { @class = "form-control form-control-sm model", @readonly = "readonly" })
+                            @*<input type="text" class="form-control form-control-sm model" id="Monto" name="Fecha" autocomplete="off" value="@Model.MontoTbk">*@
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombre">Cuentas Contables</label>
+                        @Html.DropDownListFor(x => x.CuentaContable, new SelectList(Model.ListaCuentas1.OrderBy(z => z.Codigo), "Codigo", "Nombre"), "Seleccione Cuenta...", new { @class = "form-control form-control-sm model", name = "CuentaContablesD" })
+
+                       
+                        <label for="txtNombre">Tipo Asiento</label>
+                        @Html.DropDownListFor(x => x.TipoAsiento, SistemaGestion.Models.ViewModels.DiferenciaView.Asiento(), "Seleccione...", new { @class = "form-control form-control-sm model", name = "CuentaContable" })
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombre">Cuentas Contables</label>
+                        @Html.DropDownListFor(x => x.CuentaContable2, new SelectList(Model.ListaCuentas2.OrderBy(z => z.Codigo), "Codigo", "Nombre"), "Seleccione Cuenta...", new { @class = "form-control form-control-sm model", name = "CuentaContable" })
+
+                        <label for="txtNombre">Tipo Asiento</label>
+                        @Html.DropDownListFor(x => x.TipoAsiento2, SistemaGestion.Models.ViewModels.DiferenciaView.Asiento(), "Seleccione...", new { @class = "form-control form-control-sm model", name = "CuentaContable" })
+
+
+
+                    </div>
+
+                }
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" id="btcarga">Conciliar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+       $(function () {
+         $("#btcarga").click(function () {
+             event.preventDefault();
+             var CuentaContable1 = $("#CuentaContable").val();
+             var CuentaContable2 = $("#CuentaContable2").val();
+             var TipoAsiento = $("#TipoAsiento").val();
+             var TipoAsiento2 = $("#TipoAsiento2").val();
+            
+             var result = confirm("Desea Conciliar?");
+             if (CuentaContable1 == CuentaContable2) {
+                 alert("Las Cuentas Contables No pueden ser Iguales")
+                 return 0;
+             }
+             if (TipoAsiento == TipoAsiento2) {
+                 alert("Los Tipo de Asiento no pueden ser Igual")
+                 return 0;
+             }
+                if (result) {
+                    $('#cargal').modal('show');
+                    var url = "@Url.Action("AgregarDiferencias", "MediosPago")";
+                    var manejarErrorAjax = "Eror";
+                    var parametros = $("#AgregarDiferencias").serialize();
+                    var Fecha = $("#TrxMP").val();
+                    console.log(Fecha);
+                    $.post(url, parametros).done(function (res) {
+                        if (res.error == false) {
+
+                            setTimeout(carga, 3000);
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(bajaModal, 6000);
+                            bajarModalDiferencias();
+                            MostrarLista();
+
+                            //setTimeout(bajarModalConciliacion, 8000);
+                            function carga() {
+                                $("#cargal").modal('hide');
+                                //$("#cargarMensajes").modal('show');
+                                //$('#mensajeLoad').html(r.respuesta);
+                            };
+                            function bajaModal() {
+
+                                $("#cargarMensajes").modal('hide');
+                                $("#totales").modal('hide');
+
+                            };
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(res.respuesta);
+
+                            };
+
+                        /*    function Cargar*/
+
+
+                        } else {
+
+                            setTimeout(carga, 3000);
+                            setTimeout(mostrarMensaje, 4000);
+                            setTimeout(bajaModal, 6000);
+
+
+                            function carga() {
+                                $("#cargal").modal('hide');
+                                //$("#cargarMensajes").modal('show');
+                                //$('#mensajeLoad').html(r.respuesta);
+                            };
+                            function bajaModal() {
+
+                                $("#cargarMensajes").modal('hide');
+
+                            };
+
+                            function mostrarMensaje() {
+                                $("#cargarMensajes").modal('show');
+                                $('#mensajeLoad').html(res.respuesta);
+
+                            };
+
+                        }
+                        //$('.modal-backdrop').remove();
+
+                    }).fail(manejarErrorAjax);
+
+                }
+            });
+
+       })
+     function MostrarLista() {
+        $('#cargal').modal('show');
+        var url = "@Url.Action("DifConciliacion", "MediosPago")";
+        var manejarErrorAjax = "Eror";
+        var parametros = $("#AgregarConciliacionManual").serialize();
+        var tienda = $("#Local").val();
+        var Fecha = $("#Fecha").val();
+        console.log('Entro en la vista de listas')
+        console.log(tienda);
+        var data = { Fecha: Fecha, local: tienda };
+        $.post(url, data).done(function (data) {
+            setTimeout(bajar, 1000);
+            setTimeout(Subir, 2000);
+
+            function bajar() {
+                $('#cargal').modal('hide');
+
+            }
+            function Subir() {
+                $('#totales').html(data);
+                $('#totales').show();
+            }
+
+        }).fail(manejarErrorAjax);
+
+    }
+</script>

@@ -1,0 +1,16 @@
+﻿/* Estilos para el HEAD de la tabla */
+table.dataTable thead {
+    background-color: rgb(162, 8, 8);
+    color: azure;
+}
+
+/* Estilos para los botones de paginacion */
+.page-item.active .page-link {
+    background-color: rgb(162, 8, 8) !important;
+    color: azure !important;
+    /* border: 1px solid black; */
+}
+
+.page-link {
+    color: black !important;
+}

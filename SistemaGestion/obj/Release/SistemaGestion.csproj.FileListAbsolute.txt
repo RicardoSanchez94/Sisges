@@ -1,0 +1,1055 @@
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\Proyecto Cuadratura QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\PRD1\PRD1\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\Gestion\QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Rotativa.Core.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Rotativa.MVC.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\eugenio.barra\Documents\ProyectosFSP\ProyectoCuadratura2QA\sistema-cuadratura-y-conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.MVC.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\QAAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.MVC.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterAzure\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.MVC.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\Master\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.Core.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.MVC.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.Core.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.MVC.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll.config
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SistemaGestion.pdb
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\DocumentFormat.OpenXml.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.Interfaces.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.System.Drawing.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Owin.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Data.Linq.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Remotion.Interfaces.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.Core.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Rotativa.MVC.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\WebGrease.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.pdb
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\BCrypt.Net.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EntityFramework.SqlServer.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\EPPlus.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\LinqToExcel.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\RestSharp.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\SpreadsheetLight.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.ValueTuple.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Helpers.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Mvc.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Razor.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Deployment.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.WebPages.Razor.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\System.Web.Optimization.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Newtonsoft.Json.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Antlr3.Runtime.pdb
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Razor.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\System.Web.Optimization.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.AssemblyReference.cache
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CoreCompileInputs.cache
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.csproj.CopyComplete
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.dll
+C:\Users\eugenio.barra\Documents\ProyectoFSPAzure\SistemaGestion2v\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Release\SistemaGestion.pdb
