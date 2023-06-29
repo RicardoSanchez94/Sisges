@@ -386,7 +386,7 @@ namespace SistemaGestion.Controllers
                 string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 DateTime dateTime = DateTime.Now;
                 dateTime = dateTime.Date;
-                string fileDownloadName = "MpCuentaRut " + Fecha.ToString("yyyyMMdd") + ".xlsx";
+                string fileDownloadName = "PagoMPCuenta " + Fecha.ToString("yyyyMMdd") + ".xlsx";
                 memoryStream.Position = 0L;
                 return File((Stream)memoryStream, contentType, fileDownloadName);
             }

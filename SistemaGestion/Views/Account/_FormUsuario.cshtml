@@ -26,7 +26,11 @@
                         <div class="col-lg-12 form-group">
                             @Html.LabelFor(x => x.ApellidoMaterno, "APELLIDO MATERNO")*
                             @Html.TextBoxFor(x => x.ApellidoMaterno, new { @class = "form-control", @placeHolder = "APELLIDOS MATERNO" })
-                        </div>                       
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            @Html.LabelFor(x => x.Correo, "COREO EMPRESA")*
+                            @Html.TextBoxFor(x => x.Correo, new { @class = "form-control", @placeHolder = "CORREO EMPRESA" })
+                        </div>
                         <div class="col-lg-12 form-group">
                             <div class="list-group">
                                 <div class="list-group-item bg-secondary text-white">
@@ -76,9 +80,10 @@
             var nombre = $("#nombres").val();
             var apellidoP = $("#ApellidoPaterno").val();
             var apellidoM = $("#ApellidoMaterno").val();
+            var correo = $("#Correo").val();
           
 
-            if ((rut != "") && (nombres != "") && (apellidoP != "") && (apellidoM != "")) {
+            if ((rut != "") && (nombre != "") && (apellidoP != "") && (apellidoM != "") && (correo != "")) {
                 var parameters = $("#FormUsuario").serialize();
                 var url = '@Url.Action("SaveUser","account")';
                 $.ajax({

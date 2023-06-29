@@ -55,7 +55,6 @@ namespace SistemaGestion.Models
         public virtual DbSet<IDOC_FI> IDOC_FI { get; set; }
         public virtual DbSet<LibroMayor> LibroMayor { get; set; }
         public virtual DbSet<LibroMayorDEP> LibroMayorDEP { get; set; }
-        public virtual DbSet<InterfazAutorizacion> InterfazAutorizacion { get; set; }
         public virtual DbSet<Periodo> Periodo { get; set; }
         public virtual DbSet<PAGOS> PAGOS { get; set; }
         public virtual DbSet<EMPLEADO> EMPLEADO { get; set; }
@@ -76,6 +75,7 @@ namespace SistemaGestion.Models
         public virtual DbSet<TipoRechazo> TipoRechazo { get; set; }
         public virtual DbSet<AcumuladoSobrante_Faltante> AcumuladoSobrante_Faltante { get; set; }
         public virtual DbSet<Sobrante_Faltante> Sobrante_Faltante { get; set; }
+        public virtual DbSet<InterfazAutorizacion> InterfazAutorizacion { get; set; }
     
         public virtual ObjectResult<Proc_Dashboard_Detalle_Result> Proc_Dashboard_Detalle(string p_Fecha)
         {
@@ -514,20 +514,6 @@ namespace SistemaGestion.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertConciliacionAutoo", fechaParameter);
         }
     
-        [DbFunction("SisGesEntities3", "fnReporte_PagosFSP")]
-        public virtual IQueryable<fnReporte_PagosFSP_Result> fnReporte_PagosFSP(Nullable<int> anio, Nullable<int> mes)
-        {
-            var anioParameter = anio.HasValue ?
-                new ObjectParameter("Anio", anio) :
-                new ObjectParameter("Anio", typeof(int));
-    
-            var mesParameter = mes.HasValue ?
-                new ObjectParameter("Mes", mes) :
-                new ObjectParameter("Mes", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnReporte_PagosFSP_Result>("[SisGesEntities3].[fnReporte_PagosFSP](@Anio, @Mes)", anioParameter, mesParameter);
-        }
-    
         [DbFunction("SisGesEntities3", "fnDashboard_Pagos")]
         public virtual IQueryable<fnDashboard_Pagos_Result> fnDashboard_Pagos(Nullable<System.DateTime> fecha, Nullable<int> codigoComercio)
         {
@@ -728,20 +714,6 @@ namespace SistemaGestion.Models
                 new ObjectParameter("Id", typeof(System.Guid));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spConciliacionAutomatica", fechaParameter, idParameter);
-        }
-    
-        [DbFunction("SisGesEntities3", "fn_Conciliacion_Manual_aPI")]
-        public virtual IQueryable<fn_Conciliacion_Manual_aPI_Result> fn_Conciliacion_Manual_aPI(Nullable<System.DateTime> fecha, Nullable<int> local)
-        {
-            var fechaParameter = fecha.HasValue ?
-                new ObjectParameter("fecha", fecha) :
-                new ObjectParameter("fecha", typeof(System.DateTime));
-    
-            var localParameter = local.HasValue ?
-                new ObjectParameter("local", local) :
-                new ObjectParameter("local", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_Conciliacion_Manual_aPI_Result>("[SisGesEntities3].[fn_Conciliacion_Manual_aPI](@fecha, @local)", fechaParameter, localParameter);
         }
     
         [DbFunction("SisGesEntities3", "fnIdocPagos_FI")]
@@ -1017,6 +989,34 @@ namespace SistemaGestion.Models
                 new ObjectParameter("FechaFinNotaCredito", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_ReporteNcFULLCuadratura_Result>("[SisGesEntities3].[fn_ReporteNcFULLCuadratura](@FechaInicioNotaCredito, @FechaFinNotaCredito)", fechaInicioNotaCreditoParameter, fechaFinNotaCreditoParameter);
+        }
+    
+        [DbFunction("SisGesEntities3", "fn_Conciliacion_Manual_aPI")]
+        public virtual IQueryable<fn_Conciliacion_Manual_aPI_Result> fn_Conciliacion_Manual_aPI(Nullable<System.DateTime> fecha, Nullable<int> local)
+        {
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            var localParameter = local.HasValue ?
+                new ObjectParameter("local", local) :
+                new ObjectParameter("local", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_Conciliacion_Manual_aPI_Result>("[SisGesEntities3].[fn_Conciliacion_Manual_aPI](@fecha, @local)", fechaParameter, localParameter);
+        }
+    
+        [DbFunction("SisGesEntities3", "fnReporte_PagosFSP")]
+        public virtual IQueryable<fnReporte_PagosFSP_Result> fnReporte_PagosFSP(Nullable<int> anio, Nullable<int> mes)
+        {
+            var anioParameter = anio.HasValue ?
+                new ObjectParameter("Anio", anio) :
+                new ObjectParameter("Anio", typeof(int));
+    
+            var mesParameter = mes.HasValue ?
+                new ObjectParameter("Mes", mes) :
+                new ObjectParameter("Mes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnReporte_PagosFSP_Result>("[SisGesEntities3].[fnReporte_PagosFSP](@Anio, @Mes)", anioParameter, mesParameter);
         }
     }
 }

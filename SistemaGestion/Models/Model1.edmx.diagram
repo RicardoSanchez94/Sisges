@@ -52,7 +52,6 @@
         <EntityTypeShape EntityType="sisgesModel.LibroMayorDEP" Width="1.5" PointX="36.125" PointY="0.5" />
         <AssociationConnector Association="sisgesModel.FK_LibroMayorDEP_LibroMayor" />
         <AssociationConnector Association="sisgesModel.FK_LibroMayorDEP_LibroMayor1" />
-        <EntityTypeShape EntityType="sisgesModel.InterfazAutorizacion" Width="1.5" PointX="16.375" PointY="15.75" />
         <EntityTypeShape EntityType="sisgesModel.Periodo" Width="1.5" PointX="3.75" PointY="11.75" />
         <AssociationConnector Association="sisgesModel.FK_ACREEDOR_REL_CENTROS_LOCAL" />
         <EntityTypeShape EntityType="sisgesModel.PAGOS" Width="1.5" PointX="4.625" PointY="40.875" />
@@ -101,6 +100,7 @@
         <AssociationConnector Association="sisgesModel.FK_Sobrante_Faltante_AcumuladoSobrante_Faltante" />
         <AssociationConnector Association="sisgesModel.FK_Sobrante_Faltante_CENTROS_LOCAL" />
         <AssociationConnector Association="sisgesModel.FK_Sobrante_Faltante_EMPLEADO" />
+        <EntityTypeShape EntityType="sisgesModel.InterfazAutorizacion" Width="1.5" PointX="6.375" PointY="6.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

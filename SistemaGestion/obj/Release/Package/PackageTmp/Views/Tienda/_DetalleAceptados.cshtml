@@ -9,7 +9,7 @@
         </div>
         <div class="modal-body">
             @*<div class="table-responsive">*@
-            <table class="table table-bordered table-hover" id="DT" style="width:100%">
+            <table class="table table-bordered table-hover" id="DT" width="100%">
                 @*<table id="tbDetalle" class="table table-bordered  display nowrap" cellspacing="0" width="100%">*@
                 <thead>
                     <tr>
@@ -67,8 +67,8 @@
 <script>
     $(document).ready(function () {
         var tabla_data = $("#DT").DataTable({
-            scrollX: true,
-            /*    responsive : true,*/
+       /*     scrollX: true,*/
+                responsive : true,
             "language": {
                 url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
             },

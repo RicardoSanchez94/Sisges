@@ -21,6 +21,7 @@ namespace SistemaGestion.Models
         public Nullable<bool> Tipo { get; set; }
         public string NombreLocal { get; set; }
         public Nullable<int> Trx { get; set; }
+        public string Tarjeta { get; set; }
         public Nullable<bool> Estado { get; set; }
     }
 }

@@ -15,6 +15,7 @@
                         <th class="text-center">MontoVenta</th>
                         <th class="text-center">MontoAP</th>
                         <th class="text-center">NombreLocal</th>
+                        <th class="text-center">Tarjeta</th>
                         <th class="text-center">Conciliacion</th>
                         @*<th class="text-center">Diferencias</th>*@
 
@@ -24,12 +25,13 @@
                     @foreach (var item in Model.Where(x => x.Tipo == true))
                     {
                         <tr>
-                            <td>@item.CodAutorizador</td>
-                            <td>@item.Centro</td>
-                            <td>@item.Fecha</td>
-                            <td>@item.MontoV</td>
-                            <td>@item.MontoAfecto</td>
-                            <td>@item.NombreLocal</td>
+                            <td  class="text-center">@item.CodAutorizador</td>
+                            <td class="text-center">@item.Centro</td>
+                            <td class="text-center">@item.Fecha</td>
+                            <td class="text-center">@item.MontoV</td>
+                            <td class="text-center">@item.MontoAfecto</td>
+                            <td class="text-center">@item.NombreLocal</td>
+                            <td class="text-center">@item.Tarjeta</td>
 
                             <td class="text-center">
                                 @*<button type='button' id='editar' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@
@@ -59,7 +61,8 @@
                         <th class="text-center">Fecha</th>
                         <th class="text-center">MontoVenta</th>
                         <th class="text-center">MontoAP</th>
-                  
+                        <th class="text-center">Tarjeta</th>
+
                         @*<th class="text-center">Diferencias</th>*@
 
                     </tr>
@@ -68,11 +71,12 @@
                     @foreach (var item in Model.Where(x => x.Tipo == false))
                     {
                         <tr>
-                            <td>@item.CodAutorizador</td>
-                            <td>@item.Centro</td>
-                            <td>@item.Fecha</td>
-                            <td>@item.MontoV</td>
-                            <td>@item.MontoAfecto</td>
+                            <td class="text-center">@item.CodAutorizador</td>
+                            <td  class="text-center">@item.Centro</td>
+                            <td class="text-center">@item.Fecha</td>
+                            <td  class="text-center">@item.MontoV</td>
+                            <td  class="text-center">@item.MontoAfecto</td>
+                            <td class="text-center">@item.Tarjeta</td>
                          
                             <!--<td>-->
                             @*<button type='button' id='editar' class='editar btn btn-danger ' data-toggle='modal' data-target='#FormModal'><span class='fa fa-edit'></span></button>*@

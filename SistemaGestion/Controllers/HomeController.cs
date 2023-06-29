@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace SistemaGestion.Controllers
 {
@@ -33,10 +34,23 @@ namespace SistemaGestion.Controllers
             return PartialView("_Diferencias", lst);
 
         }
+        [HttpGet]
+
         public ActionResult CerrarSesion()
         {
-            Session["User"] = null;
-            return RedirectToAction("Login", "Account");
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.Abandon();
+
+            // Invalidar la cookie de autenticación
+            HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            cookie.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie);
+
+            // Deshabilitar la caché del navegador
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            return RedirectToAction("LogIn", "Account");
         }
 
     }

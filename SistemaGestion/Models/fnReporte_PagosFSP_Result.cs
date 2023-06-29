@@ -18,10 +18,12 @@ namespace SistemaGestion.Models
         public string LOCAL { get; set; }
         public string CAJA { get; set; }
         public string GLOBALTRX { get; set; }
+        public string SWITCHTRX { get; set; }
         public string FECHA { get; set; }
         public string CODIGOAUTORIZACION { get; set; }
         public string NROTARJETA { get; set; }
-        public string MONTOTRX { get; set; }
+        public string MONTOGLOBAL { get; set; }
+        public string MONTOSWITCH { get; set; }
         public string NRO_CUOTAS { get; set; }
         public string PAGO_MIN_EECC { get; set; }
         public string MONTO_REDONDEO { get; set; }

@@ -37,6 +37,10 @@ namespace SistemaGestion.Models.ViewModels
         [Display(Name = "Rut")]
         public string rut { get; set; }
 
+
+        [Display(Name = "Correo")]
+        public string Correo { get; set; }
+
         public List<RolesDisponibles> roles { get; set; }
         public List<RolesDisponibles> rolesSeleccionados { get; set; }
     }

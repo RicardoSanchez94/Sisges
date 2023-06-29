@@ -1047,7 +1047,6 @@ C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R
 C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.csproj.AssemblyReference.cache
 C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.csproj.CoreCompileInputs.cache
 C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.csproj.CopyComplete
 C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.dll
@@ -1245,4 +1244,5 @@ C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew
 C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.csproj.CopyComplete
 C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.dll
 C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.pdb
+C:\Users\marcelo.roa\Documents\ProyectosFashions\ProyectosAzure\SistemaGestion\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.csproj.AssemblyReference.cache
 C:\Users\ricardo.sanchez\Documents\proyecto fashions\ProyectosFSPAzure\MasterNew\R19_Sistema-Cuadratura-y-Conciliacion\SistemaGestion\obj\Debug\SistemaGestion.csproj.AssemblyReference.cache

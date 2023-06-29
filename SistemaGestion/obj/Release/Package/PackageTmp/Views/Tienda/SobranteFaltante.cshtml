@@ -48,7 +48,7 @@
                                             <button id="btnBuscar" type="button" class="btn btn-sm btn-danger btn-block"><i class="fas fa-search"></i> Buscar</button>
                                         </div>
                                     </div>
-                                    @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura"))
+                                    @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador" || x.RolNombre == "Cuadratura" || x.RolNombre == "RRHH" ))
                                     {
                                         <div class="col-sm-2">
                                             <div class="form-group mb-0">

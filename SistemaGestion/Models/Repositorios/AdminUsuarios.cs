@@ -343,6 +343,7 @@ namespace SistemaGestion.Models.Repositorios
                 user.nombres = datos.Nombres;
                 user.ApellidoPaterno = datos.ApellidoPaterno;
                 user.ApellidoMaterno = datos.ApellidoMaterno;
+                user.Correo = datos.Correo;
                 user.roles = GetAllRoles();
                 user.rolesSeleccionados = GetRolesByLogiName(datos.Run);
                 return user;
@@ -389,7 +390,8 @@ namespace SistemaGestion.Models.Repositorios
                                ApellidoPaterno = user.ApellidoPaterno,
                                ApellidoMaterno = user.ApellidoMaterno,
                                RunCuerpo = Convert.ToInt32(user.rut.Split('-')[0]),
-                               RunDigito = user.rut.Split('-')[1].ToString()
+                               RunDigito = user.rut.Split('-')[1].ToString(),
+                               Correo = user.Correo.Trim()
                            });
                         db.Persona.Add(perUsu);
                         db.SaveChanges();

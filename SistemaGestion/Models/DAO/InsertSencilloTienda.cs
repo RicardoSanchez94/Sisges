@@ -92,9 +92,9 @@ namespace SistemaGestion.Models.DAO
                     rm.idSencillosTienda = idSencillosTienda;
                     rm.NumeroDepostio = Deposito;
 
-                    //db.Remito.Add(rm);
+                    db.Remito.Add(rm);
 
-                    //db.SaveChanges();
+                    db.SaveChanges();
 
                     context.Commit();
                 }
@@ -391,42 +391,13 @@ namespace SistemaGestion.Models.DAO
                     //oAcumulado.FechaAprobacion = DateTime.Now;
 
                     db.AcumuladoSobrante_Faltante.Add(oAceptacion.AcumuladoSobrante_Faltante);
-                    //foreach (var entidad in lst)
-                    //{
-                    //    db.Sobrante_Faltante.Attach(entidad);
-                    //    db.Entry(entidad).State = EntityState.Modified;
-                    //}
-                    //db.Entry(lst).State = EntityState.Modified;
+                    
                     db.SaveChanges();
 
                     context.Commit();
                 }
 
-                //using (var context = db.Database.BeginTransaction())
-                //{
-
-
-                //    AcumuladoSobrante_Faltante oAcumulado = db.AcumuladoSobrante_Faltante.Where(x => x.IDTIENDA == oAceptacion.AcumuladoSobrante_Faltante.IDTIENDA && x.ID_Empleado == oAceptacion.AcumuladoSobrante_Faltante.ID_Empleado && x.Ano == oAceptacion.AcumuladoSobrante_Faltante.Ano && x.Mes == oAceptacion.AcumuladoSobrante_Faltante.Mes && x.TIPO == "FALTANTE").SingleOrDefault();
-
-                //    if (oAceptacion.AcumuladoSobrante_Faltante.CodigoTipoAceptacion == 1)
-                //    {
-                //        oAcumulado.Cuotas = oAcumulado.CodigoTipoAceptacion = oAceptacion.AcumuladoSobrante_Faltante.Cuotas;
-
-                //    }
-                //    else
-                //    {
-                //        oAcumulado.CodigoTipoRechazo = oAcumulado.CodigoTipoAceptacion = oAceptacion.AcumuladoSobrante_Faltante.CodigoTipoRechazo;
-                //    }
-                //    oAcumulado.CodigoTipoAceptacion = oAceptacion.AcumuladoSobrante_Faltante.CodigoTipoAceptacion;
-                //    //oAcumulado.CodigoTipoRechazo = oAceptacion.AcumuladoSobrante_Faltante.CodigoTipoRechazo;
-                //    oAcumulado.Observacion = oAceptacion.AcumuladoSobrante_Faltante.Observacion;
-                //    oAcumulado.FechaAprobacion = DateTime.Now;
-
-
-                //    db.SaveChanges();
-
-                //    context.Commit();
-                //}
+         
 
                 response.respuesta = "Se insertó correctamente";
                 response.error = false;

@@ -244,29 +244,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="fnReporte_PagosFSP" FunctionName="sisgesModel.Store.fnReporte_PagosFSP">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="sisgesModel.fnReporte_PagosFSP_Result">
-          <ScalarProperty Name="VIGENCIA" ColumnName="VIGENCIA" />
-          <ScalarProperty Name="NOMBRETRX" ColumnName="NOMBRETRX" />
-          <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
-          <ScalarProperty Name="CAJA" ColumnName="CAJA" />
-          <ScalarProperty Name="GLOBALTRX" ColumnName="GLOBALTRX" />
-          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-          <ScalarProperty Name="CODIGOAUTORIZACION" ColumnName="CODIGOAUTORIZACION" />
-          <ScalarProperty Name="NROTARJETA" ColumnName="NROTARJETA" />
-          <ScalarProperty Name="MONTOTRX" ColumnName="MONTOTRX" />
-          <ScalarProperty Name="NRO_CUOTAS" ColumnName="NRO_CUOTAS" />
-          <ScalarProperty Name="PAGO_MIN_EECC" ColumnName="PAGO_MIN_EECC" />
-          <ScalarProperty Name="MONTO_REDONDEO" ColumnName="MONTO_REDONDEO" />
-          <ScalarProperty Name="MONTO_RECAUDADO" ColumnName="MONTO_RECAUDADO" />
-          <ScalarProperty Name="AJUSTE_LEY" ColumnName="AJUSTE_LEY" />
-          <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="VIGENCIA2" ColumnName="VIGENCIA2" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="fnDashboard_Pagos" FunctionName="sisgesModel.Store.fnDashboard_Pagos">
       <ResultMapping>
         <ComplexTypeMapping TypeName="sisgesModel.fnDashboard_Pagos_Result">
@@ -753,21 +730,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="spConciliacionAutomatica" FunctionName="sisgesModel.Store.spConciliacionAutomatica" />
-    <FunctionImportMapping FunctionImportName="fn_Conciliacion_Manual_aPI" FunctionName="sisgesModel.Store.fn_Conciliacion_Manual_aPI">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="sisgesModel.fn_Conciliacion_Manual_aPI_Result">
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="Centro" ColumnName="Centro" />
-          <ScalarProperty Name="CodAutorizador" ColumnName="CodAutorizador" />
-          <ScalarProperty Name="MontoV" ColumnName="MontoV" />
-          <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
-          <ScalarProperty Name="Trx" ColumnName="Trx" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="fnIdocPagos_FI" FunctionName="sisgesModel.Store.fnIdocPagos_FI">
       <ResultMapping>
         <ComplexTypeMapping TypeName="sisgesModel.fnIdocPagos_FI_Result">
@@ -1208,47 +1170,6 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="spInsertConciliacionAuto_LibMayor" FunctionName="sisgesModel.Store.spInsertConciliacionAuto_LibMayor" />
     <FunctionImportMapping FunctionImportName="spConciliacionAutomaticaCAAU" FunctionName="sisgesModel.Store.spConciliacionAutomaticaCAAU" />
-    <EntitySetMapping Name="InterfazAutorizacion">
-      <EntityTypeMapping TypeName="sisgesModel.InterfazAutorizacion">
-        <MappingFragment StoreEntitySet="InterfazAutorizacion">
-          <ScalarProperty Name="MontonoAfecto" ColumnName="MontonoAfecto" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="TipoDiferencia" ColumnName="TipoDiferencia" />
-          <ScalarProperty Name="NroCaja" ColumnName="NroCaja" />
-          <ScalarProperty Name="NroTrxPos" ColumnName="NroTrxPos" />
-          <ScalarProperty Name="ModoProceso" ColumnName="ModoProceso" />
-          <ScalarProperty Name="Confirmada" ColumnName="Confirmada" />
-          <ScalarProperty Name="FechaUltimoVencimiento" ColumnName="FechaUltimoVencimiento" />
-          <ScalarProperty Name="FechaPrimerVencimiento" ColumnName="FechaPrimerVencimiento" />
-          <ScalarProperty Name="MontoCuota" ColumnName="MontoCuota" />
-          <ScalarProperty Name="CodigoPromocionVenta" ColumnName="CodigoPromocionVenta" />
-          <ScalarProperty Name="RutVendedor" ColumnName="RutVendedor" />
-          <ScalarProperty Name="CodigoRubro" ColumnName="CodigoRubro" />
-          <ScalarProperty Name="CodigoComercio" ColumnName="CodigoComercio" />
-          <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
-          <ScalarProperty Name="CodigoPlanCredito" ColumnName="CodigoPlanCredito" />
-          <ScalarProperty Name="Extrafinanciamiento" ColumnName="Extrafinanciamiento" />
-          <ScalarProperty Name="NumeroCuotas" ColumnName="NumeroCuotas" />
-          <ScalarProperty Name="FechaAutoriza" ColumnName="FechaAutoriza" />
-          <ScalarProperty Name="MesesGracia" ColumnName="MesesGracia" />
-          <ScalarProperty Name="MesesDiferido" ColumnName="MesesDiferido" />
-          <ScalarProperty Name="MontoPie" ColumnName="MontoPie" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="NumeroTarjeta" ColumnName="NumeroTarjeta" />
-          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
-          <ScalarProperty Name="TipoArchivo" ColumnName="TipoArchivo" />
-          <ScalarProperty Name="NumeroAutorizacion" ColumnName="NumeroAutorizacion" />
-          <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-          <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
-          <ScalarProperty Name="NumeroBoleta" ColumnName="NumeroBoleta" />
-          <ScalarProperty Name="NumeroTerminal" ColumnName="NumeroTerminal" />
-          <ScalarProperty Name="CodigoAgencia" ColumnName="CodigoAgencia" />
-          <ScalarProperty Name="FechaAutorizacion" ColumnName="FechaAutorizacion" />
-          <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
-          <ScalarProperty Name="NroRef" ColumnName="NroRef" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Periodo">
       <EntityTypeMapping TypeName="sisgesModel.Periodo">
         <MappingFragment StoreEntitySet="Periodo">
@@ -1826,5 +1747,87 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="fn_Conciliacion_Manual_aPI" FunctionName="sisgesModel.Store.fn_Conciliacion_Manual_aPI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="sisgesModel.fn_Conciliacion_Manual_aPI_Result">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Centro" ColumnName="Centro" />
+          <ScalarProperty Name="CodAutorizador" ColumnName="CodAutorizador" />
+          <ScalarProperty Name="MontoV" ColumnName="MontoV" />
+          <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+          <ScalarProperty Name="Trx" ColumnName="Trx" />
+          <ScalarProperty Name="Tarjeta" ColumnName="Tarjeta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="InterfazAutorizacion">
+      <EntityTypeMapping TypeName="sisgesModel.InterfazAutorizacion">
+        <MappingFragment StoreEntitySet="InterfazAutorizacion">
+          <ScalarProperty Name="MontonoAfecto" ColumnName="MontonoAfecto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="TipoDiferencia" ColumnName="TipoDiferencia" />
+          <ScalarProperty Name="NroCaja" ColumnName="NroCaja" />
+          <ScalarProperty Name="NroTrxPos" ColumnName="NroTrxPos" />
+          <ScalarProperty Name="ModoProceso" ColumnName="ModoProceso" />
+          <ScalarProperty Name="Confirmada" ColumnName="Confirmada" />
+          <ScalarProperty Name="FechaUltimoVencimiento" ColumnName="FechaUltimoVencimiento" />
+          <ScalarProperty Name="FechaPrimerVencimiento" ColumnName="FechaPrimerVencimiento" />
+          <ScalarProperty Name="MontoCuota" ColumnName="MontoCuota" />
+          <ScalarProperty Name="CodigoPromocionVenta" ColumnName="CodigoPromocionVenta" />
+          <ScalarProperty Name="RutVendedor" ColumnName="RutVendedor" />
+          <ScalarProperty Name="CodigoRubro" ColumnName="CodigoRubro" />
+          <ScalarProperty Name="CodigoComercio" ColumnName="CodigoComercio" />
+          <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
+          <ScalarProperty Name="CodigoPlanCredito" ColumnName="CodigoPlanCredito" />
+          <ScalarProperty Name="Extrafinanciamiento" ColumnName="Extrafinanciamiento" />
+          <ScalarProperty Name="NumeroCuotas" ColumnName="NumeroCuotas" />
+          <ScalarProperty Name="FechaAutoriza" ColumnName="FechaAutoriza" />
+          <ScalarProperty Name="MesesGracia" ColumnName="MesesGracia" />
+          <ScalarProperty Name="MesesDiferido" ColumnName="MesesDiferido" />
+          <ScalarProperty Name="MontoPie" ColumnName="MontoPie" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="NumeroTarjeta" ColumnName="NumeroTarjeta" />
+          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+          <ScalarProperty Name="TipoArchivo" ColumnName="TipoArchivo" />
+          <ScalarProperty Name="NumeroAutorizacion" ColumnName="NumeroAutorizacion" />
+          <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+          <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
+          <ScalarProperty Name="NumeroBoleta" ColumnName="NumeroBoleta" />
+          <ScalarProperty Name="NumeroTerminal" ColumnName="NumeroTerminal" />
+          <ScalarProperty Name="CodigoAgencia" ColumnName="CodigoAgencia" />
+          <ScalarProperty Name="FechaAutorizacion" ColumnName="FechaAutorizacion" />
+          <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
+          <ScalarProperty Name="NroRef" ColumnName="NroRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="fnReporte_PagosFSP" FunctionName="sisgesModel.Store.fnReporte_PagosFSP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="sisgesModel.fnReporte_PagosFSP_Result">
+          <ScalarProperty Name="VIGENCIA" ColumnName="VIGENCIA" />
+          <ScalarProperty Name="NOMBRETRX" ColumnName="NOMBRETRX" />
+          <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
+          <ScalarProperty Name="CAJA" ColumnName="CAJA" />
+          <ScalarProperty Name="GLOBALTRX" ColumnName="GLOBALTRX" />
+          <ScalarProperty Name="SWITCHTRX" ColumnName="SWITCHTRX" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="CODIGOAUTORIZACION" ColumnName="CODIGOAUTORIZACION" />
+          <ScalarProperty Name="NROTARJETA" ColumnName="NROTARJETA" />
+          <ScalarProperty Name="MONTOGLOBAL" ColumnName="MONTOGLOBAL" />
+          <ScalarProperty Name="MONTOSWITCH" ColumnName="MONTOSWITCH" />
+          <ScalarProperty Name="NRO_CUOTAS" ColumnName="NRO_CUOTAS" />
+          <ScalarProperty Name="PAGO_MIN_EECC" ColumnName="PAGO_MIN_EECC" />
+          <ScalarProperty Name="MONTO_REDONDEO" ColumnName="MONTO_REDONDEO" />
+          <ScalarProperty Name="MONTO_RECAUDADO" ColumnName="MONTO_RECAUDADO" />
+          <ScalarProperty Name="AJUSTE_LEY" ColumnName="AJUSTE_LEY" />
+          <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="VIGENCIA2" ColumnName="VIGENCIA2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

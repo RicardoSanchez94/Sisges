@@ -130,10 +130,6 @@
     <FunctionImport Name="spInsertConciliacionAutoo">
       <Parameter Name="fecha" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="fnReporte_PagosFSP" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_PagosFSP_Result)">
-      <Parameter Name="Anio" Mode="In" Type="Int32" />
-      <Parameter Name="Mes" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="fnDashboard_Pagos" IsComposable="true" ReturnType="Collection(sisgesModel.fnDashboard_Pagos_Result)">
       <Parameter Name="Fecha" Mode="In" Type="DateTime" />
       <Parameter Name="CodigoComercio" Mode="In" Type="Int32" />
@@ -261,10 +257,6 @@
       <Parameter Name="fecha" Mode="In" Type="DateTime" />
       <Parameter Name="Id" Mode="In" Type="Guid" />
     </FunctionImport>
-    <FunctionImport Name="fn_Conciliacion_Manual_aPI" IsComposable="true" ReturnType="Collection(sisgesModel.fn_Conciliacion_Manual_aPI_Result)">
-      <Parameter Name="fecha" Mode="In" Type="DateTime" />
-      <Parameter Name="local" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="fnIdocPagos_FI" IsComposable="true" ReturnType="Collection(sisgesModel.fnIdocPagos_FI_Result)">
       <Parameter Name="Fecha" Mode="In" Type="String" />
       <Parameter Name="IdTienda" Mode="In" Type="Int32" />
@@ -334,7 +326,6 @@
     <FunctionImport Name="spConciliacionAutomaticaCAAU">
       <Parameter Name="fecha" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <EntitySet Name="InterfazAutorizacion" EntityType="sisgesModel.InterfazAutorizacion" />
     <EntitySet Name="Periodo" EntityType="sisgesModel.Periodo" />
     <AssociationSet Name="FK_ACREEDOR_REL_CENTROS_LOCAL" Association="sisgesModel.FK_ACREEDOR_REL_CENTROS_LOCAL">
       <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
@@ -511,6 +502,15 @@
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
       <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
     </AssociationSet>
+    <FunctionImport Name="fn_Conciliacion_Manual_aPI" IsComposable="true" ReturnType="Collection(sisgesModel.fn_Conciliacion_Manual_aPI_Result)">
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="local" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="InterfazAutorizacion" EntityType="sisgesModel.InterfazAutorizacion" />
+    <FunctionImport Name="fnReporte_PagosFSP" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_PagosFSP_Result)">
+      <Parameter Name="Anio" Mode="In" Type="Int32" />
+      <Parameter Name="Mes" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="Proc_Dashboard_Detalle_Result">
     <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
@@ -723,25 +723,6 @@
     <Property Type="Int32" Name="CodigoComercio" Nullable="true" />
     <Property Type="String" Name="TipoPago" Nullable="true" MaxLength="30" />
     <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
-  </ComplexType>
-  <ComplexType Name="fnReporte_PagosFSP_Result">
-    <Property Type="String" Name="VIGENCIA" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="NOMBRETRX" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="LOCAL" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="CAJA" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="GLOBALTRX" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="FECHA" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="CODIGOAUTORIZACION" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="NROTARJETA" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="MONTOTRX" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="NRO_CUOTAS" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="PAGO_MIN_EECC" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="MONTO_REDONDEO" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="MONTO_RECAUDADO" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="AJUSTE_LEY" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="CUENTA" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="RUT_CLIENTE" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="VIGENCIA2" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="fnDashboard_Pagos_Result">
     <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
@@ -1468,17 +1449,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <ComplexType Name="fn_Conciliacion_Manual_aPI_Result">
-    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
-    <Property Type="Int32" Name="Centro" Nullable="true" />
-    <Property Type="String" Name="CodAutorizador" Nullable="true" MaxLength="30" />
-    <Property Type="Decimal" Name="MontoV" Nullable="true" Precision="19" Scale="4" />
-    <Property Type="Decimal" Name="MontoAfecto" Nullable="true" Precision="19" Scale="4" />
-    <Property Type="Boolean" Name="Tipo" Nullable="true" />
-    <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="Trx" Nullable="true" />
-    <Property Type="Boolean" Name="Estado" Nullable="true" />
-  </ComplexType>
   <ComplexType Name="fnIdocPagos_FI_Result">
     <Property Type="String" Name="MANDT" Nullable="true" MaxLength="5" />
     <Property Type="String" Name="INTERFAZ" Nullable="true" MaxLength="5" />
@@ -1996,48 +1966,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="InterfazAutorizacion">
-    <Key>
-      <PropertyRef Name="FechaAutorizacion" />
-      <PropertyRef Name="CodigoAgencia" />
-      <PropertyRef Name="NumeroAutorizacion" />
-    </Key>
-    <Property Name="NroRef" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CodigoEmpresa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="FechaAutorizacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CodigoAgencia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NumeroTerminal" Type="Int32" />
-    <Property Name="NumeroBoleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CodigoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NumeroAutorizacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TipoArchivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CodigoCliente" Type="Int32" />
-    <Property Name="NumeroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Monto" Type="Int32" />
-    <Property Name="MontoPie" Type="Int32" />
-    <Property Name="MesesDiferido" Type="Int32" />
-    <Property Name="MesesGracia" Type="Int32" />
-    <Property Name="FechaAutoriza" Type="DateTime" Precision="0" />
-    <Property Name="NumeroCuotas" Type="Int32" />
-    <Property Name="Extrafinanciamiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CodigoPlanCredito" Type="Int32" />
-    <Property Name="MontoAfecto" Type="Int32" />
-    <Property Name="CodigoComercio" Type="Int32" />
-    <Property Name="CodigoRubro" Type="Int32" />
-    <Property Name="RutVendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CodigoPromocionVenta" Type="Int32" />
-    <Property Name="MontoCuota" Type="Int32" />
-    <Property Name="FechaPrimerVencimiento" Type="DateTime" Precision="3" />
-    <Property Name="FechaUltimoVencimiento" Type="DateTime" Precision="3" />
-    <Property Name="Confirmada" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="ModoProceso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Name="NroTrxPos" Type="Int32" />
-    <Property Name="NroCaja" Type="Int32" />
-    <Property Name="TipoDiferencia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="Estado" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Name="MontonoAfecto" Type="Int32" />
-  </EntityType>
   <EntityType Name="Periodo">
     <Key>
       <PropertyRef Name="Id" />
@@ -2954,4 +2882,81 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="fn_Conciliacion_Manual_aPI_Result">
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Centro" Nullable="true" />
+    <Property Type="String" Name="CodAutorizador" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="MontoV" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MontoAfecto" Nullable="true" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="Tipo" Nullable="true" />
+    <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Trx" Nullable="true" />
+    <Property Type="String" Name="Tarjeta" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Estado" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="InterfazAutorizacion">
+    <Key>
+      <PropertyRef Name="FechaAutorizacion" />
+      <PropertyRef Name="CodigoAgencia" />
+      <PropertyRef Name="NumeroAutorizacion" />
+      <PropertyRef Name="NroTrxPos" />
+      <PropertyRef Name="NroCaja" />
+    </Key>
+    <Property Name="NroRef" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoEmpresa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FechaAutorizacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CodigoAgencia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroTerminal" Type="Int32" />
+    <Property Name="NumeroBoleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroAutorizacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoArchivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoCliente" Type="Int32" />
+    <Property Name="NumeroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Monto" Type="Int32" />
+    <Property Name="MontoPie" Type="Int32" />
+    <Property Name="MesesDiferido" Type="Int32" />
+    <Property Name="MesesGracia" Type="Int32" />
+    <Property Name="FechaAutoriza" Type="DateTime" Precision="0" />
+    <Property Name="NumeroCuotas" Type="Int32" />
+    <Property Name="Extrafinanciamiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPlanCredito" Type="Int32" />
+    <Property Name="MontoAfecto" Type="Int32" />
+    <Property Name="CodigoComercio" Type="Int32" />
+    <Property Name="CodigoRubro" Type="Int32" />
+    <Property Name="RutVendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPromocionVenta" Type="Int32" />
+    <Property Name="MontoCuota" Type="Int32" />
+    <Property Name="FechaPrimerVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="FechaUltimoVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="Confirmada" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ModoProceso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="NroTrxPos" Type="Int32" Nullable="false" />
+    <Property Name="NroCaja" Type="Int32" Nullable="false" />
+    <Property Name="TipoDiferencia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="MontonoAfecto" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="fnReporte_PagosFSP_Result">
+    <Property Type="String" Name="VIGENCIA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NOMBRETRX" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LOCAL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CAJA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GLOBALTRX" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SWITCHTRX" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FECHA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CODIGOAUTORIZACION" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NROTARJETA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MONTOGLOBAL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MONTOSWITCH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NRO_CUOTAS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PAGO_MIN_EECC" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MONTO_REDONDEO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MONTO_RECAUDADO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AJUSTE_LEY" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CUENTA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RUT_CLIENTE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VIGENCIA2" Nullable="true" MaxLength="50" />
+  </ComplexType>
 </Schema>

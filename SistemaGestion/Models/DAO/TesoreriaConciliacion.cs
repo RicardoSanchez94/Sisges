@@ -145,6 +145,18 @@ namespace SistemaGestion.Models.DAO
             return rp;
         }
 
+        public List<Sencillos_Tiendas> ReporteCuadratura(DateTime Inicio, DateTime Fin)
+        {
+
+            List<Sencillos_Tiendas> lst = new List<Sencillos_Tiendas>();
+
+            lst = db.Sencillos_Tiendas
+                .Where(x => x.DetalleSencillo.Sencillos.FechaInicio >= Inicio && x.DetalleSencillo.Sencillos.FechaFin <= Fin)
+                .ToList();
+
+            return lst;
+        }
+
         public ResponseModel EliminarCarta(Guid id)
         {
             ResponseModel response = new ResponseModel();

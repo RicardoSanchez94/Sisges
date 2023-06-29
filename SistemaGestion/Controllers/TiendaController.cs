@@ -36,6 +36,47 @@ namespace SistemaGestion.Controllers
             return View(lst);
         }
 
+        //[HttpPost]
+        //[AuthorizeRoles("Administrador", "Cuadratura", "Tienda")]
+        //public ActionResult ExcelSencillo(DateTime Fecha)
+        //{
+        //    AdminUsuarios ADU = new AdminUsuarios();
+        //    AcumuladoFaltanteView.Data lst = new AcumuladoFaltanteView.Data();
+        //    string users = User.Identity.Name;
+        //    var Deserialize = JsonConvert.DeserializeObject<UserLoginView>(users);
+        //    var usuariorol = NG.GetUsuario(Deserialize.idUsuario);
+
+        //    if (usuariorol.Rol.Any(x => x.Codigo == 2 || x.Codigo == 1))
+        //    {
+        //        using (ExcelPackage excelPackage = new LibrosExcel().ReporteSobranteFaltante(Fecha))
+        //        {
+        //            return GenerateExcelFileSencillo(excelPackage, Fecha, "AcumuladoFaltante", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        //        }
+        //    }
+        //    else if (usuariorol.Rol.Any(x => x.Codigo == 7))
+        //    {
+        //        using (ExcelPackage excelPackage = new LibrosExcel().ReporteSobranteFaltanteRRHH(Fecha))
+        //        {
+        //            return GenerateExcelFileSencillo(excelPackage, Fecha, "SobranteFaltanteRRHH", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        //        }
+        //    }
+
+
+        //    return RedirectToAction("AccessDenied"); // Acceso denegado si no cumple ninguna condición
+
+
+        //}
+
+        //private FileResult GenerateExcelFileSencillo(ExcelPackage excelPackage, DateTime FechaMesYear, string fileNamePrefix, string contentType)
+        //{
+        //    MemoryStream memoryStream = new MemoryStream();
+        //    excelPackage.SaveAs(memoryStream);
+        //    memoryStream.Position = 0L;
+        //    string fileDownloadName = $"{fileNamePrefix}{FechaMesYear.Year}{FechaMesYear.ToString("MMMM")}.xlsx";
+
+        //    return File(memoryStream, contentType, fileDownloadName);
+        //}
+
         public ActionResult DetalleSencillo(Guid id)
         {
             Sencillos_Tiendas lst = tienda.GetInsertRemito(id);
@@ -86,7 +127,7 @@ namespace SistemaGestion.Controllers
 
         #region Sobrante 
         [HttpGet]
-        [AuthorizeRoles("Administrador", "Cuadratura","Tienda")]
+        [AuthorizeRoles("Administrador", "Cuadratura","Tienda", "RRHH")]
         public ActionResult SobranteFaltante()
         {
             //AdminUsuarios ADU = new AdminUsuarios();
@@ -99,7 +140,7 @@ namespace SistemaGestion.Controllers
             return View();
         }
         [HttpPost]
-        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda")]
+        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda", "RRHH")]
         public ActionResult SobranteFaltante(DateTime Fecha)
         {
             AdminUsuarios ADU = new AdminUsuarios();
@@ -111,7 +152,7 @@ namespace SistemaGestion.Controllers
             lst = tienda.GetAcumuladoSobranteFaltante(Deserialize, Fecha);
             return PartialView("_SobranteFaltante", lst);
         }
-        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda")]
+        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda", "RRHH")]
         public ActionResult ListSobranteFaltante(DateTime Fecha, int IdTienda, string IdEmpleado)
         {
 
@@ -120,7 +161,7 @@ namespace SistemaGestion.Controllers
             return PartialView("_ListSobranteFaltante", lst);
         }
         [HttpGet]
-        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda")]
+        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda", "RRHH")]
         public ActionResult AceptarRechzar(Sobrante_Faltante item)
         {
 
@@ -134,6 +175,8 @@ namespace SistemaGestion.Controllers
             AceptacionSobranteFaltanteView oAceptacionSobranteFaltante = tienda.GetAceptacionSobranteFaltante(item);
             return PartialView("_AceptarRechzar", oAceptacionSobranteFaltante);
         }
+
+        //No funciona
         [HttpPost]
         public ActionResult AceptarRechzar(AceptacionSobranteFaltanteView item)
         {
@@ -161,13 +204,14 @@ namespace SistemaGestion.Controllers
         public ActionResult AceptarRechzarAcumulado(AcumuladoSobranteFaltanteView item)
         {
 
+           
             var response = tienda.InsertarAcumuladoSobranteFaltante(item);
 
             return Json(response);
         }
 
         [HttpPost]
-        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda")]
+        [AuthorizeRoles("Administrador", "Cuadratura", "Tienda", "RRHH")]
         public ActionResult ExcelSobranteFaltante(DateTime Fecha)
         {
             AdminUsuarios ADU = new AdminUsuarios();
@@ -176,20 +220,21 @@ namespace SistemaGestion.Controllers
             var Deserialize = JsonConvert.DeserializeObject<UserLoginView>(users);
             var usuariorol = NG.GetUsuario(Deserialize.idUsuario);
 
-            if (usuariorol.Rol.Any(x =>x.Codigo == 2))
+            if (usuariorol.Rol.Any(x =>x.Codigo == 2 || x.Codigo == 1))
             {
                 using (ExcelPackage excelPackage = new LibrosExcel().ReporteSobranteFaltante(Fecha))
                 {
                     return GenerateExcelFile(excelPackage, Fecha, "AcumuladoFaltante", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
                 }
             }
-            else if (usuariorol.Rol.Any(x => x.Codigo == 5 || x.Codigo == 1 ))
+            else if (usuariorol.Rol.Any(x => x.Codigo == 5 ))
             {
                 using (ExcelPackage excelPackage = new LibrosExcel().ReporteSobranteFaltanteRRHH(Fecha))
                 {
                     return GenerateExcelFile(excelPackage, Fecha, "SobranteFaltanteRRHH", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
                 }
             }
+       
 
             return RedirectToAction("AccessDenied"); // Acceso denegado si no cumple ninguna condición
 

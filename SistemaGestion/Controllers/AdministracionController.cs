@@ -21,6 +21,44 @@ namespace SistemaGestion.Controllers
         private Negocio ng = new Negocio();
         private SisGesEntities3 db = new SisGesEntities3();
 
+
+        public ActionResult ReprocesoTbk ()
+        {
+            return View();
+        }
+
+        public async Task<ActionResult> GetReprocesoTbk(DateTime Fecha)
+        {
+            ResponseModel response = new ResponseModel();
+            response = await ng.ReprocesoTbk(Fecha);
+            return Json(response);
+        }
+
+        public ActionResult ReprocesoInterfaces()
+        {
+            return View();
+        }
+
+        public async Task<ActionResult> GetReprocesoInterfaces(DateTime Fecha)
+        {
+            AdminUsuarios ADU = new AdminUsuarios();
+            var UserJson = Thread.CurrentPrincipal.Identity.Name;
+            var Deserialize = JsonConvert.DeserializeObject<UserLoginView>(UserJson);
+           
+           
+
+            ResponseModel response = new ResponseModel();
+            
+            response = await ng.GetToken(Deserialize);
+            if (!response.error)
+            {
+                response = await ng.ReprocesoInterfaces(Fecha,response.token);
+            }
+          
+            return Json(response);
+        }
+
+
         public ActionResult Index()
         {
 

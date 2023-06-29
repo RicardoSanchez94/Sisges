@@ -405,6 +405,8 @@ advertencia 6002: La tabla o vista 'sisges.dbo.IDOC_PAGOS_FI' no tiene definida 
             <PropertyRef Name="FechaAutorizacion" />
             <PropertyRef Name="CodigoAgencia" />
             <PropertyRef Name="NumeroAutorizacion" />
+            <PropertyRef Name="NroTrxPos" />
+            <PropertyRef Name="NroCaja" />
           </Key>
           <Property Name="NroRef" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CodigoEmpresa" Type="varchar" MaxLength="10" Nullable="false" />
@@ -436,8 +438,8 @@ advertencia 6002: La tabla o vista 'sisges.dbo.IDOC_PAGOS_FI' no tiene definida 
           <Property Name="FechaUltimoVencimiento" Type="datetime" />
           <Property Name="Confirmada" Type="char" MaxLength="1" />
           <Property Name="ModoProceso" Type="char" MaxLength="2" />
-          <Property Name="NroTrxPos" Type="int" />
-          <Property Name="NroCaja" Type="int" />
+          <Property Name="NroTrxPos" Type="int" Nullable="false" />
+          <Property Name="NroCaja" Type="int" Nullable="false" />
           <Property Name="TipoDiferencia" Type="char" MaxLength="1" />
           <Property Name="Estado" Type="char" MaxLength="2" />
           <Property Name="MontonoAfecto" Type="int" />
@@ -1718,6 +1720,7 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
                 <Property Name="Tipo" Type="bit" />
                 <Property Name="NombreLocal" Type="varchar" MaxLength="50" />
                 <Property Name="Trx" Type="int" />
+                <Property Name="Tarjeta" Type="varchar" MaxLength="50" />
                 <Property Name="Estado" Type="bit" />
               </RowType>
             </CollectionType>
@@ -2347,10 +2350,12 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
                 <Property Name="LOCAL" Type="varchar" MaxLength="50" />
                 <Property Name="CAJA" Type="varchar" MaxLength="50" />
                 <Property Name="GLOBALTRX" Type="varchar" MaxLength="50" />
+                <Property Name="SWITCHTRX" Type="varchar" MaxLength="50" />
                 <Property Name="FECHA" Type="varchar" MaxLength="50" />
                 <Property Name="CODIGOAUTORIZACION" Type="varchar" MaxLength="50" />
                 <Property Name="NROTARJETA" Type="varchar" MaxLength="50" />
-                <Property Name="MONTOTRX" Type="varchar" MaxLength="50" />
+                <Property Name="MONTOGLOBAL" Type="varchar" MaxLength="50" />
+                <Property Name="MONTOSWITCH" Type="varchar" MaxLength="50" />
                 <Property Name="NRO_CUOTAS" Type="varchar" MaxLength="50" />
                 <Property Name="PAGO_MIN_EECC" Type="varchar" MaxLength="50" />
                 <Property Name="MONTO_REDONDEO" Type="varchar" MaxLength="50" />
@@ -3152,10 +3157,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
           <FunctionImport Name="spInsertConciliacionAutoo">
           <Parameter Name="fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="fnReporte_PagosFSP" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_PagosFSP_Result)">
-            <Parameter Name="Anio" Mode="In" Type="Int32" />
-            <Parameter Name="Mes" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="fnDashboard_Pagos" IsComposable="true" ReturnType="Collection(sisgesModel.fnDashboard_Pagos_Result)">
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
             <Parameter Name="CodigoComercio" Mode="In" Type="Int32" />
@@ -3283,10 +3284,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
             <Parameter Name="fecha" Mode="In" Type="DateTime" />
             <Parameter Name="Id" Mode="In" Type="Guid" />
           </FunctionImport>
-          <FunctionImport Name="fn_Conciliacion_Manual_aPI" IsComposable="true" ReturnType="Collection(sisgesModel.fn_Conciliacion_Manual_aPI_Result)">
-            <Parameter Name="fecha" Mode="In" Type="DateTime" />
-            <Parameter Name="local" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="fnIdocPagos_FI" IsComposable="true" ReturnType="Collection(sisgesModel.fnIdocPagos_FI_Result)">
             <Parameter Name="Fecha" Mode="In" Type="String" />
             <Parameter Name="IdTienda" Mode="In" Type="Int32" />
@@ -3356,7 +3353,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
           <FunctionImport Name="spConciliacionAutomaticaCAAU">
           <Parameter Name="fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <EntitySet Name="InterfazAutorizacion" EntityType="sisgesModel.InterfazAutorizacion" />
           <EntitySet Name="Periodo" EntityType="sisgesModel.Periodo" />
           <AssociationSet Name="FK_ACREEDOR_REL_CENTROS_LOCAL" Association="sisgesModel.FK_ACREEDOR_REL_CENTROS_LOCAL">
             <End Role="CENTROS_LOCAL" EntitySet="CENTROS_LOCAL" />
@@ -3533,6 +3529,15 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="Sobrante_Faltante" EntitySet="Sobrante_Faltante" />
           </AssociationSet>
+          <FunctionImport Name="fn_Conciliacion_Manual_aPI" IsComposable="true" ReturnType="Collection(sisgesModel.fn_Conciliacion_Manual_aPI_Result)">
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="local" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="InterfazAutorizacion" EntityType="sisgesModel.InterfazAutorizacion" />
+          <FunctionImport Name="fnReporte_PagosFSP" IsComposable="true" ReturnType="Collection(sisgesModel.fnReporte_PagosFSP_Result)">
+            <Parameter Name="Anio" Mode="In" Type="Int32" />
+            <Parameter Name="Mes" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="Proc_Dashboard_Detalle_Result">
           <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
@@ -3745,25 +3750,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
           <Property Type="Int32" Name="CodigoComercio" Nullable="true" />
           <Property Type="String" Name="TipoPago" Nullable="true" MaxLength="30" />
           <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
-        </ComplexType>
-        <ComplexType Name="fnReporte_PagosFSP_Result">
-          <Property Type="String" Name="VIGENCIA" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NOMBRETRX" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="LOCAL" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="CAJA" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="GLOBALTRX" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="FECHA" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="CODIGOAUTORIZACION" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NROTARJETA" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="MONTOTRX" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NRO_CUOTAS" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="PAGO_MIN_EECC" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="MONTO_REDONDEO" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="MONTO_RECAUDADO" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="AJUSTE_LEY" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="CUENTA" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="RUT_CLIENTE" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VIGENCIA2" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="fnDashboard_Pagos_Result">
           <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
@@ -4490,17 +4476,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="fn_Conciliacion_Manual_aPI_Result">
-          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="Centro" Nullable="true" />
-          <Property Type="String" Name="CodAutorizador" Nullable="true" MaxLength="30" />
-          <Property Type="Decimal" Name="MontoV" Nullable="true" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="MontoAfecto" Nullable="true" Precision="19" Scale="4" />
-          <Property Type="Boolean" Name="Tipo" Nullable="true" />
-          <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Trx" Nullable="true" />
-          <Property Type="Boolean" Name="Estado" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="fnIdocPagos_FI_Result">
           <Property Type="String" Name="MANDT" Nullable="true" MaxLength="5" />
           <Property Type="String" Name="INTERFAZ" Nullable="true" MaxLength="5" />
@@ -5018,48 +4993,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="InterfazAutorizacion">
-          <Key>
-            <PropertyRef Name="FechaAutorizacion" />
-            <PropertyRef Name="CodigoAgencia" />
-            <PropertyRef Name="NumeroAutorizacion" />
-          </Key>
-          <Property Name="NroRef" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CodigoEmpresa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="FechaAutorizacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CodigoAgencia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NumeroTerminal" Type="Int32" />
-          <Property Name="NumeroBoleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CodigoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NumeroAutorizacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TipoArchivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CodigoCliente" Type="Int32" />
-          <Property Name="NumeroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Monto" Type="Int32" />
-          <Property Name="MontoPie" Type="Int32" />
-          <Property Name="MesesDiferido" Type="Int32" />
-          <Property Name="MesesGracia" Type="Int32" />
-          <Property Name="FechaAutoriza" Type="DateTime" Precision="0" />
-          <Property Name="NumeroCuotas" Type="Int32" />
-          <Property Name="Extrafinanciamiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CodigoPlanCredito" Type="Int32" />
-          <Property Name="MontoAfecto" Type="Int32" />
-          <Property Name="CodigoComercio" Type="Int32" />
-          <Property Name="CodigoRubro" Type="Int32" />
-          <Property Name="RutVendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CodigoPromocionVenta" Type="Int32" />
-          <Property Name="MontoCuota" Type="Int32" />
-          <Property Name="FechaPrimerVencimiento" Type="DateTime" Precision="3" />
-          <Property Name="FechaUltimoVencimiento" Type="DateTime" Precision="3" />
-          <Property Name="Confirmada" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="ModoProceso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="NroTrxPos" Type="Int32" />
-          <Property Name="NroCaja" Type="Int32" />
-          <Property Name="TipoDiferencia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Estado" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="MontonoAfecto" Type="Int32" />
-        </EntityType>
         <EntityType Name="Periodo">
           <Key>
             <PropertyRef Name="Id" />
@@ -5976,6 +5909,83 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="fn_Conciliacion_Manual_aPI_Result">
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Centro" Nullable="true" />
+          <Property Type="String" Name="CodAutorizador" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="MontoV" Nullable="true" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="MontoAfecto" Nullable="true" Precision="19" Scale="4" />
+          <Property Type="Boolean" Name="Tipo" Nullable="true" />
+          <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Trx" Nullable="true" />
+          <Property Type="String" Name="Tarjeta" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Estado" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="InterfazAutorizacion">
+          <Key>
+            <PropertyRef Name="FechaAutorizacion" />
+            <PropertyRef Name="CodigoAgencia" />
+            <PropertyRef Name="NumeroAutorizacion" />
+            <PropertyRef Name="NroTrxPos" />
+            <PropertyRef Name="NroCaja" />
+          </Key>
+          <Property Name="NroRef" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoEmpresa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaAutorizacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CodigoAgencia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroTerminal" Type="Int32" />
+          <Property Name="NumeroBoleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroAutorizacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoArchivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoCliente" Type="Int32" />
+          <Property Name="NumeroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Int32" />
+          <Property Name="MontoPie" Type="Int32" />
+          <Property Name="MesesDiferido" Type="Int32" />
+          <Property Name="MesesGracia" Type="Int32" />
+          <Property Name="FechaAutoriza" Type="DateTime" Precision="0" />
+          <Property Name="NumeroCuotas" Type="Int32" />
+          <Property Name="Extrafinanciamiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoPlanCredito" Type="Int32" />
+          <Property Name="MontoAfecto" Type="Int32" />
+          <Property Name="CodigoComercio" Type="Int32" />
+          <Property Name="CodigoRubro" Type="Int32" />
+          <Property Name="RutVendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoPromocionVenta" Type="Int32" />
+          <Property Name="MontoCuota" Type="Int32" />
+          <Property Name="FechaPrimerVencimiento" Type="DateTime" Precision="3" />
+          <Property Name="FechaUltimoVencimiento" Type="DateTime" Precision="3" />
+          <Property Name="Confirmada" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ModoProceso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="NroTrxPos" Type="Int32" Nullable="false" />
+          <Property Name="NroCaja" Type="Int32" Nullable="false" />
+          <Property Name="TipoDiferencia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="MontonoAfecto" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="fnReporte_PagosFSP_Result">
+          <Property Type="String" Name="VIGENCIA" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRETRX" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LOCAL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CAJA" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GLOBALTRX" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SWITCHTRX" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FECHA" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CODIGOAUTORIZACION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NROTARJETA" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MONTOGLOBAL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MONTOSWITCH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NRO_CUOTAS" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PAGO_MIN_EECC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MONTO_REDONDEO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MONTO_RECAUDADO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AJUSTE_LEY" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CUENTA" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RUT_CLIENTE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VIGENCIA2" Nullable="true" MaxLength="50" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6222,29 +6232,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
                 <ScalarProperty Name="CodigoComercio" ColumnName="CodigoComercio" />
                 <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="fnReporte_PagosFSP" FunctionName="sisgesModel.Store.fnReporte_PagosFSP">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sisgesModel.fnReporte_PagosFSP_Result">
-                <ScalarProperty Name="VIGENCIA" ColumnName="VIGENCIA" />
-                <ScalarProperty Name="NOMBRETRX" ColumnName="NOMBRETRX" />
-                <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
-                <ScalarProperty Name="CAJA" ColumnName="CAJA" />
-                <ScalarProperty Name="GLOBALTRX" ColumnName="GLOBALTRX" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="CODIGOAUTORIZACION" ColumnName="CODIGOAUTORIZACION" />
-                <ScalarProperty Name="NROTARJETA" ColumnName="NROTARJETA" />
-                <ScalarProperty Name="MONTOTRX" ColumnName="MONTOTRX" />
-                <ScalarProperty Name="NRO_CUOTAS" ColumnName="NRO_CUOTAS" />
-                <ScalarProperty Name="PAGO_MIN_EECC" ColumnName="PAGO_MIN_EECC" />
-                <ScalarProperty Name="MONTO_REDONDEO" ColumnName="MONTO_REDONDEO" />
-                <ScalarProperty Name="MONTO_RECAUDADO" ColumnName="MONTO_RECAUDADO" />
-                <ScalarProperty Name="AJUSTE_LEY" ColumnName="AJUSTE_LEY" />
-                <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
-                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-                <ScalarProperty Name="VIGENCIA2" ColumnName="VIGENCIA2" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -6734,21 +6721,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spConciliacionAutomatica" FunctionName="sisgesModel.Store.spConciliacionAutomatica" />
-          <FunctionImportMapping FunctionImportName="fn_Conciliacion_Manual_aPI" FunctionName="sisgesModel.Store.fn_Conciliacion_Manual_aPI">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sisgesModel.fn_Conciliacion_Manual_aPI_Result">
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Centro" ColumnName="Centro" />
-                <ScalarProperty Name="CodAutorizador" ColumnName="CodAutorizador" />
-                <ScalarProperty Name="MontoV" ColumnName="MontoV" />
-                <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
-                <ScalarProperty Name="Trx" ColumnName="Trx" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="fnIdocPagos_FI" FunctionName="sisgesModel.Store.fnIdocPagos_FI">
             <ResultMapping>
               <ComplexTypeMapping TypeName="sisgesModel.fnIdocPagos_FI_Result">
@@ -7189,47 +7161,6 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spInsertConciliacionAuto_LibMayor" FunctionName="sisgesModel.Store.spInsertConciliacionAuto_LibMayor" />
           <FunctionImportMapping FunctionImportName="spConciliacionAutomaticaCAAU" FunctionName="sisgesModel.Store.spConciliacionAutomaticaCAAU" />
-          <EntitySetMapping Name="InterfazAutorizacion">
-            <EntityTypeMapping TypeName="sisgesModel.InterfazAutorizacion">
-              <MappingFragment StoreEntitySet="InterfazAutorizacion">
-                <ScalarProperty Name="MontonoAfecto" ColumnName="MontonoAfecto" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="TipoDiferencia" ColumnName="TipoDiferencia" />
-                <ScalarProperty Name="NroCaja" ColumnName="NroCaja" />
-                <ScalarProperty Name="NroTrxPos" ColumnName="NroTrxPos" />
-                <ScalarProperty Name="ModoProceso" ColumnName="ModoProceso" />
-                <ScalarProperty Name="Confirmada" ColumnName="Confirmada" />
-                <ScalarProperty Name="FechaUltimoVencimiento" ColumnName="FechaUltimoVencimiento" />
-                <ScalarProperty Name="FechaPrimerVencimiento" ColumnName="FechaPrimerVencimiento" />
-                <ScalarProperty Name="MontoCuota" ColumnName="MontoCuota" />
-                <ScalarProperty Name="CodigoPromocionVenta" ColumnName="CodigoPromocionVenta" />
-                <ScalarProperty Name="RutVendedor" ColumnName="RutVendedor" />
-                <ScalarProperty Name="CodigoRubro" ColumnName="CodigoRubro" />
-                <ScalarProperty Name="CodigoComercio" ColumnName="CodigoComercio" />
-                <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
-                <ScalarProperty Name="CodigoPlanCredito" ColumnName="CodigoPlanCredito" />
-                <ScalarProperty Name="Extrafinanciamiento" ColumnName="Extrafinanciamiento" />
-                <ScalarProperty Name="NumeroCuotas" ColumnName="NumeroCuotas" />
-                <ScalarProperty Name="FechaAutoriza" ColumnName="FechaAutoriza" />
-                <ScalarProperty Name="MesesGracia" ColumnName="MesesGracia" />
-                <ScalarProperty Name="MesesDiferido" ColumnName="MesesDiferido" />
-                <ScalarProperty Name="MontoPie" ColumnName="MontoPie" />
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="NumeroTarjeta" ColumnName="NumeroTarjeta" />
-                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
-                <ScalarProperty Name="TipoArchivo" ColumnName="TipoArchivo" />
-                <ScalarProperty Name="NumeroAutorizacion" ColumnName="NumeroAutorizacion" />
-                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
-                <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
-                <ScalarProperty Name="NumeroBoleta" ColumnName="NumeroBoleta" />
-                <ScalarProperty Name="NumeroTerminal" ColumnName="NumeroTerminal" />
-                <ScalarProperty Name="CodigoAgencia" ColumnName="CodigoAgencia" />
-                <ScalarProperty Name="FechaAutorizacion" ColumnName="FechaAutorizacion" />
-                <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
-                <ScalarProperty Name="NroRef" ColumnName="NroRef" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Periodo">
             <EntityTypeMapping TypeName="sisgesModel.Periodo">
               <MappingFragment StoreEntitySet="Periodo">
@@ -7807,6 +7738,88 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="fn_Conciliacion_Manual_aPI" FunctionName="sisgesModel.Store.fn_Conciliacion_Manual_aPI">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sisgesModel.fn_Conciliacion_Manual_aPI_Result">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Centro" ColumnName="Centro" />
+                <ScalarProperty Name="CodAutorizador" ColumnName="CodAutorizador" />
+                <ScalarProperty Name="MontoV" ColumnName="MontoV" />
+                <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+                <ScalarProperty Name="Trx" ColumnName="Trx" />
+                <ScalarProperty Name="Tarjeta" ColumnName="Tarjeta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="InterfazAutorizacion">
+            <EntityTypeMapping TypeName="sisgesModel.InterfazAutorizacion">
+              <MappingFragment StoreEntitySet="InterfazAutorizacion">
+                <ScalarProperty Name="MontonoAfecto" ColumnName="MontonoAfecto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="TipoDiferencia" ColumnName="TipoDiferencia" />
+                <ScalarProperty Name="NroCaja" ColumnName="NroCaja" />
+                <ScalarProperty Name="NroTrxPos" ColumnName="NroTrxPos" />
+                <ScalarProperty Name="ModoProceso" ColumnName="ModoProceso" />
+                <ScalarProperty Name="Confirmada" ColumnName="Confirmada" />
+                <ScalarProperty Name="FechaUltimoVencimiento" ColumnName="FechaUltimoVencimiento" />
+                <ScalarProperty Name="FechaPrimerVencimiento" ColumnName="FechaPrimerVencimiento" />
+                <ScalarProperty Name="MontoCuota" ColumnName="MontoCuota" />
+                <ScalarProperty Name="CodigoPromocionVenta" ColumnName="CodigoPromocionVenta" />
+                <ScalarProperty Name="RutVendedor" ColumnName="RutVendedor" />
+                <ScalarProperty Name="CodigoRubro" ColumnName="CodigoRubro" />
+                <ScalarProperty Name="CodigoComercio" ColumnName="CodigoComercio" />
+                <ScalarProperty Name="MontoAfecto" ColumnName="MontoAfecto" />
+                <ScalarProperty Name="CodigoPlanCredito" ColumnName="CodigoPlanCredito" />
+                <ScalarProperty Name="Extrafinanciamiento" ColumnName="Extrafinanciamiento" />
+                <ScalarProperty Name="NumeroCuotas" ColumnName="NumeroCuotas" />
+                <ScalarProperty Name="FechaAutoriza" ColumnName="FechaAutoriza" />
+                <ScalarProperty Name="MesesGracia" ColumnName="MesesGracia" />
+                <ScalarProperty Name="MesesDiferido" ColumnName="MesesDiferido" />
+                <ScalarProperty Name="MontoPie" ColumnName="MontoPie" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="NumeroTarjeta" ColumnName="NumeroTarjeta" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="TipoArchivo" ColumnName="TipoArchivo" />
+                <ScalarProperty Name="NumeroAutorizacion" ColumnName="NumeroAutorizacion" />
+                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+                <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
+                <ScalarProperty Name="NumeroBoleta" ColumnName="NumeroBoleta" />
+                <ScalarProperty Name="NumeroTerminal" ColumnName="NumeroTerminal" />
+                <ScalarProperty Name="CodigoAgencia" ColumnName="CodigoAgencia" />
+                <ScalarProperty Name="FechaAutorizacion" ColumnName="FechaAutorizacion" />
+                <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
+                <ScalarProperty Name="NroRef" ColumnName="NroRef" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="fnReporte_PagosFSP" FunctionName="sisgesModel.Store.fnReporte_PagosFSP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sisgesModel.fnReporte_PagosFSP_Result">
+                <ScalarProperty Name="VIGENCIA" ColumnName="VIGENCIA" />
+                <ScalarProperty Name="NOMBRETRX" ColumnName="NOMBRETRX" />
+                <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
+                <ScalarProperty Name="CAJA" ColumnName="CAJA" />
+                <ScalarProperty Name="GLOBALTRX" ColumnName="GLOBALTRX" />
+                <ScalarProperty Name="SWITCHTRX" ColumnName="SWITCHTRX" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="CODIGOAUTORIZACION" ColumnName="CODIGOAUTORIZACION" />
+                <ScalarProperty Name="NROTARJETA" ColumnName="NROTARJETA" />
+                <ScalarProperty Name="MONTOGLOBAL" ColumnName="MONTOGLOBAL" />
+                <ScalarProperty Name="MONTOSWITCH" ColumnName="MONTOSWITCH" />
+                <ScalarProperty Name="NRO_CUOTAS" ColumnName="NRO_CUOTAS" />
+                <ScalarProperty Name="PAGO_MIN_EECC" ColumnName="PAGO_MIN_EECC" />
+                <ScalarProperty Name="MONTO_REDONDEO" ColumnName="MONTO_REDONDEO" />
+                <ScalarProperty Name="MONTO_RECAUDADO" ColumnName="MONTO_RECAUDADO" />
+                <ScalarProperty Name="AJUSTE_LEY" ColumnName="AJUSTE_LEY" />
+                <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+                <ScalarProperty Name="VIGENCIA2" ColumnName="VIGENCIA2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -12,7 +12,11 @@ namespace SistemaGestion.Models.DAO
         public string urlNext { get; set; }
         public string redirect { get; set; }
 
+        public string token { get; set; }
+
         public string Datos { get; set; }
+
+        public string Mensaje { get; set; }
 
         public ResponseModel()
         {

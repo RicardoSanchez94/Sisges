@@ -400,6 +400,8 @@ advertencia 6002: La tabla o vista 'sisges.dbo.IDOC_PAGOS_FI' no tiene definida 
       <PropertyRef Name="FechaAutorizacion" />
       <PropertyRef Name="CodigoAgencia" />
       <PropertyRef Name="NumeroAutorizacion" />
+      <PropertyRef Name="NroTrxPos" />
+      <PropertyRef Name="NroCaja" />
     </Key>
     <Property Name="NroRef" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CodigoEmpresa" Type="varchar" MaxLength="10" Nullable="false" />
@@ -431,8 +433,8 @@ advertencia 6002: La tabla o vista 'sisges.dbo.IDOC_PAGOS_FI' no tiene definida 
     <Property Name="FechaUltimoVencimiento" Type="datetime" />
     <Property Name="Confirmada" Type="char" MaxLength="1" />
     <Property Name="ModoProceso" Type="char" MaxLength="2" />
-    <Property Name="NroTrxPos" Type="int" />
-    <Property Name="NroCaja" Type="int" />
+    <Property Name="NroTrxPos" Type="int" Nullable="false" />
+    <Property Name="NroCaja" Type="int" Nullable="false" />
     <Property Name="TipoDiferencia" Type="char" MaxLength="1" />
     <Property Name="Estado" Type="char" MaxLength="2" />
     <Property Name="MontonoAfecto" Type="int" />
@@ -1713,6 +1715,7 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
           <Property Name="Tipo" Type="bit" />
           <Property Name="NombreLocal" Type="varchar" MaxLength="50" />
           <Property Name="Trx" Type="int" />
+          <Property Name="Tarjeta" Type="varchar" MaxLength="50" />
           <Property Name="Estado" Type="bit" />
         </RowType>
       </CollectionType>
@@ -2342,10 +2345,12 @@ advertencia 6002: La tabla o vista 'sisges.dbo.UsuarioZona' no tiene definida ni
           <Property Name="LOCAL" Type="varchar" MaxLength="50" />
           <Property Name="CAJA" Type="varchar" MaxLength="50" />
           <Property Name="GLOBALTRX" Type="varchar" MaxLength="50" />
+          <Property Name="SWITCHTRX" Type="varchar" MaxLength="50" />
           <Property Name="FECHA" Type="varchar" MaxLength="50" />
           <Property Name="CODIGOAUTORIZACION" Type="varchar" MaxLength="50" />
           <Property Name="NROTARJETA" Type="varchar" MaxLength="50" />
-          <Property Name="MONTOTRX" Type="varchar" MaxLength="50" />
+          <Property Name="MONTOGLOBAL" Type="varchar" MaxLength="50" />
+          <Property Name="MONTOSWITCH" Type="varchar" MaxLength="50" />
           <Property Name="NRO_CUOTAS" Type="varchar" MaxLength="50" />
           <Property Name="PAGO_MIN_EECC" Type="varchar" MaxLength="50" />
           <Property Name="MONTO_REDONDEO" Type="varchar" MaxLength="50" />

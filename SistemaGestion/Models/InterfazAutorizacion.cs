@@ -44,8 +44,8 @@ namespace SistemaGestion.Models
         public Nullable<System.DateTime> FechaUltimoVencimiento { get; set; }
         public string Confirmada { get; set; }
         public string ModoProceso { get; set; }
-        public Nullable<int> NroTrxPos { get; set; }
-        public Nullable<int> NroCaja { get; set; }
+        public int NroTrxPos { get; set; }
+        public int NroCaja { get; set; }
         public string TipoDiferencia { get; set; }
         public string Estado { get; set; }
         public Nullable<int> MontonoAfecto { get; set; }

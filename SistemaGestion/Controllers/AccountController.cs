@@ -147,7 +147,7 @@ namespace SistemaGestion.Controllers
                             }
                             else
                             {
-                                return RedirectToAction("Dash", "Admin");
+                                return RedirectToAction("UnAuthorized", "Account");
                             }
 
 
@@ -289,6 +289,7 @@ namespace SistemaGestion.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
             return RedirectToAction("LogIn", "Account");
         }
 

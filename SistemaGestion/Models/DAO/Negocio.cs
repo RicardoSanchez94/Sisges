@@ -20,6 +20,146 @@ namespace SistemaGestion.Models.DAO
     {
         private SisGesEntities3 db = new SisGesEntities3();
 
+        public async Task<ResponseModel> GetCentralizacion()
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+                var Url = "http://172.18.14.98:1234/Pruebas/Token";
+                response.error = false;
+                response.respuesta = "Se genero el Reproceso de Centralizacion";
+            }
+            catch (Exception ex)
+            {
+
+                response.error = true;
+                response.respuesta = "Error al consumir EndPoint de Centralizacion " + ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<ResponseModel> ReprocesoTbk (DateTime Fecha)
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+                var url = string.Format("http://172.18.14.98:1234/ApiTransbank/ConsultarTBK?fechaInicio={0}",Fecha);
+                using (HttpClient cliente = new HttpClient())
+                {
+
+                    HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, url);
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    cliente.Timeout = Timeout.InfiniteTimeSpan;
+                    var respuesta = await cliente.SendAsync(requestMessage);
+                    var contenido = await respuesta.Content.ReadAsStringAsync();
+                    if (respuesta.StatusCode == HttpStatusCode.OK || respuesta.StatusCode == HttpStatusCode.Created)
+                    {
+                        response.error = false;
+                        response.respuesta = "Se genero el Reproceso de Tbk" + contenido;
+                    }
+                    else
+                    {
+                        response.error = true;
+                        response.respuesta = "Mensaje de Api :" + respuesta.StatusCode.ToString();
+                    }
+
+                   
+
+                }
+               
+            }
+            catch (Exception ex)
+            {
+
+                response.error = true;
+                response.respuesta = "Error al Reprocesar las trx de Tbk" + ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<ResponseModel> ReprocesoInterfaces(DateTime Fecha, string Token)
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+                var url = "http://172.18.14.98:1234/Pruebas/LecturaArchivosSFT";
+                var parametros = new
+                {
+                    Fecha = Fecha
+                };
+                var jsonP = Newtonsoft.Json.JsonConvert.SerializeObject(parametros);
+                var content = new StringContent(jsonP, Encoding.UTF8, "application/json");
+                var Bearer = string.Format("Bearer " + Token);
+                using (HttpClient httpClient = new HttpClient())
+                {
+                   
+
+                    httpClient.DefaultRequestHeaders.Add("Authorization", Bearer);
+
+                    HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, url);
+                    requestMessage.Content = content;
+
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    httpClient.Timeout = Timeout.InfiniteTimeSpan;
+
+                    var respuesta = await httpClient.SendAsync(requestMessage);
+                    var contenido = await respuesta.Content.ReadAsStringAsync();
+                }
+
+                response.error = false;
+                response.respuesta = "Se genero el Reproceso de Interfaces";
+            }
+            catch (Exception ex)
+            {
+
+                response.error = true;
+                response.respuesta = "Error al Reprocesar las trx de Interfaces" + ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<ResponseModel> GetToken(UserLoginView login)
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+
+                var url = "http://172.18.14.98:1234/Pruebas/Token";
+
+                var parametros = new
+                {
+                    rut = login.LoginName,
+                    pass = login.Password,
+
+                };
+                var jsonP = Newtonsoft.Json.JsonConvert.SerializeObject(parametros);
+                var content = new StringContent(jsonP, Encoding.UTF8, "application/json");
+                using (HttpClient cliente = new HttpClient())
+                {
+
+
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    var request = await cliente.PostAsync(url, content);
+                  
+                    var contenido = await request.Content.ReadAsStringAsync();
+                    var Json = JsonConvert.DeserializeObject<ApiSiges>(contenido);
+                    response.token = Json.result;
+                    response.respuesta = "Genero el Token Correctamente";
+                    response.error = false;
+
+               
+                }
+
+              
+            }
+            catch (Exception ex)
+            {
+
+                response.error = true;
+                response.respuesta = "Error al ejecutar la Api de Alertas" + ex.Message;
+            }
+            return response;
+        }
 
         public List<Fn_MP_Cuenta_Rut_Result> MPCuentaRut(DateTime Fecha)
         {

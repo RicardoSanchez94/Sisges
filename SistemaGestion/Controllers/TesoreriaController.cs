@@ -110,7 +110,7 @@ namespace SistemaGestion.Controllers
                 {
                     System.IO.Directory.CreateDirectory(ruta + "CartaInstruccion");
                 }
-                //response = carga.CargaCartaInstruccion(SencilloT, ruta);
+                response = carga.CargaCartaInstruccion(SencilloT, ruta);
                 response.error = false;
           
                 if (!response.error)
@@ -272,19 +272,43 @@ namespace SistemaGestion.Controllers
         [HttpPost]
         public ActionResult ReporTesoreria(DateTime Inicio, DateTime Fin)
         {
-            using (ExcelPackage excelPackage = new LibrosExcel().ReporteTesoreria(Teo.ReporteTesoreria(Inicio,Fin)))
-            {
-                MemoryStream memoryStream = new MemoryStream();
-                excelPackage.SaveAs((Stream)memoryStream);
-                string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                DateTime dateTime = DateTime.Now;
-                dateTime = dateTime.Date;
-                string fileDownloadName = "TesoreriaSencillo_" + Inicio.ToString("dd/MM/yyyy") + ".xlsx";
-                memoryStream.Position = 0L;
-                return File((Stream)memoryStream, contentType, fileDownloadName);
-            }
-        }
+            string users = User.Identity.Name;
+            var Deserialize = JsonConvert.DeserializeObject<UserLoginView>(users);
+            var usuariorol = Ng.GetUsuario(Deserialize.idUsuario);
 
+            if (usuariorol.Rol.Any(x => x.Codigo == 6))
+            {
+
+                using (ExcelPackage excelPackage = new LibrosExcel().ReporteTesoreria(Teo.ReporteTesoreria(Inicio, Fin)))
+                {
+                    return GenerateExcelFileSencillo(excelPackage, Inicio, Fin, "TesoreriaSencillo_", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                }
+            }
+            else if (usuariorol.Rol.Any(x => x.Codigo == 1 || x.Codigo == 2))
+            {
+                var Tesoreria = Teo.ReporteTesoreria(Inicio, Fin);
+                var Cuadratura = Teo.ReporteCuadratura(Inicio, Fin);
+                using (ExcelPackage excelPackage = new LibrosExcel().ReporteSencilloCuadratura(Tesoreria,Cuadratura))
+                {
+                    return GenerateExcelFileSencillo(excelPackage, Inicio, Fin, "CuadraturaSencillo_", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                }
+            }
+
+
+            return RedirectToAction("AccessDenied"); // Acceso denegado si no cumple ninguna condición
+
+
+         
+        }
+        private FileResult GenerateExcelFileSencillo(ExcelPackage excelPackage, DateTime Inicio,DateTime Fin,string fileNamePrefix, string contentType)
+        {
+            MemoryStream memoryStream = new MemoryStream();
+            excelPackage.SaveAs(memoryStream);
+            memoryStream.Position = 0L;
+            string fileDownloadName = $"{fileNamePrefix}{Inicio.ToString("dd-MM-yyyy")}{Fin.ToString("dd-MM-yyyy")}.xlsx";
+
+            return File(memoryStream, contentType, fileDownloadName);
+        }
         public ActionResult EliminarCarta(Guid id)
         {
             ResponseModel response = new ResponseModel();

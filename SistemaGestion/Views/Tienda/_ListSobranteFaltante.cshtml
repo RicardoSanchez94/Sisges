@@ -28,22 +28,99 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body">
-            @*<div class="table-responsive">*@
-            <table class="table table-bordered table-hover" id="tbDetalle" style="width:100%">
+        @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Tienda" || x.RolNombre == "Administrador"))
+        {
+            <div class="modal-body">
+                @*<div class="table-responsive">*@
+                <table class="table table-bordered table-hover" id="tbDetalle" width="100%">
+                    @*<table id="tbDetalle" class="table table-bordered  display nowrap" cellspacing="0" width="100%">*@
+                    <thead>
+                        <tr>
+                            <th class="text-center">rut cajero</th>
+                            <th class="text-center">Nombre cajero</th>
+                            <th class="text-center">Tienda</th>
+                            <th  class="text-center">Fecha</th>
+                            <th  class="text-center">caja</th>
+                            <th  class="text-center">Tipo</th>
+                            <th  class="text-center">Total</th>
+                            <th class="text-center">
+                                <input type="checkbox" name="select_all_pre1" value="1" id="example-select-all-p1">
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i1 = 0;
+                            var Fecha = DateTime.Now;
+                        }
+                        @foreach (var item in Model.OrderBy(x => x.IDTIENDA))
+                        {
+
+                            <tr>
+                                <td class="text-center">@item.ID_Empleado</td>
+                                <td class="text-center">@(item.EMPLEADO.NOMBRES + " " + item.EMPLEADO.APELLIDOS)</td>
+                                <td class="text-center">@item.IDTIENDA</td>
+                                <td class="text-center">@item.FECHA.ToString("dd-MM-yyyy")</td>
+                                <td class="text-center">@item.CAJA</td>
+                                <td class="text-center">@item.TIPO</td>
+                                <td class="text-center">@Math.Abs(item.TOTAL)</td>
+                                <td class="text-center">
+                                    <input id="lstSobranteFaltantecheck[@i1].isCheck" type="checkbox" name="lstSobranteFaltantecheck[@i1].isCheck" value="true" />
+                                    <input type="hidden" name="lstSobranteFaltantecheck[@i1].ID_Empleado" value="@(item.ID_Empleado)">
+                                    <input type="hidden" name="lstSobranteFaltantecheck[@i1].FECHA" value="@(item.FECHA)">
+                                    <input type="hidden" name="lstSobranteFaltantecheck[@i1].CAJA" value="@(item.CAJA)">
+                                    @*<input type="hidden" name="lstSobranteFaltantecheck[@i1].TIPO" value="@(item.TIPO)">*@
+                                    <input type="hidden" name="lstSobranteFaltantecheck[@i1].IDTIENDA" value="@(item.IDTIENDA)">
+                                </td>
+
+
+                            </tr>
+                            Fecha = item.FECHA;
+                            i1 = i1 + 1;
+                        }
+                    </tbody>
+                </table>
+
+                @*</div>*@
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+
+                @if (Fecha.Month < DateTime.Now.Month)
+                {
+                    <button type="submit" class="btn btn-primary" id="IngresaSobranteTabla">Ingresar</button>
+                }
+
+                @*<button type='button' class='editar btn btn-outline-success btn-sm shadow-sm' title="Aceptar/Rechazar"
+                        onclick='AceptarRechazarAcumulado("@item.idTienda","@item.idEmpleado")'>
+                    <span class='fa fa-edit'></span>
+                </button>*@
+            </div>
+        }
+        else if (RU.rolesUsuario.Exists(x => x.RolNombre == "Cuadratura" || x.RolNombre == "RRHH"))
+        {
+            @*Vista ParaCuadratura*@
+
+    <div class="modal-body">
+        @*<div class="table-responsive">*@
+        <div class="mt-2 ml-1 mr-1">
+            <table class="table table-bordered table-hover" id="tbDetalle2"  width="100%">
                 @*<table id="tbDetalle" class="table table-bordered  display nowrap" cellspacing="0" width="100%">*@
                 <thead>
                     <tr>
-                        <th scope="col" class="text-center">rut cajero</th>
-                        <th scope="col" class="text-center">Nombre cajero</th>
-                        <th scope="col" class="text-center">Tienda</th>
-                        <th scope="col" class="text-center">Fecha</th>
-                        <th scope="col" class="text-center">caja</th>
-                        <th scope="col" class="text-center">Tipo</th>
-                        <th scope="col" class="text-center">Total</th>
-                        <th scope="col" class="text-center">
-                            <input type="checkbox" name="select_all_pre1" value="1" id="example-select-all-p1">
-                        </th>
+                        <th class="text-center">rut cajero</th>
+                        <th class="text-center">Nombre cajero</th>
+                        <th class="text-center">Tienda</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">caja</th>
+                        <th class="text-center">Tipo</th>
+                        <th class="text-center">Total</th>
+
 
 
                     </tr>
@@ -64,14 +141,7 @@
                             <td class="text-center">@item.CAJA</td>
                             <td class="text-center">@item.TIPO</td>
                             <td class="text-center">@Math.Abs(item.TOTAL)</td>
-                            <td class="text-center">
-                                <input id="lstSobranteFaltantecheck[@i1].isCheck" type="checkbox" name="lstSobranteFaltantecheck[@i1].isCheck" value="true" />
-                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].ID_Empleado" value="@(item.ID_Empleado)">
-                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].FECHA" value="@(item.FECHA)">
-                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].CAJA" value="@(item.CAJA)">
-                                @*<input type="hidden" name="lstSobranteFaltantecheck[@i1].TIPO" value="@(item.TIPO)">*@
-                                <input type="hidden" name="lstSobranteFaltantecheck[@i1].IDTIENDA" value="@(item.IDTIENDA)">
-                            </td>
+
 
 
                         </tr>
@@ -81,25 +151,21 @@
                 </tbody>
             </table>
 
-            @*</div>*@
+            </div>
 
 
 
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Tienda"))
-            {
-                if (Fecha.Month < DateTime.Now.Month)
-                {
-                    <button type="submit" class="btn btn-primary" id="IngresaSobranteTabla">Ingresar</button>
-                    }
-                }
-                @*<button type='button' class='editar btn btn-outline-success btn-sm shadow-sm' title="Aceptar/Rechazar"
-                    onclick='AceptarRechazarAcumulado("@item.idTienda","@item.idEmpleado")'>
-                <span class='fa fa-edit'></span>
-            </button>*@
-            </div>
+
+        </div>
+        }
+
+
+
+
+
     </div>
 </div>
 
@@ -109,12 +175,18 @@
 
 
         var tabla_data = $("#tbDetalle").DataTable({
-            scrollX: true,
-        /*    responsive : true,*/
+          /*  scrollX: true,*/
+            responsive : true,
             "language": {
                  url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
             },
             "order": [[2, "asc"]]
+        });
+        var tableEntrega = $("#tbDetalle2").DataTable({
+            responsive: true,
+            "language": {
+                   url: "@Url.Content("~/Content/datatable/js/datatable_spanish.json")"
+               }
         });
         @*var tabla_data;
          tabla_data= $('#tbDetalle').DataTable({

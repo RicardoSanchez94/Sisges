@@ -239,14 +239,8 @@
            // console.log(Fecha);
         }
 
-        function DownloadFileFechasEntre(Fecha,Tienda, urlAc) {
-
-
+        function DownloadFileFechasEntre(Fecha, Tienda, urlAc) {
             var url = urlAc;
-            //var Fecha = F;
-            //var fechaFin = fechaT;
-            //var tipoR = tipo;
-
             var list = [];
             var fileName = '';
             list.push({ fileName: fileName });
@@ -255,7 +249,7 @@
             $.ajax({
                 url: url,
                 type: "post",
-                data: { Fecha:Fecha, Tienda:Tienda },
+                data: { Fecha: Fecha, Tienda: Tienda },
                 xhrFields: {
                     responseType: 'blob'
                 },
@@ -274,24 +268,33 @@
                         a.click();
                         a.remove();
                         window.URL.revokeObjectURL(url);
+
+                        // Verificar si el archivo descargado está vacío
+                        var reader = new FileReader();
+                        reader.onloadend = function () {
+                            var content = reader.result;
+                            if (content.trim().length === 0) {
+                                alert('Sin información para ese día.');
+                            }
+                        };
+                        reader.readAsText(data);
                     }
                     else {
                         getErrorToastMessage("ERROR AL DESCARGAR ARCHIVO");
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-
+                    // Manejar el error de la solicitud
                 },
                 complete: function () {
-                    //var interfaz = list[0];
-                    //deleteArchivo(list);
+                    // Finalización de la solicitud
                     setTimeout(function () {
                         $("#cargal").modal('hide');
                     }, 1500);
-
                 }
             });
         }
+
 
 
     </script>

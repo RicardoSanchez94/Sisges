@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace SistemaGestion.Models.DAO
@@ -11,26 +15,56 @@ namespace SistemaGestion.Models.DAO
     {
         private SisGesEntities3 db = new SisGesEntities3();
 
-        public ResponseModel ConciliacionAutomaticaCAAU(DateTime Fecha)
+        public async Task<ResponseModel> ReprocesoConciliacionCAAU(DateTime Fecha)
         {
             ResponseModel response = new ResponseModel();
             try
             {
-                db.Database.CommandTimeout = 1000000;
-                db.spConciliacionAutomaticaCAAU(Fecha);
-                response.respuesta = "Se cargo Correctamente";
-                response.error = false;
-                return response;
+                var url = string.Format("http://172.18.14.98:1234/Api/GeneracionAuto/ConciliacionAutomatica?Fecha={0}",Fecha.ToString("yyyy-MM-dd"));
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Get,url);
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                    client.Timeout = Timeout.InfiniteTimeSpan;
+                    var respuesta = await client.SendAsync(msg);
+                    var contenido = await respuesta.Content.ReadAsStringAsync();
+                    //var json = JsonConvert.SerializeObject(contenido); 
+                    var json = JsonConvert.DeserializeObject<ResponseModel>(contenido);
+
+                    response.respuesta = json.respuesta;
+                    response.error = false;
+                }
             }
             catch (Exception ex)
             {
 
                 response.error = true;
                 response.respuesta = "Procedimiento de Insercion automatica No se genero " + ex.Message;
-                return response;
             }
+            return response;
 
         }
+        //public ResponseModel ConciliacionAutomaticaCAAU(DateTime Fecha)
+        //{
+        //    ResponseModel response = new ResponseModel();
+        //    try
+        //    {
+        //        db.Database.CommandTimeout = 1000000;
+        //        db.spConciliacionAutomaticaCAAU(Fecha);
+        //        response.respuesta = "Se cargo Correctamente";
+        //        response.error = false;
+        //        return response;
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        response.error = true;
+        //        response.respuesta = "Procedimiento de Insercion automatica No se genero " + ex.Message;
+        //        return response;
+        //    }
+
+        //}
         public ResponseModel ConciliacionAutomaticaCAPA(DateTime Fecha)
         {
             ResponseModel response = new ResponseModel();

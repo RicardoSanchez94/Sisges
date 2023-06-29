@@ -920,6 +920,7 @@ namespace SistemaGestion.Models.DAO
                 {"lunes", "monday"},
                 {"martes", "tuesday"},
                 {"miercoles", "wednesday"},
+                {"miércoles", "wednesday"},
                 {"jueves", "thursday"},
                 {"viernes", "friday"},
                 {"sabado", "saturday"},

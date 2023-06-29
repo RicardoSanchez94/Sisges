@@ -89,7 +89,8 @@
                     setTimeout(carga, 3000);
                     setTimeout(mostrarMensaje, 4000);
                     setTimeout(bajaModal, 6000);
-                    
+                    MostrarLista();
+
 
                     //setTimeout(bajarModalConciliacion, 8000);
                     function carga() {
@@ -147,6 +148,30 @@
 
     });
 
+      function MostrarLista() {
+        $('#cargal').modal('show');
+        var url = "@Url.Action("SobranteFaltante", "Tienda")";
+        var manejarErrorAjax = "Eror";
+        var Fecha = $("#txtFecha").val();
+        var data = { Fecha: Fecha };
+        $.post(url, data).done(function (data) {
+            setTimeout(bajar, 1000);
+            setTimeout(Subir, 2000);
+
+
+            function bajar() {
+                $('#cargal').modal('hide');
+
+            }
+            function Subir() {
+                $('#diferencias').html(data);
+                $('#diferencias').show();
+            }
+
+
+        }).fail(manejarErrorAjax);
+
+    }
 
 
 </script>

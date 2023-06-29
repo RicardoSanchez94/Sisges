@@ -27,7 +27,7 @@ namespace SistemaGestion.Controllers
         private CuentaContables Cuenta = new CuentaContables();
         private string Login = Thread.CurrentPrincipal.Identity.Name;
         private UserLoginView user = new UserLoginView();
-
+        //Prueba
 
 
         public MediosPagoController()
@@ -199,6 +199,10 @@ namespace SistemaGestion.Controllers
         }
         public ActionResult ExcelConciliadasM(DateTime Fecha, int Tienda)
         {
+
+       
+
+
             using (ExcelPackage excelPackage = new LibrosExcel().ReportConciliadasM(carga.Obtenerconciliadas(Fecha, Tienda)))
             {
                 MemoryStream memoryStream = new MemoryStream();

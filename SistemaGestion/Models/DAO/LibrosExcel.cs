@@ -699,14 +699,16 @@ namespace SistemaGestion.Models.DAO
             sheet.Cells[rowindex, 3].Value = "Local";
             sheet.Cells[rowindex, 4].Value = "Caja";
             sheet.Cells[rowindex, 5].Value = "TRX GL";
-            sheet.Cells[rowindex, 6].Value = "Fecha TRX";
-            sheet.Cells[rowindex, 7].Value = "Codigo Autorizacion";
-            sheet.Cells[rowindex, 8].Value = "N° Tarjeta";
-            sheet.Cells[rowindex, 9].Value = "Montos TRX";
-            sheet.Cells[rowindex, 10].Value = "N° Cuota";
-            sheet.Cells[rowindex, 11].Value = "Cuenta Cliente";
-            sheet.Cells[rowindex, 12].Value = "Rut Cliente";
-            sheet.Cells[rowindex, 13].Value = "Vigencia";
+            sheet.Cells[rowindex, 6].Value = "TRX SW";
+            sheet.Cells[rowindex, 7].Value = "Fecha TRX";
+            sheet.Cells[rowindex, 8].Value = "Codigo Autorizacion";
+            sheet.Cells[rowindex, 9].Value = "N° Tarjeta";
+            sheet.Cells[rowindex, 10].Value = "Montos Global";
+            sheet.Cells[rowindex, 11].Value = "Montos SW";
+            sheet.Cells[rowindex, 12].Value = "N° Cuota";
+            sheet.Cells[rowindex, 13].Value = "Cuenta Cliente";
+            sheet.Cells[rowindex, 14].Value = "Rut Cliente";
+            sheet.Cells[rowindex, 15].Value = "Vigencia";
 
             sheet.Column(1).AutoFit(20);
             sheet.Column(2).AutoFit(18);
@@ -721,12 +723,14 @@ namespace SistemaGestion.Models.DAO
             sheet.Column(11).AutoFit(30);
             sheet.Column(12).AutoFit(30);
             sheet.Column(13).AutoFit(30);
+            sheet.Column(14).AutoFit(30);
+            sheet.Column(15).AutoFit(30);
 
 
-            sheet.Cells[rowindex, 1, rowindex, 13].Style.Font.Bold = true;
-            sheet.Cells[rowindex, 1, rowindex, 13].AutoFilter = true;
+            sheet.Cells[rowindex, 1, rowindex, 15].Style.Font.Bold = true;
+            sheet.Cells[rowindex, 1, rowindex, 15].AutoFilter = true;
 
-            var bordesEncabezados = sheet.Cells[rowindex, 1, rowindex, 13].Style.Border;
+            var bordesEncabezados = sheet.Cells[rowindex, 1, rowindex, 15].Style.Border;
             bordesEncabezados.Top.Style = bordesEncabezados.Right.Style = bordesEncabezados.Bottom.Style = bordesEncabezados.Left.Style = ExcelBorderStyle.Medium;
 
 
@@ -747,10 +751,12 @@ namespace SistemaGestion.Models.DAO
                 sheet.Cells[rowindex, col++].Value = itemDatos.LOCAL;
                 sheet.Cells[rowindex, col++].Value = itemDatos.CAJA;
                 sheet.Cells[rowindex, col++].Value = itemDatos.GLOBALTRX;
+                sheet.Cells[rowindex, col++].Value = itemDatos.SWITCHTRX;
                 sheet.Cells[rowindex, col++].Value = itemDatos.FECHA;
                 sheet.Cells[rowindex, col++].Value = itemDatos.CODIGOAUTORIZACION;
                 sheet.Cells[rowindex, col++].Value = itemDatos.NROTARJETA;
-                sheet.Cells[rowindex, col++].Value = Math.Round(decimal.Parse(itemDatos.MONTOTRX.Replace(".", ",")));
+                sheet.Cells[rowindex, col++].Value = Math.Round(decimal.Parse(itemDatos.MONTOGLOBAL.Replace(".", ",")));
+                sheet.Cells[rowindex, col++].Value = Math.Round(decimal.Parse(itemDatos.MONTOSWITCH.Replace(".", ",")));
                 sheet.Cells[rowindex, col++].Value = itemDatos.NRO_CUOTAS;
                 sheet.Cells[rowindex, col++].Value = itemDatos.CUENTA;
                 sheet.Cells[rowindex, col++].Value = itemDatos.RUT_CLIENTE;
@@ -761,7 +767,7 @@ namespace SistemaGestion.Models.DAO
 
             //rowindex = 2;
             sheet.Column(2).Style.Numberformat.Format = DateTimeFormatInfo.CurrentInfo.ShortDatePattern;
-            var bordes = sheet.Cells[2, 1, rowindex + 1, 13].Style.Border;
+            var bordes = sheet.Cells[2, 1, rowindex + 1, 15].Style.Border;
             bordes.Top.Style = bordes.Right.Style = bordes.Bottom.Style = bordes.Left.Style = ExcelBorderStyle.Thin;
 
             return excelPackage;
@@ -832,8 +838,15 @@ namespace SistemaGestion.Models.DAO
 
             sheet.Column(2).Style.Numberformat.Format = DateTimeFormatInfo.CurrentInfo.ShortDatePattern;
             sheet.Column(7).Style.Numberformat.Format = "dd-MM-yyyy hh:mm";
-            var bordes = sheet.Cells[2, 1, rowindex - 1, 9].Style.Border;
+
+            var startRow = Math.Max(2, rowindex - 1);
+            var endRow = Math.Max(2, rowindex - 1);
+
+            var bordes = sheet.Cells[startRow, 1, endRow, 9].Style.Border;
             bordes.Top.Style = bordes.Right.Style = bordes.Bottom.Style = bordes.Left.Style = ExcelBorderStyle.Thin;
+
+            //var bordes = sheet.Cells[2, 1, rowindex - 1, 9].Style.Border;
+            //bordes.Top.Style = bordes.Right.Style = bordes.Bottom.Style = bordes.Left.Style = ExcelBorderStyle.Thin;
             var bordesTotal = sheet.Cells[rowindex, 4, rowindex, 6].Style.Border;
             bordesTotal.Top.Style = bordesTotal.Right.Style = bordesTotal.Bottom.Style = bordesTotal.Left.Style = ExcelBorderStyle.Thin;
             return excelPackage;
@@ -4520,8 +4533,271 @@ namespace SistemaGestion.Models.DAO
             return excelPackage;
         }
 
+        public ExcelPackage ReporteSencilloCuadratura(ReporteTesoreriaView lst, List<Sencillos_Tiendas> lstTiendas)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.Commercial;
+            var excelPackage = new ExcelPackage();
+            #region Conciliadas
+            int sheetIndex = 1; // Índice de la hoja
+            var sheet = excelPackage.Workbook.Worksheets.Add("Lista Conciliadas " + sheetIndex.ToString()); // Agregar una nueva hoja con nombre
+            sheetIndex++; // Incrementar el índice de la hoja
+            //sheet.Name = item.ToString();
+            var rowindex = 1;
+            int col = 1;
+            sheet.Cells[rowindex, col++].Value = "idTienda";
+            sheet.Cells[rowindex, col++].Value = "MontoTesoreria";
+            sheet.Cells[rowindex, col++].Value = "MontoSAP";
+            sheet.Cells[rowindex, col++].Value = "Banco";
+            sheet.Cells[rowindex, col++].Value = "DiaLiberacion";
+            sheet.Cells[rowindex, col++].Value = "DiaEntrega";
+            sheet.Cells[rowindex, col++].Value = "Estado";
+            sheet.Cells[rowindex, col++].Value = "Asignacion";
+            sheet.Cells[rowindex, col++].Value = "FechaDoc";
 
+
+            sheet.Column(1).AutoFit(2);
+            sheet.Column(2).AutoFit(5);
+            sheet.Column(3).AutoFit(10);
+            sheet.Column(4).AutoFit(10);
+            sheet.Column(5).AutoFit(7);
+            sheet.Column(6).AutoFit(3);
+            sheet.Column(7).AutoFit(5);
+            sheet.Column(8).AutoFit(10);
+            sheet.Column(9).AutoFit(10);
+
+
+
+            sheet.Cells[rowindex, 1, rowindex, 9].Style.Font.Bold = true;
+            sheet.Cells[rowindex, 1, rowindex, 9].AutoFilter = true;
+
+            var bordesEncabezados = sheet.Cells[rowindex, 1, rowindex, 9].Style.Border;
+            bordesEncabezados.Top.Style = bordesEncabezados.Right.Style = bordesEncabezados.Bottom.Style = bordesEncabezados.Left.Style = ExcelBorderStyle.Medium;
+
+
+            // SE CARGAN LOS DATOS DE TODO EL DOCUMENTO
+            var datosPlan = lst;
+            col = 0;
+            //Empezamos a escribir sobre ella
+            rowindex = 2;
+            col = 1;
+            //sheet.Cells[rowindex++, col].Value = item;
+            foreach (var datos in datosPlan.SAP.OrderBy(x => x.idTienda).OrderBy(x => x.idTienda))
+            {
+                col = 1;
+                sheet.Cells[rowindex, col++].Value = datos.idTienda;
+                sheet.Cells[rowindex, col++].Value = datos.MontoTesoreria.Value.ToString("C");
+                sheet.Cells[rowindex, col++].Value = datos.MontoSAP.Value.ToString("C");
+                sheet.Cells[rowindex, col++].Value = datos.Banco;
+                sheet.Cells[rowindex, col++].Value = datos.DiaLiberacion;
+                sheet.Cells[rowindex, col++].Value = datos.DiaEntrega;
+               sheet.Cells[rowindex, col++].Value = datos.Estado.Value ? "Conciliado" : "No Conciliado";
+
+                sheet.Cells[rowindex, col++].Value = datos.Asignacion;
+                sheet.Cells[rowindex, col++].Value = datos.FechaDoc.Value.ToString("yyyy-MM-dd");
+
+
+                rowindex++;
+            }
+            #endregion
+
+            #region Noconciliadas
+            sheet = excelPackage.Workbook.Worksheets.Add("No Conciliadas " + sheetIndex.ToString()); // Agregar una nueva hoja con nombre diferente
+            sheetIndex++; // Incrementar el índice de la hoja
+            rowindex = 1;
+            col = 1;
+            sheet.Cells[rowindex, col++].Value = "idtienda";
+            sheet.Cells[rowindex, col++].Value = "NuevoTotal";
+            sheet.Cells[rowindex, col++].Value = "Banco";
+            sheet.Cells[rowindex, col++].Value = "DiaLiberacion";
+            sheet.Cells[rowindex, col++].Value = "DiaEntrega";
+            sheet.Cells[rowindex, col++].Value = "FechaInicio";
+            sheet.Cells[rowindex, col++].Value = "FechaFin";
+
+
+            sheet.Cells[rowindex, 1, rowindex, 7].Style.Font.Bold = true;
+            sheet.Cells[rowindex, 1, rowindex, 7].AutoFilter = true;
+
+            var bordesEncabezados2 = sheet.Cells[rowindex, 1, rowindex, 7].Style.Border;
+            bordesEncabezados2.Top.Style = bordesEncabezados2.Right.Style = bordesEncabezados2.Bottom.Style = bordesEncabezados2.Left.Style = ExcelBorderStyle.Medium;
+            col = 0;
+            //Empezamos a escribir sobre ella
+            rowindex = 2;
+            col = 1;
+
+            foreach (var datos in datosPlan.NoConciliadas.OrderBy(x=>x.idtienda))
+            {
+                col = 1;
+
+                sheet.Cells[rowindex, col++].Value = datos.idtienda;
+                sheet.Cells[rowindex, col++].Value = datos.NuevoTotal;
+                sheet.Cells[rowindex, col++].Value = datos.Banco;
+                sheet.Cells[rowindex, col++].Value = datos.DiaLiberacion;
+                sheet.Cells[rowindex, col++].Value = datos.DiaEntrega;
+                sheet.Cells[rowindex, col++].Value = datos.FechaInicio.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.FechaFin.Value.ToString("dd-MM-yyyy");
+
+
+
+
+                rowindex++;
+            }
+            #endregion
+
+            #region Transito
+            sheet = excelPackage.Workbook.Worksheets.Add("Transito" + sheetIndex.ToString()); // Agregar una nueva hoja con nombre diferente
+            sheetIndex++; // Incrementar el índice de la hoja
+            rowindex = 1;
+            col = 1;
+            sheet.Cells[rowindex, col++].Value = "idtienda";
+            sheet.Cells[rowindex, col++].Value = "NuevoTotal";
+            sheet.Cells[rowindex, col++].Value = "Banco";
+            sheet.Cells[rowindex, col++].Value = "DiaLiberacion";
+            sheet.Cells[rowindex, col++].Value = "DiaEntrega";
+            sheet.Cells[rowindex, col++].Value = "FechaInicio";
+            sheet.Cells[rowindex, col++].Value = "FechaFin";
+
+
+            sheet.Cells[rowindex, 1, rowindex, 7].Style.Font.Bold = true;
+            sheet.Cells[rowindex, 1, rowindex, 7].AutoFilter = true;
+
+            var bordesEncabezados3 = sheet.Cells[rowindex, 1, rowindex, 7].Style.Border;
+            bordesEncabezados2.Top.Style = bordesEncabezados3.Right.Style = bordesEncabezados3.Bottom.Style = bordesEncabezados3.Left.Style = ExcelBorderStyle.Medium;
+            col = 0;
+            //Empezamos a escribir sobre ella
+            rowindex = 2;
+            col = 1;
+
+            foreach (var datos in lstTiendas.Where(x=>x.CodigoEstadoSencillo == 2).OrderBy(x => x.idTienda))
+            {
+                col = 1;
+
+                sheet.Cells[rowindex, col++].Value = datos.idTienda;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.NuevoTotal;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Banco;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.FechaLiberacion.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.FechaEntrega.HasValue ? datos.DetalleSencillo.FechaEntrega.Value.ToString("dd-MM-yyyy") : "0";
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.FechaInicio.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.FechaFin.Value.ToString("dd-MM-yyyy");
+
+
+
+
+                rowindex++;
+            }
+            #endregion
+
+            #region Aceptado
+            sheet = excelPackage.Workbook.Worksheets.Add("Aceptado" + sheetIndex.ToString()); // Agregar una nueva hoja con nombre diferente
+            sheetIndex++; // Incrementar el índice de la hoja
+            rowindex = 1;
+            col = 1;
+            sheet.Cells[rowindex, col++].Value = "Correlativo";
+            sheet.Cells[rowindex, col++].Value = "idtienda";
+            sheet.Cells[rowindex, col++].Value = "NuevoTotal";
+            sheet.Cells[rowindex, col++].Value = "Banco";
+            sheet.Cells[rowindex, col++].Value = "DiaLiberacion";
+            sheet.Cells[rowindex, col++].Value = "DiaEntrega";
+            sheet.Cells[rowindex, col++].Value = "FechaInicio";
+            sheet.Cells[rowindex, col++].Value = "FechaFin";
+            sheet.Cells[rowindex, col++].Value = "RemitoAceptacion";
+            sheet.Cells[rowindex, col++].Value = "FechaAceptacion";
+
+
+
+            sheet.Cells[rowindex, 1, rowindex, 10].Style.Font.Bold = true;
+            sheet.Cells[rowindex, 1, rowindex, 10].AutoFilter = true;
+
+            var bordesEncabezados4 = sheet.Cells[rowindex, 1, rowindex, 10].Style.Border;
+            bordesEncabezados2.Top.Style = bordesEncabezados4.Right.Style = bordesEncabezados4.Bottom.Style = bordesEncabezados4.Left.Style = ExcelBorderStyle.Medium;
+            col = 0;
+            //Empezamos a escribir sobre ella
+            rowindex = 2;
+            col = 1;
+
+            foreach (var datos in lstTiendas.Where(x => x.CodigoEstadoSencillo == 3).OrderBy(x=>x.idTienda))
+            {
+                col = 1;
+                Remito remito = new Remito();
+
+                if (datos.Remito == null)
+                {
+                      remito = db.Remito.Where(x => x.idSencillosTienda == datos.DetalleSencillo.Id && x.CodigoTipoRemito == 1).SingleOrDefault();
+                }
+
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.Correlativo;
+                sheet.Cells[rowindex, col++].Value = datos.idTienda;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.NuevoTotal;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Banco;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.FechaLiberacion.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.FechaEntrega.HasValue ? datos.DetalleSencillo.FechaEntrega.Value.ToString("dd-MM-yyyy") : "0";
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.FechaInicio.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.FechaFin.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.Remito.Select(x => x.Codigo).SingleOrDefault()?.ToString() ?? remito.Codigo;
+                sheet.Cells[rowindex, col++].Value = datos.Remito.Select(x=>x.Fecha.Value.ToString("dd-MM-yyyy")).SingleOrDefault().ToString() ?? remito.Fecha.Value.ToString("dd-MM-yyyy");
+
+                rowindex++;
+            }
+            #endregion
+            #region Devolucion
+            sheet = excelPackage.Workbook.Worksheets.Add("Devolucion" + sheetIndex.ToString()); // Agregar una nueva hoja con nombre diferente
+            sheetIndex++; // Incrementar el índice de la hoja
+            rowindex = 1;
+            col = 1;
+            sheet.Cells[rowindex, col++].Value = "Correlativo";
+            sheet.Cells[rowindex, col++].Value = "idtienda";
+            sheet.Cells[rowindex, col++].Value = "NuevoTotal";
+            sheet.Cells[rowindex, col++].Value = "Banco";
+            sheet.Cells[rowindex, col++].Value = "DiaLiberacion";
+            sheet.Cells[rowindex, col++].Value = "DiaEntrega";
+            sheet.Cells[rowindex, col++].Value = "FechaInicio";
+            sheet.Cells[rowindex, col++].Value = "FechaFin";
+            sheet.Cells[rowindex, col++].Value = "RemitoAceptacion";
+            sheet.Cells[rowindex, col++].Value = "FechaAceptacion";
+            sheet.Cells[rowindex, col++].Value = "RemitoDevolucion";
+            sheet.Cells[rowindex, col++].Value = "FechaDevolucion";
+            sheet.Cells[rowindex, col++].Value = "N° Deposito";
+
+
+
+            sheet.Cells[rowindex, 1, rowindex, 13].Style.Font.Bold = true;
+            sheet.Cells[rowindex, 1, rowindex, 13].AutoFilter = true;
+
+            var bordesEncabezados5 = sheet.Cells[rowindex, 1, rowindex, 13].Style.Border;
+            bordesEncabezados2.Top.Style = bordesEncabezados5.Right.Style = bordesEncabezados5.Bottom.Style = bordesEncabezados5.Left.Style = ExcelBorderStyle.Medium;
+            col = 0;
+            //Empezamos a escribir sobre ella
+            rowindex = 2;
+            col = 1;
+
+            foreach (var datos in lstTiendas.Where(x => x.CodigoEstadoSencillo == 4).OrderBy(x => x.idTienda))
+            {
+                col = 1;
+
+
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.Correlativo;
+                sheet.Cells[rowindex, col++].Value = datos.idTienda;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.NuevoTotal;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Banco;
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.FechaLiberacion.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.FechaEntrega.HasValue ? datos.DetalleSencillo.FechaEntrega.Value.ToString("dd-MM-yyyy") : "0";
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.FechaInicio.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.DetalleSencillo.Sencillos.FechaFin.Value.ToString("dd-MM-yyyy");
+                sheet.Cells[rowindex, col++].Value = datos.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Codigo).SingleOrDefault();
+                sheet.Cells[rowindex, col++].Value = datos.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Fecha.Value.ToString("dd-MM-yyyy")).SingleOrDefault();
+                sheet.Cells[rowindex, col++].Value = datos.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.Codigo).SingleOrDefault();
+                sheet.Cells[rowindex, col++].Value = datos.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.Fecha.Value.ToString("dd-MM-yyyy")).SingleOrDefault();
+                sheet.Cells[rowindex, col++].Value = datos.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.NumeroDepostio).SingleOrDefault();
+
+                rowindex++;
+            }
+            #endregion
+            return excelPackage;
+        }
 
         #endregion
+
+
+
+
     }
 }

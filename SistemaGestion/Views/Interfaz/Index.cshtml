@@ -52,7 +52,8 @@
                                         <div class="col-sm-2">
                                             <div class="form-group mb-0">
                                                 <label for="btnGenerar" class="col-form-label col-form-label-sm invisible">Direccion:</label>
-                                                <button id="ConciliacionAuto" type="submit" class="btn btn-sm btn-primary btn-block"><i class="fa fa-cubes"></i> Generar Conciliación</button>
+                                                <button id="ConciliacionAuto" type="submit" class="btn btn-sm btn-primary btn-block">
+                                                <i class="fa fa-cubes"></i> Reproceso Conciliación</button>
                                                 @*<button id="ConciliacionAuto" type="submit" class="btn btn-primary btn-block">
                                                     <i class="fa fa-cubes"></i> Generar Conciliación
                                                 </button>*@
@@ -110,7 +111,7 @@
                 var manejarErrorAjax = "Eror";
                 console.log(Fecha);
                 if (result) {
-                    $('#cargal').modal('show');
+                    $('#loaderModal').modal('show');
 
                     $.post(url, { Fecha : Fecha }).done(function (response) {
 
@@ -124,7 +125,7 @@
                             };
                             function Subir() {
                                 $('#cargarMensajes').modal('hide');
-                                $('#cargal').modal('hide');
+                                $('#loaderModal').modal('hide');
                             };
 
                         } else {
@@ -133,7 +134,7 @@
                             console.log("Entre en el else");
                             function Subir() {
                                 $('#cargarMensajes').modal('hide');
-                                $('#cargal').modal('hide');
+                                $('#loaderModal').modal('hide');
                             }
 
                             function mostrarMensaje() {

@@ -210,6 +210,7 @@
     <Compile Include="Controllers\ApiTbkPagosController.cs" />
     <Compile Include="Controllers\ApiTransbankController.cs" />
     <Compile Include="Controllers\CentralizacionPagosController.cs" />
+    <Compile Include="Controllers\CentralizacionRRHHController.cs" />
     <Compile Include="Controllers\ConciliacionPagosController.cs" />
     <Compile Include="Controllers\CuadraturaEFOController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
@@ -550,6 +551,7 @@
     <Compile Include="Models\ViewModels\AcumuladoSobranteCheckView.cs" />
     <Compile Include="Models\ViewModels\AcumuladoSobranteFaltanteView.cs" />
     <Compile Include="Models\ViewModels\adminZonalView.cs" />
+    <Compile Include="Models\ViewModels\Apisisges.cs" />
     <Compile Include="Models\ViewModels\CargaSencilloView.cs" />
     <Compile Include="Models\ViewModels\ChangePassView.cs" />
     <Compile Include="Models\ViewModels\ReporteTesoreriaView.cs" />
@@ -2958,6 +2960,9 @@
     <Content Include="Views\Interfaz\_DataCAAUAvances.cshtml" />
     <Content Include="Views\Interfaz\CAPA.cshtml" />
     <Content Include="Views\Interfaz\_DataCAPA.cshtml" />
+    <Content Include="Views\Administracion\ReprocesoTbk.cshtml" />
+    <Content Include="Views\Administracion\ReprocesoInterfaces.cshtml" />
+    <Content Include="Views\CentralizacionRRHH\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

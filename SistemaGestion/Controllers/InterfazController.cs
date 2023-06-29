@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -27,11 +28,11 @@ namespace SistemaGestion.Controllers
         }
 
         [HttpPost]
-        public ActionResult ConciliacionAutomatica(DateTime Fecha)
+        public async Task<ActionResult> ConciliacionAutomatica(DateTime Fecha)
         {
             ResponseModel response = new ResponseModel();
-            response = caaucapa.ConciliacionAutomaticaCAAU(Fecha);
-            response.error = false;
+            response = await caaucapa.ReprocesoConciliacionCAAU(Fecha);
+            //response.error = false;
             if (!response.error)
             {
                 Auditoria auditoria = new Auditoria();

@@ -39,7 +39,178 @@
                                     </h6>
                                 </div>
                                 <br />
-                                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Cuadratura" || x.RolNombre == "Tesoreria"))
+
+                                
+                                @*Administrador y Conciliacion*@
+                                @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Cuadratura" || x.RolNombre == "Administrador"))
+                                {
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <button class="nav-link active" id="nav-pre1-tab" data-toggle="tab" data-target="#nav-pre1" type="button" role="tab" aria-controls="nav-pre1" aria-selected="true">Recepcion</button>
+                                            <button class="nav-link" id="nav-pre2-tab" data-toggle="tab" data-target="#nav-pre2" type="button" role="tab" aria-controls="nav-pre2" aria-selected="false">Devolucion</button>
+                                            <button class="nav-link" id="nav-pre3-tab" data-toggle="tab" data-target="#nav-pre3" type="button" role="tab" aria-controls="nav-pre3" aria-selected="false">Finalizado</button>
+                                        </div>
+                                    </nav>
+                                    <br />
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-pre1" role="tabpanel" aria-labelledby="nav-pre1-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="Entrega" style="width:100%">
+
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Fecha</th>
+                                                            <th class="text-center">Estado</th>
+
+                                                            @*<th class="text-center">Remito</th>*@
+                                                            <th class="text-center">Accion</th>
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 1 || x.CodigoEstadoSencillo == 2))
+                                                        {
+
+                                                        <tr>
+
+                                                            <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                            <td class="text-center">@item.idTienda</td>
+                                                            <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                            <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                            <td class="text-center">@item.Fecha_Creacion.Value.ToString("dd-MM-yyyy")</td>
+                                                            @*<td class="text-center">@item.DetalleSencillo.SencillosSAP.Fecha_Doc</td>*@
+                                                            <td class="text-center">@item.EstadoSencillo.Nombre</td>
+                                                            @if (RU.rolesUsuario.Exists(x => x.RolNombre == "Administrador"))
+                                                            {
+                                                                <td class="text-center">
+                                                                    @if (item.CodigoEstadoSencillo == 2)
+                                                                    {
+                                                                        <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle" onclick="DetalleBySencillo('@item.id')">
+                                                                            <span class='fa fa-list-alt'></span>
+                                                                        </button>
+                                                                    }
+                                                                </td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="text-center"></td>
+                                                            }
+
+
+
+                                                        </tr>
+                                                        }
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-pre2" role="tabpanel" aria-labelledby="nav-pre2-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="devolucion" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Estado</th>
+                                                            <th class="text-center">Fecha Aceptacion</th>
+                                                            <th class="text-center">RemitoAceptacion</th>
+                                                            @*<th class="text-center">Remito</th>*@
+                                                            <th class="text-center">Accion</th>
+
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 3))
+                                                        {
+
+                                                        <tr>
+
+                                                            <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                            <td class="text-center">@item.idTienda</td>
+                                                            <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                            <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                            <td class="text-center">@item.EstadoSencillo.Nombre</td>
+                                                            <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Fecha).FirstOrDefault().ToString()</td>
+                                                            <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
+                                                            <td class="text-center">
+                                                                <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                                                        onclick="Devolucion('@item.id')">
+                                                                    <span class='fa fa-list-alt'></span>
+                                                                </button>
+                                                               
+                                                            </td>
+
+
+                                                        </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-pre3" role="tabpanel" aria-labelledby="nav-pre3-tab">
+
+                                            <div class="mt-2 ml-1 mr-1">
+                                                <table class="table table-bordered table-hover" id="finalizado" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Correlativo</th>
+                                                            <th class="text-center">Tienda</th>
+                                                            <th class="text-center">Banco</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Estado</th>
+                                                            <th class="text-center">Fecha Aceptacion</th>
+                                                            <th class="text-center">DepositoAceptacion</th>
+                                                            <th class="text-center">DepositoDevolucion</th>
+                                                            <th class="text-center">Remito</th>
+
+
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 4 && x.DetalleSencillo.Sencillos.Correlativo == Model.Max(y => y.DetalleSencillo.Sencillos.Correlativo)))
+                                                        {
+
+                                                            <tr>
+
+                                                                <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                                <td class="text-center">@item.idTienda</td>
+                                                                <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                                <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                                <td class="text-center">@item.EstadoSencillo.Nombre</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Fecha).FirstOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1 && x.idTienda == item.idTienda).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
+                                                                <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.NumeroDepostio).FirstOrDefault().ToString()</td>
+
+
+
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                @*Tesoreria*@
+                                else if (RU.rolesUsuario.Exists(x => x.RolNombre == "Tesoreria"))
                                 {
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -65,7 +236,7 @@
                                                             @*<th class="text-center">Estado</th>*@
 
                                                             @*<th class="text-center">Remito</th>*@
-                                                            <th class="text-center">Accion</th>
+                                                            <th class="text-center">Estado</th>
 
 
 
@@ -87,13 +258,13 @@
 
                                                                 @*<td class="text-center">@item.Remito</td>*@
                                                                 @*<td class="text-center">
-                                                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
-                                                                            onclick="DetalleBySencillo('@item.id')">
-                                                                        <span class='fa fa-list-alt'></span>
-                                                                    </button>
+                                            <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                                    onclick="DetalleBySencillo('@item.id')">
+                                                <span class='fa fa-list-alt'></span>
+                                            </button>
 
 
-                                                                </td>*@
+                                        </td>*@
 
 
 
@@ -142,14 +313,14 @@
                                                                 <td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 1).Select(x => x.Codigo).SingleOrDefault().ToString()</td>
                                                                 @*<td class="text-center">@item.Remito.Where(x => x.CodigoTipoRemito == 2).Select(x => x.NumeroDepostio).FirstOrDefault().ToString()</td>*@
                                                                 <!--<td class="text-center">
-                                                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
-                                                                            onclick="Devolucion('@item.id')">
-                                                                        <span class='fa fa-list-alt'></span>
-                                                                    </button>-->
-                                                                    @*<button type='button' class='editar btn btn-outline-danger btn-sm shadow-sm' title="Eliminar"
-                                                    onclick="Eliminar('@item.id')">
-                                                <span class='fa fa-trash'></span>
-                                            </button>*@
+                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                            onclick="Devolucion('@item.id')">
+                                        <span class='fa fa-list-alt'></span>
+                                    </button>-->
+                                                                @*<button type='button' class='editar btn btn-outline-danger btn-sm shadow-sm' title="Eliminar"
+                                                onclick="Eliminar('@item.id')">
+                                            <span class='fa fa-trash'></span>
+                                        </button>*@
 
                                                                 <!--</td>-->
 
@@ -183,7 +354,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 4))
+                                                        @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 4 && x.DetalleSencillo.Sencillos.Correlativo == Model.Max(y => y.DetalleSencillo.Sencillos.Correlativo)))
                                                         {
 
                                                             <tr>
@@ -214,7 +385,7 @@
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                             <button class="nav-link active" id="nav-pre1-tab" data-toggle="tab" data-target="#nav-pre1" type="button" role="tab" aria-controls="nav-pre1" aria-selected="true">Recepcion</button>
                                             <button class="nav-link" id="nav-pre2-tab" data-toggle="tab" data-target="#nav-pre2" type="button" role="tab" aria-controls="nav-pre2" aria-selected="false">Devolucion</button>
-                                         
+
                                         </div>
                                     </nav>
                                     <br />
@@ -244,39 +415,39 @@
                                                         @foreach (var item in Model.Where(x => x.CodigoEstadoSencillo == 1 || x.CodigoEstadoSencillo == 2))
                                                         {
 
-                                                        <tr>
+                                                            <tr>
 
-                                                            <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
-                                                            <td class="text-center">@item.idTienda</td>
-                                                            <td class="text-center">@item.DetalleSencillo.Banco</td>
-                                                            <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
-                                                            <td class="text-center">@item.Fecha_Creacion.Value.ToString("dd-MM-yyyy")</td>
-                                                            @*<td class="text-center">@item.DetalleSencillo.SencillosSAP.Fecha_Doc</td>*@
-                                                            <td class="text-center">@item.EstadoSencillo.Nombre</td>
+                                                                <td class="text-center">@item.DetalleSencillo.Sencillos.Correlativo</td>
+                                                                <td class="text-center">@item.idTienda</td>
+                                                                <td class="text-center">@item.DetalleSencillo.Banco</td>
+                                                                <td class="text-center">@item.DetalleSencillo.NuevoTotal</td>
+                                                                <td class="text-center">@item.Fecha_Creacion.Value.ToString("dd-MM-yyyy")</td>
+                                                                @*<td class="text-center">@item.DetalleSencillo.SencillosSAP.Fecha_Doc</td>*@
+                                                                <td class="text-center">@item.EstadoSencillo.Nombre</td>
 
-                                                            @*<td class="text-center">@item.Remito</td>*@
-                                                            @if (item.CodigoEstadoSencillo == 2)
-                                                            {
-                                                                <td class="text-center">
-                                                                    <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
-                                                                            onclick="DetalleBySencillo('@item.id')">
-                                                                        <span class='fa fa-list-alt'></span>
-                                                                    </button>
-
-
-                                                                </td>
-                                                            }
-                                                            else
-                                                            {
-                                                                <td class="text-center"></td>
-                                                            }
+                                                                @*<td class="text-center">@item.Remito</td>*@
+                                                                @if (item.CodigoEstadoSencillo == 2)
+                                                                {
+                                                                    <td class="text-center">
+                                                                        <button type='button' class='editar btn btn-outline-info btn-sm shadow-sm' title="Detalle"
+                                                                                onclick="DetalleBySencillo('@item.id')">
+                                                                            <span class='fa fa-list-alt'></span>
+                                                                        </button>
 
 
+                                                                    </td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="text-center"></td>
+                                                                }
 
 
 
 
-                                                        </tr>
+
+
+                                                            </tr>
                                                         }
                                                     </tbody>
 
@@ -295,7 +466,7 @@
                                                             <th class="text-center">Total</th>
                                                             <th class="text-center">Estado</th>
                                                             <th class="text-center">Fecha Aceptacion</th>
-                                                            <th class="text-center">DepositoAceptacion</th>
+                                                            <th class="text-center">Remito Aceptacion</th>
                                                             @*<th class="text-center">Remito</th>*@
                                                             <th class="text-center">Accion</th>
 
@@ -337,9 +508,12 @@
                                                 </table>
                                             </div>
                                         </div>
-                               
+
                                     </div>
                                 }
+
+
+
                             </div>
                         </div>
                     </div>

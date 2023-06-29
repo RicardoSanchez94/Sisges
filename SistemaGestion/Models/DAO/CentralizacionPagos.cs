@@ -47,7 +47,7 @@ namespace SistemaGestion.Models.DAO
             ResponseModel response = new ResponseModel();
             try
             {
-                db.Proc_LeerPAGOSMP(fecha);
+                //db.Proc_LeerPAGOSMP(fecha);
                 response.respuesta = "Se cargo Correctamente";
                 response.error = true;
                 if (response.error)
